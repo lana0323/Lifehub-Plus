@@ -4,95 +4,95 @@
   <img src="https://img.shields.io/badge/Android-Java%20%2B%20Kotlin-19675D?style=flat-square" alt="Android Java and Kotlin" />
   <img src="https://img.shields.io/badge/Storage-Room%20%2F%20SQLite-19675D?style=flat-square" alt="Room and SQLite" />
   <img src="https://img.shields.io/badge/Local%20AI-Ollama%20%2B%20Qwen3-19675D?style=flat-square" alt="Ollama and Qwen3" />
-  <img src="https://img.shields.io/badge/Language-English%20%2F%20简体中文-19675D?style=flat-square" alt="English and Simplified Chinese" />
+  <img src="https://img.shields.io/badge/Language-English%20%2F%20Chinese-19675D?style=flat-square" alt="English and Simplified Chinese" />
 </p>
 
-<p align="center"><b>Describe it. Review it. Make it happen.</b><br/>让自然语言进入真实的生活管理流程。</p>
-<p align="center"><a href="#项目来源与我的改进">项目来源</a> · <a href="#应用预览">应用预览</a> · <a href="#从-lifehub-到-plus">改进对比</a> · <a href="#本地运行">本地运行</a> · <a href="#项目结构">项目结构</a></p>
+<p align="center"><b>Describe it. Review it. Make it happen.</b><br/>Turn natural language into everyday actions.</p>
+<p align="center"><a href="#project-background">Background</a> · <a href="#app-preview">Preview</a> · <a href="#from-lifehub-to-plus">Improvements</a> · <a href="#run-locally">Getting Started</a> · <a href="#project-structure">Project Structure</a></p>
 
-## 项目来源与我的改进
+## Project Background
 
-**Lifehub Plus 是我在原先参与开发的 [LifeHub](https://github.com/lana0323/LifeHub) 基础上持续改进的个人项目。** 原版已经具备生活管理模块、登录及导航框架；Plus 延续这些基础，重点完善本地 AI 联动、统一交互、数据可靠性和可复现测试。
+**Lifehub Plus is my personal extension of [LifeHub](https://github.com/lana0323/LifeHub), a project I previously helped develop.** The original application provided the life-management modules, login flow and navigation framework. Plus builds on that foundation with local AI integration, consistent interactions and more reliable data handling.
 
-我在原项目中参与了产品构思、应用框架、登录、UI 与模块整合。本次改进将重点从“模块可以使用”推进到“AI 输出可审核、保存可验证、异常可恢复”。原版基础与本次扩展的贡献在下文分别说明，不把整个原项目的工作归为新增成果。
+My contributions to the original project included product planning, application structure, login, UI and module integration. In this iteration, I focused on making AI-generated actions reviewable, saved records verifiable and failures recoverable. The comparison below distinguishes the original foundation from the improvements introduced in Plus.
 
-> 本项目展示的是 **Android 工程与 AI 应用集成**。使用现成的 Qwen3 模型进行本地推理，没有训练或微调模型，也没有依赖收费的云模型服务。
+> This project demonstrates **Android engineering and AI application integration**. It uses an existing Qwen3 model for local inference; it does not involve training or fine-tuning a model and does not require a paid cloud model service.
 
-## 应用预览
+## App Preview
 
 <table>
-  <tr><th>统一首页</th><th>AI 操作入口</th><th>财务可视化</th></tr>
+  <tr><th>Home</th><th>AI Assistant</th><th>Finance Dashboard</th></tr>
   <tr>
-    <td><img src="docs/assets/home.png" width="260" alt="LifeHub 首页四模块卡片" /></td>
-    <td><img src="docs/assets/ai.png" width="260" alt="AI 输入与模块选择界面" /></td>
-    <td><img src="docs/assets/finance.png" width="260" alt="测试数据下的财务分类环形图及趋势图" /></td>
+    <td><img src="docs/assets/home.png" width="260" alt="LifeHub home screen with four module cards" /></td>
+    <td><img src="docs/assets/ai.png" width="260" alt="AI input and destination module selection" /></td>
+    <td><img src="docs/assets/finance.png" width="260" alt="Finance category breakdown and cash flow chart with sample data" /></td>
   </tr>
 </table>
 
-截图来自开发与测试过程，部分显示较早的界面文案；财务示例使用测试数据。仓库以 **Lifehub Plus** 命名，应用内保留 LifeHub 品牌与包名，便于已有安装保留数据升级。
+Screenshots show development builds; some contain earlier interface wording. Financial figures are sample data. The repository is named **Lifehub Plus**, while the application retains the LifeHub branding and package name so existing installations can be upgraded without losing data.
 
-## 从 LifeHub 到 Plus
+## From LifeHub to Plus
 
-| 方向 | 原 LifeHub 基础 | 本次 Plus 改进 |
+| Area | Original LifeHub foundation | Improvements in Plus |
 |---|---|---|
-| AI 应用 | 已有 AI 页面及模块处理代码 | 本地模型生成结构化草稿；自动识别模块；字段校验；修改、确认后才执行 |
-| 四模块联动 | Memo、Finance、Schedule、Health 独立功能 | 将自然语言路由到对应表单或 Health 查询页；有日期的 Memo 在日程中显示 |
-| 异步体验 | 原有页面交互 | 等待计时、取消等待、保留输入、页面切换状态一致；拒收迟到响应 |
-| 视觉与表单 | 原有登录、导航与模块页面 | 统一配色、图标、卡片及输入组件；简短转场；财务添加使用可拖动底部窗口 |
-| 财务分析 | 收支记录基础 | 月/年查看、分类占比与趋势图、自定义分类；金额用整数分存储 |
-| Health 统计 | 设备使用情况页面 | 按前台事件和本地日期分桶；处理跨日、锁屏等边界；缺失记录不伪装成真实零值 |
-| 数据可靠性 | Room / SQLite 本地存储 | 保留数据的版本迁移；唯一草稿键与事务防重复；确认保存后读回核验 |
-| 账号与恢复 | 本地登录基础 | 账号专属业务数据库、草稿与分类；会话失效拦截；加盐密码校验及头像私有副本 |
-| 国际化与启动 | 原有资源与启动页 | English / 简体中文设置；修正提示与对比度；缩短人为开屏等待 |
-| 验证 | 原项目测试基础 | 补充后端、单元、设备回归及固定模型评估集；公开结果和已知局限 |
+| AI integration | Existing AI screen and module handlers | Local model inference, structured drafts, module detection, field validation and user confirmation before execution |
+| Connected modules | Separate Memo, Finance, Schedule and Health features | Natural-language requests open the appropriate form or usage page; dated memos also appear in the schedule |
+| Request experience | Existing screen interactions | Elapsed-time feedback, cancellation, preserved input, consistent state across navigation and protection against stale responses |
+| Interface and forms | Original login, navigation and module screens | Consistent colors, icons, cards and inputs; short transitions; a draggable bottom sheet for adding financial records |
+| Finance | Basic income and expense records | Monthly and yearly views, category breakdowns, trend charts, custom categories and integer minor-unit storage |
+| Health statistics | Device usage screens | Foreground-event aggregation by local date, handling of midnight and screen-lock boundaries, and explicit missing-data states |
+| Data reliability | Local Room / SQLite storage | Data-preserving migrations, transactions and unique draft IDs to prevent duplicate saves, followed by read-back verification |
+| Accounts and recovery | Local login foundation | Separate business databases, drafts and categories for each account; stale-session protection, salted password verification and private avatar copies |
+| Language and startup | Existing resources and splash screen | English / Simplified Chinese settings, clearer messages and contrast, and a shorter intentional splash delay |
+| Quality assurance | Original testing foundation | Additional backend, unit and device regression coverage, plus documented model evaluations and limitations |
 
-## AI 如何进入真实功能
+## AI That Connects to Real Features
 
-| 模块 | 可以这样输入 | 用户看到的结果 |
+| Module | Example request | What the user reviews |
 |---|---|---|
-| **Memo** | 下周五前完成机器学习作业，优先级高 | 可编辑标题、备注、截止日期及优先级的任务草稿 |
-| **Finance** | 今天午餐花了28元，用支付宝支付 | 预填金额、日期、收支、分类及账户的账单表单 |
-| **Schedule** | 明天下午3点开组会 | 可检查并修改日期、时间与内容的日程草稿 |
-| **Health** | 查看今天的手机使用时长 | 进入现有使用统计页，由 Android 系统提供数据 |
+| **Memo** | Finish the machine learning assignment by next Friday, high priority. | An editable task draft with a title, notes, due date and priority |
+| **Finance** | I spent 28 yuan on lunch today and paid with Alipay. | A prefilled transaction form with an amount, date, type, category and account |
+| **Schedule** | Schedule a group meeting tomorrow at 3 PM. | An editable event draft with a date, time and description |
+| **Health** | Show my screen time today. | The existing device usage page, populated with Android system data |
 
 ```mermaid
 flowchart LR
-    A[自然语言输入] --> B[Python 本地后端]
+    A[Natural-language input] --> B[Local Python backend]
     B --> C[Ollama · Qwen3]
-    C --> D[结构与日期校验]
-    D --> E[模块识别 / 可编辑草稿]
-    E --> F{用户确认}
-    F -->|Memo / Finance / Schedule| G[账号专属数据库]
-    F -->|Health| H[设备使用统计页]
-    G --> I[回读验证与成功反馈]
+    C --> D[Structure and date validation]
+    D --> E[Module selection and editable draft]
+    E --> F{User confirmation}
+    F -->|Memo / Finance / Schedule| G[Account-specific database]
+    F -->|Health| H[Device usage page]
+    G --> I[Read-back verification and feedback]
 ```
 
-- **模型不直接操作数据库。** 写入必须经过用户确认；模块识别错误时可手动改选。
-- **不猜测缺失信息。** 含糊日期保留待补充；缺少必填字段时要求编辑；多任务输入要求拆分。
-- **防止重复确认。** 同一草稿 ID 在对应账号内只保存一次；重新生成的草稿与手动记录不按内容去重。
-- **失败仍能继续。** 保留输入，支持取消、重试和手动填写。取消停止客户端等待；已进入本地模型的推理可能继续运行。
-- **Health 是查询。** 不生成虚构使用时长，也不写入所谓健康记录。
+- **The model cannot write directly to the database.** Records require user confirmation. An incorrectly detected module can be changed manually.
+- **Missing information stays visible.** Ambiguous dates remain unset, required fields must be completed, and requests containing multiple actions are prompted to be split.
+- **Repeated confirmation does not create duplicates.** A draft ID identifies a single saved record within its account. Newly generated drafts and manual entries are not deduplicated by content.
+- **Failures are recoverable.** Input is preserved, with cancellation, retry and manual-entry options. Cancelling stops the client from waiting; inference already running in the local model may continue.
+- **Health is a query.** The application displays system usage statistics rather than generating fictional usage figures or inserting health records.
 
-## 工程实现
+## Engineering
 
-| 层次 | 技术与职责 |
+| Layer | Technologies and responsibilities |
 |---|---|
-| Android | Java / Kotlin、XML / Material Components、Navigation、ViewModel、协程、StateFlow |
-| 持久化 | Room（Memo / Finance）、SQLite（Schedule）、账号范围的偏好设置 |
-| 本地 AI | Python HTTP 后端、结构化解析与校验、Ollama、Qwen3 4B |
-| 验证 | Python unittest、JUnit、Android 仪器测试、Espresso、固定字段评估 |
+| Android | Java / Kotlin, XML / Material Components, Navigation, ViewModel, coroutines and StateFlow |
+| Persistence | Room for Memo / Finance, SQLite for Schedule, and account-specific preferences |
+| Local AI | Python HTTP backend, structured parsing and validation, Ollama and Qwen3 4B |
+| Verification | Python unittest, JUnit, Android instrumentation, Espresso and fixed field evaluations |
 
-**存储正确性。** Finance 使用 `long amountMinor` 保存整数分，迁移保留旧金额供核对，并检查笔数、金额及主键；迁移失败回滚。Memo / Finance / Schedule 用事务和唯一草稿键处理重复提交。
+**Reliable storage.** Finance stores amounts as integer minor units using `long amountMinor`. Migrations retain original values for comparison and verify record counts, amounts and primary keys; failures roll back. Memo, Finance and Schedule use transactions and unique draft IDs to handle repeated submissions.
 
-**账号边界。** 本机账号分别使用业务数据库与草稿偏好。数据库实例绑定创建时的账号，旧任务不会在切换后写进新账号。升级时将原共享记录归属给当时已登录账号；未登录时保留但不自动分配历史数据。
+**Account boundaries.** Each local account has separate business databases and draft preferences. Database instances remain bound to the account that created them, so an earlier background operation cannot write into a newly signed-in account. On upgrade, legacy shared records are assigned to the account signed in at initialization. If no account is signed in, the records remain preserved but unassigned.
 
-**生命周期。** AI 请求由 Activity 级 ViewModel 持有；切换页面或重建 Activity 不会重复发送。进程中断后恢复输入并提示重试，不自动重放请求。
+**Lifecycle handling.** An Activity-scoped ViewModel owns AI requests. Navigation and Activity recreation do not resend an in-flight request. After process interruption, the application restores the input and asks the user to retry instead of automatically replaying it.
 
-## 本地运行
+## Run Locally
 
-准备 Android Studio、Android SDK 34、JDK 21、Python 3.11+ 和 Ollama。仓库不附带模型权重；首次使用需要下载模型。
+You will need Android Studio, Android SDK 34, JDK 21, Python 3.11+ and Ollama. Model weights are not included in the repository and must be downloaded before first use.
 
-**1. 启动本地 Ollama。** 先退出已有 Ollama 后台实例，在项目根目录 PowerShell 中执行：
+**1. Start local Ollama.** Exit any existing Ollama background instance, then run the following in PowerShell from the project root:
 
 ```powershell
 $env:OLLAMA_NO_CLOUD = '1'
@@ -101,7 +101,7 @@ $env:OLLAMA_MODELS = "$PWD\.local\models"
 ollama serve
 ```
 
-**2. 另开终端下载模型并启动后端。**
+**2. Open another terminal, download the model and start the backend.**
 
 ```powershell
 ollama pull qwen3:4b
@@ -109,49 +109,49 @@ python -m pip install -r backend/requirements.txt
 .\scripts\start-local.ps1
 ```
 
-**3. 在 Android Studio 中打开并运行 debug 版。** 模拟器默认连接 `http://10.0.2.2:8080/`。先注册本地账号，再进入 AI 输入一项需求、检查草稿、确认保存。
+**3. Open the project in Android Studio and run the debug build.** The emulator connects to `http://10.0.2.2:8080/` by default. Register a local account, open AI, describe one action, review the draft and confirm the save.
 
-后端或模型未启动时，可继续使用各模块手动功能。默认四模块接口只调用本地 Ollama，不自动切换付费云服务。模型下载和运行仍消耗磁盘、内存、电力及网络流量。
+Manual module features remain available when the backend or model is offline. The four-module endpoint uses local Ollama and does not automatically fall back to a paid cloud service. Downloading and running the model still requires disk space, memory, electricity and network bandwidth.
 
-USB 真机、环境变量及更多操作见 [完整开发指南](docs/DEVELOPMENT_GUIDE.md)。
+USB device setup, environment variables and additional instructions are available in the [Development Guide](docs/DEVELOPMENT_GUIDE.md) (Chinese).
 
-## 项目结构
+## Project Structure
 
 ```text
 app/src/main/java/com/lifeHub/
-  main/       首页与导航
-  ai/         AI 请求、草稿审核与模块联动
-  todo/       备忘录与任务
-  finance/    收支管理与财务图表
-  schedule/   日程管理
-  usage/      设备使用统计
-  login/      本地账号、会话与数据隔离
-  ui/         通用界面组件
-app/src/main/res/     页面布局、图标与中英文资源
-app/schemas/          数据库版本定义
-backend/              Python 本地 AI 服务
-scripts/              启动工具
-docs/                 开发指南与工程说明
+  main/       Home and navigation
+  ai/         AI requests, draft review and module routing
+  todo/       Memos and tasks
+  finance/    Transactions and financial charts
+  schedule/   Calendar and events
+  usage/      Device usage statistics
+  login/      Local accounts, sessions and data isolation
+  ui/         Shared interface components
+app/src/main/res/     Layouts, icons and bilingual resources
+app/schemas/          Database version definitions
+backend/              Local Python AI service
+scripts/              Startup tools
+docs/                 Development guides and engineering notes
 ```
 
-应用包含完整的客户端、后端服务和本地数据存储。开发验证代码独立放在 Android 的 `src/test`、`src/androidTest` 及后端 `test_*.py` 中，不属于应用的业务页面。
+The project includes the Android client, backend service and local persistence layer. Supporting verification code lives separately in Android's `src/test` and `src/androidTest` directories and the backend's `test_*.py` files.
 
 <details>
-<summary><b>开发者文档与质量保障</b></summary>
+<summary><b>Developer Documentation and Quality Assurance</b></summary>
 
-数据库迁移、账号隔离、重复提交保护及页面恢复均有自动化验证。运行命令、已记录结果和模型评估范围见 [开发验证](docs/QUALITY.md)、[完整开发指南](docs/DEVELOPMENT_GUIDE.md) 与 [工程说明](docs/ENGINEERING_REVIEW.md)。
+Automated checks cover database migrations, account isolation, repeated submissions and screen restoration. Commands, recorded results and model evaluation scope are documented in [Quality Assurance](docs/QUALITY.md), the [Development Guide](docs/DEVELOPMENT_GUIDE.md) and the [Engineering Review](docs/ENGINEERING_REVIEW.md). These detailed development documents are currently in Chinese.
 
 </details>
 
-## 当前边界与后续方向
+## Current Scope and Next Steps
 
-- 本地账号隔离不等于服务端认证；没有云同步、跨设备会话或找回密码功能，数据库未加密。
-- Health 是整台设备的使用统计，各本地账号查看相同设备数据，受系统权限及事件保留范围限制。
-- 当前财务金额按人民币处理；一次只生成一项操作草稿。
-- 后续优先改进财务字段提取、补充独立评估集，以及减少日程存储对主线程的占用。
+- Account isolation applies to local data. There is no server-side authentication, cloud synchronization, cross-device session management or password recovery. Local databases are not encrypted.
+- Health statistics describe the entire device. Local accounts see the same device statistics, subject to Android permissions and event retention.
+- Financial amounts currently use CNY, and each AI request produces at most one action draft.
+- Next priorities are better financial field extraction, an independent evaluation set and reducing main-thread work in schedule persistence.
 
-## 来源说明
+## Acknowledgements and Provenance
 
-原项目：[lana0323/LifeHub](https://github.com/lana0323/LifeHub)。本仓库基于本地原版基线 `353a9e1` 及其后的持续改进整理，单独发布 Plus 版本；保留原包名和模块结构以支持兼容升级。
+Original project: [lana0323/LifeHub](https://github.com/lana0323/LifeHub). This repository packages the original local baseline `353a9e1` and subsequent improvements as a separate Plus edition. The original package name and module structure are retained for upgrade compatibility.
 
-原项目的既有工作与各依赖的权利归原作者/权利人所有。本仓库未擅自为原项目新增开源许可证；公开展示代码不代表所有内容可以不受限制地再分发。模型的使用遵循其发布方条款。
+Existing work in the original project and third-party dependencies remains attributable to its respective authors and rights holders. No new open-source license has been assigned to the original project here; public source visibility does not itself grant unrestricted redistribution rights. Model use is subject to the provider's terms.
