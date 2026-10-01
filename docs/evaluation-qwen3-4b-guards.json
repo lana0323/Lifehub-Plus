@@ -1,0 +1,306 @@
+{
+  "provider": "ollama",
+  "model": "qwen3:4b",
+  "cases": 10,
+  "fieldAccuracy": {
+    "status": 1.0,
+    "title": 1.0,
+    "dueDate": 1.0,
+    "priority": 1.0,
+    "notes": 1.0
+  },
+  "wholeTaskAccuracy": 1.0,
+  "errors": 0,
+  "latencyP50Ms": 422,
+  "latencyP95Ms": 562,
+  "inputTokens": 4993,
+  "outputTokens": 413,
+  "estimatedCostUsd": 0,
+  "results": [
+    {
+      "case": 1,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "8a791d4d-34df-4c0d-b709-bbc7153b2e20",
+          "title": "整理实验记录",
+          "notes": "",
+          "dueDate": "2027-01-02",
+          "timezone": "Asia/Shanghai",
+          "priority": "normal",
+          "dateText": "后天",
+          "warnings": []
+        },
+        "metrics": {
+          "latencyMs": 562,
+          "inputTokens": 500,
+          "outputTokens": 41
+        }
+      }
+    },
+    {
+      "case": 2,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "8b63793d-a295-4946-ac20-2b522a7ade8a",
+          "title": "Submit the scholarship form",
+          "notes": "",
+          "dueDate": "2026-10-04",
+          "timezone": "UTC",
+          "priority": "important",
+          "dateText": "in 5 days",
+          "warnings": []
+        },
+        "metrics": {
+          "latencyMs": 438,
+          "inputTokens": 501,
+          "outputTokens": 44
+        }
+      }
+    },
+    {
+      "case": 3,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "9512e2ce-06b9-4358-b659-e7010111b6df",
+          "title": "给导师发邮件",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": null,
+          "warnings": [
+            "date_missing",
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 422,
+          "inputTokens": 495,
+          "outputTokens": 39
+        }
+      }
+    },
+    {
+      "case": 4,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "4d7db483-e8fe-4cc8-b396-1a949eb8e14b",
+          "title": "Back up photos",
+          "notes": "",
+          "dueDate": "2026-10-05",
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": "next Monday",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 390,
+          "inputTokens": 497,
+          "outputTokens": 40
+        }
+      }
+    },
+    {
+      "case": 5,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "968058cd-54a4-4831-82b7-89f9b345df70",
+          "title": "修复登录错误",
+          "notes": "",
+          "dueDate": "2026-09-29",
+          "timezone": "UTC",
+          "priority": "urgent",
+          "dateText": "今天",
+          "warnings": []
+        },
+        "metrics": {
+          "latencyMs": 407,
+          "inputTokens": 497,
+          "outputTokens": 40
+        }
+      }
+    },
+    {
+      "case": 6,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "6dee9c14-072f-4f84-bde8-7bd9323f5117",
+          "title": "Renew library books",
+          "notes": "",
+          "dueDate": "2026-11-01",
+          "timezone": "UTC",
+          "priority": "normal",
+          "dateText": "2026-11-01",
+          "warnings": []
+        },
+        "metrics": {
+          "latencyMs": 484,
+          "inputTokens": 510,
+          "outputTokens": 50
+        }
+      }
+    },
+    {
+      "case": 7,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "feaa7b82-7695-4be8-aed1-a0bb82605a36",
+          "title": "practise piano",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "UTC",
+          "priority": null,
+          "dateText": "sometime soon",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 422,
+          "inputTokens": 498,
+          "outputTokens": 42
+        }
+      }
+    },
+    {
+      "case": 8,
+      "fields": {
+        "status": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "clarification",
+        "reason": "multiple_tasks",
+        "draft": null,
+        "metrics": {
+          "latencyMs": 391,
+          "inputTokens": 501,
+          "outputTokens": 38
+        }
+      }
+    },
+    {
+      "case": 9,
+      "fields": {
+        "status": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "clarification",
+        "reason": "unclear",
+        "draft": null,
+        "metrics": {
+          "latencyMs": 359,
+          "inputTokens": 494,
+          "outputTokens": 37
+        }
+      }
+    },
+    {
+      "case": 10,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "5a5e9383-f406-4ba7-a858-74851a39e913",
+          "title": "整理书架",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "UTC",
+          "priority": null,
+          "dateText": "明天或者周末",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 437,
+          "inputTokens": 500,
+          "outputTokens": 42
+        }
+      }
+    }
+  ]
+}

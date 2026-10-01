@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/coordinator" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background">
+    <LinearLayout android:id="@+id/content_layout" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:id="@+id/top_bar" android:layout_width="match_parent" android:layout_height="64dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="8dp" android:background="@android:color/transparent">
+            <ImageButton android:id="@+id/btn_back" android:layout_width="48dp" android:layout_height="48dp" android:background="?attr/selectableItemBackgroundBorderless" android:contentDescription="@string/back" android:padding="8dp" android:src="@drawable/ic_lh_chevron_left" />
+            <TextView android:id="@+id/tv_selected_date" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/today_text" android:textSize="22sp" android:textStyle="bold" android:paddingStart="8dp" android:paddingEnd="16dp" android:textColor="@color/text_primary" />
+        </LinearLayout>
+        <CalendarView android:id="@+id/calendarView" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20dp" android:theme="@style/CalendarViewCustomTheme" android:background="@drawable/bg_surface" />
+        <TextView android:id="@+id/tv_empty" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/no_schedule" android:gravity="center" android:padding="24dp" android:textSize="16sp" android:visibility="gone" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:padding="8dp" />
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/fab_add" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/add_schedule" app:srcCompat="@drawable/ic_lh_plus" app:tint="@color/white" app:layout_anchor="@id/content_layout" app:layout_anchorGravity="bottom|end" android:layout_margin="22dp" app:backgroundTint="@color/brand_teal_dark" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

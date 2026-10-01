@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_surface">
+    <LinearLayout android:id="@+id/draftPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp" android:visibility="visible">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/ai_draft_heading" android:textSize="20sp" android:textStyle="bold" />
+            <ImageButton android:id="@+id/btnCloseDraft" android:layout_width="48dp" android:layout_height="48dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/ic_menu_close_clear_cancel" android:contentDescription="@string/ai_close_draft" />
+        </LinearLayout>
+        <TextView android:id="@+id/draftContext" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="8dp" android:paddingBottom="8dp" />
+        <EditText android:id="@+id/editTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/memo_title" android:inputType="textCapSentences" android:maxLength="100" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" android:layout_marginTop="8dp" />
+        <EditText android:id="@+id/editNotes" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/memo_content" android:inputType="textMultiLine" android:maxLength="2000" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" android:layout_marginTop="8dp" />
+        <EditText android:id="@+id/editDate" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/ai_date_hint" android:inputType="text" android:singleLine="true" android:maxLength="10" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" android:layout_marginTop="8dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/priority_label" android:labelFor="@id/spinnerPriority" />
+        <com.lifeHub.ui.LifeHubSpinner android:id="@+id/spinnerPriority" android:spinnerMode="dialog" android:prompt="@string/priority_label" android:layout_width="match_parent" android:layout_height="48dp" android:entries="@array/ai_priority_options" style="@style/Widget.LifeHub.Spinner" android:minHeight="52dp" android:layout_marginTop="6dp" />
+        <TextView android:id="@+id/editorStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:accessibilityLiveRegion="polite" android:padding="8dp" />
+        <Button android:id="@+id/btnConfirm" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_confirm" style="@style/Widget.LifeHub.Button" android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

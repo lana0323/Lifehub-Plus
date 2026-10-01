@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="ai_currency_unsupported">Finance currently records amounts in CNY. Foreign currency is not supported.</string>
+  <string name="ai_health_today_only">Health currently shows today’s phone usage. Ask about today or open Health.</string>
+  <string name="ai_close_draft">Close draft</string>
+  <string name="ai_unsaved_title">Discard unsaved content?</string>
+  <string name="ai_unsaved_message">Your draft has not been saved. Exit and discard it? Your original request will be kept.</string>
+  <string name="ai_exit_draft">Discard and exit</string>
+  <string name="ai_module_hint">Choose a module</string>
+  <string name="ai_review_form">AI draft — review and save</string>
+  <string name="ai_choose_date">Choose a date</string>
+  <string name="ai_complete_fields">Please choose a date, type, category and account.</string>
+  <string name="ai_select">Please choose</string>
+  <string name="ai_simple_intro">Describe a memo, transaction, event, or ask about screen time.</string>
+  <string name="ai_open_schedule">View on calendar</string>
+  <string name="ai_task_due_label">Task deadline</string>
+  <string name="ai_destination_hint">Not saved yet. Dated tasks appear on the calendar; tasks without a date stay in your task list.</string>
+  <string name="ai_success_dated">Saved: %1$s\nShown in your task list and on the calendar for %2$s.</string>
+  <string name="ai_success_undated">Saved: %1$s\nAdded to your task list. Set a date to show it on the calendar.</string>
+  <string name="ai_saved_short">Task saved successfully</string>
+  <string name="ai_manual">Fill in manually</string>
+  <string name="ai_manual_review">Enter the task details below. Nothing is saved until you confirm.</string>
+  <string name="ai_rewrite">Edit original request and generate again</string>
+  <string name="ai_confirmation_title">Create this task?</string>
+  <string name="ai_confirmation_summary">Title: %1$s\nNotes: %2$s\nDue date: %3$s\nPriority: %4$s\nTimezone: %5$s\n\nThis task has not been saved yet.</string>
+  <string name="ai_back_to_edit">Back to editing</string>
+  <string name="ai_none">None</string>
+  <string name="ai_no_deadline">No deadline</string>
+  <string name="ai_saved_verified">Task #%1$d saved. Its contents were read back and verified. Open the saved task to view or edit it.</string>
+  <string name="ai_existing_task">This draft was already saved with different contents. The existing task is shown below. Open it to review or edit; no duplicate was created.</string>
+  <string name="usage_permission_help">Usage access is not enabled. Tap Update to open permission settings.</string>
+  <string name="profile_save_failed">Could not save profile. Please retry.</string>
+  <string name="ai_task_heading">AI assistant</string>
+  <string name="ai_task_intro">Describe one task. Review and edit its draft before creating it. Only your input and timezone are sent to the AI service.</string>
+  <string name="ai_task_example">Save an idea; log lunch spending; plan a meeting; check screen time.</string>
+  <string name="ai_generate">Generate</string>
+  <string name="ai_generating">Preparing your draft…</string>
+  <string name="ai_draft_heading">Review task draft</string>
+  <string name="ai_confirm">Confirm and create</string>
+  <string name="ai_open_task">Open saved task</string>
+  <string name="ai_start_over">Start another draft</string>
+  <string name="ai_date_hint">Due date: YYYY-MM-DD (optional)</string>
+  <string name="ai_timezone">Timezone: %1$s</string>
+  <string name="ai_date_source">Original deadline: %1$s</string>
+  <string name="ai_date_review">Deadline needs review. Enter a date or leave it unset. This version supports dates only.</string>
+  <string name="ai_no_date">No deadline specified. You can leave it unset.</string>
+  <string name="ai_choose_priority">Choose a priority before creating the task.</string>
+  <string name="ai_review">Not saved yet. AI can make mistakes: edit the fields below, then confirm to create the task.</string>
+  <string name="ai_split_tasks">Please describe one action at a time. Your input has been kept.</string>
+  <string name="ai_clarify">Describe the memo, transaction, event or screen-time query more clearly.</string>
+  <string name="ai_unavailable">AI service is not configured or is busy. Your input is kept; try again later.</string>
+  <string name="ai_retry_error">Could not generate a valid draft. Your input is kept. Edit it and retry, or fill in the details manually.</string>
+  <string name="ai_required">Enter a title and choose a priority.</string>
+  <string name="ai_invalid_date">Use a valid YYYY-MM-DD date, today or later, or leave it empty.</string>
+  <string name="ai_saving">Saving task…</string>
+  <string name="ai_saved">Task created in your task list.</string>
+  <string name="ai_save_error">Could not save. Your draft is kept; confirm again to retry.</string>
+  <string name="task_due_fmt">Due: %1$s</string>
+  <string-array name="ai_priority_options">
+    <item>Choose priority</item>
+    <item>Normal / low</item>
+    <item>Important / high</item>
+    <item>Urgent</item>
+  </string-array>
+  <string-array name="ai_modules">
+    <item>Auto detect</item>
+    <item>Memo</item>
+    <item>Finance</item>
+    <item>Schedule</item>
+    <item>Health</item>
+  </string-array>
+  <string name="ai_module_label">Module</string>
+  <string name="ai_manual_module">Choose module</string>
+  <string name="ai_detected_module">AI detected this module — change if needed</string>
+  <string name="ai_review_selected">Review selected module</string>
+</resources>

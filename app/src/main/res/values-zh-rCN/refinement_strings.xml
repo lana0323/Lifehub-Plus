@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="ui_choose">选择选项</string>
+  <string name="ui_language">语言</string>
+  <string name="ui_language_system">跟随系统</string>
+  <string name="finance_month_view">月度</string>
+  <string name="finance_year_view">年度</string>
+  <string name="finance_choose_year">选择年份</string>
+  <string name="finance_year_trend_hint">每月合计 · 绿色收入 / 珊瑚色支出</string>
+  <string name="finance_previous_period">上一期</string>
+  <string name="finance_next_period">下一期</string>
+</resources>

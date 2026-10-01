@@ -1,0 +1,295 @@
+<resources>
+    <string name="app_name" translatable="false">LifeHub</string>
+    // Open page
+    <string name="title_activity_open_page" translatable="false">OpenPage</string>
+    <string name="hello" translatable="false">Welcome to LifeHub!</string>
+    <string name="splash_slogan" translatable="false">Welcome to LifeHub — Your life, organized.</string>
+    <string name="life_hub" translatable="false">© 2025 LifeHub</string>
+
+    //main page
+    <string name="title_activity_main_page" translatable="false">MainPage</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard" translatable="false">Menu</string>
+    <string name="title_notifications" translatable="false">Notifications</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_ai">AI</string>
+    <string name="back">Back</string>
+    <string name="btn_ai_chat">Chat with AI</string>
+
+
+    //profile
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+
+    <string name="profile_not_logged_in">You are not logged in</string>
+    <string name="profile_logged_out">Logged out</string>
+
+    //login
+    <string name="login">Login</string>
+    <string name="btn_register">Register</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_go_register">Go to Register</string>
+
+    <string name="error_username_not_registered">This username is not registered. Please sign up first.</string>
+    <string name="error_username_or_password">Incorrect username or password</string>
+    <string name="login_success">Login successful</string>
+
+
+    //register
+    <string name="register">Register</string>
+
+    <string name="error_password_not_match">The two passwords do not match</string>
+    <string name="error_already_registered">User already registered, please log in</string>
+    <string name="error_empty_username_password">Username and password cannot be empty</string>
+    <string name="register_success">Registered successfully, please go back to login</string>
+    <string name="error_username_already_registered">This username is already registered. Please choose another one.</string>
+
+
+    //ai
+    <string name="ai_chat">Start chatting with AI</string>
+    <string name="send">Send</string>
+    <string name="ai_finance_reply">(Finance Assistant) %1$s</string>
+    <string name="ai_todo_reply">(To-Do Assistant) %1$s</string>
+    <string name="ai_schedule_reply">(Schedule Assistant) Today\'s plan: %1$s</string>
+    <string name="ai_health_reply">(Health Assistant) %1$s</string>
+    <string name="ai_general_reply">
+    (General Assistant) Currently supported: finance / todo / schedule / health.</string>
+
+    <string name="health_usage_real_fmt">Recorded foreground app usage on this device today: about %1$d hours %2$d minutes.</string>
+    <string name="health_usage_cached_fmt">
+    Usage data cannot be read from the system for now. Using last recorded time: about %1$d hours %2$d minutes.</string>
+
+    <string name="todo_summary_none">There is currently no memo.</string>
+    <string name="todo_summary_fmt">
+    There are %1$d memo items. You can view the details in the To-Do module.</string>
+
+    <string name="schedule_today_empty">
+    There is no schedule item today. I will help you plan based on your question.</string>
+    <string name="schedule_today_fmt">
+    There are %1$d schedule items today, for example: %2$s</string>
+
+    <string name="finance_summary_no_data">
+    No expense data is available yet. I will give general suggestions based on your question.</string>
+    <string name="finance_summary_fmt">
+    There are %1$d expense records recently, for example: %2$s</string>
+    <string name="ai_prompt_common_intro">
+    You are a general life assistant who helps users answer questions and provide advice.</string>
+    <string name="ai_prompt_user_prefix">
+    User says:
+</string>
+    <string name="ai_prompt_health_intro">You are a health and habit advisor. Give suggestions based on the user\'s device usage.</string>
+    <string name="ai_prompt_health_usage_prefix">Today\'s screen usage: %1$s</string>
+    <string name="ai_prompt_schedule_intro">You are a schedule assistant who helps the user organize plans, give reminders, and provide optimization suggestions.</string>
+    <string name="ai_prompt_schedule_today_prefix">Today\'s schedule: %1$s</string>
+    <string name="ai_prompt_todo_intro">You are a to-do assistant who helps the user plan tasks and subtasks.</string>
+    <string name="ai_prompt_todo_current_title_fmt">Current task title: %1$s</string>
+    <string name="ai_prompt_todo_current_desc_fmt">Current task description: %1$s</string>
+    <string name="ai_prompt_todo_status_fmt">Completion status: %1$s</string>
+    <string name="todo_status_not_completed">Not completed</string>
+    <string name="todo_ai_suggestion_fmt">AI suggestion: %1$s</string>
+    <string name="ai_service_unavailable_fmt">AI service is temporarily unavailable: %1$s</string>
+    <string name="error_unknown">Unknown error</string>
+    <string name="schedule_example_separator">; </string>
+
+    <string-array name="keywords_finance">
+        <item>finance</item>
+        <item>bill</item>
+        <item>money</item>
+        <item>account</item>
+    </string-array>
+
+    <string-array name="keywords_todo">
+        <item>todo</item>
+        <item>task</item>
+        <item>memo</item>
+    </string-array>
+
+    <string-array name="keywords_schedule">
+        <item>schedule</item>
+        <item>calendar</item>
+        <item>event</item>
+    </string-array>
+
+    <string-array name="keywords_health">
+        <item>health</item>
+        <item>usage</item>
+        <item>screen</item>
+    </string-array>
+
+
+
+
+    //profile
+    <string name="profile_title">Profile</string>
+    <string name="profile_avatar">Profile avatar</string>
+    <string name="profile_change_avatar">Tap to change avatar</string>
+    <string name="profile_username_placeholder">Guest</string>
+    <string name="profile_subtitle">Manage your account and preferences</string>
+    <string name="profile_login_status_guest">Status: Not logged in</string>
+    <string name="profile_login_status_logged_in">Status: Logged in</string>
+    <string name="profile_btn_edit">Edit profile</string>
+    <string name="profile_btn_logout">Log out</string>
+
+
+    //schedule
+    <string name="title_schedule">Schedule</string>
+    <string name="today_text_remind">This day is not yet scheduled</string>
+    <string name="today_text">Today\'s schedule</string>
+    <string name="add_schedule">Add schedule</string>
+    <string name="edit_schedule">Edit schedule</string>
+    <string name="no_schedule">No schedule available.</string>
+    <string name="schedule_for_date">Schedule for %1$s</string>
+    <string name="confirm_event_delete">Are you sure you want to delete this event?</string>
+
+
+
+
+    <string name="label_date">Date</string>
+    <string name="label_time">Time</string>
+
+    <string name="time_not_selected">Not selected</string>
+    <string name="btn_pick_time">Choose time</string>
+
+    <string name="label_title_required">Title (required)</string>
+    <string name="hint_title_example">e.g. Meeting / Study / Workout</string>
+
+    <string name="label_notes">Notes</string>
+    <string name="hint_notes_details">Add more details here</string>
+
+    <string name="all_day">All day</string>
+    <string name="delete_event_title">Delete event</string>
+
+
+    //account
+    <string name="title_account">Finance</string>
+    <string name="finance_total_spending_fmt">Total spending this month: %s</string>
+    <string name="finance_total_income_fmt">Total income this month: %s</string>
+    <string name="finance_balance_fmt">Balance (income - spending): %s</string>
+    <string name="finance_category_breakdown">Category breakdown:</string>
+    <string name="finance_ai_analysis">AI Analysis</string>
+    <string name="finance_tab_expenses">Expenses</string>
+    <string name="finance_tab_income">Income</string>
+    <string name="finance_add_expense_desc">Add record</string>
+
+
+    <string name="finance_add_record_title">Add Record</string>
+
+    <string name="finance_amount_label">Amount</string>
+    <string name="finance_amount_hint">0.00</string>
+
+    <string name="finance_type_label">Type</string>
+    <string name="finance_type_expense">Expense</string>
+    <string name="finance_type_income">Income</string>
+
+    <string name="finance_category_label">Category</string>
+    <string name="finance_account_label">Account</string>
+
+    <string name="finance_date_label">Date</string>
+    <string name="finance_date_placeholder">Tap to choose date</string>
+
+    <string name="finance_note_label">Note</string>
+    <string name="finance_note_hint">Optional</string>
+
+    //health
+    <string name="title_health">Health</string>
+    <string name="title_add_event" translatable="false">AddEventActivity</string>
+    <string name="title_health_fragment">Your Application Usage States</string>
+    <string name="update_button">Click here to update</string>
+    <string name="none">none</string>
+    <string name="long_time">You have been using your phone for too long. Maybe you should go back to the real world now!!!</string>
+    <string name="medium_time">You haven\'t used your phone for too long. But don\'t forget to relax your eyes.</string>
+    <string name="short_time">You have become the master of your phone!!!</string>
+    <string name="total_time">Today · recorded app usage</string>
+    <string name="detail_button">Last 7 days</string>
+    <string name="title_bar_chart">Last 7 days</string>
+    <string name="three_days_ago">3 days ago</string>
+    <string name="seven_days_ago">7 days ago</string>
+    <string name="today">Today</string>
+    <string name="weekly_app_usage">All apps · last 7 days</string>
+
+    //Memo
+
+    <string name="title_memorandum">Memo</string>
+    <string name="add_memo">Add a memo</string>
+    <string name="search_memo">Search for a memo</string>
+    <string name="no_memos">No memo available.</string>
+
+
+
+
+    <string name="menu_delete" translatable="false">Delete</string>
+
+
+
+    <string name="date_format" translatable="false">yyyy-MM-dd HH:mm</string>
+    <string name="no_memos_hint">Click the button at the bottom right to add your first memo.</string>
+    <string name="edit_memo">Edit memo</string>
+    <string name="new_memo">New memo</string>
+    <string name="memo_title">Title</string>
+    <string name="memo_content">Context</string>
+    <string name="memo_title_hint">Input title</string>
+    <string name="memo_content_hint">Input memo context</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_sort">Sort</string>
+    <string name="sort_by_date">By Date</string>
+    <string name="sort_by_title">By title</string>
+    <string name="memo_saved">Memo saved.</string>
+    <string name="memo_deleted">Memo deleted.</string>
+    <string name="confirm_memo_delete">Are you sure you want to delete this memo?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="title_required">Please input the title.</string>
+    <string name="share_memo">Share the memo</string>
+    <string name="created_at">Created on: %s</string>
+    <string name="updated_at">Updated on: %s</string>
+    <string name="add_activity">Add activity</string>
+    <string name="save_failed">Save failed.</string>
+    <string name="delete_success">Deleted.</string>
+    <string name="save_success">Saved successfully.</string>
+    <string name="update_failed">Update failed.</string>
+    <string name="update_success">Updated successfully.</string>
+    <string name="error_title_empty">Title cannot be empty.</string>
+
+    <string name="error_load_memo">Failed to load memo</string>
+
+
+
+    <string name="discard_changes_title">Give up making changes?</string>
+    <string name="discard_changes_message">You have unsaved changes. Are you sure you want to leave?</string>
+    <string name="priority_normal">Normal</string>
+    <string name="priority_important">Important</string>
+    <string name="priority_urgent">Urgent</string>
+
+
+    <string name="sort_by_updated">Sort by updated time</string>
+    <string name="sort_by_created">Sort by created time</string>
+    <string name="by_title">Sort by title</string>
+
+
+    <string name="confirm_delete_all_memos">Are you sure you want to delete all memos?</string>
+    <string name="all_memos_deleted">All memos have been deleted</string>
+
+    <string name="items_selected">%d selected</string>
+
+    <string name="completed">Completed</string>
+
+    <string name="priority_label">Priority:</string>
+
+    <string name="preview_created_at">Created at: 2024-01-01 12:00</string>
+    <string name="preview_updated_at">Updated at: 2024-01-01 12:30</string>
+
+    <string name="title_ai_chat">AI Chat</string>
+    <string name="ai_chat_hint">Start chatting with AI</string>
+
+    <string name="ai_cancel_generation">Cancel waiting</string>
+    <string name="ai_cancelled">Waiting cancelled. Your input is kept.</string>
+    <string name="ai_interrupted">The previous request was interrupted. Your input is kept; generate again when ready.</string>
+    <string name="ai_wait_seconds">Generating · %1$d s. You can switch pages or cancel.</string>
+    <string name="ai_wait_slow">Still generating · %1$d s. Local AI can take longer; you can cancel or fill in manually.</string>
+    <string name="ai_service_busy">The local AI is still busy. Please try again shortly.</string>
+    <string name="ai_timeout">The request timed out. Your input is kept; try again.</string>
+</resources>

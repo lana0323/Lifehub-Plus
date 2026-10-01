@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="finance_overview">YOUR MONEY, AT A GLANCE</string>
+    <string name="finance_balance_short">Net balance</string>
+    <string name="finance_spend_short">Expenses</string>
+    <string name="finance_income_short">Income</string>
+    <string name="finance_distribution">Category breakdown</string>
+    <string name="finance_trend">Cash flow</string>
+    <string name="finance_trend_hint">Green: income · Coral: expenses</string>
+    <string name="finance_activity">Transactions</string>
+    <string name="finance_empty">No records in this period. Add a transaction to start your overview.</string>
+    <string name="finance_chart_empty">No data yet</string>
+    <string name="finance_add_category">Add category</string>
+    <string name="finance_category_name">Category name</string>
+    <string name="finance_category_error">Use 1–24 characters and a unique name.</string>
+    <string name="finance_category_save_error">Could not save category. Please retry.</string>
+    <string name="finance_previous_month">Previous month</string>
+    <string name="finance_next_month">Next month</string>
+    <string name="home_eyebrow">YOUR PERSONAL SPACE</string>
+    <string name="home_subtitle">A little more clarity, every day.</string>
+    <string name="home_memo_hint">Capture ideas</string>
+    <string name="home_schedule_hint">Make time</string>
+    <string name="home_finance_hint">Know your money</string>
+    <string name="home_health_hint">Find your balance</string>
+    <string name="home_ai_title">Turn words into actions</string>
+    <string name="home_ai_hint">Describe it. Review it. Make it happen.</string>
+</resources>

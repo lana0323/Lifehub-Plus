@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/financeSheetHost" android:layout_width="match_parent" android:layout_height="match_parent" android:fitsSystemWindows="true">
+  <View android:id="@+id/sheetScrim" android:layout_width="match_parent" android:layout_height="match_parent" android:importantForAccessibility="no" android:clickable="true" />
+  <LinearLayout android:id="@+id/financeSheet" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@drawable/bg_sheet_surface" app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" app:behavior_hideable="true" app:behavior_fitToContents="true" app:behavior_peekHeight="0dp">
+    <View android:id="@+id/sheetHandle" android:layout_width="40dp" android:layout_height="5dp" android:layout_gravity="center_horizontal" android:layout_marginTop="12dp" android:layout_marginBottom="8dp" android:background="@drawable/bg_sheet_handle" android:importantForAccessibility="no" />
+    <LinearLayout android:id="@+id/top_bar" android:layout_width="match_parent" android:layout_height="64dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="8dp" android:background="@android:color/transparent">
+      <ImageButton android:id="@+id/btn_back" android:layout_width="48dp" android:layout_height="48dp" android:background="?attr/selectableItemBackgroundBorderless" android:contentDescription="@string/ui_close" android:padding="8dp" android:src="@drawable/ic_lh_down" />
+      <TextView android:id="@+id/tv_title_bar" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/finance_add_record_title" android:textSize="22sp" android:textStyle="bold" android:paddingStart="8dp" android:paddingEnd="16dp" android:textColor="@color/text_primary" />
+    </LinearLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_sheet_hint" android:paddingHorizontal="24dp" android:paddingBottom="8dp" android:textColor="@color/text_secondary" android:textSize="12sp" />
+    <androidx.core.widget.NestedScrollView android:id="@+id/sheetScroll" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <LinearLayout android:id="@+id/content_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+          <TextView android:id="@+id/tv_amount_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/finance_amount_label" android:textSize="14sp" />
+          <EditText android:id="@+id/etAmount" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal" android:hint="@string/finance_amount_hint" android:padding="16dp" style="@style/Widget.LifeHub.Input" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" android:layout_marginTop="8dp" />
+          <TextView android:id="@+id/tv_type_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/finance_type_label" android:textSize="14sp" />
+          <RadioGroup android:id="@+id/rgType" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+            <RadioButton android:id="@+id/rbExpense" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/finance_type_expense" android:checked="true" />
+            <RadioButton android:id="@+id/rbIncome" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/finance_type_income" android:layout_marginStart="16dp" />
+          </RadioGroup>
+          <TextView android:id="@+id/tv_category_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/finance_category_label" android:textSize="14sp" />
+          <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="6dp">
+            <com.lifeHub.ui.LifeHubSpinner android:id="@+id/spCategory" android:layout_width="0dp" android:layout_height="wrap_content" style="@style/Widget.LifeHub.Spinner" android:minHeight="52dp" android:layout_marginTop="0dp" android:layout_weight="1" />
+            <com.google.android.material.button.MaterialButton style="@style/Widget.LifeHub.Button.Secondary" android:id="@+id/addCategory" android:layout_width="52dp" android:layout_height="52dp" android:text="+" android:textAllCaps="false" android:layout_marginStart="8dp" android:textSize="26sp" android:padding="0dp" android:minWidth="0dp" android:contentDescription="@string/finance_add_category" />
+          </LinearLayout>
+          <TextView android:id="@+id/tv_account_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/finance_account_label" android:textSize="14sp" />
+          <com.lifeHub.ui.LifeHubSpinner android:id="@+id/spAccountType" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/Widget.LifeHub.Spinner" android:minHeight="52dp" android:layout_marginTop="6dp" />
+          <TextView android:id="@+id/tv_date_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/finance_date_label" android:textSize="14sp" />
+          <TextView android:id="@+id/tvDate" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:background="@drawable/bg_input_surface" android:clickable="true" android:focusable="true" android:text="@string/finance_date_placeholder" android:minHeight="52dp" android:gravity="center_vertical" />
+          <TextView android:id="@+id/tv_note_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/finance_note_label" android:textSize="14sp" />
+          <EditText android:id="@+id/etNote" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/finance_note_hint" android:minHeight="56dp" android:gravity="top" android:padding="16dp" style="@style/Widget.LifeHub.Input" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:textSize="16sp" android:layout_marginTop="8dp" android:inputType="textMultiLine|textCapSentences" />
+          <Button android:id="@+id/btnSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/save" android:layout_marginTop="24dp" style="@style/Widget.LifeHub.Button" android:textAllCaps="false" />
+        </LinearLayout>
+      </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+  </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_task_heading" android:drawableEnd="@drawable/ic_lh_spark" android:textSize="28sp" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_simple_intro" android:layout_marginTop="12dp" />
+        <EditText android:id="@+id/etMessage" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/ai_task_example" android:inputType="textMultiLine" android:minLines="3" android:background="@drawable/bg_input_surface" android:padding="16dp" android:gravity="top" android:maxLength="2000" android:layout_marginTop="16dp" style="@style/Widget.LifeHub.Input" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_module_label" android:labelFor="@id/moduleChoice" android:layout_marginTop="12dp" />
+        <com.lifeHub.ui.LifeHubSpinner android:id="@+id/moduleChoice" android:layout_width="match_parent" android:layout_height="48dp" android:entries="@array/ai_modules" android:spinnerMode="dialog" android:prompt="@string/ai_module_hint" style="@style/Widget.LifeHub.Spinner" android:minHeight="52dp" android:layout_marginTop="6dp" />
+        <Button android:id="@+id/btnGenerate" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_generate" style="@style/Widget.LifeHub.Button" android:textAllCaps="false" />
+        <Button style="@style/Widget.LifeHub.Button.Secondary" android:id="@+id/btnManual" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_manual" android:textAllCaps="false" />
+        <Button android:id="@+id/btnCancelGeneration" style="@style/Widget.LifeHub.Button.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_cancel_generation" android:visibility="gone" />
+        <ProgressBar android:id="@+id/progress" android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:visibility="gone" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+        <TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content" android:accessibilityLiveRegion="polite" android:paddingTop="8dp" android:paddingBottom="12dp" />
+        <Button android:id="@+id/btnOpenTask" style="@style/Widget.LifeHub.Button.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_open_task" android:visibility="gone" android:textAllCaps="false" />
+        <Button android:id="@+id/btnOpenSchedule" style="@style/Widget.LifeHub.Button.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_open_schedule" android:visibility="gone" android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

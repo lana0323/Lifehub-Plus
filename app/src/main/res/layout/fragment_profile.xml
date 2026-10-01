@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background">
+    <LinearLayout android:orientation="vertical" android:padding="24dp" android:gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center_horizontal" android:padding="24dp" android:background="@drawable/bg_surface">
+            <com.google.android.material.imageview.ShapeableImageView android:id="@+id/img_avatar" android:layout_width="96dp" android:layout_height="96dp" android:src="@drawable/ic_profile_placeholder" android:contentDescription="@string/profile_avatar" android:clickable="true" android:focusable="true" android:layout_marginTop="8dp" app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircularImage" app:strokeWidth="2dp" app:strokeColor="@color/brand_teal_light" android:padding="8dp" android:background="@drawable/bg_surface" />
+            <TextView android:id="@+id/tv_username" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/profile_username_placeholder" android:textSize="18sp" android:textStyle="bold" android:layout_marginTop="16dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_profile_photo" android:gravity="center" android:textSize="13sp" android:textColor="@color/text_secondary" android:layout_marginTop="12dp" />
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_profile_hint" android:gravity="center" android:textColor="@color/text_secondary" android:layout_marginTop="20dp" />
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="24dp" android:layout_marginBottom="16dp" android:background="@color/brand_teal_light" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <Button android:id="@+id/btnLanguage" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_language" style="@style/Widget.LifeHub.Button.Secondary" android:layout_marginBottom="12dp" />
+            <Button android:id="@+id/btn_logout" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/profile_btn_logout" style="@style/Widget.LifeHub.Button.Danger" android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

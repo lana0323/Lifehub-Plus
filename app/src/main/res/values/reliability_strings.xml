@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="record_saved">Saved successfully</string>
+  <string name="saved_existing">This draft was already saved. Opening the existing record; new edits were not applied.</string>
+  <string name="amount_required">Please enter an amount</string>
+  <string name="amount_invalid">Invalid amount format</string>
+  <string name="amount_positive">Amount must be greater than 0</string>
+  <string name="record_save_failed">Could not save. Please retry.</string>
+  <string name="avatar_updated">Avatar updated</string>
+  <string name="login_first">Please log in first</string>
+  <string name="avatar_login">Please log in to change your avatar</string>
+  <string name="record_delete_title">Delete this record?</string>
+  <string name="record_delete_detail">Amount: %1$s CNY\nCategory: %2$s</string>
+  <string name="event_delete_title">Delete this event?</string>
+  <string name="event_delete_confirm">Are you sure you want to delete this event?</string>
+  <string name="no_note">No note</string>
+  <string name="account_display">Account: %1$s</string>
+  <string name="usage_permission_missing">Usage access permission is required</string>
+  <string name="chart_max">Max %1$s CNY</string>
+  <string name="usage_duration">%1$dh %2$dm %3$ds</string>
+  <string name="finance_value_0">Salary</string>
+  <string name="finance_value_1">Scholarship</string>
+  <string name="finance_value_2">Part-time Job</string>
+  <string name="finance_value_3">Gift</string>
+  <string name="finance_value_4">Others</string>
+  <string name="finance_value_5">Food &amp; Drinks</string>
+  <string name="finance_value_6">Transport</string>
+  <string name="finance_value_7">Shopping</string>
+  <string name="finance_value_8">Entertainment</string>
+  <string name="finance_value_9">Bills</string>
+  <string name="finance_value_10">Cash</string>
+  <string name="finance_value_11">Bank Card</string>
+  <string name="finance_value_12">Credit Card</string>
+  <string name="finance_value_13">Alipay</string>
+  <string name="finance_value_14">WeChat</string>
+  <string name="ai_analysis_title">AI analysis</string>
+    <string name="avatar_load_failed">Cannot load this photo. Please choose it again (up to 20 MB).</string>
+    <string name="amount_precision">Enter 0.01–999,999,999.99, using at most two decimal places.</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="priority_array">
+        <item>Normal</item>
+        <item>Important</item>
+        <item>Urgent</item>
+    </string-array>
+    
+    <string-array name="sort_options">
+        <item>Sort by updated time</item>
+        <item>Sort by created time</item>
+        <item>Sort by title</item>
+    </string-array>
+</resources>
+

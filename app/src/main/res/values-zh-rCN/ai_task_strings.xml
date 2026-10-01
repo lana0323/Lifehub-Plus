@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="ai_currency_unsupported">当前账单以人民币记录，暂不支持外币账单。</string>
+  <string name="ai_health_today_only">Health 当前展示今天的手机使用情况，请查询今天或直接打开 Health。</string>
+  <string name="ai_close_draft">关闭草稿</string>
+  <string name="ai_unsaved_title">退出未保存的草稿？</string>
+  <string name="ai_unsaved_message">草稿内容尚未保存。是否退出并放弃本次草稿？原始输入会保留。</string>
+  <string name="ai_exit_draft">放弃并退出</string>
+  <string name="ai_module_hint">选择联动模块</string>
+  <string name="ai_review_form">AI 草稿 · 请核对后保存</string>
+  <string name="ai_choose_date">请选择日期</string>
+  <string name="ai_complete_fields">请选择日期、收支类型、分类和账户。</string>
+  <string name="ai_select">请选择</string>
+  <string name="ai_simple_intro">描述备忘录、账单或日程，也可以查询手机使用时长。</string>
+  <string name="ai_open_schedule">在日程中查看</string>
+  <string name="ai_task_due_label">任务截止</string>
+  <string name="ai_destination_hint">尚未保存。有截止日期的任务会显示在对应日期的日程中；无日期任务保留在任务列表。</string>
+  <string name="ai_success_dated">已创建：%1$s\n已加入任务列表，并显示在 %2$s 的日程中。</string>
+  <string name="ai_success_undated">已创建：%1$s\n已加入任务列表；设置截止日期后可在日程中查看。</string>
+  <string name="ai_saved_short">任务创建成功</string>
+  <string name="ai_manual">手动填写</string>
+  <string name="ai_manual_review">请填写下面的任务信息。确认前不会保存到任务列表。</string>
+  <string name="ai_rewrite">修改原始描述并重新生成</string>
+  <string name="ai_confirmation_title">确认添加这项任务？</string>
+  <string name="ai_confirmation_summary">标题：%1$s\n备注：%2$s\n截止日期：%3$s\n优先级：%4$s\n时区：%5$s\n\n目前尚未保存，请核对后确认。</string>
+  <string name="ai_back_to_edit">返回修改</string>
+  <string name="ai_none">无</string>
+  <string name="ai_no_deadline">不设截止日期</string>
+  <string name="ai_saved_verified">任务 #%1$d 已保存，已读回核对内容。可打开已保存任务查看或继续修改。</string>
+  <string name="ai_existing_task">这份草稿已保存，但现有内容与本次不同。下方已显示已有任务，请打开查看或修改；没有重复创建。</string>
+  <string name="usage_permission_help">尚未允许查看使用情况。点击更新可打开权限设置。</string>
+  <string name="profile_save_failed">无法保存本地账号，请重试。</string>
+  <string name="ai_task_heading">AI 助手</string>
+  <string name="ai_task_intro">描述一件要做的事，检查并修改草稿后再创建。只向 AI 服务发送本次输入和时区。</string>
+  <string name="ai_task_example">记下读书灵感；午餐花了28元；明天下午开会；查看今天手机使用时长。</string>
+  <string name="ai_generate">生成</string>
+  <string name="ai_generating">正在整理任务草稿…</string>
+  <string name="ai_draft_heading">检查任务草稿</string>
+  <string name="ai_confirm">确认创建</string>
+  <string name="ai_open_task">查看已保存任务</string>
+  <string name="ai_start_over">开始新的草稿</string>
+  <string name="ai_date_hint">截止日期：YYYY-MM-DD（可留空）</string>
+  <string name="ai_timezone">时区：%1$s</string>
+  <string name="ai_date_source">原始日期描述：%1$s</string>
+  <string name="ai_date_review">截止日期需要确认，请补充日期或留空。本版只支持日期，不支持具体时刻。</string>
+  <string name="ai_no_date">未指定截止日期，可以留空。</string>
+  <string name="ai_choose_priority">请在创建前选择优先级。</string>
+  <string name="ai_review">尚未保存。AI 可能理解有误，请直接修改下方字段，核对后再确认创建。</string>
+  <string name="ai_split_tasks">一次只支持一项操作，请拆分输入。原文已保留。</string>
+  <string name="ai_clarify">请更具体地描述备忘录、账单、日程或使用时长查询。</string>
+  <string name="ai_unavailable">AI 服务尚未配置或暂时繁忙，输入已保留，请稍后重试。</string>
+  <string name="ai_retry_error">未能生成有效草稿，原文已保留。可修改描述后重试，或选择手动填写。</string>
+  <string name="ai_required">请填写标题并选择优先级。</string>
+  <string name="ai_invalid_date">请输入今天或之后的有效日期（YYYY-MM-DD），也可以留空。</string>
+  <string name="ai_saving">正在保存任务…</string>
+  <string name="ai_saved">任务已创建，可在原任务列表查看。</string>
+  <string name="ai_save_error">保存失败，草稿已保留，请再次确认重试。</string>
+  <string name="task_due_fmt">截止：%1$s</string>
+  <string-array name="ai_priority_options">
+    <item>请选择优先级</item>
+    <item>普通／低</item>
+    <item>重要／高</item>
+    <item>紧急</item>
+  </string-array>
+  <string-array name="ai_modules">
+    <item>自动识别</item>
+    <item>备忘录</item>
+    <item>记账</item>
+    <item>日程</item>
+    <item>手机使用时长</item>
+  </string-array>
+  <string name="ai_module_label">模块</string>
+  <string name="ai_manual_module">选择模块</string>
+  <string name="ai_detected_module">AI 已选择模块，识别有误可修改</string>
+  <string name="ai_review_selected">查看所选模块草稿</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="finance_overview">掌握每一笔收支</string>
+    <string name="finance_balance_short">净结余</string>
+    <string name="finance_spend_short">支出</string>
+    <string name="finance_income_short">收入</string>
+    <string name="finance_distribution">分类占比</string>
+    <string name="finance_trend">收支趋势</string>
+    <string name="finance_trend_hint">绿色：收入 · 珊瑚色：支出</string>
+    <string name="finance_activity">收支记录</string>
+    <string name="finance_empty">所选时间内暂无记录，添加账单，开始了解你的收支。</string>
+    <string name="finance_chart_empty">暂无数据</string>
+    <string name="finance_add_category">添加分类</string>
+    <string name="finance_category_name">分类名称</string>
+    <string name="finance_category_error">请输入 1–24 个字符，且名称不能重复。</string>
+    <string name="finance_category_save_error">分类保存失败，请重试。</string>
+    <string name="finance_previous_month">上个月</string>
+    <string name="finance_next_month">下个月</string>
+    <string name="home_eyebrow">你的个人生活空间</string>
+    <string name="home_subtitle">让每一天，更有条理。</string>
+    <string name="home_memo_hint">捕捉灵感</string>
+    <string name="home_schedule_hint">安排时间</string>
+    <string name="home_finance_hint">了解每笔收支</string>
+    <string name="home_health_hint">找回生活平衡</string>
+    <string name="home_ai_title">把想法变成行动</string>
+    <string name="home_ai_hint">描述需求，核对草稿，确认完成。</string>
+</resources>

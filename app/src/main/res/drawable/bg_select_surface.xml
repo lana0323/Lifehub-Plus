@@ -1,0 +1,1 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item android:drawable="@drawable/bg_input_surface"/><item android:drawable="@drawable/ic_lh_down" android:gravity="end|center_vertical" android:right="12dp" android:width="24dp" android:height="24dp"/></layer-list>

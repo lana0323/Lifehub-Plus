@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="record_saved">保存成功</string>
+  <string name="saved_existing">这份草稿已保存，将打开原记录，本次修改未重复写入。</string>
+  <string name="amount_required">请输入金额</string>
+  <string name="amount_invalid">金额格式不正确</string>
+  <string name="amount_positive">金额必须大于 0</string>
+  <string name="record_save_failed">保存失败，请重试。</string>
+  <string name="avatar_updated">头像已更新</string>
+  <string name="login_first">请先登录</string>
+  <string name="avatar_login">请先登录再修改头像</string>
+  <string name="record_delete_title">删除这条记录？</string>
+  <string name="record_delete_detail">金额：%1$s 元\n分类：%2$s</string>
+  <string name="event_delete_title">删除这条日程？</string>
+  <string name="event_delete_confirm">确定要删除这条日程吗？</string>
+  <string name="no_note">无备注</string>
+  <string name="account_display">账户：%1$s</string>
+  <string name="usage_permission_missing">需要开启使用情况访问权限</string>
+  <string name="chart_max">最高 %1$s 元</string>
+  <string name="usage_duration">%1$d小时 %2$d分 %3$d秒</string>
+  <string name="finance_value_0">工资</string>
+  <string name="finance_value_1">奖学金</string>
+  <string name="finance_value_2">兼职</string>
+  <string name="finance_value_3">礼金</string>
+  <string name="finance_value_4">其他</string>
+  <string name="finance_value_5">餐饮</string>
+  <string name="finance_value_6">交通</string>
+  <string name="finance_value_7">购物</string>
+  <string name="finance_value_8">娱乐</string>
+  <string name="finance_value_9">账单</string>
+  <string name="finance_value_10">现金</string>
+  <string name="finance_value_11">银行卡</string>
+  <string name="finance_value_12">信用卡</string>
+  <string name="finance_value_13">支付宝</string>
+  <string name="finance_value_14">微信</string>
+  <string name="ai_analysis_title">AI 分析</string>
+    <string name="avatar_load_failed">无法读取这张照片，请重新选择（最大 20 MB）。</string>
+    <string name="amount_precision">请输入 0.01–999,999,999.99 之间的金额，最多两位小数。</string>
+</resources>

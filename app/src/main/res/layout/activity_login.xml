@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp" android:background="@drawable/bg_finance_hero" android:layout_marginBottom="24dp">
+            <ImageView android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/ic_lh_spark" android:tint="@color/finance_mint" android:contentDescription="@string/app_name" android:id="@+id/img_logo" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_auth_title" android:textSize="28sp" android:textStyle="bold" android:textColor="@color/white" android:layout_marginTop="20dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_auth_hint" android:textSize="14sp" android:textColor="@color/finance_mint" android:layout_marginTop="12dp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp" android:background="@drawable/bg_surface">
+            <EditText android:id="@+id/et_username" android:hint="@string/user_name" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" android:layout_marginTop="12dp" android:singleLine="true" android:inputType="textPersonName" />
+            <EditText android:id="@+id/et_password" android:hint="@string/password" android:inputType="textPassword" android:layout_marginTop="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" android:singleLine="true" />
+            <Button android:id="@+id/btn_login" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/login" style="@style/Widget.LifeHub.Button" android:textAllCaps="false" />
+            <Button android:id="@+id/btn_go_register" android:text="@string/register" android:layout_marginTop="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/Widget.LifeHub.Button.Secondary" android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

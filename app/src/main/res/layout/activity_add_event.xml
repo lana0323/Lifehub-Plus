@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:id="@+id/top_bar" android:layout_width="match_parent" android:layout_height="64dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="8dp" android:background="@android:color/transparent">
+            <ImageButton android:id="@+id/btn_back" android:layout_width="48dp" android:layout_height="48dp" android:background="?attr/selectableItemBackgroundBorderless" android:contentDescription="@string/back" android:padding="8dp" android:src="@drawable/ic_lh_chevron_left" />
+            <TextView android:id="@+id/tv_title_bar" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/add_schedule" android:textSize="22sp" android:textStyle="bold" android:paddingStart="8dp" android:textColor="@color/text_primary" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/content_layout" android:orientation="vertical" android:padding="24dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:id="@+id/tv_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_date" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tv_date_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/date_format" android:layout_marginTop="4dp" android:textSize="16sp" android:background="@drawable/bg_input_surface" android:padding="16dp" android:minHeight="52dp" android:gravity="center_vertical" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_time" android:textSize="16sp" android:layout_marginTop="16dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                <TextView android:id="@+id/tv_time_value" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/time_not_selected" android:textSize="16sp" android:background="@drawable/bg_input_surface" android:padding="16dp" android:minHeight="52dp" android:gravity="center_vertical" />
+                <Button android:id="@+id/btn_pick_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_pick_time" style="@style/Widget.LifeHub.Button.Secondary" android:textAllCaps="false" />
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_title_required" android:textSize="16sp" android:layout_marginTop="16dp" />
+            <EditText android:id="@+id/et_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/hint_title_example" android:inputType="textPersonName" android:layout_marginTop="4dp" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_notes" android:textSize="16sp" android:layout_marginTop="16dp" />
+            <EditText android:id="@+id/et_desc" android:layout_width="match_parent" android:layout_height="120dp" android:gravity="top" android:hint="@string/hint_notes_details" android:layout_marginTop="4dp" android:inputType="textMultiLine" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="end" android:orientation="vertical" android:layout_marginTop="24dp">
+                <Button android:id="@+id/btn_save" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/save" style="@style/Widget.LifeHub.Button" android:textAllCaps="false" android:layout_marginTop="8dp" />
+                <Button android:id="@+id/btn_cancel" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/cancel" style="@style/Widget.LifeHub.Button.Secondary" android:textAllCaps="false" android:layout_marginTop="8dp" />
+                <Button android:id="@+id/btn_delete" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/delete" style="@style/Widget.LifeHub.Button.Danger" android:textAllCaps="false" android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

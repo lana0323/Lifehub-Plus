@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/activity_health" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background" android:fillViewport="true">
+    <LinearLayout android:id="@+id/content_layout" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:id="@+id/top_bar" android:layout_width="match_parent" android:layout_height="64dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="8dp" android:background="@android:color/transparent">
+            <ImageButton android:id="@+id/health_activity_btn_back" android:layout_width="48dp" android:layout_height="48dp" android:background="?attr/selectableItemBackgroundBorderless" android:contentDescription="@string/back" android:padding="8dp" android:src="@drawable/ic_lh_chevron_left" />
+            <TextView android:id="@+id/health_activity_title" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/title_bar_chart" android:textSize="22sp" android:textStyle="bold" android:paddingStart="8dp" android:paddingEnd="16dp" android:textColor="@color/text_primary" />
+        </LinearLayout>
+        <TextView android:id="@+id/health_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="20dp" android:text="@string/usage_loading" android:textColor="@color/text_secondary" />
+        <Button android:id="@+id/health_refresh" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="20dp" android:layout_marginTop="12dp" android:text="@string/update_button" style="@style/Widget.LifeHub.Button.Secondary" />
+        <com.lifeHub.ui.LifeHubSpinner android:id="@+id/health_spinner" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:layout_gravity="center_horizontal" android:layout_marginTop="6dp" android:textAlignment="center" style="@style/Widget.LifeHub.Spinner" android:minHeight="52dp" android:layout_margin="20dp" />
+        <LinearLayout android:id="@+id/weekday_linearLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_margin="20dp" android:orientation="vertical" android:background="@drawable/bg_surface" android:padding="20dp">
+            <LinearLayout android:id="@+id/weekday0" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_name0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_time0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_progressBar0" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday1" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_name1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_time1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_progressBar1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday2" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_name2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_time2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_progressBar2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday3" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_name3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_time3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_progressBar3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday4" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_name4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_time4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_progressBar4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday5" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_name5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_time5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_progressBar5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday6" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_name6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/today" />
+                <TextView android:id="@+id/weekday_time6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_progressBar6" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+        </LinearLayout>
+        <TextView android:id="@+id/weekday_total_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="16dp" android:text="@string/weekly_app_usage" android:textAlignment="center" android:textSize="20sp" />
+        <LinearLayout android:id="@+id/weekday_total_linearLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_margin="20dp" android:orientation="vertical" android:background="@drawable/bg_surface" android:padding="20dp">
+            <LinearLayout android:id="@+id/weekday_total0" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_total_name0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_total_time0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_total_progressBar0" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday_total1" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_total_name1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_total_time1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_total_progressBar1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday_total2" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_total_name2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_total_time2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_total_progressBar2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday_total3" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_total_name3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_total_time3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_total_progressBar3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday_total4" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_total_name4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_total_time4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_total_progressBar4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday_total5" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_total_name5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="" />
+                <TextView android:id="@+id/weekday_total_time5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_total_progressBar5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+            <LinearLayout android:id="@+id/weekday_total6" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingTop="12dp" android:paddingBottom="8dp">
+                <TextView android:id="@+id/weekday_total_name6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/today" />
+                <TextView android:id="@+id/weekday_total_time6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/none" android:textAlignment="textEnd" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/weekday_total_progressBar6" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progressTint="@color/brand_teal_dark" android:progressBackgroundTint="@color/brand_teal_light" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

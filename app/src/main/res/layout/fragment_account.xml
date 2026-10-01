@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/rootFinance" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background">
+    <LinearLayout android:id="@+id/layoutContent" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="64dp" android:gravity="center_vertical" android:paddingHorizontal="12dp">
+            <ImageButton android:id="@+id/btn_back" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ic_lh_chevron_left" android:contentDescription="@string/back" android:background="?attr/selectableItemBackgroundBorderless" />
+            <TextView android:id="@+id/tv_finance_title" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:textSize="22sp" android:textStyle="bold" android:text="@string/title_account" />
+            <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_lh_wallet" android:importantForAccessibility="no" android:layout_marginEnd="12dp" />
+        </LinearLayout>
+        <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true" android:clipToPadding="false">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="20dp" android:paddingBottom="96dp" android:orientation="vertical">
+                <com.google.android.material.tabs.TabLayout android:id="@+id/periodMode" android:layout_width="match_parent" android:layout_height="48dp" app:tabTextColor="@color/text_secondary" app:tabSelectedTextColor="@color/brand_teal_dark" app:tabIndicatorColor="@color/brand_teal_dark" android:background="@android:color/transparent">
+                    <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/finance_month_view" />
+                    <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/finance_year_view" />
+                </com.google.android.material.tabs.TabLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginBottom="14dp">
+                    <ImageButton android:id="@+id/previousMonth" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ic_lh_chevron_left" android:contentDescription="@string/finance_previous_period" android:background="?attr/selectableItemBackgroundBorderless" />
+                    <TextView android:id="@+id/financeMonth" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:textSize="16sp" android:textStyle="bold" />
+                    <ImageButton android:id="@+id/nextMonth" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ic_lh_chevron_right" android:contentDescription="@string/finance_next_period" android:background="?attr/selectableItemBackgroundBorderless" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/cardSummary" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_finance_hero" android:padding="24dp" android:orientation="vertical">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/finance_overview" android:textColor="@color/finance_mint" android:textSize="10sp" android:letterSpacing="0.12" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/finance_balance_short" android:textColor="@color/finance_mint" android:layout_marginTop="20dp" />
+                    <TextView android:id="@+id/tvBalance" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="32sp" android:textStyle="bold" android:textColor="@color/white" android:layout_marginTop="4dp" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="22dp">
+                        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
+                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/finance_income_short" android:textColor="@color/finance_mint" android:textSize="12sp" />
+                            <TextView android:id="@+id/tvTotalIncome" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/white" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
+                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/finance_spend_short" android:textColor="@color/finance_mint" android:textSize="12sp" />
+                            <TextView android:id="@+id/tvTotalAmount" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/white" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <com.google.android.material.tabs.TabLayout android:id="@+id/tabType" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="20dp" android:background="@android:color/transparent" app:tabIndicatorColor="@color/brand_teal_dark" app:tabSelectedTextColor="@color/brand_teal_dark">
+                    <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/finance_tab_expenses" />
+                    <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/finance_tab_income" />
+                </com.google.android.material.tabs.TabLayout>
+                <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" app:cardCornerRadius="22dp" app:cardElevation="0dp" app:strokeWidth="0dp" app:cardBackgroundColor="@color/card_background">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="20dp" android:orientation="vertical">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/finance_distribution" android:textSize="18sp" android:textStyle="bold" />
+                        <com.lifeHub.finance.ui.FinanceChartView android:id="@+id/categoryChart" android:layout_width="match_parent" android:layout_height="200dp" />
+                        <TextView android:id="@+id/tvCategorySummary" android:layout_width="match_parent" android:layout_height="wrap_content" android:lineSpacingExtra="6dp" android:textSize="13sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" app:cardCornerRadius="22dp" app:cardElevation="0dp" app:strokeWidth="0dp" app:cardBackgroundColor="@color/card_background">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="20dp" android:orientation="vertical">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/finance_trend" android:textSize="18sp" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/trendHint" android:text="@string/finance_trend_hint" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginTop="6dp" />
+                        <com.lifeHub.finance.ui.FinanceChartView android:id="@+id/trendChart" android:layout_width="match_parent" android:layout_height="160dp" android:layout_marginTop="20dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/finance_activity" android:textSize="18sp" android:textStyle="bold" android:layout_marginTop="24dp" android:layout_marginBottom="12dp" />
+                <TextView android:id="@+id/financeEmpty" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/finance_empty" android:textColor="@color/text_secondary" android:padding="16dp" />
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerExpenses" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/fabAddExpense" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|end" android:layout_margin="22dp" android:contentDescription="@string/finance_add_expense_desc" app:srcCompat="@drawable/ic_lh_plus" app:tint="@color/white" app:backgroundTint="@color/brand_teal_dark" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,703 @@
+[
+  {
+    "id": "memo-01",
+    "text": "明天完成机器学习作业，优先级高",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "机器学习",
+          "作业"
+        ]
+      },
+      "date": "2026-10-01",
+      "priority": "important"
+    }
+  },
+  {
+    "id": "memo-02",
+    "text": "Finish homework tomorrow, high priority",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "homework"
+        ]
+      },
+      "date": "2026-10-01",
+      "priority": "important"
+    }
+  },
+  {
+    "id": "memo-03",
+    "text": "今天复习笔记",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "笔记",
+          "复习"
+        ]
+      },
+      "date": "2026-09-30",
+      "priority": null
+    }
+  },
+  {
+    "id": "memo-04",
+    "text": "Review notes today",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "notes"
+        ]
+      },
+      "date": "2026-09-30",
+      "priority": null
+    }
+  },
+  {
+    "id": "memo-05",
+    "text": "下周五前完成报告",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "报告"
+        ]
+      },
+      "date": "2026-10-09",
+      "priority": null
+    }
+  },
+  {
+    "id": "memo-06",
+    "text": "Finish the report by next Friday",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "report"
+        ]
+      },
+      "date": "2026-10-09",
+      "priority": null
+    }
+  },
+  {
+    "id": "memo-07",
+    "text": "找时间整理书架",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "书架"
+        ]
+      },
+      "date": null,
+      "priority": null
+    }
+  },
+  {
+    "id": "memo-08",
+    "text": "Organize the bookshelf sometime",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "bookshelf"
+        ]
+      },
+      "date": null,
+      "priority": null
+    }
+  },
+  {
+    "id": "memo-09",
+    "text": "明天交作业，非常紧急",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "作业"
+        ]
+      },
+      "date": "2026-10-01",
+      "priority": "urgent"
+    }
+  },
+  {
+    "id": "memo-10",
+    "text": "Read chapter 2 tomorrow, normal priority",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "chapter"
+        ]
+      },
+      "date": "2026-10-01",
+      "priority": "normal"
+    }
+  },
+  {
+    "id": "finance-01",
+    "text": "今天午餐花了28元，用支付宝支付",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "午餐",
+          "餐"
+        ]
+      },
+      "amount": "28",
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": "Alipay",
+      "date": "2026-09-30"
+    }
+  },
+  {
+    "id": "finance-02",
+    "text": "Coffee cost 12.50 today, paid in cash",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "coffee"
+        ]
+      },
+      "amount": "12.50",
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": "Cash",
+      "date": "2026-09-30"
+    }
+  },
+  {
+    "id": "finance-03",
+    "text": "昨天坐公交花了2元，微信支付",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "公交"
+        ]
+      },
+      "amount": "2",
+      "kind": "expense",
+      "category": "Transport",
+      "account": "WeChat",
+      "date": "2026-09-29"
+    }
+  },
+  {
+    "id": "finance-04",
+    "text": "Received salary 5000 today into my bank card",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "salary"
+        ]
+      },
+      "amount": "5000",
+      "kind": "income",
+      "category": "Salary",
+      "account": "Bank Card",
+      "date": "2026-09-30"
+    }
+  },
+  {
+    "id": "finance-05",
+    "text": "今天收到奖学金1000元",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "奖学金"
+        ]
+      },
+      "amount": "1000",
+      "kind": "income",
+      "category": "Scholarship",
+      "account": null,
+      "date": "2026-09-30"
+    }
+  },
+  {
+    "id": "finance-06",
+    "text": "Lunch cost 20 today",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "lunch"
+        ]
+      },
+      "amount": "20",
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": null,
+      "date": "2026-09-30"
+    }
+  },
+  {
+    "id": "finance-07",
+    "text": "今天买咖啡，用现金支付",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "咖啡"
+        ]
+      },
+      "amount": null,
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": "Cash",
+      "date": "2026-09-30"
+    }
+  },
+  {
+    "id": "finance-08",
+    "text": "Paid 80 for shopping by credit card",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "shopping"
+        ]
+      },
+      "amount": "80",
+      "kind": "expense",
+      "category": "Shopping",
+      "account": "Credit Card",
+      "date": null
+    }
+  },
+  {
+    "id": "finance-09",
+    "text": "今天买咖啡花了12.345元",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "咖啡"
+        ]
+      },
+      "amount": null,
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": null,
+      "date": "2026-09-30"
+    }
+  },
+  {
+    "id": "finance-10",
+    "text": "Coffee cost 10 TODAY",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-09-30T01:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "coffee"
+        ]
+      },
+      "amount": "10",
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": null,
+      "date": "2026-09-29"
+    }
+  },
+  {
+    "id": "schedule-01",
+    "text": "明天下午3点开组会",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "组会"
+        ]
+      },
+      "date": "2026-10-01",
+      "time": "15:00"
+    }
+  },
+  {
+    "id": "schedule-02",
+    "text": "Team meeting tomorrow at 15:00",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "meeting"
+        ]
+      },
+      "date": "2026-10-01",
+      "time": "15:00"
+    }
+  },
+  {
+    "id": "schedule-03",
+    "text": "今天上午9点开会",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "会"
+        ]
+      },
+      "date": "2026-09-30",
+      "time": "09:00"
+    }
+  },
+  {
+    "id": "schedule-04",
+    "text": "Dentist appointment tomorrow at 9am",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "dentist"
+        ]
+      },
+      "date": "2026-10-01",
+      "time": "09:00"
+    }
+  },
+  {
+    "id": "schedule-05",
+    "text": "下周五下午2点开会",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "会"
+        ]
+      },
+      "date": "2026-10-09",
+      "time": "14:00"
+    }
+  },
+  {
+    "id": "schedule-06",
+    "text": "Meeting next Friday at 2pm",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "meeting"
+        ]
+      },
+      "date": "2026-10-09",
+      "time": "14:00"
+    }
+  },
+  {
+    "id": "schedule-07",
+    "text": "明天开组会",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "组会"
+        ]
+      },
+      "date": "2026-10-01",
+      "time": null
+    }
+  },
+  {
+    "id": "schedule-08",
+    "text": "Schedule a team meeting",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "meeting"
+        ]
+      },
+      "date": null,
+      "time": null
+    }
+  },
+  {
+    "id": "schedule-09",
+    "text": "明天下午3点半开会",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "会"
+        ]
+      },
+      "date": "2026-10-01",
+      "time": "15:30"
+    }
+  },
+  {
+    "id": "schedule-10",
+    "text": "Meeting tomorrow at 12:30 am",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "meeting"
+        ]
+      },
+      "date": "2026-10-01",
+      "time": "00:30"
+    }
+  },
+  {
+    "id": "health-01",
+    "text": "查看今天的手机使用时长",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health",
+      "amount": null,
+      "time": null,
+      "account": null
+    }
+  },
+  {
+    "id": "health-02",
+    "text": "Show my screen time today",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health",
+      "amount": null,
+      "time": null,
+      "account": null
+    }
+  },
+  {
+    "id": "health-03",
+    "text": "打开手机使用统计",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health",
+      "amount": null,
+      "time": null,
+      "account": null
+    }
+  },
+  {
+    "id": "health-04",
+    "text": "Open Health to see app usage",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health",
+      "amount": null,
+      "time": null,
+      "account": null
+    }
+  },
+  {
+    "id": "health-05",
+    "text": "查询今天各个app使用情况",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health",
+      "amount": null,
+      "time": null,
+      "account": null
+    }
+  },
+  {
+    "id": "health-06",
+    "text": "Show screen time",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health",
+      "amount": null,
+      "time": null,
+      "account": null
+    }
+  },
+  {
+    "id": "clarify-01",
+    "text": "Hello",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "expected": {
+      "status": "clarification",
+      "module": null,
+      "reason": "unclear"
+    }
+  },
+  {
+    "id": "clarify-02",
+    "text": "Coffee cost $12 today",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "expected": {
+      "status": "clarification",
+      "module": null,
+      "reason": "unsupported_currency"
+    }
+  },
+  {
+    "id": "clarify-03",
+    "text": "Show yesterday screen time",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "expected": {
+      "status": "clarification",
+      "module": null,
+      "reason": "health_today_only"
+    }
+  },
+  {
+    "id": "clarify-04",
+    "text": "记账午餐20元，再安排明天3点的会议",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-09-30T12:00:00+00:00",
+    "expected": {
+      "status": "clarification",
+      "module": null,
+      "reason": "multiple_tasks"
+    }
+  }
+]

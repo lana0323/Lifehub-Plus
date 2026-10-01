@@ -1,0 +1,613 @@
+{
+  "provider": "ollama",
+  "model": "qwen3:4b",
+  "cases": 20,
+  "fieldAccuracy": {
+    "status": 1.0,
+    "title": 1.0,
+    "dueDate": 1.0,
+    "priority": 1.0,
+    "notes": 1.0
+  },
+  "wholeTaskAccuracy": 1.0,
+  "errors": 0,
+  "latencyP50Ms": 453,
+  "latencyP95Ms": 578,
+  "inputTokens": 9955,
+  "outputTokens": 808,
+  "estimatedCostUsd": 0,
+  "results": [
+    {
+      "case": 1,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "5e6aaccd-586e-4037-afb7-35d5c3239bde",
+          "title": "完成机器学习作业",
+          "notes": "",
+          "dueDate": "2026-10-09",
+          "timezone": "Asia/Shanghai",
+          "priority": "important",
+          "dateText": "下周五前",
+          "warnings": []
+        },
+        "metrics": {
+          "latencyMs": 797,
+          "inputTokens": 503,
+          "outputTokens": 43
+        }
+      }
+    },
+    {
+      "case": 2,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "e20f6c00-2154-4df1-85ca-24c1f155a948",
+          "title": "买牛奶",
+          "notes": "",
+          "dueDate": "2026-09-30",
+          "timezone": "Asia/Shanghai",
+          "priority": "normal",
+          "dateText": "明天",
+          "warnings": []
+        },
+        "metrics": {
+          "latencyMs": 453,
+          "inputTokens": 498,
+          "outputTokens": 39
+        }
+      }
+    },
+    {
+      "case": 3,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "e61e1fae-641c-45e8-a1ba-311d644ee6f7",
+          "title": "复习",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "最近",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 422,
+          "inputTokens": 495,
+          "outputTokens": 37
+        }
+      }
+    },
+    {
+      "case": 4,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "19124ffd-286f-4473-83cd-2ac0f8850207",
+          "title": "Finish the report",
+          "notes": "",
+          "dueDate": "2026-10-09",
+          "timezone": "America/Los_Angeles",
+          "priority": "important",
+          "dateText": "next Friday",
+          "warnings": []
+        },
+        "metrics": {
+          "latencyMs": 438,
+          "inputTokens": 501,
+          "outputTokens": 41
+        }
+      }
+    },
+    {
+      "case": 5,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "16241874-7473-4e7c-80b5-35e2034c2ac4",
+          "title": "Buy milk",
+          "notes": "",
+          "dueDate": "2026-09-30",
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": "tomorrow",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 437,
+          "inputTokens": 494,
+          "outputTokens": 39
+        }
+      }
+    },
+    {
+      "case": 6,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "3e694776-600e-4e68-a22d-915a6cea86a8",
+          "title": "Buy milk",
+          "notes": "",
+          "dueDate": "2026-10-01",
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "tomorrow",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 453,
+          "inputTokens": 494,
+          "outputTokens": 39
+        }
+      }
+    },
+    {
+      "case": 7,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "b19089cb-e04a-421e-ab1f-3508ce708f07",
+          "title": "send the invoice",
+          "notes": "",
+          "dueDate": "2026-09-29",
+          "timezone": "UTC",
+          "priority": "urgent",
+          "dateText": "today",
+          "warnings": []
+        },
+        "metrics": {
+          "latencyMs": 469,
+          "inputTokens": 499,
+          "outputTokens": 40
+        }
+      }
+    },
+    {
+      "case": 8,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "8cc5107d-3b03-4bbd-a6ed-88bd2565607b",
+          "title": "Read chapter 3",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "UTC",
+          "priority": null,
+          "dateText": null,
+          "warnings": [
+            "date_missing",
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 469,
+          "inputTokens": 495,
+          "outputTokens": 40
+        }
+      }
+    },
+    {
+      "case": 9,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "1c8bb6fb-965d-4f36-8abb-ddce0038cd62",
+          "title": "交报告",
+          "notes": "",
+          "dueDate": "2026-10-02",
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "2026-10-02",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 531,
+          "inputTokens": 503,
+          "outputTokens": 47
+        }
+      }
+    },
+    {
+      "case": 10,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "9a32e72c-f0dc-4e71-8d09-e976142931e0",
+          "title": "交报告",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "UTC",
+          "priority": null,
+          "dateText": "2026-02-30",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 485,
+          "inputTokens": 503,
+          "outputTokens": 47
+        }
+      }
+    },
+    {
+      "case": 11,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "322bde56-2370-4c06-a90f-1bcc79ddbba7",
+          "title": "提交作业",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "昨天",
+          "warnings": [
+            "past_date",
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 406,
+          "inputTokens": 494,
+          "outputTokens": 38
+        }
+      }
+    },
+    {
+      "case": 12,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "23860c57-cdda-40aa-b8ce-99701b671ed1",
+          "title": "复习",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "明天晚上8点",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 453,
+          "inputTokens": 496,
+          "outputTokens": 40
+        }
+      }
+    },
+    {
+      "case": 13,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "a97b90b4-0408-4b3c-b539-8c930f0cfc22",
+          "title": "买书",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "UTC",
+          "priority": null,
+          "dateText": "明天或后天",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 453,
+          "inputTokens": 497,
+          "outputTokens": 41
+        }
+      }
+    },
+    {
+      "case": 14,
+      "fields": {
+        "status": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "clarification",
+        "reason": "multiple_tasks",
+        "draft": null,
+        "metrics": {
+          "latencyMs": 453,
+          "inputTokens": 499,
+          "outputTokens": 38
+        }
+      }
+    },
+    {
+      "case": 15,
+      "fields": {
+        "status": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "clarification",
+        "reason": "multiple_tasks",
+        "draft": null,
+        "metrics": {
+          "latencyMs": 438,
+          "inputTokens": 500,
+          "outputTokens": 39
+        }
+      }
+    },
+    {
+      "case": 16,
+      "fields": {
+        "status": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "clarification",
+        "reason": "unclear",
+        "draft": null,
+        "metrics": {
+          "latencyMs": 406,
+          "inputTokens": 492,
+          "outputTokens": 35
+        }
+      }
+    },
+    {
+      "case": 17,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "12422801-71ac-44f8-8b58-706c0974dc1e",
+          "title": "submit the application",
+          "notes": "",
+          "dueDate": "2027-01-02",
+          "timezone": "UTC",
+          "priority": "normal",
+          "dateText": "in 3 days",
+          "warnings": []
+        },
+        "metrics": {
+          "latencyMs": 484,
+          "inputTokens": 501,
+          "outputTokens": 43
+        }
+      }
+    },
+    {
+      "case": 18,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "93fdd5a3-9aee-446a-a6e3-39e83e92017e",
+          "title": "完成总结",
+          "notes": "",
+          "dueDate": "2028-02-29",
+          "timezone": "UTC",
+          "priority": null,
+          "dateText": "明天",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 578,
+          "inputTokens": 494,
+          "outputTokens": 38
+        }
+      }
+    },
+    {
+      "case": 19,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "6faf1411-257f-48c2-9199-e558430529f9",
+          "title": "Review notes",
+          "notes": "",
+          "dueDate": "2026-03-09",
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": "tomorrow",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 485,
+          "inputTokens": 494,
+          "outputTokens": 39
+        }
+      }
+    },
+    {
+      "case": 20,
+      "fields": {
+        "status": true,
+        "title": true,
+        "dueDate": true,
+        "priority": true,
+        "notes": true
+      },
+      "correct": true,
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "3cd5ec45-458f-4610-a664-3a6221c2b3d6",
+          "title": "完成报告",
+          "notes": "需要包含实验结果",
+          "dueDate": "2026-10-02",
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "本周五前",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "metrics": {
+          "latencyMs": 500,
+          "inputTokens": 503,
+          "outputTokens": 45
+        }
+      }
+    }
+  ]
+}

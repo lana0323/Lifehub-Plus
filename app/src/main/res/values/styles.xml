@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style
+        name="ShapeAppearanceOverlay.App.CircularImage"
+        parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="LifeHubButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@color/brand_teal</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">12dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="Widget.LifeHub.BottomNav.ActiveIndicator" parent="">
+        <item name="android:color">@color/brand_teal_light</item>
+    </style>
+
+</resources>

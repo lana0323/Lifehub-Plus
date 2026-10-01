@@ -1,0 +1,34 @@
+[
+  {
+    "text": "明天完成机器学习作业，优先级高",
+    "expectedModule": "memo"
+  },
+  {
+    "text": "今天午餐花了28元，用支付宝支付",
+    "expectedModule": "finance"
+  },
+  {
+    "text": "明天下午3点开组会",
+    "expectedModule": "schedule"
+  },
+  {
+    "text": "查看今天手机使用时长",
+    "expectedModule": "health"
+  },
+  {
+    "text": "Record coffee expense 12.50 today, paid in cash",
+    "expectedModule": "finance"
+  },
+  {
+    "text": "Team meeting tomorrow at 15:00",
+    "expectedModule": "schedule"
+  },
+  {
+    "text": "Show my screen time",
+    "expectedModule": "health"
+  },
+  {
+    "text": "Review notes tomorrow, high priority",
+    "expectedModule": "memo"
+  }
+]

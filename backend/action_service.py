@@ -1,0 +1,118 @@
+"""One local-model request routes to a reviewable module action, never a DB write."""
+import re
+import uuid
+from decimal import Decimal
+from task_service import (SCHEMA, SYSTEM, ServiceError, request_context, resolve_date,
+                          validate_extraction, call_local_model, is_smalltalk)
+
+CATEGORIES = ["Food & Drinks", "Transport", "Shopping", "Entertainment", "Bills", "Salary", "Scholarship", "Part-time Job", "Gift", "Others"]
+ACCOUNTS = ["Cash", "Bank Card", "Credit Card", "Alipay", "WeChat", "Others"]
+PROPERTIES = dict(SCHEMA["properties"], module={"type":"string", "enum":["memo","finance","schedule","health","unclear"]},
+    amount={"type":["string","null"]}, kind={"type":["string","null"],"enum":["expense","income",None]},
+    category={"type":["string","null"],"enum":CATEGORIES+[None]},
+    account={"type":["string","null"],"enum":ACCOUNTS+[None]}, time_text={"type":["string","null"]})
+ACTION_SCHEMA = {"type":"object", "additionalProperties":False,"properties":PROPERTIES,"required":list(PROPERTIES)}
+ACTION_SYSTEM = SYSTEM + """
+Route ONE requested action. memo = notes, to-dos, deadlines. finance = recording an
+expense or income already incurred, not a future plan to spend. schedule = appointments,
+meetings, calendar events with a date/time. health = view phone screen-time/app usage ONLY.
+Health is not exercise, water, sleep or medical records. Unsupported requests => unclear.
+Never split one request into writes to several modules. Multiple actions => multiple_tasks.
+A requested module hint may disambiguate, but incompatible actions must be unclear.
+When the user explicitly selects memo, finance or schedule, use that destination and
+extract the fields that are available. Leave missing fields null for manual completion.
+For finance amount copy positive numeric amount without currency, kind expense or income
+only when explicitly clear; category can be inferred from the purchase; account null if absent.
+Keep finance description in title. Preserve the full date phrase in date_text.
+Always extract explicit today/Today/TODAY/今天 as date_text, including for transactions.
+For schedule time_text copy the complete explicit clock-time phrase, otherwise null.
+Set amount/kind/category/account/time_text null when inapplicable. Do not invent amounts,
+accounts, dates or clock times. Health title should describe viewing phone usage, not advice.
+"""
+
+
+def clock_time(value):
+    if value is None: return None
+    s = value.strip().lower()
+    m = re.fullmatch(r"(\d{1,2}):(\d{2})(?:\s*(am|pm))?", s)
+    if m:
+        hour, minute, ap = int(m[1]), int(m[2]), m[3]
+        if minute > 59 or (ap and not 1 <= hour <= 12) or (not ap and hour > 23): return None
+        if ap: hour = hour % 12 + (12 if ap == "pm" else 0)
+        return f"{hour:02}:{minute:02}"
+    m = re.fullmatch(r"(上午|下午|晚上|早上)?(\d{1,2})点(?:(半)|(\d{1,2})分?)?", s)
+    if m:
+        hour = int(m[2]); minute = 30 if m[3] else int(m[4] or 0)
+        if m[1] in ("下午", "晚上") and hour < 12: hour += 12
+        if hour < 24 and minute < 60: return f"{hour:02}:{minute:02}"
+    m = re.fullmatch(r"(\d{1,2})\s*(am|pm)", s)
+    return clock_time(f"{m[1]}:00 {m[2]}") if m else None
+
+
+def create_action(body, provider=None, now=None):
+    if not isinstance(body, dict) or set(body) != {"text","timezone","module"}:
+        raise ServiceError("invalid_request",400)
+    hint = body["module"]
+    if hint not in ("auto","memo","finance","schedule","health"): raise ServiceError("invalid_module",400)
+    text, zone, today = request_context({k:body[k] for k in ("text","timezone")}, now)
+    unclear = {"status":"clarification","reason":"unclear","module":None,"draft":None,"fields":None}
+    if is_smalltalk(text): return unclear
+    raw, _ = (provider(text) if provider else call_local_model(
+        text, ACTION_SCHEMA, ACTION_SYSTEM + "\nRequested module hint: " + hint))
+    if not isinstance(raw,dict) or set(raw) != set(PROPERTIES): raise ServiceError("invalid_model_output",502)
+    if raw["intent"] not in ("single_task","multiple_tasks","unclear") or raw["module"] not in ("memo","finance","schedule","health","unclear"):
+        raise ServiceError("invalid_model_output",502)
+    for key in PROPERTIES:
+        if raw[key] is not None and (not isinstance(raw[key],str) or len(raw[key]) > 2000): raise ServiceError("invalid_model_output",502)
+    if raw["intent"] != "single_task" or raw["module"] == "unclear":
+        return dict(unclear, reason=raw["intent"])
+    module = raw["module"]
+    if hint in ("memo", "finance", "schedule"):
+        module = hint  # Explicit user correction chooses the destination, never writes data.
+    elif hint != "auto" and module != hint:
+        return unclear
+    if module == "finance" and re.search(r"[$€£]|\b(?:USD|EUR|GBP|dollars?|euros?|pounds?)\b", text, re.IGNORECASE):
+        return dict(unclear, reason="unsupported_currency")
+    if module == "health" and re.search(r"昨天|前天|上周|上个月|昨日|yesterday|last week|last month", text, re.IGNORECASE):
+        return dict(unclear, reason="health_today_only")
+    if not raw["title"] or len(raw["title"]) > 100 or raw["notes"] is None: raise ServiceError("invalid_model_output",502)
+    if raw["date_text"]:
+        match = re.search(re.escape(raw["date_text"]), text, re.IGNORECASE)
+        if match:
+            raw = dict(raw, date_text=match.group())
+    # Recover a missed simple relative date only when the input has one unambiguous
+    # date reference. Preserve ambiguity/negation rather than silently choosing today.
+    if raw["date_text"] is None:
+        references = list(re.finditer(r"\btoday\b|\btomorrow\b|\byesterday\b|今天|今日|明天|昨天", text, re.IGNORECASE))
+        uncertain = re.search(r"\b(?:not|maybe|perhaps|or|next|last|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b|不|可能|或者|后天|[上下本这]周|\d{4}[-年]|\d{1,2}月|\d{1,2}/\d{1,2}", text, re.IGNORECASE)
+        if len(references) == 1 and not uncertain:
+            raw = dict(raw, date_text=references[0].group())
+    if module == "memo":
+        result = validate_extraction({k:raw[k] for k in SCHEMA["required"]},text,zone,today)
+        return dict(result,module=module,fields=None)
+    date_text, time_text = raw["date_text"], raw["time_text"]
+    for phrase in (date_text,time_text):
+        if phrase is not None and (not phrase or phrase not in text): raise ServiceError("ungrounded_field",502)
+    # A time suffix may be extracted together with the date; remove only that exact suffix.
+    date_phrase = date_text
+    if date_phrase and time_text and date_phrase.endswith(time_text):
+        date_phrase = date_phrase[:-len(time_text)].strip()
+        date_phrase = re.sub(r"\s+at$", "", date_phrase).strip()
+    date_value = resolve_date(date_phrase,today)
+    if module == "schedule" and date_value and date_value < today: date_value = None
+    amount = None
+    if raw["amount"] is not None:
+        value = raw["amount"]
+        if re.fullmatch(r"\d{1,9}(?:\.\d{1,2})?",value) and re.search(r"(?<![\d.])"+re.escape(value)+r"(?![\d.])",text):
+            if Decimal(value) > 0: amount = value
+    if raw["kind"] not in ("expense","income",None) or raw["category"] not in CATEGORIES+[None] or raw["account"] not in ACCOUNTS+[None]:
+        raise ServiceError("invalid_model_output",502)
+    account = raw["account"]
+    account_words = {"Cash":r"现金|\bcash\b", "Bank Card":r"银行卡|借记卡|\b(?:bank|debit) card\b",
+                     "Credit Card":r"信用卡|\bcredit card\b", "Alipay":r"支付宝|\balipay\b",
+                     "WeChat":r"微信|\bwechat\b", "Others":r"其他账户|\bother account\b"}
+    if account and not re.search(account_words[account], text, re.IGNORECASE): account = None
+    fields = {"id":str(uuid.uuid4()),"title":raw["title"],"notes":raw["notes"],
+        "date":date_value.isoformat() if date_value else None,"time":clock_time(time_text),
+        "amount":amount,"kind":raw["kind"],"category":raw["category"],"account":account,"timezone":zone}
+    return {"status":"draft","reason":None,"module":module,"draft":None,"fields":fields}

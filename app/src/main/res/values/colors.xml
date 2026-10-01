@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="primary">#FF2196F3</color>
+    <color name="primary_dark">#FF1976D2</color>
+    <color name="primary_light">#FFBBDEFB</color>
+    <color name="accent">#FFFF5722</color>
+    <color name="text_primary">#182D31</color>
+    <color name="text_secondary">#62767A</color>
+    <color name="divider">#1F000000</color>
+    <color name="background">#F5F7F6</color>
+    <color name="card_background">#FFFFFFFF</color>
+
+    <color name="brand_teal">#227C70</color>
+    <color name="brand_teal_dark">#166358</color>
+    <color name="brand_teal_light">#D4EBE5</color>
+    <color name="brand_teal_very_light">#F5F7F6</color>
+
+    <color name="bottom_nav_active">#166358</color>
+    <color name="bottom_nav_inactive">#80333333</color>
+    <color name="divider_gray">#DDDDDD</color>
+
+<color name="finance_ink">#153E3B</color><color name="finance_mint">#BDE5D4</color><color name="finance_coral">#C56C52</color><color name="finance_violet">#7B78B9</color></resources>

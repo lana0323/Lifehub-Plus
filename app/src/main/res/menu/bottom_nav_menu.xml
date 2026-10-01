@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_lh_home"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_ai"
+        android:icon="@drawable/ic_lh_spark"
+        android:title="@string/title_ai" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_lh_profile"
+        android:title="@string/title_profile" />
+</menu>

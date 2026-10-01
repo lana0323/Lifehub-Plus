@@ -1,0 +1,2 @@
+# IANA timezone database, needed on Windows. HTTP and tests use the standard library.
+tzdata==2025.2

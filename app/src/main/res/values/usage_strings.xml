@@ -1,0 +1,7 @@
+<resources>
+    <string name="usage_method">Recorded foreground usage on this device. Older history may be incomplete; background audio is excluded.</string>
+    <string name="usage_loading">Loading usage…</string>
+    <string name="usage_no_records">No records</string>
+    <string name="usage_unavailable">Usage data is temporarily unavailable. Unlock the device and try again.</string>
+    <string name="usage_grant">Allow usage access</string>
+</resources>

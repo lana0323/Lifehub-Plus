@@ -1,0 +1,22 @@
+[
+  {"text":"下周五前完成机器学习作业，优先级高。","timezone":"Asia/Shanghai","now":"2026-09-29T12:00:00+00:00","titles":["完成机器学习作业","机器学习作业"],"dueDate":"2026-10-09","priority":"important","status":"draft"},
+  {"text":"明天买牛奶，普通优先级","timezone":"Asia/Shanghai","now":"2026-09-29T12:00:00+00:00","titles":["买牛奶"],"dueDate":"2026-09-30","priority":"normal","status":"draft"},
+  {"text":"最近找时间复习","timezone":"Asia/Shanghai","now":"2026-09-29T12:00:00+00:00","titles":["复习"],"dueDate":null,"priority":null,"status":"draft"},
+  {"text":"Finish the report by next Friday, high priority.","timezone":"America/Los_Angeles","now":"2026-09-30T01:00:00+00:00","titles":["Finish the report","Finish report"],"dueDate":"2026-10-09","priority":"important","status":"draft"},
+  {"text":"Buy milk tomorrow","timezone":"America/Los_Angeles","now":"2026-09-30T01:00:00+00:00","titles":["Buy milk"],"dueDate":"2026-09-30","priority":null,"status":"draft"},
+  {"text":"Buy milk tomorrow","timezone":"Asia/Shanghai","now":"2026-09-30T01:00:00+00:00","titles":["Buy milk"],"dueDate":"2026-10-01","priority":null,"status":"draft"},
+  {"text":"Urgent: send the invoice today","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":["Send the invoice","Send invoice"],"dueDate":"2026-09-29","priority":"urgent","status":"draft"},
+  {"text":"Read chapter 3","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":["Read chapter 3"],"dueDate":null,"priority":null,"status":"draft"},
+  {"text":"2026-10-02交报告","timezone":"Asia/Shanghai","now":"2026-09-29T12:00:00+00:00","titles":["交报告","提交报告"],"dueDate":"2026-10-02","priority":null,"status":"draft"},
+  {"text":"2026-02-30交报告","timezone":"UTC","now":"2026-01-01T00:00:00+00:00","titles":["交报告","提交报告"],"dueDate":null,"priority":null,"status":"draft"},
+  {"text":"昨天提交作业","timezone":"Asia/Shanghai","now":"2026-09-29T12:00:00+00:00","titles":["提交作业"],"dueDate":null,"priority":null,"status":"draft"},
+  {"text":"明天晚上8点复习","timezone":"Asia/Shanghai","now":"2026-09-29T12:00:00+00:00","titles":["复习"],"dueDate":null,"priority":null,"status":"draft"},
+  {"text":"明天或后天买书","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":["买书"],"dueDate":null,"priority":null,"status":"draft"},
+  {"text":"明天交作业，后天买牛奶","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":[],"dueDate":null,"priority":null,"status":"clarification"},
+  {"text":"Buy milk tomorrow and submit the report next Friday","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":[],"dueDate":null,"priority":null,"status":"clarification"},
+  {"text":"你好","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":[],"dueDate":null,"priority":null,"status":"clarification"},
+  {"text":"in 3 days submit the application, low priority","timezone":"UTC","now":"2026-12-30T12:00:00+00:00","titles":["Submit the application","Submit application"],"dueDate":"2027-01-02","priority":"normal","status":"draft"},
+  {"text":"明天完成总结","timezone":"UTC","now":"2028-02-28T12:00:00+00:00","titles":["完成总结"],"dueDate":"2028-02-29","priority":null,"status":"draft"},
+  {"text":"Review notes tomorrow","timezone":"America/Los_Angeles","now":"2026-03-08T09:30:00+00:00","titles":["Review notes"],"dueDate":"2026-03-09","priority":null,"status":"draft"},
+  {"text":"本周五前完成报告，备注：需要包含实验结果","timezone":"Asia/Shanghai","now":"2026-09-29T12:00:00+00:00","titles":["完成报告"],"dueDate":"2026-10-02","priority":null,"notesContains":"实验结果","status":"draft"}
+]

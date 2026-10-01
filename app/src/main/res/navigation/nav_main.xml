@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.lifeHub.main.ui.home.HomeFragment"
+        android:label="@string/title_home" />
+
+    <fragment
+        android:id="@+id/navigation_ai"
+        android:name="com.lifeHub.ai.ui.AiChatFragment"
+        android:label="@string/title_ai">
+        <argument
+            android:name="scene"
+            app:argType="string"
+            android:defaultValue="common" />
+        <argument
+            android:name="targetId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.lifeHub.main.ui.profile.ProfileFragment"
+        android:label="@string/title_profile" />
+
+    <fragment
+        android:id="@+id/nav_todo_fragment"
+        android:name="com.lifeHub.todo.TodoFragment"
+        android:label="@string/title_memorandum" />
+
+    <fragment
+        android:id="@+id/nav_schedule_fragment"
+        android:name="com.lifeHub.schedule.ui.ScheduleFragment"
+        android:label="@string/title_schedule" />
+
+    <fragment
+        android:id="@+id/nav_account_fragment"
+        android:name="com.lifeHub.finance.ui.AccountFragment"
+        android:label="@string/title_account" />
+
+    <fragment
+        android:id="@+id/nav_health_fragment"
+        android:name="com.lifeHub.usage.HealthFragment"
+        android:label="@string/title_health" />
+</navigation>

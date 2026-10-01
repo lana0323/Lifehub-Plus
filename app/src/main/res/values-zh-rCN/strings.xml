@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="register">注册</string>
+    <string name="ai_chat">开始和AI交流吧</string>
+    <string name="today_text">今天的日程</string>
+    <string name="btn_ai_chat">和 AI 聊一聊</string>
+    <string name="ai_finance_reply">（财务助手）%1$s</string>
+    <string name="ai_todo_reply">（待办助手）%1$s</string>
+    <string name="ai_schedule_reply">（日程助手）今日安排：%1$s</string>
+    <string name="ai_health_reply">（健康助手）%1$s</string>
+    <string name="ai_general_reply">
+    （通用助手）当前只支持识别：财务 / 待办 / 日程 / 健康 关键字。
+</string>
+    <string name="health_usage_real_fmt">本设备今日已记录的应用前台使用时长约 %1$d 小时 %2$d 分钟。</string>
+    <string name="health_usage_cached_fmt">
+    暂时无法从系统读取使用情况，使用最近一次记录的时长约 %1$d 小时 %2$d 分钟。
+</string>
+
+    <string name="todo_summary_none">当前没有任何备忘录。</string>
+    <string name="todo_summary_fmt">
+    当前共有 %1$d 条备忘录，你可以在待办模块中查看详细内容。
+</string>
+
+    <string name="schedule_today_empty">
+    今天没有日程记录，AI 会根据你的问题帮助规划安排。
+</string>
+    <string name="schedule_today_fmt">
+    今天共有 %1$d 条日程，例如：%2$s
+</string>
+
+    <string name="finance_summary_no_data">
+    暂未拿到消费数据，先根据用户问题给出泛化建议。
+</string>
+    <string name="finance_summary_fmt">
+    最近共有 %1$d 条账目，例如：%2$s
+</string>
+    <string name="ai_prompt_common_intro">
+    你是一个通用的生活助手，帮助用户解答问题、提供建议。
+</string>
+
+    <string name="ai_prompt_user_prefix">
+    用户说：
+</string>
+    <string name="ai_prompt_health_intro">你是一位健康与习惯顾问，根据设备使用情况给出建议。</string>
+    <string name="ai_prompt_health_usage_prefix">今日屏幕使用情况：%1$s</string>
+    <string name="ai_prompt_schedule_intro">你是一个日程助手，帮助用户梳理日程、给出提醒和优化建议。</string>
+    <string name="ai_prompt_schedule_today_prefix">今日安排：%1$s</string>
+    <string name="ai_prompt_todo_intro">你是一个待办事项助手，帮用户规划任务和子任务。</string>
+    <string name="ai_prompt_todo_current_title_fmt">当前任务标题：%1$s</string>
+    <string name="ai_prompt_todo_current_desc_fmt">当前任务描述：%1$s</string>
+    <string name="ai_prompt_todo_status_fmt">完成状态：%1$s</string>
+    <string name="todo_status_not_completed">未完成</string>
+    <string name="todo_ai_suggestion_fmt">AI 建议：%1$s</string>
+    <string name="ai_service_unavailable_fmt">AI 服务暂不可用：%1$s</string>
+    <string name="error_unknown">未知错误</string>
+    <string name="schedule_example_separator">；</string>
+
+    <string-array name="keywords_finance">
+        <item>财务</item>
+        <item>账单</item>
+        <item>账目</item>
+        <item>记账</item>
+        <item>金钱</item>
+    </string-array>
+
+    <string-array name="keywords_todo">
+        <item>待办</item>
+        <item>备忘</item>
+        <item>任务</item>
+    </string-array>
+
+    <string-array name="keywords_schedule">
+        <item>日程</item>
+        <item>行程</item>
+        <item>日历</item>
+    </string-array>
+
+    <string-array name="keywords_health">
+        <item>健康</item>
+        <item>使用时长</item>
+        <item>屏幕时间</item>
+    </string-array>
+
+
+
+    <string name="title_schedule">日程</string>
+    <string name="today_text_remind">"这一天还没有安排 "</string>
+    <string name="title_home">主页</string>
+    <string name="title_profile">我的</string>
+    <string name="title_ai">AI</string>
+    <string name="profile_avatar">用户头像</string>
+    <string name="profile_change_avatar">点击更改头像</string>
+    <string name="profile_username_placeholder">游客</string>
+    <string name="profile_subtitle">管理您的账户和偏好设置</string>
+    <string name="profile_login_status_guest">未登录</string>
+    <string name="profile_login_status_logged_in">已登录</string>
+    <string name="profile_btn_edit">切换账户</string>
+    <string name="profile_btn_logout">登出</string>
+    <string name="back">回退</string>
+    <string name="user_name">用户名</string>
+    <string name="password">密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="login">登录</string>
+    <string name="add_schedule">新增日程</string>
+    <string name="hint_notes_details">可以写一些详细内容</string>
+    <string name="delete_event_title">删除事件</string>
+    <string name="title_account">记账</string>
+    <string name="title_health">使用时长</string>
+    <string name="title_health_fragment">您的应用程序使用情况报告</string>
+    <string name="update_button">点击这里更新</string>
+    <string name="none">无</string>
+    <string name="long_time">你使用手机的时间已经太长了。或许你现在应该回到现实世界中来吧！</string>
+    <string name="medium_time">你使用手机的时间还不算太长。但别忘了要让眼睛休息一下。</string>
+    <string name="short_time">你已经成为自己手机的主人啦！</string>
+    <string name="total_time">今日 · 已记录的应用使用时长</string>
+    <string name="detail_button">查看最近 7 天</string>
+    <string name="title_bar_chart">最近 7 天</string>
+    <string name="three_days_ago">三天前</string>
+    <string name="seven_days_ago">一周前</string>
+    <string name="today">今天</string>
+    <string name="weekly_app_usage">全部应用 · 最近 7 天</string>
+    <string name="title_memorandum">备忘录</string>
+    <string name="add_memo">添加备忘</string>
+    <string name="search_memo">搜索备忘录</string>
+    <string name="no_memos">暂无备忘录</string>
+    <string name="no_memos_hint">点击右下角按钮添加您的第一条备忘</string>
+    <string name="edit_memo">编辑备忘</string>
+    <string name="new_memo">新建备忘</string>
+    <string name="memo_title">标题</string>
+    <string name="memo_content">内容</string>
+    <string name="memo_title_hint">输入标题</string>
+    <string name="memo_content_hint">输入备忘内容</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="menu_share">分享</string>
+    <string name="menu_sort">排序</string>
+    <string name="sort_by_date">按日期</string>
+    <string name="sort_by_title">按标题</string>
+    <string name="memo_saved">备忘已保存</string>
+    <string name="memo_deleted">备忘已删除</string>
+    <string name="confirm_memo_delete">确认删除此备忘？</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="title_required">请输入标题</string>
+    <string name="share_memo">分享备忘</string>
+    <string name="created_at">创建于: %s</string>
+    <string name="updated_at">更新于: %s</string>
+    <string name="add_activity">添加日程</string>
+    <string name="edit_schedule">修改日程</string>
+    <string name="no_schedule">暂无日程</string>
+    <string name="schedule_for_date">%1$s 的日程</string>
+    <string name="confirm_event_delete">确认删除此日程？</string>
+    <string name="label_date">日期</string>
+    <string name="label_time">时间</string>
+    <string name="time_not_selected">未选择</string>
+    <string name="btn_pick_time">选择时间</string>
+    <string name="label_title_required">标题（必填）</string>
+    <string name="hint_title_example">例如：开会 / 学习 / 运动</string>
+    <string name="label_notes">备注</string>
+    <string name="send">发送</string>
+    <string name="profile_title">用户</string>
+    <string name="all_day">全天</string>
+    <string name="update_success">更新成功</string>
+    <string name="update_failed">更新失败</string>
+    <string name="save_success">保存成功</string>
+    <string name="save_failed">保存失败</string>
+    <string name="delete_success">已删除</string>
+    <string name="error_title_empty">标题不能为空</string>
+
+    <string name="btn_register">注册</string>
+    <string name="btn_login">登录</string>
+    <string name="btn_go_register">去注册</string>
+    <string name="error_empty_username_password">用户名和密码不能为空</string>
+    <string name="error_password_not_match">两次输入的密码不一致</string>
+    <string name="error_already_registered">已存在注册用户，请直接登录</string>
+
+    <string name="register_success">注册成功，请返回登录</string>
+    <string name="error_username_already_registered">该用户名已被注册，请更换一个</string>
+    <string name="error_username_not_registered">该用户名还没有注册，请先注册</string>
+    <string name="error_username_or_password">用户名或密码错误</string>
+    <string name="login_success">登录成功</string>
+
+    <string name="profile_not_logged_in">你还没有登录</string>
+    <string name="profile_logged_out">已退出登录</string>
+
+    <string name="error_load_memo">无法加载备忘录</string>
+
+
+
+    <string name="discard_changes_title">放弃更改？</string>
+    <string name="discard_changes_message">您有未保存的更改，确定要离开吗？</string>
+
+    <string name="priority_normal">普通</string>
+    <string name="priority_important">重要</string>
+    <string name="priority_urgent">紧急</string>
+
+    <string name="sort_by_updated">按更新时间</string>
+    <string name="sort_by_created">按创建时间</string>
+    <string name="by_title">按标题</string>
+
+    <string name="confirm_delete_all_memos">确认删除所有备忘录？</string>
+    <string name="all_memos_deleted">已删除所有备忘录</string>
+
+    <string name="items_selected">已选中 %d 项</string>
+
+
+    <string name="completed">已完成</string>
+
+    <string name="priority_label">优先级：</string>
+
+    <string name="preview_created_at">创建于：2024-01-01 12:00</string>
+    <string name="preview_updated_at">更新于：2024-01-01 12:30</string>
+
+    <string name="finance_total_spending_fmt">本月总支出: %s</string>
+    <string name="finance_total_income_fmt">本月总收入: %s</string>
+    <string name="finance_balance_fmt">本月结余 (收入 - 支出): %s</string>
+    <string name="finance_category_breakdown">分类支出统计:</string>
+    <string name="finance_ai_analysis">AI 智能分析</string>
+    <string name="finance_tab_expenses">支出</string>
+    <string name="finance_tab_income">收入</string>
+    <string name="finance_add_expense_desc">添加记录</string>
+
+
+    <string name="finance_add_record_title">新增收支记录</string>
+
+    <string name="finance_amount_label">金额</string>
+    <string name="finance_amount_hint">例如：35.50</string>
+
+    <string name="finance_type_label">类型</string>
+    <string name="finance_type_expense">支出</string>
+    <string name="finance_type_income">收入</string>
+
+    <string name="finance_category_label">分类</string>
+    <string name="finance_account_label">账户</string>
+
+    <string name="finance_date_label">日期</string>
+    <string name="finance_date_placeholder">点击选择日期</string>
+
+    <string name="finance_note_label">备注</string>
+    <string name="finance_note_hint">可选</string>
+
+    <string name="title_ai_chat">AI 聊天</string>
+    <string name="ai_chat_hint">开始和AI交流吧</string>
+
+<string name="ai_cancel_generation">取消等待</string>
+<string name="ai_cancelled">已取消等待，输入已保留。</string>
+<string name="ai_interrupted">上次请求已中断，输入已保留，可以重新生成。</string>
+<string name="ai_wait_seconds">正在生成 · %1$d 秒，可切换页面或取消等待。</string>
+<string name="ai_wait_slow">仍在生成 · %1$d 秒，本地 AI 可能较慢，可取消或改为手动填写。</string>
+<string name="ai_service_busy">本地 AI 仍在处理请求，请稍后重试。</string>
+<string name="ai_timeout">请求超时，输入已保留，请重试。</string>
+</resources>

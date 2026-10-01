@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+        <LinearLayout android:id="@+id/top_bar" android:layout_width="match_parent" android:layout_height="64dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="8dp" android:background="@android:color/transparent">
+            <ImageButton android:id="@+id/btn_back" android:layout_width="48dp" android:layout_height="48dp" android:background="?attr/selectableItemBackgroundBorderless" android:contentDescription="@string/back" android:padding="8dp" android:src="@drawable/ic_lh_chevron_left" />
+            <TextView android:id="@+id/tv_selected_date" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/register" android:textSize="22sp" android:textStyle="bold" android:paddingStart="8dp" android:paddingEnd="16dp" android:textColor="@color/text_primary" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp" android:background="@drawable/bg_finance_hero" android:layout_marginBottom="24dp">
+            <ImageView android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/ic_lh_spark" android:tint="@color/finance_mint" android:contentDescription="@string/app_name" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_register_title" android:textSize="28sp" android:textStyle="bold" android:textColor="@color/white" android:layout_marginTop="20dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ui_register_hint" android:textSize="14sp" android:textColor="@color/finance_mint" android:layout_marginTop="12dp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp" android:background="@drawable/bg_surface">
+            <EditText android:id="@+id/et_username" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPersonName" android:layout_marginTop="12dp" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" android:hint="@string/user_name" android:singleLine="true" />
+            <EditText android:id="@+id/et_password" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword" android:layout_marginTop="12dp" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" android:hint="@string/password" android:singleLine="true" />
+            <EditText android:id="@+id/et_password_confirm" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword" android:layout_marginTop="12dp" style="@style/Widget.LifeHub.Input" android:padding="16dp" android:background="@drawable/bg_input_surface" android:backgroundTint="@null" android:minHeight="56dp" android:textSize="16sp" android:hint="@string/confirm_password" android:singleLine="true" />
+            <Button android:id="@+id/btn_register" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/btn_register" android:layout_marginTop="12dp" style="@style/Widget.LifeHub.Button" android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

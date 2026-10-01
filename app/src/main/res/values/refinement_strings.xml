@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="ui_choose">Choose an option</string>
+  <string name="ui_language">Language</string>
+  <string name="ui_language_system">System default</string>
+  <string name="finance_month_view">Month</string>
+  <string name="finance_year_view">Year</string>
+  <string name="finance_choose_year">Choose year</string>
+  <string name="finance_year_trend_hint">Monthly totals · green income / coral spending</string>
+  <string name="finance_previous_period">Previous period</string>
+  <string name="finance_next_period">Next period</string>
+</resources>

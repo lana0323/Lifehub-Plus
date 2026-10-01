@@ -1,0 +1,12 @@
+[
+  {"text":"后天整理实验记录，优先级低","timezone":"Asia/Shanghai","now":"2026-12-31T12:00:00+00:00","titles":["整理实验记录"],"dueDate":"2027-01-02","priority":"normal","status":"draft"},
+  {"text":"Submit the scholarship form in 5 days, important","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":["Submit the scholarship form","Submit scholarship form"],"dueDate":"2026-10-04","priority":"important","status":"draft"},
+  {"text":"给导师发邮件","timezone":"Asia/Shanghai","now":"2026-09-29T12:00:00+00:00","titles":["给导师发邮件"],"dueDate":null,"priority":null,"status":"draft"},
+  {"text":"Back up photos by next Monday","timezone":"America/Los_Angeles","now":"2026-09-30T01:00:00+00:00","titles":["Back up photos"],"dueDate":"2026-10-05","priority":null,"status":"draft"},
+  {"text":"紧急：今天修复登录错误","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":["修复登录错误"],"dueDate":"2026-09-29","priority":"urgent","status":"draft"},
+  {"text":"Renew library books on 2026-11-01, normal priority","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":["Renew library books"],"dueDate":"2026-11-01","priority":"normal","status":"draft"},
+  {"text":"Find time to practise piano sometime soon","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":["Practise piano","Practice piano","Find time to practise piano"],"dueDate":null,"priority":null,"status":"draft"},
+  {"text":"明天洗衣服，后天去图书馆还书","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":[],"dueDate":null,"priority":null,"status":"clarification"},
+  {"text":"Thank you!","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":[],"dueDate":null,"priority":null,"status":"clarification"},
+  {"text":"明天或者周末整理书架，不着急","timezone":"UTC","now":"2026-09-29T12:00:00+00:00","titles":["整理书架"],"dueDate":null,"priority":null,"status":"draft"}
+]

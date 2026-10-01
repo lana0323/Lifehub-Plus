@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="ui_auth_title">Welcome to your everyday</string>
+    <string name="ui_auth_hint">One place for your plans, ideas and balance.</string>
+    <string name="ui_register_title">Make space for your life</string>
+    <string name="ui_register_hint">Create your local LifeHub account to get started.</string>
+    <string name="ui_profile_hint">Your personal space, your preferences.</string>
+    <string name="ui_profile_photo">Tap your avatar to choose a photo</string>
+    <string name="ui_sheet_hint">Drag down to close · Review before saving</string>
+    <string name="ui_unsaved_finance">This transaction has not been saved. Discard it and close?</string>
+    <string name="ui_discard">Discard</string>
+    <string name="ui_keep_editing">Keep editing</string>
+    <string name="ui_close">Close</string>
+    <string name="ui_health_apps">Your most-used apps</string>
+    <string name="ui_memo_intro">Capture what matters. Make room for ideas.</string>
+</resources>

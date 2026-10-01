@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="priority_array">
+        <item>普通</item>
+        <item>重要</item>
+        <item>紧急</item>
+    </string-array>
+    
+    <string-array name="sort_options">
+        <item>按更新时间</item>
+        <item>按创建时间</item>
+        <item>按标题</item>
+    </string-array>
+</resources>
+

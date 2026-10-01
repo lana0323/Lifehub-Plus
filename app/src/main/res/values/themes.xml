@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <style name="Theme.LifeHub" parent="Theme.Material3.DayNight.NoActionBar">
+    <item name="colorPrimary">@color/brand_teal_dark</item>
+    <item name="colorOnPrimary">@color/white</item>
+    <item name="colorPrimaryContainer">@color/brand_teal_dark</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        <item name="colorOnSecondaryContainer">@color/text_primary</item>
+    <item name="colorSecondary">@color/brand_teal_light</item>
+    <item name="colorOnSecondary">@color/text_primary</item>
+    <item name="colorSecondaryContainer">@color/brand_teal_light</item>
+    <item name="android:statusBarColor">@color/brand_teal_very_light</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="fontFamily">sans</item>
+    <item name="editTextStyle">@style/Widget.LifeHub.Input</item>
+    <item name="spinnerStyle">@style/Widget.LifeHub.Spinner</item>
+    <item name="materialButtonStyle">@style/Widget.LifeHub.Button</item>
+    <item name="buttonStyle">@style/Widget.LifeHub.Button</item>
+    <item name="textInputStyle">@style/Widget.LifeHub.FieldLayout</item>
+    <item name="materialAlertDialogTheme">@style/ThemeOverlay.LifeHub.Dialog</item>
+    <item name="colorSurface">@color/card_background</item>
+    <item name="colorOnSurface">@color/text_primary</item>
+    <item name="android:windowBackground">@color/background</item>
+    <item name="android:textColorPrimary">@color/text_primary</item>
+    <item name="android:textColorSecondary">@color/text_secondary</item>
+    <item name="colorAccent">@color/brand_teal_dark</item>
+    <item name="android:colorAccent">@color/brand_teal_dark</item>
+    <item name="android:timePickerDialogTheme">@style/Theme.LifeHub.DatePicker</item>
+        <item name="android:datePickerDialogTheme">@style/Theme.LifeHub.DatePicker</item>
+  </style>
+  <style name="CalendarViewCustomTheme" parent="ThemeOverlay.AppCompat.Light">
+    <item name="colorAccent">@color/brand_teal_dark</item>
+    <item name="android:colorAccent">@color/brand_teal_dark</item>
+    <item name="android:colorControlActivated">@color/brand_teal_dark</item>
+    <item name="android:textColorPrimary">@android:color/black</item>
+    <item name="colorPrimary">@color/brand_teal_dark</item>
+  </style>
+  <style name="Theme.LifeHub.DatePicker" parent="android:style/Theme.Material.Light.Dialog.Alert">
+    <item name="android:colorAccent">@color/brand_teal_dark</item>
+    <item name="android:colorControlActivated">@color/brand_teal_dark</item>
+    <item name="android:textColorPrimary">@color/text_primary</item>
+  </style>
+</resources>
