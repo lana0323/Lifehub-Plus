@@ -55,17 +55,13 @@ Screenshots show development builds; some contain earlier interface wording. Fin
 | **Schedule** | Schedule a group meeting tomorrow at 3 PM. | An editable event draft with a date, time and description |
 | **Health** | Show my screen time today. | The existing device usage page, populated with Android system data |
 
-```mermaid
-flowchart LR
-    A[Natural-language input] --> B[Local Python backend]
-    B --> C[Ollama · Qwen3]
-    C --> D[Structure and date validation]
-    D --> E[Module selection and editable draft]
-    E --> F{User confirmation}
-    F -->|Memo / Finance / Schedule| G[Account-specific database]
-    F -->|Health| H[Device usage page]
-    G --> I[Read-back verification and feedback]
-```
+### From request to action
+
+**Describe → Review → Confirm**
+
+1. **Describe** a task, transaction or event in your own words, or ask about screen time.
+2. **Review** the suggested module and draft. Edit any details before continuing.
+3. **Confirm** to save the record, or open Health to view device usage. Saved records are read back to verify the result.
 
 - **The model cannot write directly to the database.** Records require user confirmation. An incorrectly detected module can be changed manually.
 - **Missing information stays visible.** Ambiguous dates remain unset, required fields must be completed, and requests containing multiple actions are prompted to be split.
