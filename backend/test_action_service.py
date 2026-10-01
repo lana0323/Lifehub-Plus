@@ -71,6 +71,38 @@ class ActionTests(unittest.TestCase):
         for data in ({},raw(date_text="tomorrow"),raw(category="Anything")):
             with self.assertRaises(ServiceError): self.action("Coffee",data)
 
+    def test_this_tuesday_is_preserved_even_after_tuesday(self):
+        for extracted in (None, "Tuesday", "this Tuesday"):
+            with self.subTest(extracted=extracted):
+                data = raw(date_text=extracted); data.update(module="schedule", title="Class")
+                result = self.action("i have a class this Tuesday", data)
+                self.assertEqual("2026-09-29", result["fields"]["date"])
+                self.assertIsNone(result["fields"]["time"])
+
+    def test_weekday_recovery_respects_calendar_week_and_timezone(self):
+        cases = [
+            ("Class this Tuesday", "2026-09-28T12:00:00+00:00", "UTC", "2026-09-29"),
+            ("Class this Tuesday", "2026-09-29T12:00:00+00:00", "UTC", "2026-09-29"),
+            ("Class NEXT Tuesday", "2026-10-01T12:00:00+00:00", "UTC", "2026-10-06"),
+            ("Class this   Tuesday", "2026-10-01T12:00:00+00:00", "UTC", "2026-09-29"),
+            ("这周二上课", "2026-10-01T12:00:00+00:00", "UTC", "2026-09-29"),
+            ("Class this Tuesday", "2026-10-05T01:00:00+00:00", "America/Los_Angeles", "2026-09-29"),
+            ("Class this Tuesday", "2026-10-05T01:00:00+00:00", "UTC", "2026-10-06"),
+        ]
+        for text, instant, zone, expected in cases:
+            with self.subTest(text=text, instant=instant, zone=zone):
+                data = raw(); data["module"] = "schedule"
+                result = create_action(dict(text=text, timezone=zone, module="auto"),
+                    lambda _: (data, {}), datetime.fromisoformat(instant))
+                self.assertEqual(expected, result["fields"]["date"])
+
+    def test_weekday_recovery_keeps_ambiguous_dates_unset(self):
+        for text in ("Class maybe this Tuesday", "Class not this Tuesday", "Class this Tuesday or next Tuesday",
+                     "Class this Tuesday or Wednesday", "Class this Tuesday, rescheduled from 2026-09-28"):
+            with self.subTest(text=text):
+                data = raw(); data["module"] = "schedule"
+                self.assertIsNone(self.action(text, data)["fields"]["date"])
+
     def test_clock_time_boundaries(self):
         for text, expected in [("下午3点","15:00"),("12:30 am","00:30"),("23:59","23:59"),("25:00",None),("sometime",None)]:
             self.assertEqual(expected,clock_time(text))

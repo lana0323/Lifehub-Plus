@@ -67,6 +67,7 @@ Screenshots show development builds; some contain earlier interface wording. Fin
 - **Missing information stays visible.** Ambiguous dates remain unset, required fields must be completed, and requests containing multiple actions are prompted to be split.
 - **Repeated confirmation does not create duplicates.** A draft ID identifies a single saved record within its account. Newly generated drafts and manual entries are not deduplicated by content.
 - **Failures are recoverable.** Input is preserved, with cancellation, retry and manual-entry options. Cancelling stops the client from waiting; inference already running in the local model may continue.
+- **Weekdays use calendar weeks.** `this Tuesday` means Tuesday of the current Monday-based week; `next Tuesday` means Tuesday of the following week, using your timezone. Schedule drafts keep explicit past dates for review instead of silently moving them forward.
 - **Health is a query.** The application displays system usage statistics rather than generating fictional usage figures or inserting health records.
 
 ## Engineering

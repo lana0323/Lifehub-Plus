@@ -80,11 +80,16 @@ def create_action(body, provider=None, now=None):
         match = re.search(re.escape(raw["date_text"]), text, re.IGNORECASE)
         if match:
             raw = dict(raw, date_text=match.group())
-    # Recover a missed simple relative date only when the input has one unambiguous
-    # date reference. Preserve ambiguity/negation rather than silently choosing today.
-    if raw["date_text"] is None:
-        references = list(re.finditer(r"\btoday\b|\btomorrow\b|\byesterday\b|今天|今日|明天|昨天", text, re.IGNORECASE))
-        uncertain = re.search(r"\b(?:not|maybe|perhaps|or|next|last|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b|不|可能|或者|后天|[上下本这]周|\d{4}[-年]|\d{1,2}月|\d{1,2}/\d{1,2}", text, re.IGNORECASE)
+    # Recover one explicit date phrase when the model misses or truncates it.
+    # Never repair invented phrases or choose between ambiguous/negated dates.
+    phrase = raw["date_text"]
+    if phrase is None or (phrase in text and resolve_date(phrase, today) is None):
+        date_pattern = (r"\b(?:this|next)\s+(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b"
+                        r"|[本这下](?:周|星期)[一二三四五六日天]"
+                        r"|\btoday\b|\btomorrow\b|\byesterday\b|今天|今日|明天|昨天")
+        references = list(re.finditer(date_pattern, text, re.IGNORECASE))
+        remainder = re.sub(date_pattern, " ", text, flags=re.IGNORECASE)
+        uncertain = re.search(r"\b(?:not|maybe|perhaps|or|next|last|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b|不|可能|或者|后天|[上下本这]周|\d{4}[-年]|\d{1,2}月|\d{1,2}/\d{1,2}", remainder, re.IGNORECASE)
         if len(references) == 1 and not uncertain:
             raw = dict(raw, date_text=references[0].group())
     if module == "memo":
@@ -99,7 +104,8 @@ def create_action(body, provider=None, now=None):
         date_phrase = date_phrase[:-len(time_text)].strip()
         date_phrase = re.sub(r"\s+at$", "", date_phrase).strip()
     date_value = resolve_date(date_phrase,today)
-    if module == "schedule" and date_value and date_value < today: date_value = None
+    # Calendar records may be historical, just like manually entered events.
+    # Preserve an explicit date for review; never silently move it into next week.
     amount = None
     if raw["amount"] is not None:
         value = raw["amount"]

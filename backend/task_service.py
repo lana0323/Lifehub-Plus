@@ -90,7 +90,7 @@ def resolve_date(expression, today):
     if match:
         weekday = "一二三四五六日".index(match[2].replace("天", "日"))
         return today + timedelta(days=weekday - today.weekday() + (7 if match[1] == "下" else 0))
-    match = re.fullmatch(r"(this|next) (monday|tuesday|wednesday|thursday|friday|saturday|sunday)", s)
+    match = re.fullmatch(r"(this|next)\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday)", s)
     if match:
         weekday = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].index(match[2])
         return today + timedelta(days=weekday - today.weekday() + (7 if match[1] == "next" else 0))
