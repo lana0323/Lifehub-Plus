@@ -152,6 +152,29 @@ class AccountAndWaitingTest {
         } finally { api.replies.forEach { it.complete(ActionResponse("clarification",null,null,null,null)) };prefs.edit().putString("state",previous).commit() }
     }
 
+    @Test fun clarificationShowsSpecificMessageAndRetainsEditableInput() {
+        val prefs=AccountScope.preferences(app,"ai_task_draft");val previous=prefs.getString("state",null)
+        try {
+            for ((reason,resource) in listOf("health_unsupported" to R.string.ai_health_unsupported,
+                "multiple_tasks" to R.string.ai_split_tasks,"unsupported_currency" to R.string.ai_currency_unsupported)) {
+                prefs.edit().clear().commit()
+                val api=DelayedApi();lateinit var model:AiChatViewModel
+                main {
+                    model=AiChatViewModel(app,api);model.edit("Keep my original request","","","",0);model.generate()
+                    api.replies.single().complete(ActionResponse("clarification",reason,null,null,null))
+                }
+                instrumentation.waitForIdleSync()
+                main {
+                    assertFalse(model.state.value.busy);assertNull(model.state.value.pendingAction)
+                    assertEquals("Keep my original request",model.state.value.input)
+                    assertEquals(app.getString(resource),model.state.value.message)
+                    model.edit("My corrected request","","","",0)
+                    assertEquals("My corrected request",model.state.value.input)
+                }
+            }
+        } finally { prefs.edit().putString("state",previous).commit() }
+    }
+
     @Test fun switchingPagesAndRecreatingActivityKeepsOnePendingRequest() {
         val prefs=AccountScope.preferences(app,"ai_task_draft");val previous=prefs.getString("state",null)
         prefs.edit().clear().commit();val api=DelayedApi();lateinit var model:AiChatViewModel

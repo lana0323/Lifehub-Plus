@@ -4,6 +4,7 @@ import uuid
 from decimal import Decimal
 from task_service import (SCHEMA, SYSTEM, ServiceError, request_context, resolve_date,
                           validate_extraction, call_local_model, is_smalltalk)
+from action_rules import multiple_actions, date_evidence, finance_evidence, search, USAGE
 
 CATEGORIES = ["Food & Drinks", "Transport", "Shopping", "Entertainment", "Bills", "Salary", "Scholarship", "Part-time Job", "Gift", "Others"]
 ACCOUNTS = ["Cash", "Bank Card", "Credit Card", "Alipay", "WeChat", "Others"]
@@ -57,6 +58,7 @@ def create_action(body, provider=None, now=None):
     text, zone, today = request_context({k:body[k] for k in ("text","timezone")}, now)
     unclear = {"status":"clarification","reason":"unclear","module":None,"draft":None,"fields":None}
     if is_smalltalk(text): return unclear
+    if multiple_actions(text): return dict(unclear, reason="multiple_tasks")
     raw, _ = (provider(text) if provider else call_local_model(
         text, ACTION_SCHEMA, ACTION_SYSTEM + "\nRequested module hint: " + hint))
     if not isinstance(raw,dict) or set(raw) != set(PROPERTIES): raise ServiceError("invalid_model_output",502)
@@ -64,6 +66,8 @@ def create_action(body, provider=None, now=None):
         raise ServiceError("invalid_model_output",502)
     for key in PROPERTIES:
         if raw[key] is not None and (not isinstance(raw[key],str) or len(raw[key]) > 2000): raise ServiceError("invalid_model_output",502)
+    if raw["kind"] not in ("expense","income",None) or raw["category"] not in CATEGORIES+[None] or raw["account"] not in ACCOUNTS+[None]:
+        raise ServiceError("invalid_model_output",502)
     if raw["intent"] != "single_task" or raw["module"] == "unclear":
         return dict(unclear, reason=raw["intent"])
     module = raw["module"]
@@ -71,27 +75,17 @@ def create_action(body, provider=None, now=None):
         module = hint  # Explicit user correction chooses the destination, never writes data.
     elif hint != "auto" and module != hint:
         return unclear
-    if module == "finance" and re.search(r"[$€£]|\b(?:USD|EUR|GBP|dollars?|euros?|pounds?)\b", text, re.IGNORECASE):
+    if module == "finance" and re.search(r"[$€£]|美元|美金|欧元|英镑|日元|港币|港元|\b(?:USD|EUR|GBP|JPY|HKD|dollars?|euros?|pounds?|yen)\b", text, re.IGNORECASE):
         return dict(unclear, reason="unsupported_currency")
+    if module == "health" and not search(USAGE, text):
+        # Opening Health is allowed; health logging/advice is not implemented.
+        if not re.fullmatch(r"(?:open|show)(?: the)? health(?: page| module)?[.!]?|打开(?:健康|Health)(?:页面|模块)?[。！]?", text, re.IGNORECASE):
+            return dict(unclear, reason="health_unsupported")
     if module == "health" and re.search(r"昨天|前天|上周|上个月|昨日|yesterday|last week|last month", text, re.IGNORECASE):
         return dict(unclear, reason="health_today_only")
+    if module == "finance": raw = finance_evidence(text, raw)
     if not raw["title"] or len(raw["title"]) > 100 or raw["notes"] is None: raise ServiceError("invalid_model_output",502)
-    if raw["date_text"]:
-        match = re.search(re.escape(raw["date_text"]), text, re.IGNORECASE)
-        if match:
-            raw = dict(raw, date_text=match.group())
-    # Recover one explicit date phrase when the model misses or truncates it.
-    # Never repair invented phrases or choose between ambiguous/negated dates.
-    phrase = raw["date_text"]
-    if phrase is None or (phrase in text and resolve_date(phrase, today) is None):
-        date_pattern = (r"\b(?:this|next)\s+(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b"
-                        r"|[本这下](?:周|星期)[一二三四五六日天]"
-                        r"|\btoday\b|\btomorrow\b|\byesterday\b|今天|今日|明天|昨天")
-        references = list(re.finditer(date_pattern, text, re.IGNORECASE))
-        remainder = re.sub(date_pattern, " ", text, flags=re.IGNORECASE)
-        uncertain = re.search(r"\b(?:not|maybe|perhaps|or|next|last|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b|不|可能|或者|后天|[上下本这]周|\d{4}[-年]|\d{1,2}月|\d{1,2}/\d{1,2}", remainder, re.IGNORECASE)
-        if len(references) == 1 and not uncertain:
-            raw = dict(raw, date_text=references[0].group())
+    raw = dict(raw, date_text=date_evidence(text, raw["date_text"], today))
     if module == "memo":
         result = validate_extraction({k:raw[k] for k in SCHEMA["required"]},text,zone,today)
         return dict(result,module=module,fields=None)
@@ -109,16 +103,9 @@ def create_action(body, provider=None, now=None):
     amount = None
     if raw["amount"] is not None:
         value = raw["amount"]
-        if re.fullmatch(r"\d{1,9}(?:\.\d{1,2})?",value) and re.search(r"(?<![\d.])"+re.escape(value)+r"(?![\d.])",text):
+        if re.fullmatch(r"\d{1,9}(?:\.\d{1,2})?",value) and re.search(r"(?<![\d.,+\-−])"+re.escape(value)+r"(?![\d.]|,\d)",text):
             if Decimal(value) > 0: amount = value
-    if raw["kind"] not in ("expense","income",None) or raw["category"] not in CATEGORIES+[None] or raw["account"] not in ACCOUNTS+[None]:
-        raise ServiceError("invalid_model_output",502)
-    account = raw["account"]
-    account_words = {"Cash":r"现金|\bcash\b", "Bank Card":r"银行卡|借记卡|\b(?:bank|debit) card\b",
-                     "Credit Card":r"信用卡|\bcredit card\b", "Alipay":r"支付宝|\balipay\b",
-                     "WeChat":r"微信|\bwechat\b", "Others":r"其他账户|\bother account\b"}
-    if account and not re.search(account_words[account], text, re.IGNORECASE): account = None
     fields = {"id":str(uuid.uuid4()),"title":raw["title"],"notes":raw["notes"],
         "date":date_value.isoformat() if date_value else None,"time":clock_time(time_text),
-        "amount":amount,"kind":raw["kind"],"category":raw["category"],"account":account,"timezone":zone}
+        "amount":amount,"kind":raw["kind"],"category":raw["category"],"account":raw["account"],"timezone":zone}
     return {"status":"draft","reason":None,"module":module,"draft":None,"fields":fields}

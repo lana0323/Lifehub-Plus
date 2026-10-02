@@ -138,6 +138,8 @@ The project includes the Android client, backend service and local persistence l
 
 The new [120-case frozen evaluation report](docs/evaluation/REPORT.md) separates routing, required fields, Android workflow entry, clarification handling and latency. [Download case-level results](docs/evaluation/app-evaluation.csv). The original 40-case set remains a development/regression set.
 
+Subsequent [AI validation improvements and regression results](docs/evaluation-improvements/README.md) document financial field recovery, ambiguity handling and supported-action checks. These follow-up results use seen development cases and do not replace the original frozen evaluation.
+
 Automated checks cover database migrations, account isolation, repeated submissions and screen restoration. Commands, recorded results and model evaluation scope are documented in [Quality Assurance](docs/QUALITY.md), the [Development Guide](docs/DEVELOPMENT_GUIDE.md) and the [Engineering Review](docs/ENGINEERING_REVIEW.md). These detailed development documents are currently in Chinese.
 
 </details>
@@ -147,7 +149,7 @@ Automated checks cover database migrations, account isolation, repeated submissi
 - Account isolation applies to local data. There is no server-side authentication, cloud synchronization, cross-device session management or password recovery. Local databases are not encrypted.
 - Health statistics describe the entire device. Local accounts see the same device statistics, subject to Android permissions and event retention.
 - Financial amounts currently use CNY, and each AI request produces at most one action draft.
-- Next priorities are better financial field extraction, an independent evaluation set and reducing main-thread work in schedule persistence.
+- Next priorities are broader financial vocabulary, remaining model routing/date failures, a new independent evaluation set and reducing main-thread work in schedule persistence.
 
 ## Acknowledgements and Provenance
 

@@ -1,5 +1,7 @@
 # Frozen evaluation v1
 
+The original production source and first-pass report are preserved at commit `e107d7b` in Lifehub-Plus. Later parser improvements intentionally fail the v1 source-hash gate. To reproduce that historical evaluation, use a separate checkout of that commit; do not update the lock to match newer source. Updated development results live in `docs/evaluation-improvements/`.
+
 `holdout_v1.json` contains 120 newly authored internal evaluation prompts: 30 per workflow, 15 English and 15 Chinese within each workflow. `holdout_v1.lock.json` records the pre-run SHA-256, production source hashes, scoring rules, run count and fixed shuffle order.
 
 The earlier `../eval_actions_fields.json` remains a **development / regression set**. Do not combine its score with this evaluation.
