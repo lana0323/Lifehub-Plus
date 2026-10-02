@@ -1,0 +1,371 @@
+{
+  "datasetSha256": "4d5e2524e0e7bff5def68965549765a5f1322908937a4d97583f314f38fdedea",
+  "firstPass": {
+    "cases": 120,
+    "routingOverall": {
+      "passed": 107,
+      "total": 120,
+      "rate": 0.8916666666666667
+    },
+    "routingSupported": {
+      "passed": 101,
+      "total": 104,
+      "rate": 0.9711538461538461
+    },
+    "clarificationOutcome": {
+      "passed": 6,
+      "total": 16,
+      "rate": 0.375
+    },
+    "requiredFieldMicro": {
+      "passed": 238,
+      "total": 268,
+      "rate": 0.8880597014925373
+    },
+    "allSpecifiedFields": {
+      "passed": 88,
+      "total": 120,
+      "rate": 0.7333333333333333
+    },
+    "supportedDraftContract": {
+      "passed": 82,
+      "total": 104,
+      "rate": 0.7884615384615384
+    },
+    "requiredFieldsOnCompleteInputs": {
+      "passed": 126,
+      "total": 144,
+      "rate": 0.875
+    },
+    "latencyMs": {
+      "p50": 2078,
+      "p95": 2870,
+      "min": 888,
+      "max": 3096
+    },
+    "errors": 5
+  },
+  "androidWorkflowEntrySupported": {
+    "passed": 82,
+    "total": 104,
+    "rate": 0.7884615384615384
+  },
+  "androidOutcomesOverall": {
+    "passed": 88,
+    "total": 120,
+    "rate": 0.7333333333333333
+  },
+  "androidClarifications": {
+    "passed": 6,
+    "total": 16,
+    "rate": 0.375
+  },
+  "reliability": {
+    "passed": 12,
+    "total": 12
+  },
+  "byWorkflow": {
+    "memo": {
+      "cases": 30,
+      "routingOverall": {
+        "passed": 29,
+        "total": 30,
+        "rate": 0.9666666666666667
+      },
+      "routingSupported": {
+        "passed": 29,
+        "total": 30,
+        "rate": 0.9666666666666667
+      },
+      "clarificationOutcome": {
+        "passed": 0,
+        "total": 0,
+        "rate": null
+      },
+      "requiredFieldMicro": {
+        "passed": 57,
+        "total": 60,
+        "rate": 0.95
+      },
+      "allSpecifiedFields": {
+        "passed": 26,
+        "total": 30,
+        "rate": 0.8666666666666667
+      },
+      "supportedDraftContract": {
+        "passed": 26,
+        "total": 30,
+        "rate": 0.8666666666666667
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 30,
+        "total": 32,
+        "rate": 0.9375
+      },
+      "latencyMs": {
+        "p50": 2121,
+        "p95": 2882,
+        "min": 888,
+        "max": 3057
+      },
+      "errors": 1,
+      "androidWorkflowEntry": {
+        "passed": 26,
+        "total": 30,
+        "rate": 0.8666666666666667
+      }
+    },
+    "finance": {
+      "cases": 30,
+      "routingOverall": {
+        "passed": 27,
+        "total": 30,
+        "rate": 0.9
+      },
+      "routingSupported": {
+        "passed": 25,
+        "total": 26,
+        "rate": 0.9615384615384616
+      },
+      "clarificationOutcome": {
+        "passed": 2,
+        "total": 4,
+        "rate": 0.5
+      },
+      "requiredFieldMicro": {
+        "passed": 129,
+        "total": 152,
+        "rate": 0.8486842105263158
+      },
+      "allSpecifiedFields": {
+        "passed": 13,
+        "total": 30,
+        "rate": 0.43333333333333335
+      },
+      "supportedDraftContract": {
+        "passed": 11,
+        "total": 26,
+        "rate": 0.4230769230769231
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 58,
+        "total": 72,
+        "rate": 0.8055555555555556
+      },
+      "latencyMs": {
+        "p50": 2150,
+        "p95": 2870,
+        "min": 1455,
+        "max": 2990
+      },
+      "errors": 1,
+      "androidWorkflowEntry": {
+        "passed": 11,
+        "total": 26,
+        "rate": 0.4230769230769231
+      }
+    },
+    "schedule": {
+      "cases": 30,
+      "routingOverall": {
+        "passed": 27,
+        "total": 30,
+        "rate": 0.9
+      },
+      "routingSupported": {
+        "passed": 27,
+        "total": 28,
+        "rate": 0.9642857142857143
+      },
+      "clarificationOutcome": {
+        "passed": 0,
+        "total": 2,
+        "rate": 0.0
+      },
+      "requiredFieldMicro": {
+        "passed": 52,
+        "total": 56,
+        "rate": 0.9285714285714286
+      },
+      "allSpecifiedFields": {
+        "passed": 25,
+        "total": 30,
+        "rate": 0.8333333333333334
+      },
+      "supportedDraftContract": {
+        "passed": 25,
+        "total": 28,
+        "rate": 0.8928571428571429
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 38,
+        "total": 40,
+        "rate": 0.95
+      },
+      "latencyMs": {
+        "p50": 2026,
+        "p95": 2913,
+        "min": 1070,
+        "max": 3096
+      },
+      "errors": 1,
+      "androidWorkflowEntry": {
+        "passed": 25,
+        "total": 28,
+        "rate": 0.8928571428571429
+      }
+    },
+    "health": {
+      "cases": 30,
+      "routingOverall": {
+        "passed": 24,
+        "total": 30,
+        "rate": 0.8
+      },
+      "routingSupported": {
+        "passed": 20,
+        "total": 20,
+        "rate": 1.0
+      },
+      "clarificationOutcome": {
+        "passed": 4,
+        "total": 10,
+        "rate": 0.4
+      },
+      "requiredFieldMicro": {
+        "passed": 0,
+        "total": 0,
+        "rate": null
+      },
+      "allSpecifiedFields": {
+        "passed": 24,
+        "total": 30,
+        "rate": 0.8
+      },
+      "supportedDraftContract": {
+        "passed": 20,
+        "total": 20,
+        "rate": 1.0
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 0,
+        "total": 0,
+        "rate": null
+      },
+      "latencyMs": {
+        "p50": 2021,
+        "p95": 2774,
+        "min": 958,
+        "max": 2950
+      },
+      "errors": 2,
+      "androidWorkflowEntry": {
+        "passed": 20,
+        "total": 20,
+        "rate": 1.0
+      }
+    }
+  },
+  "byLanguage": {
+    "en": {
+      "cases": 60,
+      "routingOverall": {
+        "passed": 56,
+        "total": 60,
+        "rate": 0.9333333333333333
+      },
+      "routingSupported": {
+        "passed": 52,
+        "total": 52,
+        "rate": 1.0
+      },
+      "clarificationOutcome": {
+        "passed": 4,
+        "total": 8,
+        "rate": 0.5
+      },
+      "requiredFieldMicro": {
+        "passed": 125,
+        "total": 134,
+        "rate": 0.9328358208955224
+      },
+      "allSpecifiedFields": {
+        "passed": 47,
+        "total": 60,
+        "rate": 0.7833333333333333
+      },
+      "supportedDraftContract": {
+        "passed": 43,
+        "total": 52,
+        "rate": 0.8269230769230769
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 69,
+        "total": 72,
+        "rate": 0.9583333333333334
+      },
+      "latencyMs": {
+        "p50": 2121,
+        "p95": 2769,
+        "min": 1062,
+        "max": 3057
+      },
+      "errors": 1,
+      "androidWorkflowEntry": {
+        "passed": 43,
+        "total": 52,
+        "rate": 0.8269230769230769
+      }
+    },
+    "zh": {
+      "cases": 60,
+      "routingOverall": {
+        "passed": 51,
+        "total": 60,
+        "rate": 0.85
+      },
+      "routingSupported": {
+        "passed": 49,
+        "total": 52,
+        "rate": 0.9423076923076923
+      },
+      "clarificationOutcome": {
+        "passed": 2,
+        "total": 8,
+        "rate": 0.25
+      },
+      "requiredFieldMicro": {
+        "passed": 113,
+        "total": 134,
+        "rate": 0.8432835820895522
+      },
+      "allSpecifiedFields": {
+        "passed": 41,
+        "total": 60,
+        "rate": 0.6833333333333333
+      },
+      "supportedDraftContract": {
+        "passed": 39,
+        "total": 52,
+        "rate": 0.75
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 57,
+        "total": 72,
+        "rate": 0.7916666666666666
+      },
+      "latencyMs": {
+        "p50": 2062,
+        "p95": 2870,
+        "min": 888,
+        "max": 3096
+      },
+      "errors": 4,
+      "androidWorkflowEntry": {
+        "passed": 39,
+        "total": 52,
+        "rate": 0.75
+      }
+    }
+  }
+}

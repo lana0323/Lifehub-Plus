@@ -1,0 +1,8 @@
+# Frozen evaluation hashes describe Windows working-tree bytes.
+# Keep checkout line endings stable so the audit also works on Linux/macOS.
+backend/evaluation/*.json text eol=crlf
+docs/evaluation/*.json text eol=crlf
+backend/action_service.py text eol=crlf
+backend/task_service.py text eol=crlf
+app/src/main/java/com/lifeHub/ai/ui/AiChatViewModel.kt text eol=crlf
+app/src/main/java/com/lifeHub/ai/ui/AiChatFragment.kt text eol=crlf

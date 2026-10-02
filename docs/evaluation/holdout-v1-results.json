@@ -1,0 +1,6052 @@
+{
+  "startedAtUtc": "2026-10-02T05:43:37.312807+00:00",
+  "updatedAtUtc": "2026-10-02T05:47:58.775819+00:00",
+  "datasetSha256": "4d5e2524e0e7bff5def68965549765a5f1322908937a4d97583f314f38fdedea",
+  "protocol": {
+    "routing": "Exact status and module match; clarification is a separate expected outcome, not a successful module route. Report overall and supported-only.",
+    "requiredFields": "Micro average over predefined required fields that have explicit or null expectations. Null is correct only if field is present and null. Also report complete-case eligibility separately.",
+    "actionSuccess": "All frozen field checks AND Android target screen entry using the recorded real-model response. Clarifications scored separately. Does not claim each record was saved; user confirmation and persistence are separate reliability checks.",
+    "latency": "Sequential local inference plus backend validation, nearest-rank P50/P95, excluding warmup and Android UI. One run per case; no CI or statistical significance claims.",
+    "title": "Predeclared keyword checks, not full semantic equivalence.",
+    "limitations": "Newly authored internal held-out evaluation, not externally independent. Some bilingual cases are paired and correlated. Never used for tuning before this run; once inspected, reuse is regression only."
+  },
+  "environment": {
+    "machine": {
+      "ramBytes": 34129334272,
+      "cpu": {
+        "Name": "12th Gen Intel(R) Core(TM) i5-12400F",
+        "NumberOfCores": 6,
+        "NumberOfLogicalProcessors": 12
+      },
+      "os": {
+        "Caption": "Microsoft Windows 11 专业版",
+        "Version": "10.0.26200",
+        "BuildNumber": "26200"
+      },
+      "gpu": {
+        "Name": "NVIDIA GeForce RTX 3060 Ti",
+        "DriverVersion": "32.0.16.1692"
+      }
+    },
+    "python": "3.11.7",
+    "ollama": {
+      "version": "0.35.0"
+    },
+    "models": {
+      "models": [
+        {
+          "name": "qwen3:4b",
+          "model": "qwen3:4b",
+          "modified_at": "2026-09-29T19:03:04.7189765-07:00",
+          "size": 2497293931,
+          "digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3",
+            "families": [
+              "qwen3"
+            ],
+            "parameter_size": "4.0B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 2560
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "thinking"
+          ]
+        }
+      ]
+    },
+    "model": "qwen3:4b",
+    "modelDetails": {
+      "thinking": {
+        "values": [
+          true
+        ],
+        "default": true
+      },
+      "license": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n   Copyright 2024 Alibaba Cloud\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n       http://www.apache.org/licenses/LICENSE-2.0\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.",
+      "parameters": "repeat_penalty                 1\nstop                           \"<|im_start|>\"\nstop                           \"<|im_end|>\"\ntemperature                    0.6\ntop_k                          20\ntop_p                          0.95",
+      "template": "{{- $lastUserIdx := -1 -}}\n{{- range $idx, $msg := .Messages -}}\n{{- if eq $msg.Role \"user\" }}{{ $lastUserIdx = $idx }}{{ end -}}\n{{- end }}\n{{- if or .System .Tools }}<|im_start|>system\n{{ if .System }}{{ .System }}\n\n{{ end }}\n{{- if .Tools }}# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools> XML tags:\n<tools>\n{{- range .Tools }}\n{\"type\": \"function\", \"function\": {{ .Function }}}\n{{- end }}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call>\n{{- end -}}\n<|im_end|>\n{{ end }}\n{{- range $i, $_ := .Messages }}\n{{- $last := eq (len (slice $.Messages $i)) 1 -}}\n{{- if eq .Role \"user\" }}<|im_start|>user\n{{ .Content }}<|im_end|>\n{{ else if eq .Role \"assistant\" }}<|im_start|>assistant\n{{ if (and $.IsThinkSet (and .Thinking (or $last (gt $i $lastUserIdx)))) -}}\n<think>{{ .Thinking }}</think>\n{{ end -}}\n{{ if .Content }}{{ .Content }}{{ end }}\n{{- if .ToolCalls }}\n{{- range .ToolCalls }}\n<tool_call>\n{\"name\": \"{{ .Function.Name }}\", \"arguments\": {{ .Function.Arguments }}}\n</tool_call>\n{{- end }}\n{{- end }}{{ if not $last }}<|im_end|>\n{{ end }}\n{{- else if eq .Role \"tool\" }}<|im_start|>user\n<tool_response>\n{{ .Content }}\n</tool_response><|im_end|>\n{{ end }}\n{{- if and (ne .Role \"assistant\") $last }}<|im_start|>assistant\n<think>\n{{ end }}\n{{- end }}",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3",
+        "families": [
+          "qwen3"
+        ],
+        "parameter_size": "4.0B",
+        "quantization_level": "Q4_K_M"
+      },
+      "model_info": {
+        "general.architecture": "qwen3",
+        "general.basename": "Qwen3",
+        "general.file_type": 15,
+        "general.finetune": "Thinking",
+        "general.license": "apache-2.0",
+        "general.license.link": "https://huggingface.co/Qwen/Qwen3-4B-Thinking-2507/blob/main/LICENSE",
+        "general.parameter_count": 4022468096,
+        "general.quantization_version": 2,
+        "general.size_label": "4B",
+        "general.tags": [
+          "text-generation"
+        ],
+        "general.type": "model",
+        "general.version": "2507",
+        "qwen3.attention.head_count": 32,
+        "qwen3.attention.head_count_kv": 8,
+        "qwen3.attention.key_length": 128,
+        "qwen3.attention.layer_norm_rms_epsilon": 1e-06,
+        "qwen3.attention.value_length": 128,
+        "qwen3.block_count": 36,
+        "qwen3.context_length": 262144,
+        "qwen3.embedding_length": 2560,
+        "qwen3.feed_forward_length": 9728,
+        "qwen3.rope.freq_base": 5000000,
+        "tokenizer.ggml.add_bos_token": false,
+        "tokenizer.ggml.bos_token_id": 151643,
+        "tokenizer.ggml.eos_token_id": 151645,
+        "tokenizer.ggml.merges": [],
+        "tokenizer.ggml.model": "gpt2",
+        "tokenizer.ggml.padding_token_id": 151643,
+        "tokenizer.ggml.pre": "qwen2",
+        "tokenizer.ggml.token_type": [],
+        "tokenizer.ggml.tokens": []
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "thinking"
+      ],
+      "modified_at": "2026-09-29T19:03:04.7189765-07:00"
+    },
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 4096,
+      "num_predict": 700,
+      "think": false,
+      "keep_alive": "10m"
+    },
+    "concurrency": 1,
+    "runsPerCase": 1,
+    "retries": 0,
+    "noCloud": true,
+    "warmupMs": 8878,
+    "loadedModel": {
+      "models": [
+        {
+          "name": "qwen3:4b",
+          "model": "qwen3:4b",
+          "size": 3178149969,
+          "digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3",
+            "families": [
+              "qwen3"
+            ],
+            "parameter_size": "4.0B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-10-01T22:53:46.1892316-07:00",
+          "size_vram": 3178149969,
+          "context_length": 4096
+        }
+      ]
+    },
+    "metadataNote": "Ollama-generated modelfile omitted because it embeds a private local blob path. Model digest, parameters, prompt template and all measured outputs are unchanged."
+  },
+  "summary": {
+    "cases": 120,
+    "routingOverall": {
+      "passed": 107,
+      "total": 120,
+      "rate": 0.8916666666666667
+    },
+    "routingSupported": {
+      "passed": 101,
+      "total": 104,
+      "rate": 0.9711538461538461
+    },
+    "clarificationOutcome": {
+      "passed": 6,
+      "total": 16,
+      "rate": 0.375
+    },
+    "requiredFieldMicro": {
+      "passed": 238,
+      "total": 268,
+      "rate": 0.8880597014925373
+    },
+    "allSpecifiedFields": {
+      "passed": 88,
+      "total": 120,
+      "rate": 0.7333333333333333
+    },
+    "supportedDraftContract": {
+      "passed": 82,
+      "total": 104,
+      "rate": 0.7884615384615384
+    },
+    "requiredFieldsOnCompleteInputs": {
+      "passed": 126,
+      "total": 144,
+      "rate": 0.875
+    },
+    "latencyMs": {
+      "p50": 2078,
+      "p95": 2870,
+      "min": 888,
+      "max": 3096
+    },
+    "errors": 5
+  },
+  "results": [
+    {
+      "id": "memo-en-03",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "04848a05-6251-474b-9302-6047a0d8a3f5",
+          "title": "submit the scholarship essay",
+          "notes": "",
+          "dueDate": "2026-10-06",
+          "timezone": "America/Los_Angeles",
+          "priority": "urgent",
+          "dateText": "next Tuesday",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "submit the scholarship essay",
+        "notes": "",
+        "date_text": "next Tuesday",
+        "priority": "urgent",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2234,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-14",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "bd216c33-a250-4a88-aa63-3137ba2a274d",
+          "title": "跑步",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "跑步",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "30分钟"
+      },
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 78
+      },
+      "latencyMs": 1963,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "memo-zh-04",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "9595dfcb-5eb8-4473-a3f7-514387ed6f94",
+          "title": "标注卫星照片",
+          "notes": "",
+          "dueDate": "2026-10-02",
+          "timezone": "Asia/Shanghai",
+          "priority": "normal",
+          "dateText": "本周五",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "标注卫星照片",
+        "notes": "",
+        "date_text": "本周五",
+        "priority": "normal",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2678,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-03",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "562e0695-9f0f-423b-8160-23bca12e5f55",
+          "title": "Check app usage durations",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Check app usage durations",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 78
+      },
+      "latencyMs": 2391,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-03",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "8ba6cace-2e90-4113-b58e-c4697f3a315a",
+          "title": "查询今天各个应用的使用时间",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "查询今天各个应用的使用时间",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 81
+      },
+      "latencyMs": 2268,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-01",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "a97afd7f-c081-422f-8c65-53b9903ab674",
+          "title": "Put a chemistry seminar",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": "10:30",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Put a chemistry seminar",
+        "notes": "",
+        "date_text": "tomorrow",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "10:30"
+      },
+      "usage": {
+        "prompt_tokens": 961,
+        "completion_tokens": 84
+      },
+      "latencyMs": 2741,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-11",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "b9c19139-3503-44fe-a103-6f2d4832a941",
+          "title": "review vocabulary",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": "sometime soon",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "review vocabulary",
+        "notes": "",
+        "date_text": "sometime soon",
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 78
+      },
+      "latencyMs": 2882,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-08",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "a6f53dd9-6a73-4d23-996d-ba215ea7e865",
+          "title": "记今天的晚餐支出",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": "WeChat",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记今天的晚餐支出",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": null,
+        "kind": "expense",
+        "category": "Food & Drinks",
+        "account": "WeChat",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 84
+      },
+      "latencyMs": 2665,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-09",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "f1d99c36-c2f5-4f8e-9844-824d2f6353e4",
+          "title": "Record 58 yuan spent on groceries with cash",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": "58",
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": "Cash",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record 58 yuan spent on groceries with cash",
+        "notes": "",
+        "date_text": "unknown",
+        "priority": null,
+        "module": "finance",
+        "amount": "58",
+        "kind": "expense",
+        "category": "Food & Drinks",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 961,
+        "completion_tokens": 91
+      },
+      "latencyMs": 2397,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-06",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "6566aa45-39cf-4e92-9f54-0e1f136ab4be",
+          "title": "Show today's foreground app usage",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Show today's foreground app usage",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2298,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-09",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "dda9ad62-aba8-46c5-a638-083c8ad5528f",
+          "title": "Put a pottery class in my calendar",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Put a pottery class in my calendar",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2569,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-10",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "916cff04-f7a9-4c67-9691-c95cf3304d89",
+          "title": "Record an expense of 17 yuan today",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "17",
+          "kind": "expense",
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record an expense of 17 yuan today",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "17",
+        "kind": "expense",
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 86
+      },
+      "latencyMs": 2449,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-11",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "1b4083db-796e-42c4-9bc7-dab32c4da474",
+          "title": "整理错题",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "最近",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "整理错题",
+        "notes": "",
+        "date_text": "最近",
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 77
+      },
+      "latencyMs": 2822,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-01",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "bde5f91f-6915-455c-963a-3c77741f86ce",
+          "title": "proofread the robotics abstract",
+          "notes": "",
+          "dueDate": "2026-10-02",
+          "timezone": "America/Los_Angeles",
+          "priority": "important",
+          "dateText": "tomorrow",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "proofread the robotics abstract",
+        "notes": "",
+        "date_text": "tomorrow",
+        "priority": "important",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 81
+      },
+      "latencyMs": 2143,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-14",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "51019b52-ef1c-4fba-8528-c5c3866510ba",
+          "title": "Log a 40 minute run",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Log a 40 minute run",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2305,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-en-06",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "07b06c04-1789-41f8-be38-21ea72b7bdea",
+          "title": "I have a swimming class",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "I have a swimming class",
+        "notes": "",
+        "date_text": "this Wednesday",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2659,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-10",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "05f54792-463c-4a17-9bf8-73e824572a0f",
+          "title": "Schedule a team lunch",
+          "notes": "",
+          "date": "2026-10-08",
+          "time": "12:30",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Schedule a team lunch",
+        "notes": "",
+        "date_text": "next Thursday",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "12:30 pm"
+      },
+      "usage": {
+        "prompt_tokens": 960,
+        "completion_tokens": 85
+      },
+      "latencyMs": 2039,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-14",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "976af0fc-2763-4bf0-b0bd-9cd8f70a7d36",
+          "title": "Add a budget review meeting",
+          "notes": "",
+          "date": "2026-10-06",
+          "time": "15:45",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Add a budget review meeting",
+        "notes": "",
+        "date_text": "next Tuesday",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "15:45"
+      },
+      "usage": {
+        "prompt_tokens": 963,
+        "completion_tokens": 85
+      },
+      "latencyMs": 1615,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-07",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "65a83c1b-df4c-4da5-b150-7a4785e8e775",
+          "title": "打开Health让我看看屏幕使用时长",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "打开Health让我看看屏幕使用时长",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 81
+      },
+      "latencyMs": 1525,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-03",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "80e94aa2-6493-42f5-9b41-5f83e5d5cacc",
+          "title": "工资收入",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "6200",
+          "kind": "income",
+          "category": null,
+          "account": "Bank Card",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "工资收入",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "6200",
+        "kind": "income",
+        "category": null,
+        "account": "Bank Card",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 961,
+        "completion_tokens": 83
+      },
+      "latencyMs": 1720,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-zh-15",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "d9b3f71e-79c3-4069-9234-28e55067b759",
+          "title": "安排辅导课",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": null,
+          "amount": "8",
+          "kind": "expense",
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "安排辅导课",
+        "notes": "",
+        "date_text": "明天",
+        "priority": null,
+        "module": "schedule",
+        "amount": "8",
+        "kind": "expense",
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 79
+      },
+      "latencyMs": 1539,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "health-zh-04",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "a6e438c3-acf1-4222-b519-e753e92930c7",
+          "title": "带我进入手机使用统计页面",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "带我进入手机使用统计页面",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2774,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-12",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "fa948592-8999-497c-b2a5-5d153523c75b",
+          "title": "Update portfolio",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": "maybe tomorrow",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Update portfolio",
+        "notes": "",
+        "date_text": "maybe tomorrow",
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 77
+      },
+      "latencyMs": 1727,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-02",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "a1493a4d-95f5-4942-a8e3-9d8e890515d7",
+          "title": "整理实验柜",
+          "notes": "",
+          "dueDate": "2026-10-01",
+          "timezone": "Asia/Shanghai",
+          "priority": "normal",
+          "dateText": "今天",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "整理实验柜",
+        "notes": "",
+        "date_text": "今天",
+        "priority": "normal",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 960,
+        "completion_tokens": 78
+      },
+      "latencyMs": 1256,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-15",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "clarification",
+        "reason": "multiple_tasks",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "raw": {
+        "intent": "multiple_tasks",
+        "title": "Record lunch",
+        "notes": "",
+        "date_text": "tomorrow",
+        "priority": null,
+        "module": "finance",
+        "amount": "23",
+        "kind": "expense",
+        "category": "Food & Drinks",
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 83
+      },
+      "latencyMs": 1581,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-06",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "fa08a1c5-7a52-44d9-86dd-e127cdb7c17f",
+          "title": "Record electricity bill",
+          "notes": "",
+          "date": "2026-09-27",
+          "time": null,
+          "amount": "92.40",
+          "kind": "expense",
+          "category": "Bills",
+          "account": "Cash",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record electricity bill",
+        "notes": "",
+        "date_text": "2026-09-27",
+        "priority": null,
+        "module": "finance",
+        "amount": "92.40",
+        "kind": "expense",
+        "category": "Bills",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 972,
+        "completion_tokens": 95
+      },
+      "latencyMs": 1539,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-01",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "1cf58b63-7898-4d28-8b3f-5997f00ca165",
+          "title": "Show how long I used my phone today",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Show how long I used my phone today",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 82
+      },
+      "latencyMs": 1290,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-zh-14",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "cc085830-c9ed-4358-932e-fcf43e18b7fa",
+          "title": "开预算评审会",
+          "notes": "",
+          "date": "2026-10-06",
+          "time": "15:40",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "开预算评审会",
+        "notes": "",
+        "date_text": "下周二15:40",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "15:40"
+      },
+      "usage": {
+        "prompt_tokens": 965,
+        "completion_tokens": 89
+      },
+      "latencyMs": 1695,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-14",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "68622b7c-71cd-44c1-bd33-b63d8e4cb4af",
+          "title": "今天咖啡花了7欧元",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "7",
+          "kind": "expense",
+          "category": "Others",
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "今天咖啡花了7欧元",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "7",
+        "kind": "expense",
+        "category": "Others",
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 82
+      },
+      "latencyMs": 1455,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-zh-11",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": false,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "818bbf89-3c69-402a-853c-daa958304fb3",
+          "title": "排练",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": "17:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "排练",
+        "notes": "",
+        "date_text": "明天下午5点",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "下午5点"
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 82
+      },
+      "latencyMs": 1591,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "health-en-10",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "62319670-6ce0-4706-81ae-f7dbbd086fa2",
+          "title": "Check screen time",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Check screen time",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 76
+      },
+      "latencyMs": 1391,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-05",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "3d0a348c-1281-4e57-903d-52f6ab292642",
+          "title": "How much screen time have I accumulated today?",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "How much screen time have I accumulated today?",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 82
+      },
+      "latencyMs": 2422,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-06",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "47f7927d-8095-49ef-b666-1cd375c2f904",
+          "title": "出门带紫色雨伞",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": null,
+          "warnings": [
+            "date_missing",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "出门带紫色雨伞",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 78
+      },
+      "latencyMs": 1633,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-zh-05",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "b527392b-c046-4c8f-becc-384098f1fbe1",
+          "title": "参观实验室",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": "18:30",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "参观实验室",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "18:30"
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 82
+      },
+      "latencyMs": 1640,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-zh-01",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "3ddf5841-4af1-4f99-b5f1-3c7aa7fc74f5",
+          "title": "物理讲座",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": "10:45",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "物理讲座",
+        "notes": "",
+        "date_text": "明天",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "10:45"
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 81
+      },
+      "latencyMs": 1577,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-07",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": false,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "4bf07f57-661b-43e3-9c07-0cc292ef772f",
+          "title": "记账",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "3",
+          "kind": "expense",
+          "category": "Transport",
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记账",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "3",
+        "kind": "expense",
+        "category": "Transport",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 80
+      },
+      "latencyMs": 1693,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-zh-13",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "799d1a49-9a0c-4b43-a2c7-f35dcb32d819",
+          "title": "添加明天25:00的编程社团活动",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "添加明天25:00的编程社团活动",
+        "notes": "",
+        "date_text": "明天",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "25:00"
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 91
+      },
+      "latencyMs": 1070,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-07",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "c7682de8-a6f8-479c-9a7b-27ca7a3c6f0c",
+          "title": "清理抽屉",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": "important",
+          "dateText": null,
+          "warnings": [
+            "date_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "清理抽屉",
+        "notes": "",
+        "date_text": null,
+        "priority": "important",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 77
+      },
+      "latencyMs": 888,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-05",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "a5bc80eb-7a32-4f02-9a70-f4811a25fa5f",
+          "title": "我今天累计使用手机多少时间？",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "我今天累计使用手机多少时间？",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 82
+      },
+      "latencyMs": 958,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-11",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "clarification",
+        "reason": "health_today_only",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Show my phone usage yesterday",
+        "notes": "",
+        "date_text": "yesterday",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 951,
+        "completion_tokens": 80
+      },
+      "latencyMs": 1062,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-zh-10",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "2880c832-a0d1-410f-9380-ff8b0e3c537b",
+          "title": "安排团队午餐",
+          "notes": "",
+          "date": "2026-10-08",
+          "time": "12:15",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "安排团队午餐",
+        "notes": "",
+        "date_text": "下周四",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "12:15"
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 84
+      },
+      "latencyMs": 1350,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-07",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "dd137e1b-8a16-4350-94dd-48ff273323cd",
+          "title": "Schedule a museum visit",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Schedule a museum visit",
+        "notes": "",
+        "date_text": "tomorrow",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 951,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2026,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-13",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "7e6b9dd5-3f0f-4e35-b39e-d47f9aaa0e2e",
+          "title": "Print lab handbook",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": "not today",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Print lab handbook",
+        "notes": "",
+        "date_text": "not today",
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 78
+      },
+      "latencyMs": 2198,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-06",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "f1fe2871-fc26-4289-8ed4-ad7878e2cf78",
+          "title": "bring the blue notebook",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": null,
+          "warnings": [
+            "date_missing",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "bring the blue notebook",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 77
+      },
+      "latencyMs": 2173,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-12",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "e29f156e-d9b9-4b69-9b88-93205190bc24",
+          "title": "记录今天现金买点心花费",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": "Others",
+          "account": "Cash",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记录今天现金买点心花费",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "6.789",
+        "kind": "expense",
+        "category": "Others",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 89
+      },
+      "latencyMs": 2315,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "memo-en-15",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "e7613111-d9cf-40b0-abca-8854d0c9eaf7",
+          "title": "Note down a budget idea for a bicycle",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": null,
+          "warnings": [
+            "date_missing",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Note down a budget idea for a bicycle",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 960,
+        "completion_tokens": 81
+      },
+      "latencyMs": 2296,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-09",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "abcde5ca-037c-424c-9999-27b72b09a950",
+          "title": "记一笔现金买日用品的支出",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": "65",
+          "kind": "expense",
+          "category": "Others",
+          "account": "Cash",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记一笔现金买日用品的支出",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "finance",
+        "amount": "65",
+        "kind": "expense",
+        "category": "Others",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 963,
+        "completion_tokens": 86
+      },
+      "latencyMs": 2306,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-01",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "e88283b6-54a5-41b1-80ed-96a691b3edf2",
+          "title": "查看手机使用时间",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "查看手机使用时间",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 951,
+        "completion_tokens": 78
+      },
+      "latencyMs": 2472,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-zh-04",
+      "checks": {
+        "status": false,
+        "module": false,
+        "title": false,
+        "date": false,
+        "time": false
+      },
+      "error": "ungrounded_field",
+      "raw": {
+        "intent": "single_task",
+        "title": "设计工作坊",
+        "notes": "",
+        "date_text": "2026-10-13",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "14:20"
+      },
+      "usage": {
+        "prompt_tokens": 969,
+        "completion_tokens": 91
+      },
+      "latencyMs": 2400,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "health-zh-15",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "cfc26a90-fa3f-4245-91be-7056a3ba4eff",
+          "title": "查看今天使用时长",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "查看今天使用时长",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2950,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "memo-en-09",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": false,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "01fa558c-254c-4203-a88f-1350bc3c37ef",
+          "title": "Write down an idea",
+          "notes": "a campus book exchange shelf",
+          "dueDate": null,
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": null,
+          "warnings": [
+            "date_missing",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Write down an idea",
+        "notes": "a campus book exchange shelf",
+        "date_text": null,
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 83
+      },
+      "latencyMs": 2629,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "finance-zh-11",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": false,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "1ce1a92d-0b74-478a-81c6-6144a161bc14",
+          "title": "记账",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": "Others",
+          "account": "Cash",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记账",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "0",
+        "kind": "expense",
+        "category": "Others",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2489,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-zh-08",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "ea15c8df-39b6-4cda-bdac-13d5d0895f49",
+          "title": "加入项目汇报日程",
+          "notes": "",
+          "date": null,
+          "time": "11:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "加入项目汇报日程",
+        "notes": "",
+        "date_text": "日期待定",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "上午11点"
+      },
+      "usage": {
+        "prompt_tokens": 960,
+        "completion_tokens": 85
+      },
+      "latencyMs": 3096,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-08",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "cb683ee4-ae45-4161-a76a-3f4635c1eb9a",
+          "title": "Log lunch paid with Alipay today",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": null,
+          "account": "Alipay",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Log lunch paid with Alipay today",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": null,
+        "kind": "expense",
+        "category": null,
+        "account": "Alipay",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 84
+      },
+      "latencyMs": 2388,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "finance-en-13",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "66835859-f425-40f5-ad2f-3e6a022ded31",
+          "title": "Log notebook purchase",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": "Others",
+          "account": "Cash",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Log notebook purchase",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "-19",
+        "kind": "expense",
+        "category": "Others",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 82
+      },
+      "latencyMs": 2296,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-zh-07",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "ed9ee5cd-dfce-4af3-87d1-8569e259b648",
+          "title": "参观科技馆",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "参观科技馆",
+        "notes": "",
+        "date_text": "明天",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 77
+      },
+      "latencyMs": 2257,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-12",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "e389bf1f-a196-4499-8e4a-8336858be6d7",
+          "title": "Add calendar event for class",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Add calendar event for class",
+        "notes": "",
+        "date_text": "this Friday or next Monday",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 83
+      },
+      "latencyMs": 2495,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-12",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "clarification",
+        "reason": "health_today_only",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "查上周的屏幕使用时间",
+        "notes": "",
+        "date_text": "上周",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2349,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-01",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": false,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "12ceaa52-cc84-43de-82fa-e046a9822986",
+          "title": "记账",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "31.60",
+          "kind": "expense",
+          "category": null,
+          "account": "Cash",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记账",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "31.60",
+        "kind": "expense",
+        "category": null,
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 961,
+        "completion_tokens": 83
+      },
+      "latencyMs": 2601,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "health-en-15",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "454a809e-b1dd-45ac-9fb3-15df4d478fba",
+          "title": "Record 16 yuan lunch",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "16",
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record 16 yuan lunch",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "16",
+        "kind": "expense",
+        "category": "Food & Drinks",
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 960,
+        "completion_tokens": 86
+      },
+      "latencyMs": 2519,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "memo-en-02",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "674e45a0-274b-492a-8c7a-c700f1f2e339",
+          "title": "renew library card",
+          "notes": "",
+          "dueDate": "2026-10-01",
+          "timezone": "America/Los_Angeles",
+          "priority": "normal",
+          "dateText": "today",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "renew library card",
+        "notes": "",
+        "date_text": "today",
+        "priority": "normal",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2391,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-14",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "d2a3aedf-ee55-43ce-9c3f-0f52cfde629a",
+          "title": "准备面试要问的问题",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": "important",
+          "dateText": null,
+          "warnings": [
+            "date_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "准备面试要问的问题",
+        "notes": "",
+        "date_text": null,
+        "priority": "important",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2482,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-zh-09",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "0cf6d83f-e1a1-4291-9cc7-8a471c4cbdff",
+          "title": "添加陶艺课日程",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "添加陶艺课日程",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2258,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-07",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "3e1064f8-7401-4037-8bef-c9e05b8c20c3",
+          "title": "tidy the cables",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "America/Los_Angeles",
+          "priority": "important",
+          "dateText": null,
+          "warnings": [
+            "date_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "tidy the cables",
+        "notes": "",
+        "date_text": null,
+        "priority": "important",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 78
+      },
+      "latencyMs": 2769,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-07",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "a0ecc0da-23fb-47a3-81b6-9b5e9b4ba24a",
+          "title": "Record a bus expense",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "4",
+          "kind": "expense",
+          "category": "Transport",
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record a bus expense",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "4",
+        "kind": "expense",
+        "category": "Transport",
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 81
+      },
+      "latencyMs": 2407,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-11",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "clarification",
+        "reason": "health_today_only",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "查看手机使用时长",
+        "notes": "",
+        "date_text": "昨天",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2280,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-10",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "7e0f5f8d-493b-4095-9605-42f3db75ca0c",
+          "title": "记录今天一笔26元的支出",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "26",
+          "kind": "expense",
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记录今天一笔26元的支出",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "26",
+        "kind": "expense",
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 85
+      },
+      "latencyMs": 2990,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-08",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "274224c5-c017-4873-842d-9c345fe0dc36",
+          "title": "记得明天比较租房合同",
+          "notes": "",
+          "dueDate": "2026-10-02",
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "明天",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记得明天比较租房合同",
+        "notes": "",
+        "date_text": "明天",
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 951,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2512,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-07",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "4a4ad281-40d7-4885-b92e-97e4da51d71c",
+          "title": "view screen time",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "view screen time",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 76
+      },
+      "latencyMs": 2046,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-04",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "bcf39aba-33f5-479f-b4f4-d08b24a32d9f",
+          "title": "Put the design workshop on calendar",
+          "notes": "",
+          "date": "2026-10-12",
+          "time": "14:15",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Put the design workshop on calendar",
+        "notes": "",
+        "date_text": "2026-10-12",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "14:15"
+      },
+      "usage": {
+        "prompt_tokens": 972,
+        "completion_tokens": 94
+      },
+      "latencyMs": 2913,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-14",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "271327af-93cf-40d7-bd36-bb9e5e1a1c32",
+          "title": "Prepare questions for dentist appointment",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "America/Los_Angeles",
+          "priority": "important",
+          "dateText": null,
+          "warnings": [
+            "date_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Prepare questions for dentist appointment",
+        "notes": "",
+        "date_text": null,
+        "priority": "important",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 79
+      },
+      "latencyMs": 3057,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-09",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "f7fcc48a-c02d-4c24-bd33-896019948816",
+          "title": "看设备使用情况的页面",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "看设备使用情况的页面",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2436,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-03",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "5472353e-e8e7-464c-b302-74a4b5515eaa",
+          "title": "Add dentist appointment",
+          "notes": "",
+          "date": "2026-10-05",
+          "time": "09:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Add dentist appointment",
+        "notes": "",
+        "date_text": "next Monday",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "9am"
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 80
+      },
+      "latencyMs": 1880,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-zh-03",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "2ee1d334-143c-4479-a04c-9c5136dd342b",
+          "title": "添加牙科预约",
+          "notes": "",
+          "date": "2026-10-05",
+          "time": "09:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "添加牙科预约",
+        "notes": "",
+        "date_text": "下周一",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "上午9点"
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 82
+      },
+      "latencyMs": 2075,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-13",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "error": "ungrounded_field",
+      "raw": {
+        "intent": "single_task",
+        "title": "Record that I drank 500 ml of water",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "health",
+        "amount": "500",
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 88
+      },
+      "latencyMs": 2319,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "memo-en-08",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "e0517d31-6338-4f27-bd58-0946ffcac30a",
+          "title": "Compare internship offers",
+          "notes": "",
+          "dueDate": "2026-10-02",
+          "timezone": "America/Los_Angeles",
+          "priority": null,
+          "dateText": "tomorrow",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Compare internship offers",
+        "notes": "",
+        "date_text": "tomorrow",
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 78
+      },
+      "latencyMs": 2119,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-05",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "d77a62fb-9d06-459e-839e-708b8b03ea63",
+          "title": "Schedule a lab tour",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": "18:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Schedule a lab tour",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "18:00"
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 83
+      },
+      "latencyMs": 2212,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-05",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": false,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "882e9d97-fa6d-4914-b62a-7eca77e3e949",
+          "title": "记账",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "76",
+          "kind": "expense",
+          "category": "Entertainment",
+          "account": "WeChat",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记账",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "76",
+        "kind": "expense",
+        "category": "Entertainment",
+        "account": "WeChat",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 83
+      },
+      "latencyMs": 1645,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "health-zh-13",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "error": "ungrounded_field",
+      "raw": {
+        "intent": "single_task",
+        "title": "记录我喝了600毫升水",
+        "notes": "",
+        "date_text": "null",
+        "priority": null,
+        "module": "health",
+        "amount": "600",
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 85
+      },
+      "latencyMs": 1684,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "health-en-09",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "664a3d4a-542b-4da1-b323-cedf9b95c2a6",
+          "title": "Show my digital wellbeing usage page",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Show my digital wellbeing usage page",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 952,
+        "completion_tokens": 79
+      },
+      "latencyMs": 1584,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-13",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "064bf367-28ba-4d2d-85f1-9565d859ce4d",
+          "title": "记录今天买铅笔花了-12元，现金支付",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": "Others",
+          "account": "Cash",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记录今天买铅笔花了-12元，现金支付",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "-12",
+        "kind": "expense",
+        "category": "Others",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 92
+      },
+      "latencyMs": 2182,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-en-02",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "714132fa-62c7-4c84-b282-15001c2b77b9",
+          "title": "Schedule a piano lesson",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": "16:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Schedule a piano lesson",
+        "notes": "",
+        "date_text": "this Friday",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "4pm"
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 81
+      },
+      "latencyMs": 1817,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-04",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": false,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "7d280c7b-817e-41db-94d1-f6d910782379",
+          "title": "Record expense",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "219",
+          "kind": "expense",
+          "category": null,
+          "account": "Credit Card",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record expense",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "219",
+        "kind": "expense",
+        "category": null,
+        "account": "Credit Card",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 965,
+        "completion_tokens": 82
+      },
+      "latencyMs": 1967,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "finance-en-02",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "c3547381-eea0-4faf-88f2-d466f7a0c670",
+          "title": "Log a taxi fare of 47 yuan yesterday",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": "47",
+          "kind": "expense",
+          "category": "Transport",
+          "account": "Alipay",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Log a taxi fare of 47 yuan yesterday",
+        "notes": "",
+        "date_text": "yesterday",
+        "priority": null,
+        "module": "finance",
+        "amount": "47",
+        "kind": "expense",
+        "category": "Transport",
+        "account": "Alipay",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 961,
+        "completion_tokens": 91
+      },
+      "latencyMs": 1758,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-11",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": false,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "ac43695b-64db-44ab-b40b-e9cff4e925bf",
+          "title": "Schedule a rehearsal",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": "17:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Schedule a rehearsal",
+        "notes": "",
+        "date_text": "tomorrow",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "5pm"
+      },
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2052,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "memo-zh-15",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "24e664b2-c9a8-4e36-937e-9a79a2b831c3",
+          "title": "记个买相机的预算想法",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": null,
+          "warnings": [
+            "date_missing",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记个买相机的预算想法",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2026,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-04",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "c6059f08-2705-4b8c-a0fb-e7ce0b53844f",
+          "title": "Label microscope images",
+          "notes": "",
+          "dueDate": "2026-10-02",
+          "timezone": "America/Los_Angeles",
+          "priority": "normal",
+          "dateText": "this Friday",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Label microscope images",
+        "notes": "",
+        "date_text": "this Friday",
+        "priority": "normal",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 79
+      },
+      "latencyMs": 1999,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-11",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "4a15c203-c14a-4a8c-959a-71ba862f36a2",
+          "title": "Record tea costing 0 yuan today paid with cash",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": "Others",
+          "account": "Cash",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record tea costing 0 yuan today paid with cash",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "0",
+        "kind": "expense",
+        "category": "Others",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 88
+      },
+      "latencyMs": 1860,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "memo-zh-12",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": false,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "303bf425-2a5f-4dcd-abd7-d3a94f3fb1b3",
+          "title": "更新作品集",
+          "notes": "",
+          "dueDate": "2026-10-02",
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "明天",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "更新作品集",
+        "notes": "",
+        "date_text": "明天",
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 77
+      },
+      "latencyMs": 2085,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "health-en-12",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "clarification",
+        "reason": "health_today_only",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Show screen time last week",
+        "notes": "",
+        "date_text": "last week",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 951,
+        "completion_tokens": 80
+      },
+      "latencyMs": 1903,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-03",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "8b4bdafe-f4de-4dd2-88c2-c8ef0994f68d",
+          "title": "Record salary income",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "5300",
+          "kind": "income",
+          "category": null,
+          "account": "Bank Card",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record salary income",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "5300",
+        "kind": "income",
+        "category": null,
+        "account": "Bank Card",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 961,
+        "completion_tokens": 84
+      },
+      "latencyMs": 2020,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "finance-en-05",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "05544a9b-65c7-4dde-a06b-9d2acfcf191c",
+          "title": "Log 68 yuan spent on cinema tickets today via WeChat",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "68",
+          "kind": "expense",
+          "category": "Entertainment",
+          "account": "WeChat",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Log 68 yuan spent on cinema tickets today via WeChat",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "68",
+        "kind": "expense",
+        "category": "Entertainment",
+        "account": "WeChat",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 94
+      },
+      "latencyMs": 2370,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-13",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "9bca4922-4c5d-45c4-ad0d-6b63a9d9d9cc",
+          "title": "Schedule the coding club",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Schedule the coding club",
+        "notes": "",
+        "date_text": "tomorrow",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "25:00"
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 85
+      },
+      "latencyMs": 2078,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-10",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "a2dcb16d-7a1a-4c5c-accd-623eeccd6e8f",
+          "title": "查看今天手机使用时间",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "查看今天手机使用时间",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 79
+      },
+      "latencyMs": 2021,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-14",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "clarification",
+        "reason": "unsupported_currency",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record coffee costing 5 dollars today",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "5",
+        "kind": "expense",
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 83
+      },
+      "latencyMs": 2150,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-13",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "c3fb61c8-d6b2-4a2f-b1f0-b5ee59e8ad38",
+          "title": "打印设备手册",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "不是今天",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "打印设备手册",
+        "notes": "",
+        "date_text": "不是今天",
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 78
+      },
+      "latencyMs": 2020,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-04",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "bc1173ea-a0be-48e0-a4ba-920f7561ed22",
+          "title": "买外套",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "268",
+          "kind": "expense",
+          "category": "Others",
+          "account": "Credit Card",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "买外套",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "finance",
+        "amount": "268",
+        "kind": "expense",
+        "category": "Others",
+        "account": "Credit Card",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 961,
+        "completion_tokens": 83
+      },
+      "latencyMs": 2034,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "finance-zh-15",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "9b6cd198-ffc4-4a7e-9680-7299868c32a5",
+          "title": "记一笔32元午餐支出",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": null,
+          "amount": "32",
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记一笔32元午餐支出",
+        "notes": "",
+        "date_text": "明天",
+        "priority": null,
+        "module": "finance",
+        "amount": "32",
+        "kind": "expense",
+        "category": "Food & Drinks",
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 960,
+        "completion_tokens": 87
+      },
+      "latencyMs": 2062,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "memo-zh-09",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "49695faf-87ec-404b-ac15-fd997eb45165",
+          "title": "做一个校园失物招领架",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": null,
+          "warnings": [
+            "date_missing",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "做一个校园失物招领架",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2009,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-05",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "6ea8a4bd-f0b7-4800-b7f3-6368685f479f",
+          "title": "back up the thesis",
+          "notes": "",
+          "dueDate": "2026-10-08",
+          "timezone": "America/Los_Angeles",
+          "priority": "important",
+          "dateText": "2026-10-08",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "back up the thesis",
+        "notes": "",
+        "date_text": "2026-10-08",
+        "priority": "important",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 968,
+        "completion_tokens": 88
+      },
+      "latencyMs": 2121,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-03",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "03b6054d-ee16-44e9-a55e-9b42cb4e1ef9",
+          "title": "提交交换申请",
+          "notes": "",
+          "dueDate": "2026-10-07",
+          "timezone": "Asia/Shanghai",
+          "priority": "urgent",
+          "dateText": "下周三",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "提交交换申请",
+        "notes": "",
+        "date_text": "下周三",
+        "priority": "urgent",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 956,
+        "completion_tokens": 79
+      },
+      "latencyMs": 1950,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-zh-12",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "341fb51f-92a8-47ee-aaaa-f6eef4c59e87",
+          "title": "添加课程日程",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "添加课程日程",
+        "notes": "",
+        "date_text": "本周五或者下周一",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 82
+      },
+      "latencyMs": 2155,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-en-10",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": false,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "fc260923-845f-4765-b445-8f0a407c8429",
+          "title": "scan my certificates",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "America/Los_Angeles",
+          "priority": "normal",
+          "dateText": "3 days",
+          "warnings": [
+            "date_needs_review"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "scan my certificates",
+        "notes": "",
+        "date_text": "3 days",
+        "priority": "normal",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 79
+      },
+      "latencyMs": 1933,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "health-en-04",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "ff40d6d3-7dca-42a7-8acc-5e63cea97a46",
+          "title": "Take me to the phone usage statistics page",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Take me to the phone usage statistics page",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 81
+      },
+      "latencyMs": 1872,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-08",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "b316c42b-f617-4a81-81a7-ab20afe68515",
+          "title": "Display today's total phone usage duration",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Display today's total phone usage duration",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 81
+      },
+      "latencyMs": 1949,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-10",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "264c0a77-dcec-4c18-a15f-e64bb0481a83",
+          "title": "扫描获奖证书",
+          "notes": "",
+          "dueDate": "2026-10-04",
+          "timezone": "Asia/Shanghai",
+          "priority": "normal",
+          "dateText": "3天后",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "扫描获奖证书",
+        "notes": "",
+        "date_text": "3天后",
+        "priority": "normal",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2067,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-05",
+      "checks": {
+        "status": false,
+        "module": false,
+        "title": false,
+        "date": false,
+        "priority": false
+      },
+      "error": "ungrounded_date",
+      "raw": {
+        "intent": "single_task",
+        "title": "备份毕业设计",
+        "notes": "",
+        "date_text": "2026-10-09",
+        "priority": "important",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 966,
+        "completion_tokens": 87
+      },
+      "latencyMs": 2260,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-zh-02",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "2cb143ae-8469-4150-b729-896fd2cac295",
+          "title": "安排吉他课",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": "16:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "安排吉他课",
+        "notes": "",
+        "date_text": "本周五",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "下午4点"
+      },
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 81
+      },
+      "latencyMs": 1926,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-zh-01",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "bdd6aac7-27fe-4521-8b5a-bf4f8c6c23c6",
+          "title": "校对机器人论文摘要",
+          "notes": "",
+          "dueDate": "2026-10-02",
+          "timezone": "Asia/Shanghai",
+          "priority": "important",
+          "dateText": "明天",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "校对机器人论文摘要",
+        "notes": "",
+        "date_text": "明天",
+        "priority": "important",
+        "module": "memo",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 80
+      },
+      "latencyMs": 2110,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-06",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "3a833b81-565d-4670-a450-af0afef6af23",
+          "title": "查看今天前台应用的使用情况",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "查看今天前台应用的使用情况",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 81
+      },
+      "latencyMs": 2089,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-02",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "fef1b8fa-bec3-4556-aa23-4c5033cbf027",
+          "title": "打开屏幕使用时长看板",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "打开屏幕使用时长看板",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 80
+      },
+      "latencyMs": 1943,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-06",
+      "checks": {
+        "status": false,
+        "module": false,
+        "title": false,
+        "amount": false,
+        "kind": false,
+        "account": false,
+        "date": false,
+        "category": false
+      },
+      "error": "ungrounded_field",
+      "raw": {
+        "intent": "single_task",
+        "title": "记录2026年9月26日现金缴纳水费43.20元",
+        "notes": "",
+        "date_text": "2026-09-26",
+        "priority": null,
+        "module": "finance",
+        "amount": "43.20",
+        "kind": "expense",
+        "category": "Bills",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 967,
+        "completion_tokens": 113
+      },
+      "latencyMs": 2870,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-zh-06",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "f4bd9d34-6395-4b7c-a20f-c9fb274f4464",
+          "title": "篮球课",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "篮球课",
+        "notes": "",
+        "date_text": "这周三",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 957,
+        "completion_tokens": 77
+      },
+      "latencyMs": 1918,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-en-02",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "5693d74f-73ba-4d31-b0a5-5e055dd7bba2",
+          "title": "Open my screen time dashboard",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Open my screen time dashboard",
+        "notes": "",
+        "date_text": null,
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 951,
+        "completion_tokens": 78
+      },
+      "latencyMs": 1759,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-en-15",
+      "checks": {
+        "status": false,
+        "module": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "352b223c-8d72-4624-812a-ea276441c31f",
+          "title": "Schedule a tutorial",
+          "notes": "",
+          "date": "2026-10-02",
+          "time": null,
+          "amount": "9",
+          "kind": "expense",
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Schedule a tutorial",
+        "notes": "",
+        "date_text": "tomorrow",
+        "priority": null,
+        "module": "schedule",
+        "amount": "9",
+        "kind": "expense",
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 958,
+        "completion_tokens": 80
+      },
+      "latencyMs": 1777,
+      "routeCorrect": false,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-en-08",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "c472654c-de95-4943-b9f3-cb219b2de31c",
+          "title": "project briefing",
+          "notes": "",
+          "date": null,
+          "time": "11:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "project briefing",
+        "notes": "",
+        "date_text": "date to be decided",
+        "priority": null,
+        "module": "schedule",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": "11am"
+      },
+      "usage": {
+        "prompt_tokens": 963,
+        "completion_tokens": 82
+      },
+      "latencyMs": 1732,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-zh-08",
+      "checks": {
+        "status": true,
+        "module": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "558326b9-54d0-4f75-88cd-743c85747709",
+          "title": "显示今天手机总使用时长",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "显示今天手机总使用时长",
+        "notes": "",
+        "date_text": "今天",
+        "priority": null,
+        "module": "health",
+        "amount": null,
+        "kind": null,
+        "category": null,
+        "account": null,
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 953,
+        "completion_tokens": 81
+      },
+      "latencyMs": 1868,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-zh-02",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "b2e923e7-6f38-4245-859f-1e186bfc9537",
+          "title": "记录昨天打车花费52元",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": "52",
+          "kind": "expense",
+          "category": "Transport",
+          "account": "Alipay",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "记录昨天打车花费52元",
+        "notes": "",
+        "date_text": "昨天",
+        "priority": null,
+        "module": "finance",
+        "amount": "52",
+        "kind": "expense",
+        "category": "Transport",
+        "account": "Alipay",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 959,
+        "completion_tokens": 88
+      },
+      "latencyMs": 1956,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-en-12",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": false
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "256b3709-eff1-445e-a170-90075c4cc1a7",
+          "title": "Record a snack expense",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": null,
+          "account": "Cash",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record a snack expense",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "8.999",
+        "kind": "expense",
+        "category": null,
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 963,
+        "completion_tokens": 85
+      },
+      "latencyMs": 1715,
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "finance-en-01",
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "account": true,
+        "date": true,
+        "category": true
+      },
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "9be5e889-fc2d-47fc-8695-1e644a8376f7",
+          "title": "Record 36.80 yuan spent on breakfast today, paid in cash",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": "36.80",
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": "Cash",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "raw": {
+        "intent": "single_task",
+        "title": "Record 36.80 yuan spent on breakfast today, paid in cash",
+        "notes": "",
+        "date_text": "today",
+        "priority": null,
+        "module": "finance",
+        "amount": "36.80",
+        "kind": "expense",
+        "category": "Food & Drinks",
+        "account": "Cash",
+        "time_text": null
+      },
+      "usage": {
+        "prompt_tokens": 962,
+        "completion_tokens": 100
+      },
+      "latencyMs": 2286,
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    }
+  ],
+  "complete": true,
+  "byWorkflow": {
+    "memo": {
+      "cases": 30,
+      "routingOverall": {
+        "passed": 29,
+        "total": 30,
+        "rate": 0.9666666666666667
+      },
+      "routingSupported": {
+        "passed": 29,
+        "total": 30,
+        "rate": 0.9666666666666667
+      },
+      "clarificationOutcome": {
+        "passed": 0,
+        "total": 0,
+        "rate": null
+      },
+      "requiredFieldMicro": {
+        "passed": 57,
+        "total": 60,
+        "rate": 0.95
+      },
+      "allSpecifiedFields": {
+        "passed": 26,
+        "total": 30,
+        "rate": 0.8666666666666667
+      },
+      "supportedDraftContract": {
+        "passed": 26,
+        "total": 30,
+        "rate": 0.8666666666666667
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 30,
+        "total": 32,
+        "rate": 0.9375
+      },
+      "latencyMs": {
+        "p50": 2121,
+        "p95": 2882,
+        "min": 888,
+        "max": 3057
+      },
+      "errors": 1
+    },
+    "finance": {
+      "cases": 30,
+      "routingOverall": {
+        "passed": 27,
+        "total": 30,
+        "rate": 0.9
+      },
+      "routingSupported": {
+        "passed": 25,
+        "total": 26,
+        "rate": 0.9615384615384616
+      },
+      "clarificationOutcome": {
+        "passed": 2,
+        "total": 4,
+        "rate": 0.5
+      },
+      "requiredFieldMicro": {
+        "passed": 129,
+        "total": 152,
+        "rate": 0.8486842105263158
+      },
+      "allSpecifiedFields": {
+        "passed": 13,
+        "total": 30,
+        "rate": 0.43333333333333335
+      },
+      "supportedDraftContract": {
+        "passed": 11,
+        "total": 26,
+        "rate": 0.4230769230769231
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 58,
+        "total": 72,
+        "rate": 0.8055555555555556
+      },
+      "latencyMs": {
+        "p50": 2150,
+        "p95": 2870,
+        "min": 1455,
+        "max": 2990
+      },
+      "errors": 1
+    },
+    "schedule": {
+      "cases": 30,
+      "routingOverall": {
+        "passed": 27,
+        "total": 30,
+        "rate": 0.9
+      },
+      "routingSupported": {
+        "passed": 27,
+        "total": 28,
+        "rate": 0.9642857142857143
+      },
+      "clarificationOutcome": {
+        "passed": 0,
+        "total": 2,
+        "rate": 0.0
+      },
+      "requiredFieldMicro": {
+        "passed": 52,
+        "total": 56,
+        "rate": 0.9285714285714286
+      },
+      "allSpecifiedFields": {
+        "passed": 25,
+        "total": 30,
+        "rate": 0.8333333333333334
+      },
+      "supportedDraftContract": {
+        "passed": 25,
+        "total": 28,
+        "rate": 0.8928571428571429
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 38,
+        "total": 40,
+        "rate": 0.95
+      },
+      "latencyMs": {
+        "p50": 2026,
+        "p95": 2913,
+        "min": 1070,
+        "max": 3096
+      },
+      "errors": 1
+    },
+    "health": {
+      "cases": 30,
+      "routingOverall": {
+        "passed": 24,
+        "total": 30,
+        "rate": 0.8
+      },
+      "routingSupported": {
+        "passed": 20,
+        "total": 20,
+        "rate": 1.0
+      },
+      "clarificationOutcome": {
+        "passed": 4,
+        "total": 10,
+        "rate": 0.4
+      },
+      "requiredFieldMicro": {
+        "passed": 0,
+        "total": 0,
+        "rate": null
+      },
+      "allSpecifiedFields": {
+        "passed": 24,
+        "total": 30,
+        "rate": 0.8
+      },
+      "supportedDraftContract": {
+        "passed": 20,
+        "total": 20,
+        "rate": 1.0
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 0,
+        "total": 0,
+        "rate": null
+      },
+      "latencyMs": {
+        "p50": 2021,
+        "p95": 2774,
+        "min": 958,
+        "max": 2950
+      },
+      "errors": 2
+    }
+  },
+  "byLanguage": {
+    "en": {
+      "cases": 60,
+      "routingOverall": {
+        "passed": 56,
+        "total": 60,
+        "rate": 0.9333333333333333
+      },
+      "routingSupported": {
+        "passed": 52,
+        "total": 52,
+        "rate": 1.0
+      },
+      "clarificationOutcome": {
+        "passed": 4,
+        "total": 8,
+        "rate": 0.5
+      },
+      "requiredFieldMicro": {
+        "passed": 125,
+        "total": 134,
+        "rate": 0.9328358208955224
+      },
+      "allSpecifiedFields": {
+        "passed": 47,
+        "total": 60,
+        "rate": 0.7833333333333333
+      },
+      "supportedDraftContract": {
+        "passed": 43,
+        "total": 52,
+        "rate": 0.8269230769230769
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 69,
+        "total": 72,
+        "rate": 0.9583333333333334
+      },
+      "latencyMs": {
+        "p50": 2121,
+        "p95": 2769,
+        "min": 1062,
+        "max": 3057
+      },
+      "errors": 1
+    },
+    "zh": {
+      "cases": 60,
+      "routingOverall": {
+        "passed": 51,
+        "total": 60,
+        "rate": 0.85
+      },
+      "routingSupported": {
+        "passed": 49,
+        "total": 52,
+        "rate": 0.9423076923076923
+      },
+      "clarificationOutcome": {
+        "passed": 2,
+        "total": 8,
+        "rate": 0.25
+      },
+      "requiredFieldMicro": {
+        "passed": 113,
+        "total": 134,
+        "rate": 0.8432835820895522
+      },
+      "allSpecifiedFields": {
+        "passed": 41,
+        "total": 60,
+        "rate": 0.6833333333333333
+      },
+      "supportedDraftContract": {
+        "passed": 39,
+        "total": 52,
+        "rate": 0.75
+      },
+      "requiredFieldsOnCompleteInputs": {
+        "passed": 57,
+        "total": 72,
+        "rate": 0.7916666666666666
+      },
+      "latencyMs": {
+        "p50": 2062,
+        "p95": 2870,
+        "min": 888,
+        "max": 3096
+      },
+      "errors": 4
+    }
+  }
+}

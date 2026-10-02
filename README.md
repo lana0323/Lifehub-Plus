@@ -136,6 +136,8 @@ The project includes the Android client, backend service and local persistence l
 <details>
 <summary><b>Developer Documentation and Quality Assurance</b></summary>
 
+The new [120-case frozen evaluation report](docs/evaluation/REPORT.md) separates routing, required fields, Android workflow entry, clarification handling and latency. [Download case-level results](docs/evaluation/app-evaluation.csv). The original 40-case set remains a development/regression set.
+
 Automated checks cover database migrations, account isolation, repeated submissions and screen restoration. Commands, recorded results and model evaluation scope are documented in [Quality Assurance](docs/QUALITY.md), the [Development Guide](docs/DEVELOPMENT_GUIDE.md) and the [Engineering Review](docs/ENGINEERING_REVIEW.md). These detailed development documents are currently in Chinese.
 
 </details>

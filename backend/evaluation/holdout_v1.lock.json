@@ -1,0 +1,25 @@
+{
+  "frozenAtUtc": "2026-10-02T05:42:12.663150+00:00",
+  "datasetSha256": "4d5e2524e0e7bff5def68965549765a5f1322908937a4d97583f314f38fdedea",
+  "cases": 120,
+  "perWorkflow": 30,
+  "perLanguage": 60,
+  "shuffleSeed": 20261001,
+  "measuredRunsPerCase": 1,
+  "warmupRequests": 1,
+  "retries": 0,
+  "sourceHashes": {
+    "backend/action_service.py": "e7646f2d1e9e958713c16679db8a0fbbdd3c6fa457d34dccf75f34232e954b68",
+    "backend/task_service.py": "2b600df2409090c436ce74a898a1c6609556c22dbc6fe003382eb0feccc8de6c",
+    "app/src/main/java/com/lifeHub/ai/ui/AiChatViewModel.kt": "98d833f2eb26dad1c19d3771b70579fbb01239d736cbbabfa46eb2f9b2213aaf",
+    "app/src/main/java/com/lifeHub/ai/ui/AiChatFragment.kt": "050cb758a78098ca8f4fd701efb37fed2c2c610ea572c880d1136c9ac8173931"
+  },
+  "protocol": {
+    "routing": "Exact status and module match; clarification is a separate expected outcome, not a successful module route. Report overall and supported-only.",
+    "requiredFields": "Micro average over predefined required fields that have explicit or null expectations. Null is correct only if field is present and null. Also report complete-case eligibility separately.",
+    "actionSuccess": "All frozen field checks AND Android target screen entry using the recorded real-model response. Clarifications scored separately. Does not claim each record was saved; user confirmation and persistence are separate reliability checks.",
+    "latency": "Sequential local inference plus backend validation, nearest-rank P50/P95, excluding warmup and Android UI. One run per case; no CI or statistical significance claims.",
+    "title": "Predeclared keyword checks, not full semantic equivalence.",
+    "limitations": "Newly authored internal held-out evaluation, not externally independent. Some bilingual cases are paired and correlated. Never used for tuning before this run; once inspected, reuse is regression only."
+  }
+}
