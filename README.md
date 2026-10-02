@@ -136,7 +136,9 @@ The project includes the Android client, backend service and local persistence l
 <details>
 <summary><b>Developer Documentation and Quality Assurance</b></summary>
 
-The new [120-case frozen evaluation report](docs/evaluation/REPORT.md) separates routing, required fields, Android workflow entry, clarification handling and latency. [Download case-level results](docs/evaluation/app-evaluation.csv). The original 40-case set remains a development/regression set.
+The [240-input bilingual evaluation](docs/evaluation-v2/REPORT.md) reports 120 Chinese and 120 English inputs separately, covering routing, required fields, Android workflow entry, clarification and latency. Download the [Chinese results](docs/evaluation-v2/chinese-120.csv) or [English results](docs/evaluation-v2/english-120.csv).
+
+The original [120-case frozen evaluation report](docs/evaluation/REPORT.md) and its [case-level results](docs/evaluation/app-evaluation.csv) remain available. The original 40-case set remains a development/regression set.
 
 Subsequent [AI validation improvements and regression results](docs/evaluation-improvements/README.md) document financial field recovery, ambiguity handling and supported-action checks. These follow-up results use seen development cases and do not replace the original frozen evaluation.
 

@@ -1,6 +1,14 @@
 import unittest
-from evaluate_holdout import summary
+from evaluate_holdout import summary, frozen_score
 class HoldoutScoringTests(unittest.TestCase):
+    def test_frozen_decimal_policy_accepts_formatting_but_not_different_amounts(self):
+        case={'expected':{'amount':'19.90'}}
+        result={'status':'draft','module':'finance','fields':{'amount':'19.9'}}
+        self.assertFalse(frozen_score(case,result)['amount'])
+        self.assertTrue(frozen_score(case,result,True)['amount'])
+        for value in ('19.99','NaN','Infinity','invalid'):
+            result['fields']['amount']=value
+            self.assertFalse(frozen_score(case,result,True)['amount'])
     def test_errors_stay_in_denominator_and_clarifications_are_separate(self):
         cases=[{'id':'a','expected':{'status':'draft'},'requiredFields':['title','date'],'tags':['complete']},
                {'id':'b','expected':{'status':'draft'},'requiredFields':['title','date'],'tags':['complete']},

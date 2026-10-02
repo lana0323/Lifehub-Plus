@@ -1,0 +1,31 @@
+{
+  "frozenAtUtc": "2026-10-02T06:39:26.676956+00:00",
+  "datasetSha256": "c152175c5faa9304bbfa5da7dd343215c8ee5dcfe264350731fae465b952abd4",
+  "cases": 240,
+  "perLanguage": 120,
+  "perWorkflowPerLanguage": 30,
+  "pairedScenarios": 120,
+  "shuffleSeed": 20261003,
+  "runsPerCase": 1,
+  "warmupRequests": 1,
+  "retries": 0,
+  "decimalAmountEquivalence": true,
+  "sourceHashes": {
+    "backend/action_service.py": "e99edc705110cc78c33c6ba01ba6717ab01c87f5416b63334243d039da2f1a2c",
+    "backend/action_rules.py": "0121f80dc262f60dc6e74c6eb86c07366ab39c1e093f34f32652299c609584ea",
+    "backend/task_service.py": "2b600df2409090c436ce74a898a1c6609556c22dbc6fe003382eb0feccc8de6c",
+    "backend/evaluate_holdout.py": "897247ec22c8ce0523a36a2a9f47357e7f288832ae3ad4812c1ac7c0ece0d59e",
+    "backend/evaluate_actions.py": "7995c702c311165f06e4e01ea50b6f8964fb47a027829b73cdb347fc1b4015b5",
+    "app/src/main/java/com/lifeHub/ai/ui/AiChatViewModel.kt": "0bcdff233977d9ff8ee904abaadcbb8cf23ebc255ed730088231ff1114ed2d4b",
+    "app/src/main/java/com/lifeHub/ai/ui/AiChatFragment.kt": "050cb758a78098ca8f4fd701efb37fed2c2c610ea572c880d1136c9ac8173931",
+    "app/src/androidTest/java/com/lifeHub/ai/HoldoutWorkflowTest.kt": "fa54f385cfadbd57c8c9bbaacea07e10dc7960fa70b35be701aa13ee1be7c846"
+  },
+  "protocol": {
+    "routing": "Exact expected module AND status, overall and supported-only; all errors remain in denominator.",
+    "requiredFields": "Frozen per-case fields; null expected values count only if field exists and is null. Micro average. Health has no required record fields.",
+    "allFields": "All specified field checks including title keyword predicates and optional fields. Finite numeric money values compare exactly as Decimal, accepting equivalent formatting only.",
+    "workflowEntry": "All backend checks pass AND real Android recorded-response replay enters the correct review form/Health page; clarification outcomes separate. Not per-case database insertion or live mobile network testing.",
+    "latency": "Single sequential pass with one excluded warmup, nearest-rank P50/P95; report all requests and model-called subset. No Gradle/emulator test work initiated during inference. Background OS/user work is uncontrolled.",
+    "authorship": "Internally authored held-out set, not externally independent. 120 paired scenarios in English/Chinese, correlated samples, no significance claim. Exact prior-prompt deduplication only. Never tune this run after outcomes; future reuse is regression."
+  }
+}

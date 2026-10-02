@@ -1,0 +1,664 @@
+{
+  "datasetSha256": "c152175c5faa9304bbfa5da7dd343215c8ee5dcfe264350731fae465b952abd4",
+  "overall": {
+    "cases": 240,
+    "routing": {
+      "passed": 232,
+      "total": 240,
+      "rate": 0.9666666666666667
+    },
+    "requiredFields": {
+      "passed": 507,
+      "total": 522,
+      "rate": 0.9712643678160919
+    },
+    "backendAllChecks": {
+      "passed": 221,
+      "total": 240,
+      "rate": 0.9208333333333333
+    },
+    "workflowEntry": {
+      "passed": 177,
+      "total": 196,
+      "rate": 0.9030612244897959
+    },
+    "clarification": {
+      "passed": 44,
+      "total": 44,
+      "rate": 1.0
+    },
+    "allOutcomes": {
+      "passed": 221,
+      "total": 240,
+      "rate": 0.9208333333333333
+    },
+    "latencyAll": {
+      "count": 240,
+      "p50": 2002,
+      "p95": 2694
+    },
+    "latencyModelCalled": {
+      "count": 219,
+      "p50": 2079,
+      "p95": 2779
+    },
+    "modelErrors": 0,
+    "additionalUiFailures": []
+  },
+  "byLanguage": {
+    "zh": {
+      "cases": 120,
+      "routing": {
+        "passed": 117,
+        "total": 120,
+        "rate": 0.975
+      },
+      "requiredFields": {
+        "passed": 253,
+        "total": 261,
+        "rate": 0.9693486590038314
+      },
+      "backendAllChecks": {
+        "passed": 111,
+        "total": 120,
+        "rate": 0.925
+      },
+      "workflowEntry": {
+        "passed": 89,
+        "total": 98,
+        "rate": 0.9081632653061225
+      },
+      "clarification": {
+        "passed": 22,
+        "total": 22,
+        "rate": 1.0
+      },
+      "allOutcomes": {
+        "passed": 111,
+        "total": 120,
+        "rate": 0.925
+      },
+      "latencyAll": {
+        "count": 120,
+        "p50": 2012,
+        "p95": 2694
+      },
+      "latencyModelCalled": {
+        "count": 110,
+        "p50": 2081,
+        "p95": 2713
+      },
+      "modelErrors": 0,
+      "additionalUiFailures": []
+    },
+    "en": {
+      "cases": 120,
+      "routing": {
+        "passed": 115,
+        "total": 120,
+        "rate": 0.9583333333333334
+      },
+      "requiredFields": {
+        "passed": 254,
+        "total": 261,
+        "rate": 0.9731800766283525
+      },
+      "backendAllChecks": {
+        "passed": 110,
+        "total": 120,
+        "rate": 0.9166666666666666
+      },
+      "workflowEntry": {
+        "passed": 88,
+        "total": 98,
+        "rate": 0.8979591836734694
+      },
+      "clarification": {
+        "passed": 22,
+        "total": 22,
+        "rate": 1.0
+      },
+      "allOutcomes": {
+        "passed": 110,
+        "total": 120,
+        "rate": 0.9166666666666666
+      },
+      "latencyAll": {
+        "count": 120,
+        "p50": 1993,
+        "p95": 2687
+      },
+      "latencyModelCalled": {
+        "count": 109,
+        "p50": 2055,
+        "p95": 2779
+      },
+      "modelErrors": 0,
+      "additionalUiFailures": []
+    }
+  },
+  "byWorkflowLanguage": {
+    "zh": {
+      "memo": {
+        "cases": 30,
+        "routing": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "requiredFields": {
+          "passed": 52,
+          "total": 54,
+          "rate": 0.9629629629629629
+        },
+        "backendAllChecks": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "workflowEntry": {
+          "passed": 26,
+          "total": 27,
+          "rate": 0.9629629629629629
+        },
+        "clarification": {
+          "passed": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "allOutcomes": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "latencyAll": {
+          "count": 30,
+          "p50": 2123,
+          "p95": 2461
+        },
+        "latencyModelCalled": {
+          "count": 28,
+          "p50": 2163,
+          "p95": 2461
+        },
+        "modelErrors": 0,
+        "additionalUiFailures": []
+      },
+      "finance": {
+        "cases": 30,
+        "routing": {
+          "passed": 30,
+          "total": 30,
+          "rate": 1.0
+        },
+        "requiredFields": {
+          "passed": 151,
+          "total": 153,
+          "rate": 0.9869281045751634
+        },
+        "backendAllChecks": {
+          "passed": 28,
+          "total": 30,
+          "rate": 0.9333333333333333
+        },
+        "workflowEntry": {
+          "passed": 24,
+          "total": 26,
+          "rate": 0.9230769230769231
+        },
+        "clarification": {
+          "passed": 4,
+          "total": 4,
+          "rate": 1.0
+        },
+        "allOutcomes": {
+          "passed": 28,
+          "total": 30,
+          "rate": 0.9333333333333333
+        },
+        "latencyAll": {
+          "count": 30,
+          "p50": 2273,
+          "p95": 3220
+        },
+        "latencyModelCalled": {
+          "count": 28,
+          "p50": 2291,
+          "p95": 3220
+        },
+        "modelErrors": 0,
+        "additionalUiFailures": []
+      },
+      "schedule": {
+        "cases": 30,
+        "routing": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "requiredFields": {
+          "passed": 50,
+          "total": 54,
+          "rate": 0.9259259259259259
+        },
+        "backendAllChecks": {
+          "passed": 25,
+          "total": 30,
+          "rate": 0.8333333333333334
+        },
+        "workflowEntry": {
+          "passed": 22,
+          "total": 27,
+          "rate": 0.8148148148148148
+        },
+        "clarification": {
+          "passed": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "allOutcomes": {
+          "passed": 25,
+          "total": 30,
+          "rate": 0.8333333333333334
+        },
+        "latencyAll": {
+          "count": 30,
+          "p50": 1910,
+          "p95": 2713
+        },
+        "latencyModelCalled": {
+          "count": 27,
+          "p50": 1918,
+          "p95": 2713
+        },
+        "modelErrors": 0,
+        "additionalUiFailures": []
+      },
+      "health": {
+        "cases": 30,
+        "routing": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "requiredFields": {
+          "passed": 0,
+          "total": 0,
+          "rate": null
+        },
+        "backendAllChecks": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "workflowEntry": {
+          "passed": 17,
+          "total": 18,
+          "rate": 0.9444444444444444
+        },
+        "clarification": {
+          "passed": 12,
+          "total": 12,
+          "rate": 1.0
+        },
+        "allOutcomes": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "latencyAll": {
+          "count": 30,
+          "p50": 1972,
+          "p95": 2437
+        },
+        "latencyModelCalled": {
+          "count": 27,
+          "p50": 2011,
+          "p95": 2437
+        },
+        "modelErrors": 0,
+        "additionalUiFailures": []
+      }
+    },
+    "en": {
+      "memo": {
+        "cases": 30,
+        "routing": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "requiredFields": {
+          "passed": 51,
+          "total": 54,
+          "rate": 0.9444444444444444
+        },
+        "backendAllChecks": {
+          "passed": 28,
+          "total": 30,
+          "rate": 0.9333333333333333
+        },
+        "workflowEntry": {
+          "passed": 25,
+          "total": 27,
+          "rate": 0.9259259259259259
+        },
+        "clarification": {
+          "passed": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "allOutcomes": {
+          "passed": 28,
+          "total": 30,
+          "rate": 0.9333333333333333
+        },
+        "latencyAll": {
+          "count": 30,
+          "p50": 1824,
+          "p95": 2492
+        },
+        "latencyModelCalled": {
+          "count": 27,
+          "p50": 1977,
+          "p95": 2492
+        },
+        "modelErrors": 0,
+        "additionalUiFailures": []
+      },
+      "finance": {
+        "cases": 30,
+        "routing": {
+          "passed": 30,
+          "total": 30,
+          "rate": 1.0
+        },
+        "requiredFields": {
+          "passed": 152,
+          "total": 153,
+          "rate": 0.9934640522875817
+        },
+        "backendAllChecks": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "workflowEntry": {
+          "passed": 25,
+          "total": 26,
+          "rate": 0.9615384615384616
+        },
+        "clarification": {
+          "passed": 4,
+          "total": 4,
+          "rate": 1.0
+        },
+        "allOutcomes": {
+          "passed": 29,
+          "total": 30,
+          "rate": 0.9666666666666667
+        },
+        "latencyAll": {
+          "count": 30,
+          "p50": 2094,
+          "p95": 2928
+        },
+        "latencyModelCalled": {
+          "count": 28,
+          "p50": 2100,
+          "p95": 2928
+        },
+        "modelErrors": 0,
+        "additionalUiFailures": []
+      },
+      "schedule": {
+        "cases": 30,
+        "routing": {
+          "passed": 30,
+          "total": 30,
+          "rate": 1.0
+        },
+        "requiredFields": {
+          "passed": 51,
+          "total": 54,
+          "rate": 0.9444444444444444
+        },
+        "backendAllChecks": {
+          "passed": 27,
+          "total": 30,
+          "rate": 0.9
+        },
+        "workflowEntry": {
+          "passed": 24,
+          "total": 27,
+          "rate": 0.8888888888888888
+        },
+        "clarification": {
+          "passed": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "allOutcomes": {
+          "passed": 27,
+          "total": 30,
+          "rate": 0.9
+        },
+        "latencyAll": {
+          "count": 30,
+          "p50": 2124,
+          "p95": 2808
+        },
+        "latencyModelCalled": {
+          "count": 27,
+          "p50": 2236,
+          "p95": 2808
+        },
+        "modelErrors": 0,
+        "additionalUiFailures": []
+      },
+      "health": {
+        "cases": 30,
+        "routing": {
+          "passed": 26,
+          "total": 30,
+          "rate": 0.8666666666666667
+        },
+        "requiredFields": {
+          "passed": 0,
+          "total": 0,
+          "rate": null
+        },
+        "backendAllChecks": {
+          "passed": 26,
+          "total": 30,
+          "rate": 0.8666666666666667
+        },
+        "workflowEntry": {
+          "passed": 14,
+          "total": 18,
+          "rate": 0.7777777777777778
+        },
+        "clarification": {
+          "passed": 12,
+          "total": 12,
+          "rate": 1.0
+        },
+        "allOutcomes": {
+          "passed": 26,
+          "total": 30,
+          "rate": 0.8666666666666667
+        },
+        "latencyAll": {
+          "count": 30,
+          "p50": 1917,
+          "p95": 2499
+        },
+        "latencyModelCalled": {
+          "count": 27,
+          "p50": 1979,
+          "p95": 2499
+        },
+        "modelErrors": 0,
+        "additionalUiFailures": []
+      }
+    }
+  },
+  "reliability": {
+    "passed": 13,
+    "total": 13,
+    "package": "com.lifeHub.qa",
+    "tests": [
+      {
+        "class": "com.lifeHub.ai.AccountAndWaitingTest",
+        "name": "staleFormFromPreviousSessionRedirectsToLogin",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.AccountAndWaitingTest",
+        "name": "accountsIsolateRecordsIdsDraftKeysCategoriesAndLateWrites",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.AccountAndWaitingTest",
+        "name": "clarificationShowsSpecificMessageAndRetainsEditableInput",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.AccountAndWaitingTest",
+        "name": "accountSwitchRejectsOldAiResponseAndRestartRestoresInterruptedInput",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.AccountAndWaitingTest",
+        "name": "cancelRetainsInputAndRejectsLateResponseWhileNextRequestSucceeds",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.AccountAndWaitingTest",
+        "name": "legacyOwnershipIsFrozenAndSignedOutHistoryNeverAssignedToNextLogin",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.AccountAndWaitingTest",
+        "name": "switchingPagesAndRecreatingActivityKeepsOnePendingRequest",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.RepeatedReviewTest",
+        "name": "scheduleRepeatedReviewPreservesConfirmedValues",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.RepeatedReviewTest",
+        "name": "financeRepeatedReviewPreservesConfirmedValues",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.IdempotentRecordsTest",
+        "name": "scheduleMigrationConcurrencyReopenAndManualInserts",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.IdempotentRecordsTest",
+        "name": "financeConcurrentConfirmAndDatabaseReopenReturnFirstRecord",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.IdempotentRecordsTest",
+        "name": "invalidScheduleInsertRollsBackAndCanRetrySameKey",
+        "passed": true
+      },
+      {
+        "class": "com.lifeHub.ai.TaskConfirmationTest",
+        "name": "manualDraftRequiresFinalApprovalAndReadsBackEditedFields",
+        "passed": true
+      }
+    ]
+  },
+  "fieldChecksByLanguage": {
+    "zh": {
+      "title": {
+        "passed": 76,
+        "total": 80,
+        "rate": 0.95
+      },
+      "amount": {
+        "passed": 26,
+        "total": 26,
+        "rate": 1.0
+      },
+      "kind": {
+        "passed": 26,
+        "total": 26,
+        "rate": 1.0
+      },
+      "category": {
+        "passed": 21,
+        "total": 23,
+        "rate": 0.9130434782608695
+      },
+      "account": {
+        "passed": 26,
+        "total": 26,
+        "rate": 1.0
+      },
+      "date": {
+        "passed": 78,
+        "total": 80,
+        "rate": 0.975
+      },
+      "time": {
+        "passed": 24,
+        "total": 27,
+        "rate": 0.8888888888888888
+      },
+      "priority": {
+        "passed": 26,
+        "total": 27,
+        "rate": 0.9629629629629629
+      }
+    },
+    "en": {
+      "title": {
+        "passed": 75,
+        "total": 80,
+        "rate": 0.9375
+      },
+      "amount": {
+        "passed": 26,
+        "total": 26,
+        "rate": 1.0
+      },
+      "kind": {
+        "passed": 26,
+        "total": 26,
+        "rate": 1.0
+      },
+      "category": {
+        "passed": 22,
+        "total": 23,
+        "rate": 0.9565217391304348
+      },
+      "account": {
+        "passed": 26,
+        "total": 26,
+        "rate": 1.0
+      },
+      "date": {
+        "passed": 79,
+        "total": 80,
+        "rate": 0.9875
+      },
+      "time": {
+        "passed": 27,
+        "total": 27,
+        "rate": 1.0
+      },
+      "priority": {
+        "passed": 26,
+        "total": 27,
+        "rate": 0.9629629629629629
+      }
+    }
+  }
+}

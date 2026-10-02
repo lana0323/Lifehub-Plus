@@ -7,3 +7,7 @@ backend/action_rules.py text eol=lf
 backend/task_service.py text eol=crlf
 app/src/main/java/com/lifeHub/ai/ui/AiChatViewModel.kt text eol=crlf
 app/src/main/java/com/lifeHub/ai/ui/AiChatFragment.kt text eol=crlf
+backend/evaluate_holdout.py text eol=crlf
+backend/evaluate_actions.py text eol=crlf
+app/src/androidTest/java/com/lifeHub/ai/HoldoutWorkflowTest.kt text eol=crlf
+docs/evaluation-v2/*.json text eol=crlf

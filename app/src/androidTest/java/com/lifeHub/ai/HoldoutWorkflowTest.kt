@@ -32,7 +32,9 @@ class HoldoutWorkflowTest {
         val instrumentation=InstrumentationRegistry.getInstrumentation()
         org.junit.Assume.assumeTrue(InstrumentationRegistry.getArguments().getString("runHoldoutReplay") == "true")
         val app=ApplicationProvider.getApplicationContext<Application>()
-        val fixture=JsonParser.parseString(instrumentation.context.assets.open("holdout-replay.json").bufferedReader().readText()).asJsonObject
+        val fixtureName=InstrumentationRegistry.getArguments().getString("replayFixture") ?: "holdout-replay.json"
+        require(fixtureName.matches(Regex("[a-zA-Z0-9_-]+\\.json")))
+        val fixture=JsonParser.parseString(instrumentation.context.assets.open(fixtureName).bufferedReader().readText()).asJsonObject
         val results=JsonArray();val previousUser=LoginManager.getCurrentUser(app)
         LoginManager.setLoggedIn(app,true,"holdout-v1-evaluation")
         try {

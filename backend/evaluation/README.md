@@ -1,5 +1,7 @@
 # Frozen evaluation v1
 
+For the newer **120 Chinese + 120 English** evaluation, see `holdout_v2.json`, `holdout_v2.lock.json` and [the v2 protocol](../../docs/evaluation-v2/PROTOCOL.md). V2 is a separate paired bilingual set with its own source lock and money-format scoring policy; it does not replace v1.
+
 The original production source and first-pass report are preserved at commit `e107d7b` in Lifehub-Plus. Later parser improvements intentionally fail the v1 source-hash gate. To reproduce that historical evaluation, use a separate checkout of that commit; do not update the lock to match newer source. Updated development results live in `docs/evaluation-improvements/`.
 
 `holdout_v1.json` contains 120 newly authored internal evaluation prompts: 30 per workflow, 15 English and 15 Chinese within each workflow. `holdout_v1.lock.json` records the pre-run SHA-256, production source hashes, scoring rules, run count and fixed shuffle order.
