@@ -24,21 +24,18 @@ My contributions to the original project included product planning, application 
 
 A connected workspace for notes, money, plans and digital wellbeing — with AI to turn requests into reviewable actions.
 
-<table>
-  <tr><th>Memo</th><th>Finance</th></tr>
+<table align="center">
+  <tr><th align="center">Home</th><th align="center">AI Assistant</th><th align="center">Memo</th></tr>
   <tr>
-    <td><img src="docs/assets/memo.png" width="320" alt="Current Memo screen with priorities and sample tasks" /></td>
-    <td><img src="docs/assets/finance.png" width="320" alt="Current Finance dashboard with monthly totals and category charts" /></td>
+    <td align="center" valign="top"><img src="docs/assets/home.png" width="240" alt="Current LifeHub home with all four module cards" /></td>
+    <td align="center" valign="top"><img src="docs/assets/ai.png" width="240" alt="Current AI assistant with automatic module selection" /></td>
+    <td align="center" valign="top"><img src="docs/assets/memo.png" width="240" alt="Current Memo screen with priorities and sample tasks" /></td>
   </tr>
-  <tr><th>Schedule</th><th>Health</th></tr>
+  <tr><th align="center">Finance</th><th align="center">Schedule</th><th align="center">Health</th></tr>
   <tr>
-    <td><img src="docs/assets/schedule.png" width="320" alt="Current Schedule calendar with a sample event and dated memo" /></td>
-    <td><img src="docs/assets/health.png" width="320" alt="Current Health screen showing Android emulator usage statistics" /></td>
-  </tr>
-  <tr><th>Home</th><th>AI Assistant</th></tr>
-  <tr>
-    <td><img src="docs/assets/home.png" width="320" alt="Current LifeHub home with all four module cards" /></td>
-    <td><img src="docs/assets/ai.png" width="320" alt="Current AI assistant with automatic module selection" /></td>
+    <td align="center" valign="top"><img src="docs/assets/finance.png" width="240" alt="Current Finance dashboard with monthly totals and category charts" /></td>
+    <td align="center" valign="top"><img src="docs/assets/schedule.png" width="240" alt="Current Schedule calendar with a sample event and dated memo" /></td>
+    <td align="center" valign="top"><img src="docs/assets/health.png" width="240" alt="Current Health screen showing Android emulator usage statistics" /></td>
   </tr>
 </table>
 
