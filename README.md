@@ -39,8 +39,6 @@ A connected workspace for notes, money, plans and digital wellbeing — with AI 
   </tr>
 </table>
 
-Captured from the current Android build on October 2, 2026. Memo, Finance and Schedule use fictional demonstration records in an isolated account. Health displays the emulator's actual Android usage data, not sample statistics. See the [capture notes](docs/assets/README.md) for reproduction details.
-
 **Same LifeHub identity, expanded capabilities.** Lifehub Plus retains the original LifeHub sprout icon, application branding and package name.
 
 ## From LifeHub to Plus
