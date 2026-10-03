@@ -21,6 +21,7 @@ __pycache__/
 /.idea/
 **/build/
 *.apk
+!/downloads/Lifehub-Plus-1.1.0.apk
 *.aab
 *.jks
 *.keystore
@@ -29,7 +30,6 @@ __pycache__/
 .env.*
 !.env.example
 *.log
-
 /.kotlin/
 *.zip
 *.db

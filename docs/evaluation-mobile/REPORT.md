@@ -65,6 +65,7 @@ A fresh independent dataset is needed to measure generalization after these refi
 
 ## Data and reproduction
 
+- [Excel workbook](Lifehub-Plus-Mobile-Evaluation.xlsx)
 - [Chinese 120-case CSV](chinese-120.csv) and [English 120-case CSV](english-120.csv)
 - [Final outputs and per-field checks](results.json) and [frozen first-pass outputs](first-pass-results.json)
 - [Protocol and source hashes](protocol.json), [refinement source hashes](refinement.json), [application-check evidence](reliability.json)

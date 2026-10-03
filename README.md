@@ -10,7 +10,7 @@
 </p>
 
 <p align="center"><b>Describe it. Review it. Make it happen.</b><br/>Turn natural language into everyday actions.</p>
-<p align="center"><a href="#project-background">Background</a> · <a href="#app-preview">Preview</a> · <a href="#from-lifehub-to-plus">Improvements</a> · <a href="#run-locally">Getting Started</a> · <a href="#project-structure">Project Structure</a></p>
+<p align="center"><a href="#project-background">Background</a> · <a href="#app-preview">Preview</a> · <a href="#from-lifehub-to-plus">Improvements</a> · <a href="#install">Install</a> · <a href="#model-evaluation">Evaluation</a> · <a href="#project-structure">Project Structure</a></p>
 
 ## Project Background
 
@@ -95,21 +95,52 @@ A connected workspace for notes, money, plans and digital wellbeing — with AI 
 
 **Lifecycle handling.** An Activity-scoped ViewModel owns AI requests. Navigation and Activity recreation do not resend an in-flight request. After process interruption, the application restores the input and asks the user to retry instead of automatically replaying it.
 
-## Run Locally
+## Install
 
-**Android users:** install the signed ARM64 APK, create a local account and use Memo, Finance, Schedule and Health. Android Studio and a computer are not required to use the installed application.
+**[Download Lifehub Plus 1.1.0 for Android](https://github.com/lana0323/Lifehub-Plus/raw/refs/heads/main/downloads/Lifehub-Plus-1.1.0.apk)** · Signed APK, approximately 33 MB · [SHA-256 checksum](downloads/SHA256SUMS.txt)
 
-**Offline AI:** open AI and download the 1.6 GB model once, or import the pinned model file. The application verifies its SHA-256. Subsequent inference and draft validation run locally, without an API key, paid service or desktop server. Manual entry remains available before model setup. A recent ARM64 phone with 8–12 GB RAM is the target configuration.
+| Requirement | Details |
+|---|---|
+| Android | Android 7.0 or later, 64-bit ARM (`arm64-v8a`) |
+| Offline AI target | A recent phone with 8–12 GB RAM |
+| Model storage | About 1.6 GB; reserve at least 2 GB for the in-app download, or 4 GB when importing a separate downloaded copy |
+| Internet | Needed to download the APK and model; inference runs locally after setup |
 
-See [Android installation and model setup](docs/ANDROID_INSTALL.md) for the exact model, storage requirements and signing instructions.
+1. **Install the APK.** Open the download on your phone. If prompted, allow installation from the browser or file manager you used.
+2. **Create a local account.** Memo, Finance, Schedule and Health are available immediately. Grant Usage Access when opening Health to view device statistics.
+3. **Set up AI once.** Open **AI → Download offline model**, or choose **Import downloaded model** with the [exact supported model file](docs/ANDROID_INSTALL.md#model-provenance). The app verifies the file before use.
+4. **Describe, review and confirm.** Generate a draft, edit its fields and confirm before saving. Manual entry remains available without the model.
 
-**Developers:** use JDK 21, Android SDK 34 and Python 3.11 to build from source. Android Studio is convenient but optional. Build tools download dependencies on the first run; model weights are downloaded separately inside the app.
+No Android Studio, emulator, desktop server, API key or model subscription is required to use the installed app. See the [installation guide](docs/ANDROID_INSTALL.md) for model setup, updates and troubleshooting.
+
+<details>
+<summary><b>Build from source (developers)</b></summary>
+
+Use JDK 21, Android SDK 34 and Python 3.11. Android Studio is optional. The first build downloads dependencies; the model is installed separately inside the app.
 
 ```powershell
 .\gradlew.bat :app:assembleDebug
 ```
 
-The [Development Guide](docs/DEVELOPMENT_GUIDE.md) also documents the historical desktop Ollama backend. The mobile AI screen uses on-device inference by default.
+The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. For a signed ARM64 build, follow the [signing instructions](docs/ANDROID_INSTALL.md#build-a-signed-apk-developers). Architecture and local checks are documented in the [Development Guide](docs/DEVELOPMENT_GUIDE.md).
+
+</details>
+
+## Model Evaluation
+
+The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. The bilingual regression set contains **120 Chinese and 120 English inputs**, with 30 inputs per module in each language.
+
+| Metric | Chinese | English | Combined |
+|---|---|---|---|
+| Module routing | 120/120 (100.0%) | 120/120 (100.0%) | 240/240 (100.0%) |
+| Required fields | 260/261 (99.6%) | 261/261 (100.0%) | 521/522 (99.8%) |
+| All specified fields | 119/120 (99.2%) | 120/120 (100.0%) | 239/240 (99.6%) |
+
+These are **application-pipeline regression results** from the same model file running on Windows CPU. Final scores replay captured model outputs through improved validation rules. The cases were already seen during development, so these are not independent holdout results or Android inference measurements. The remaining failure is an omitted object in a Memo title.
+
+**[Full report](docs/evaluation-mobile/REPORT.md)** · [Excel workbook](docs/evaluation-mobile/Lifehub-Plus-Mobile-Evaluation.xlsx) · [Chinese 120 cases](docs/evaluation-mobile/chinese-120.csv) · [English 120 cases](docs/evaluation-mobile/english-120.csv) · [Raw outputs and checks](docs/evaluation-mobile/results.json)
+
+Separate application checks passed **83/83 Python tests**, **17/17 Android/JVM unit tests** and **20/20 Android reliability tests**, covering packaged validation, account isolation, cancellation and confirmed database writes. These checks are not counted as model accuracy.
 
 ## Project Structure
 
@@ -138,13 +169,9 @@ The project includes the Android client, backend service and local persistence l
 
 The [mobile-model evaluation](docs/evaluation-mobile/REPORT.md) reports Chinese and English accuracy separately for Qwen2.5 1.5B, with case-level outputs and reliability checks. Its execution environment is recorded in the report.
 
-The [earlier 240-input evaluation](docs/evaluation-v2/REPORT.md) belongs to the desktop Qwen3 4B configuration. It is historical evidence, not the score of the mobile model.
+The 40-case set remains a separate [development set](docs/evaluation-mobile/development-results.json). The current model's first-pass outputs and validation refinements are retained alongside the final report for comparison.
 
-The original [120-case frozen evaluation report](docs/evaluation/REPORT.md) and its [case-level results](docs/evaluation/app-evaluation.csv) remain available. The original 40-case set remains a development/regression set.
-
-Subsequent [AI validation improvements and regression results](docs/evaluation-improvements/README.md) document financial field recovery, ambiguity handling and supported-action checks. These follow-up results use seen development cases and do not replace the original frozen evaluation.
-
-Automated checks cover database migrations, account isolation, repeated submissions and screen restoration. Commands, recorded results and model evaluation scope are documented in [Quality Assurance](docs/QUALITY.md), the [Development Guide](docs/DEVELOPMENT_GUIDE.md) and the [Engineering Review](docs/ENGINEERING_REVIEW.md). These detailed development documents are currently in Chinese.
+Automated checks cover database migrations, account isolation, repeated submissions and screen restoration. Commands, recorded results and model evaluation scope are documented in [Quality Assurance](docs/QUALITY.md), the [Development Guide](docs/DEVELOPMENT_GUIDE.md) and the [Engineering Review](docs/ENGINEERING_REVIEW.md). Additional engineering notes include Chinese-language development records.
 
 </details>
 
@@ -153,7 +180,7 @@ Automated checks cover database migrations, account isolation, repeated submissi
 - Account isolation applies to local data. There is no server-side authentication, cloud synchronization, cross-device session management or password recovery. Local databases are not encrypted.
 - Health statistics describe the entire device. Local accounts see the same device statistics, subject to Android permissions and event retention.
 - Financial amounts currently use CNY, and each AI request produces at most one action draft.
-- Next priorities are broader financial vocabulary, remaining model routing/date failures, a new independent evaluation set and reducing main-thread work in schedule persistence.
+- Next priorities are preserving specific objects in generated titles, broader financial/date vocabulary, a new independent evaluation set and reducing main-thread work in schedule persistence.
 
 ## Acknowledgements and Provenance
 

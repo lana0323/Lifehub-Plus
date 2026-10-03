@@ -1,7 +1,0 @@
-{
-  "backend/evaluation/holdout_v2.json": "c152175c5faa9304bbfa5da7dd343215c8ee5dcfe264350731fae465b952abd4",
-  "backend/evaluation/holdout_v2.lock.json": "0ffb62e6672fa8c6a56094b8ed8c2e5fa4ac7e2636540ec7db5fe48f4b48bd8e",
-  "docs/evaluation-v2/model-results.json": "181d5b801a7080a629006451014fbf7fbd0e36ac5c3bd8c78fc7daf555f24af5",
-  "docs/evaluation-v2/android-results.json": "a97296c9bbfd1d06131f83f3b7be2a9612463d01bb02e8ddd283370890e85755",
-  "docs/evaluation-v2/reliability-results.json": "347a5bb64ab8164b734871fff4c9c3cd152c4a7cffb522cbb07e97207ea6dcf9"
-}

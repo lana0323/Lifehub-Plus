@@ -1,10 +1,15 @@
 """Record the mobile regression configuration before inference; never alter cases."""
 import hashlib
 import json
+import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--machine", type=Path, required=True, help="JSON hardware/OS snapshot for this run")
+args = parser.parse_args()
+machine = json.loads(args.machine.read_text(encoding="utf-8-sig"))
 files = [
     "backend/evaluation/holdout_v2.json", "backend/action_service.py",
     "backend/action_rules.py", "backend/task_service.py", "backend/evaluate_actions.py",
@@ -22,7 +27,7 @@ out.write_text(json.dumps({
     "datasetRole": "Previously used bilingual regression set, not a new unseen holdout",
     "cases": 240, "languages": {"zh": 120, "en": 120},
     "runtime": "Windows JVM LiteRT-LM 0.10.2, CPU, JDK 21",
-    "machine": json.loads((ROOT / "docs/evaluation-v2/machine.json").read_text(encoding="utf-8-sig")),
+    "machine": machine,
     "model": "litert-community/Qwen2.5-1.5B-Instruct int8 ekv4096",
     "modelRevision": "19edb84c69a0212f29a6ef17ba0d6f278b6a1614",
     "modelSha256": "faa60663b333290c1496c499828b21d3e3254a788cacd8cce917ce0f761a2dc9",
