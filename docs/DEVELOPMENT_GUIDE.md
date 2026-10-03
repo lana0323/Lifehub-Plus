@@ -28,15 +28,17 @@ The APK is written to `app/build/outputs/apk/debug/app-debug.apk`. The default b
 
 The AI screen uses local inference by default and has no automatic paid fallback. Manual entry works before model installation and when inference is unavailable. Unsupported native inference environments show an error instead of attempting to load an incompatible library.
 
+Version 1.1.1 uses `UnicodeSafeMessages` to escape serialized JNI JSON to ASCII. Native JSON decoding restores the original Unicode before inference; the user's text is not stripped or transliterated. The text-only shim is coupled to the pinned LiteRT-LM 0.10.2 conversation handle and fails recoverably if that contract changes. Recheck synchronous/asynchronous supplementary-character inference before changing the SDK, and remove the shim when the upstream boundary supports it. Tool execution stays disabled.
+
 ## Tests and evaluation
 
 ```powershell
 python -m unittest discover -s backend -p 'test_*.py'
 .\gradlew.bat :app:testDebugUnitTest :app:assembleDebug :app:assembleDebugAndroidTest
-.\scripts\mobile-evaluation\run.ps1 -ModelPath 'C:/models/mobile-qwen2.5.litertlm'
+.\scripts\mobile-evaluation\run_regression.ps1 -ModelPath 'C:/models/mobile-qwen2.5.litertlm'
 ```
 
-The mobile runner uses the same pinned model and prompt, a fresh conversation per input, fixed sampling, and the packaged validation logic. It writes into `.local/mobile-reproduction`. The host runner reuses one engine; Android initializes an engine per request. The [240-case report](evaluation-mobile/REPORT.md) includes the execution environment, metric definitions, raw outputs and remaining failures. The cases are a seen regression set. Keep the separate 40-case development set out of its denominator.
+The mobile runner uses the same pinned model, prompt, asynchronous text transport, fixed sampling, and packaged validation logic. It writes into `.local/mobile-regression-reproduction`. The host runner reuses one engine with a fresh conversation per input; Android initializes an engine per request. The [post-fix 240-case report](evaluation-mobile-regression/REPORT.md) includes the execution environment, metric definitions, raw outputs and remaining failures. These cases are a seen regression set. Keep the separate 40-case development set out of its denominator.
 
 Application checks are recorded in [Quality checks](QUALITY.md) and [Current verification results](TEST_REPORT.md). CI runs offline checks and builds without downloading models. Device tests use `com.lifeHub.qa`, keeping ordinary app data separate.
 
@@ -57,4 +59,4 @@ The repository retains the Python HTTP adapter and Ollama integration for develo
 
 ## New frozen holdout
 
-The [new 240-input holdout](evaluation-mobile-holdout/REPORT.md) is separate from the earlier seen regression set. Run `./scripts/mobile-evaluation/run_holdout.ps1` with `-ModelPath` to reproduce the frozen first-pass protocol. It verifies code/data hashes and records interrupted native calls as failures before continuing with the remaining inputs.
+The [original 240-input holdout](evaluation-mobile-holdout/REPORT.md) preserves its first pass. Reproduction requires the historical freeze revision named in that report: `run_holdout.ps1` intentionally refuses the changed production sources. On the current code, use `run_regression.ps1`. Both runners verify source/data hashes and retain interrupted native calls as failures. Fixes informed by this data need a future untouched holdout to assess generalization.

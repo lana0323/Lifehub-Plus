@@ -2,7 +2,7 @@
 
 Lifehub Plus is a native Android application. Android Studio and an emulator are development tools, not requirements for using an APK on a phone.
 
-**[Download the signed Lifehub Plus 1.1.0 APK](https://github.com/lana0323/Lifehub-Plus/raw/refs/heads/main/downloads/Lifehub-Plus-1.1.0.apk)** (approximately 33 MB). The package supports Android 7.0+ on ARM64 phones. [Verify its SHA-256](../downloads/SHA256SUMS.txt) if needed.
+**[Download the signed Lifehub Plus 1.1.1 APK](https://github.com/lana0323/Lifehub-Plus/raw/refs/heads/main/downloads/Lifehub-Plus-1.1.1.apk)** (approximately 33 MB). The package supports Android 7.0+ on ARM64 phones. [Verify its SHA-256](../downloads/SHA256SUMS.txt) if needed.
 
 Install the APK, register a local account and open any of the four modules. Health requests Android Usage Access to read system statistics. The AI model is a separate, optional installation described below.
 
@@ -49,6 +49,6 @@ $env:LIFEHUB_KEY_ALIAS = 'lifehub'
 .\scripts\build-apk.ps1
 ```
 
-The output is `.local/distribution/Lifehub-Plus-1.1.0.apk` with `SHA256SUMS.txt`. Keep the keystore and passwords backed up privately: future updates must use the same signing identity. A release signed with a new key cannot update an existing debug-signed installation; preserve existing data before changing installation identity.
+The output is `.local/distribution/Lifehub-Plus-1.1.1.apk` with `SHA256SUMS.txt`. Keep the keystore and passwords backed up privately: future updates must use the same signing identity. A release signed with a new key cannot update an existing debug-signed installation; preserve existing data before changing installation identity.
 
 The current model's [new holdout report](evaluation-mobile-holdout/REPORT.md) records the model, runtime, dataset, execution environment and separate APK checks.

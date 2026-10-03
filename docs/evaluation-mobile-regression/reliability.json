@@ -1,0 +1,43 @@
+{
+  "python": {
+    "passed": 99,
+    "total": 99,
+    "command": "python -m unittest discover -s backend -p test_*.py"
+  },
+  "androidUnit": {
+    "passed": 20,
+    "total": 20,
+    "command": "gradlew -PisolatedTests=true testDebugUnitTest"
+  },
+  "androidReliability": {
+    "passed": 22,
+    "total": 22,
+    "environment": "Android 14 / API 34 isolated x86_64 emulator",
+    "classes": {
+      "MobileAdapterTest": 5,
+      "AccountAndWaitingTest": 7,
+      "IdempotentRecordsTest": 3,
+      "RepeatedReviewTest": 2,
+      "TaskConfirmationTest": 1,
+      "DatabaseRegressionTest": 4
+    }
+  },
+  "nativeUnicodeSmoke": {
+    "synchronous": 4,
+    "asynchronous": 4,
+    "failures": 0,
+    "scope": "The four previously interrupted inputs, using the pinned native Windows runtime and lossless ASCII JSON transport."
+  },
+  "apk": {
+    "filename": "Lifehub-Plus-1.1.1.apk",
+    "bytes": 32811249,
+    "sha256": "40162e22fd51a40275fc4b27465960260593c9d77f2ecf0d0e53a21e45012296",
+    "package": "com.lifeHub",
+    "version": "1.1.1",
+    "versionCode": 3,
+    "abi": "arm64-v8a",
+    "certificateSha256": "838afe5f747b443576535c36c35260fbc650c7a23d5318d7459b97cf9a40288f",
+    "installation": "Signed upgrade installed and reached LoginActivity in an isolated API 34 emulator using its ARM compatibility layer; no crash-buffer entries.",
+    "inferenceScope": "Native model evaluation uses Windows JVM CPU. APK startup and integration checks are separate from model accuracy."
+  }
+}
