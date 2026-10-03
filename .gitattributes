@@ -15,6 +15,7 @@ app/src/main/java/com/lifeHub/ai/data/MobileAiApi.kt text eol=lf
 app/src/main/java/com/lifeHub/ai/data/MobileModelStore.kt text eol=lf
 scripts/mobile-evaluation/*.py text eol=lf
 scripts/mobile-evaluation/*.java text eol=lf
+scripts/mobile-evaluation/*.ps1 text eol=lf
 scripts/summarize-mobile-evaluation.py text eol=lf
 docs/evaluation-mobile/*.json text eol=lf
 docs/evaluation-mobile-holdout/*.json text eol=crlf

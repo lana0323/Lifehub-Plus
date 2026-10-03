@@ -2,7 +2,9 @@ param(
     [Parameter(Mandatory=$true)][string]$ModelPath,
     [string]$Python = 'python',
     [string]$JavaHome = $env:JAVA_HOME,
-    [string]$OutputDirectory = '.local/mobile-reproduction'
+    [string]$OutputDirectory = '.local/mobile-reproduction',
+    [string]$Cases = 'backend/evaluation/holdout_v2.json',
+    [switch]$RecordNativeCrashes
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
@@ -39,14 +41,18 @@ try {
     $prepared = Join-Path $output 'prepared.json'
     $raw = Join-Path $output 'raw.json'
     if (Test-Path $raw) { throw 'Choose a fresh OutputDirectory to keep independent runs separate.' }
-    & $Python scripts/mobile-evaluation/prepare_and_validate.py prepare backend/evaluation/holdout_v2.json $prepared
+    & $Python scripts/mobile-evaluation/prepare_and_validate.py prepare $Cases $prepared
     if ($LASTEXITCODE -ne 0) { throw 'Preparation failed' }
-    & (Join-Path $JavaHome 'bin/java.exe') -cp "$output;$libs/*" NativeRunner $model $prepared $raw $output
+    if ($RecordNativeCrashes) {
+        & $Python scripts/mobile-evaluation/supervise_native.py --java (Join-Path $JavaHome 'bin/java.exe') --classpath "$output;$libs/*" --model $model --prepared $prepared --raw $raw --cache $output --logs (Join-Path $output 'native-logs')
+    } else {
+        & (Join-Path $JavaHome 'bin/java.exe') -cp "$output;$libs/*" NativeRunner $model $prepared $raw $output
+    }
     if ($LASTEXITCODE -ne 0) { throw 'Native inference failed; captured rows remain available.' }
     $validated = Join-Path $output 'validated.json'
-    & $Python scripts/mobile-evaluation/prepare_and_validate.py validate backend/evaluation/holdout_v2.json $validated --raw $raw
+    & $Python scripts/mobile-evaluation/prepare_and_validate.py validate $Cases $validated --raw $raw
     if ($LASTEXITCODE -ne 0) { throw 'Validation failed' }
-    & $Python scripts/summarize-mobile-evaluation.py --cases backend/evaluation/holdout_v2.json --results $validated --output (Join-Path $output 'results.json')
+    & $Python scripts/summarize-mobile-evaluation.py --cases $Cases --results $validated --output (Join-Path $output 'results.json')
     if ($LASTEXITCODE -ne 0) { throw 'Scoring failed' }
 } finally {
     $env:PYTHONPATH = $previousPythonPath

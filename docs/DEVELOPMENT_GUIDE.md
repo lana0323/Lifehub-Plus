@@ -54,3 +54,7 @@ The repository retains the Python HTTP adapter and Ollama integration for develo
 - Finance amounts use integer minor units. Migrations preserve old values and verify counts and totals before committing.
 - Repeated confirmation of the same draft returns its existing record. Independently generated drafts are not deduplicated by content.
 - Cancellation preserves input. Process restoration does not silently replay a request. Schedule still has some main-thread SQLite work worth moving behind a repository.
+
+## New frozen holdout
+
+The [new 240-input holdout](evaluation-mobile-holdout/REPORT.md) is separate from the earlier seen regression set. Run `./scripts/mobile-evaluation/run_holdout.ps1` with `-ModelPath` to reproduce the frozen first-pass protocol. It verifies code/data hashes and records interrupted native calls as failures before continuing with the remaining inputs.

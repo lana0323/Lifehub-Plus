@@ -51,4 +51,4 @@ $env:LIFEHUB_KEY_ALIAS = 'lifehub'
 
 The output is `.local/distribution/Lifehub-Plus-1.1.0.apk` with `SHA256SUMS.txt`. Keep the keystore and passwords backed up privately: future updates must use the same signing identity. A release signed with a new key cannot update an existing debug-signed installation; preserve existing data before changing installation identity.
 
-The current model's [evaluation report](evaluation-mobile/REPORT.md) records the model, runtime, dataset, execution environment and separate APK checks.
+The current model's [new holdout report](evaluation-mobile-holdout/REPORT.md) records the model, runtime, dataset, execution environment and separate APK checks.

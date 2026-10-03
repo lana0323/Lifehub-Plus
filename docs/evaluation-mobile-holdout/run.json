@@ -1,0 +1,52 @@
+{
+  "completedAtUtc": "2026-10-03T07:54:35.306044+00:00",
+  "cases": 240,
+  "complete": true,
+  "frozenCommit": "1f8eb6b",
+  "productionCommit": "eb798d5",
+  "lineEndingMetadataCommit": "ba1d3df",
+  "rawCaptureSha256": "f5ccf05104d138b98bb2421fd57c6726e65999e784d9029efef6e8910ae40159",
+  "validatedCaptureSha256": "0f78c1f29fde8170ff23d7bc88fc5a87bac56099a33db513f5db3bddd245ba2c",
+  "scoredResultsSha256": "9b779a0ef93cee638e64919a327a3da1b83a2dffc72e834aeebf268d65dba873",
+  "interruptions": [
+    {
+      "id": "mh3-health-zh-08",
+      "recordedAtUtc": "2026-10-03T07:23:05.188324+00:00",
+      "retried": false,
+      "completedBeforeCrash": 27,
+      "prefixSha256": "7f65a3db74b92e3c93d071f0c2ebf4fbc433a24f22190d5e1d4c7894292d445a",
+      "crashLogSha256": "32e537620b67a8687d5715de38edd125ae5d6892cb3ad75664c12c954abd75a8"
+    },
+    {
+      "id": "mh3-memo-zh-20",
+      "recordedAtUtc": "2026-10-03T07:26:41.957458+00:00",
+      "retried": false,
+      "completedBeforeCrash": 35,
+      "prefixSha256": "a8dd1f15abe51eaaefd82e273ab58d6f8076775146c19f268fee81413eeae137",
+      "crashLogSha256": "fb332bc430a4b6e91d8aa25bf5fd6d80e18f5c2910044af1eb3f42c03874962f"
+    },
+    {
+      "id": "mh3-health-en-08",
+      "recordedAtUtc": "2026-10-03T07:35:29.416272+00:00",
+      "retried": false,
+      "completedBeforeCrash": 105,
+      "prefixSha256": "17a2fa37d9d273ff1097d9653e3930b2c8d206118c7db7860cf5491901e49a48",
+      "crashLogSha256": "b45661ac84d7d6a4810dd0d34f674debd31c089a0cccd8c823b199b7a93291cc"
+    },
+    {
+      "id": "mh3-schedule-zh-24",
+      "recordedAtUtc": "2026-10-03T07:49:55.123505+00:00",
+      "retried": false,
+      "completedBeforeCrash": 207,
+      "prefixSha256": "1c5381fe0ae71c3c920d4eff8579d8a7a05c88b1f5197c3aa82d7992ef98a018",
+      "crashLogSha256": "9a2628249ffff19bccaa94bd387cc145c890409e16c86158871a30adf0bdef54"
+    }
+  ],
+  "deviation": "The Windows native runtime aborted on some inputs. Completed prefixes were preserved, each interrupted input counted as a failed attempt, and new processes continued with the next input. No case was retried. An external supervisor was added after the first interruptions; frozen runner, model, prompt, validation, answers and scoring were unchanged.",
+  "reporting": "Accuracy only; timing fields are omitted from public scored outputs. Logs remain private and are represented by hashes.",
+  "recoverySourceSha256": {
+    "scripts/mobile-evaluation/supervise_native.py": "ae7dadff49ad038b738f01848d79397d9a4e9d9517ad084ba4222f9b345980f5",
+    "scripts/mobile-evaluation/run.ps1": "a899ea01b3547ff28916d220ea149c37c4dbf3dcf395742fdb740087747be9b7",
+    "scripts/mobile-evaluation/run_holdout.ps1": "c516e23ed39c59b53a814b10ce4b30f8d86b1d5a74f4db19d967551764fff833"
+  }
+}

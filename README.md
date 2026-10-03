@@ -128,19 +128,19 @@ The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. For a s
 
 ## Model Evaluation
 
-The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. The bilingual regression set contains **120 Chinese and 120 English inputs**, with 30 inputs per module in each language.
+The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. A new **240-input internal holdout** was frozen before inference: 120 Chinese and 120 English inputs, with 30 per workflow in each language. It includes 180 draft requests and 60 requests that should receive clarification.
 
-| Metric | Chinese | English | Combined |
+| First-pass metric | Chinese | English | Combined |
 |---|---|---|---|
-| Module routing | 120/120 (100.0%) | 120/120 (100.0%) | 240/240 (100.0%) |
-| Required fields | 260/261 (99.6%) | 261/261 (100.0%) | 521/522 (99.8%) |
-| All specified fields | 119/120 (99.2%) | 120/120 (100.0%) | 239/240 (99.6%) |
+| Routing after validation | 92/120 (76.7%) | 93/120 (77.5%) | 185/240 (77.1%) |
+| Required fields | 202/228 (88.6%) | 210/228 (92.1%) | 412/456 (90.4%) |
+| All specified fields | 80/120 (66.7%) | 82/120 (68.3%) | 162/240 (67.5%) |
 
-These are **application-pipeline regression results** from the same model file running on Windows CPU. Final scores replay captured model outputs through improved validation rules. The cases were already seen during development, so these are not independent holdout results or Android inference measurements. The remaining failure is an omitted object in a Memo title.
+These are **first-pass application-pipeline results on Windows CPU**, using the same model file and frozen mobile prompt/validation. There was no tuning, retry or manual answer repair. 4 native runtime crashes were retained as failed inputs; the remaining inputs continued in new processes. Raw model routing is reported separately from application corrections. This internally authored set is not a third-party benchmark or an Android inference measurement.
 
-**[Full report](docs/evaluation-mobile/REPORT.md)** · [Excel workbook](docs/evaluation-mobile/Lifehub-Plus-Mobile-Evaluation.xlsx) · [Chinese 120 cases](docs/evaluation-mobile/chinese-120.csv) · [English 120 cases](docs/evaluation-mobile/english-120.csv) · [Raw outputs and checks](docs/evaluation-mobile/results.json)
+**[New holdout report](docs/evaluation-mobile-holdout/REPORT.md)** · [Excel workbook](docs/evaluation-mobile-holdout/Lifehub-Plus-New-Holdout.xlsx) · [Chinese 120 cases](docs/evaluation-mobile-holdout/chinese-120.csv) · [English 120 cases](docs/evaluation-mobile-holdout/english-120.csv) · [All failed cases](docs/evaluation-mobile-holdout/failures.csv)
 
-Separate application checks passed **83/83 Python tests**, **17/17 Android/JVM unit tests** and **20/20 Android reliability tests**, covering packaged validation, account isolation, cancellation and confirmed database writes. These checks are not counted as model accuracy.
+The [earlier seen-set regression](docs/evaluation-mobile/REPORT.md) remains separate. Its optimized validation-replay scores are not unseen accuracy and are not directly comparable to this new, broader set. Previous application checks passed **83/83 Python tests**, **17/17 Android/JVM tests** and **20/20 Android reliability tests**; those checks were not rerun or counted as model accuracy in this evaluation.
 
 ## Project Structure
 
@@ -167,9 +167,9 @@ The project includes the Android client, backend service and local persistence l
 <details>
 <summary><b>Developer Documentation and Quality Assurance</b></summary>
 
-The [mobile-model evaluation](docs/evaluation-mobile/REPORT.md) reports Chinese and English accuracy separately for Qwen2.5 1.5B, with case-level outputs and reliability checks. Its execution environment is recorded in the report.
+The [new mobile-model holdout](docs/evaluation-mobile-holdout/REPORT.md) reports first-pass Chinese and English results with frozen answers, raw outputs, failures and native-runtime interruptions. The [earlier mobile regression](docs/evaluation-mobile/REPORT.md) records seen-set development progress separately.
 
-The 40-case set remains a separate [development set](docs/evaluation-mobile/development-results.json). The current model's first-pass outputs and validation refinements are retained alongside the final report for comparison.
+The 40-case set remains a separate [development set](docs/evaluation-mobile/development-results.json). The earlier mobile regression retains its first-pass outputs and subsequent validation replay; the new holdout has no such tuning.
 
 Automated checks cover database migrations, account isolation, repeated submissions and screen restoration. Commands, recorded results and model evaluation scope are documented in [Quality Assurance](docs/QUALITY.md), the [Development Guide](docs/DEVELOPMENT_GUIDE.md) and the [Engineering Review](docs/ENGINEERING_REVIEW.md). Additional engineering notes include Chinese-language development records.
 
@@ -180,7 +180,7 @@ Automated checks cover database migrations, account isolation, repeated submissi
 - Account isolation applies to local data. There is no server-side authentication, cloud synchronization, cross-device session management or password recovery. Local databases are not encrypted.
 - Health statistics describe the entire device. Local accounts see the same device statistics, subject to Android permissions and event retention.
 - Financial amounts currently use CNY, and each AI request produces at most one action draft.
-- Next priorities are preserving specific objects in generated titles, broader financial/date vocabulary, a new independent evaluation set and reducing main-thread work in schedule persistence.
+- Next priorities are the native-input failures and intent/field errors identified by the new holdout, followed by reducing main-thread work in schedule persistence. Improvements informed by this set must be assessed on a future fresh holdout.
 
 ## Acknowledgements and Provenance
 
