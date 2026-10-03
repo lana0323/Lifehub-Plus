@@ -1,9 +1,10 @@
 """Offline-only adapter: reuse validation without invoking an HTTP/model provider."""
 import json
+import re
 from datetime import datetime
 from action_service import PROPERTIES, create_action
 from task_service import request_context, is_smalltalk
-from action_rules import multiple_actions
+from action_rules import multiple_actions, search, USAGE
 from mobile_rules import ground_fields
 
 
@@ -40,16 +41,32 @@ Input: Give me exercise advice
 """
 
 
-def prepare(request_json):
-    request = json.loads(request_json)
+def early_response(request):
     text, _, _ = request_context({k: request[k] for k in ("text", "timezone")})
     if is_smalltalk(text) or multiple_actions(text):
-        return json.dumps({"response": {"status": "clarification", "reason": "multiple_tasks" if multiple_actions(text) else "unclear", "module": None, "draft": None, "fields": None}})
+        return {"status": "clarification", "reason": "multiple_tasks" if multiple_actions(text) else "unclear", "module": None, "draft": None, "fields": None}
+    explicit_note = search(r"\b(?:task|reminder|memo|note|notes|remind)\b|任务|备忘|提醒", text)
+    unsupported = search(r"\b(?:swim|swimming|run|running|exercise|workout|weight|sleep|water|calories|steps|blood pressure)\b|游泳|跑步|运动|锻炼|体重|睡眠|喝水|热量|步数|血压", text)
+    calendar_context = search(r"\b(?:calendar|event|meeting|class|lecture|appointment|schedule|workshop)\b|日历|日程|讲座|会议|上课|课程|安排", text)
+    if request["module"] in ("auto", "health") and not explicit_note and not calendar_context and not search(USAGE, text) and unsupported and (request["module"] == "health" or search(r"\b(?:record|log)\b|记录", text)):
+        return {"status":"clarification", "reason":"health_unsupported", "module":None, "draft":None, "fields":None}
+    return None
+
+
+def prepare(request_json):
+    request = json.loads(request_json)
+    response = early_response(request)
+    if response is not None:
+        return json.dumps({"response": response})
+    text = request["text"].strip()
     hint = "" if request["module"] == "auto" else "\nThe user explicitly chose module=" + request["module"]
     return json.dumps({"system": MOBILE_SYSTEM + hint, "text": text})
 
 
 def validate(request_json, output, evaluation_time=None):
+    response = early_response(json.loads(request_json))
+    if response is not None:
+        return json.dumps(response, ensure_ascii=False)
     if len(output) > 16000:
         raise ValueError("Model output exceeds limit")
     value = output.strip()
@@ -58,6 +75,17 @@ def validate(request_json, output, evaluation_time=None):
     elif value.startswith("```") and value.endswith("```"):
         value = value[3:-3].strip()
     raw = json.loads(value)
+    if isinstance(raw, dict) and raw.get("module") == "schedule" and raw.get("event_type") in ("event", "appointment", "meeting", "class"):
+        # Known redundant metadata is not an action. All other unknown keys
+        # continue to be rejected by the shared schema validator.
+        raw.pop("event_type", None)
+    if isinstance(raw, dict) and raw.get("module") == "schedule":
+        for key in ("to", "with", "location"):
+            detail = raw.get(key)
+            if isinstance(detail, str) and 0 < len(detail) <= 100 and detail in json.loads(request_json)["text"] and isinstance(raw.get("notes", ""), str):
+                raw.pop(key)
+                if detail not in raw.get("notes", ""):
+                    raw["notes"] = (raw.get("notes", "") + " " + detail).strip()
     # Missing optional fields are absence, never permission to invent content.
     # Routing and title still have to be provided by the model and are validated.
     if isinstance(raw, dict) and {"intent", "module", "title"} <= raw.keys():

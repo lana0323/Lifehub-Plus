@@ -14,6 +14,19 @@ import java.io.File
 
 class MobileAdapterTest {
     private val app = ApplicationProvider.getApplicationContext<Context>()
+    @Test fun packagedRefinementsKeepHealthAndCalendarSeparate() {
+        if (!Python.isStarted()) Python.start(AndroidPlatform(app))
+        val bridge = Python.getInstance().getModule("mobile_bridge")
+        val unsupported = """{"text":"Record a swim in Health","timezone":"UTC","module":"auto"}"""
+        val prepared = JsonParser.parseString(bridge.callAttr("prepare", unsupported).toString()).asJsonObject
+        assertEquals("health_unsupported", prepared.getAsJsonObject("response")["reason"].asString)
+        val request = """{"text":"Schedule lunch with Alex tomorrow at 12:30 am","timezone":"UTC","module":"auto"}"""
+        val raw = """{"intent":"single_task","module":"schedule","title":"Lunch","notes":"","date_text":"tomorrow","time_text":"12:30","to":"Alex","event_type":"event"}"""
+        val result = JsonParser.parseString(bridge.callAttr("validate",request,raw,"2026-10-02T12:00:00+00:00").toString()).asJsonObject
+        assertEquals("schedule", result["module"].asString)
+        assertEquals("00:30", result.getAsJsonObject("fields")["time"].asString)
+        assertTrue(result.getAsJsonObject("fields")["notes"].asString.contains("Alex"))
+    }
     @Test fun packagedRulesWorkWithoutHttp() {
         if (!Python.isStarted()) Python.start(AndroidPlatform(app))
         val bridge = Python.getInstance().getModule("mobile_bridge")

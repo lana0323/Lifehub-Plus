@@ -50,7 +50,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "ebe475c8-d67d-4f95-be5e-3f67771c3fc2",
+          "id": "4b0fdc07-23ff-426f-a4ed-6387cdff6937",
           "title": "完成机器学习作业",
           "notes": "",
           "dueDate": "2026-10-01",
@@ -79,7 +79,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "c026cf4c-4654-46ef-87b8-61b2b90240c5",
+          "id": "d10ea9e4-f8a9-4ee7-ac7e-5e23af3703f5",
           "title": "Finish homework",
           "notes": "",
           "dueDate": "2026-10-01",
@@ -108,7 +108,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "c7e045df-e28d-4484-87cc-9c90579ff79a",
+          "id": "443cf284-2bcf-4f00-bd83-9c4fa38b7f3d",
           "title": "复习笔记",
           "notes": "",
           "dueDate": "2026-09-30",
@@ -139,7 +139,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "2159a260-b21d-4946-9acd-7902d1fdc0f5",
+          "id": "46ca671b-ba92-4c15-8c3d-9f1b134fca25",
           "title": "Review notes",
           "notes": "today",
           "dueDate": "2026-09-30",
@@ -170,7 +170,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "301e8313-ce97-4498-8617-beff35908ec8",
+          "id": "24d0f1b1-8dd9-40d9-93ba-bbbf56432069",
           "title": "完成报告",
           "notes": "下周五",
           "dueDate": "2026-10-09",
@@ -201,7 +201,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "83f3e5a2-63d6-4b2c-b18b-e6b7d78b527d",
+          "id": "ea3153fb-f4ee-4614-9458-8ee4eff6779b",
           "title": "Finish the report",
           "notes": "",
           "dueDate": "2026-10-09",
@@ -232,7 +232,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "f6ed8678-00f0-4a3c-9bb4-704b68a708eb",
+          "id": "69092f71-bb3c-442b-89f5-b64c10426ed5",
           "title": "整理书架",
           "notes": "",
           "dueDate": null,
@@ -264,7 +264,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "5ae33688-9dfa-4945-9ef1-31309faffa12",
+          "id": "e9847011-4088-4e13-884c-71e8a519d344",
           "title": "Organize bookshelf",
           "notes": "",
           "dueDate": null,
@@ -296,7 +296,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "b676e3c8-5698-45dc-8dd9-82067aaf72f9",
+          "id": "5ac3f63b-0a1f-4993-8225-99d36be07428",
           "title": "交作业",
           "notes": "非常紧急",
           "dueDate": "2026-10-01",
@@ -325,7 +325,7 @@
         "status": "draft",
         "reason": null,
         "draft": {
-          "id": "c76648b0-f9eb-4ebc-b0d8-351a87d060fd",
+          "id": "25714d24-1ae1-49be-be7d-84b4fc6a295a",
           "title": "Read chapter 2",
           "notes": "",
           "dueDate": "2026-10-01",
@@ -356,7 +356,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "d12b862e-b36c-49c4-b896-7eef38ae067f",
+          "id": "6b09f15c-e62d-4ebc-a829-1e5402800e7c",
           "title": "午餐",
           "notes": "",
           "date": "2026-09-30",
@@ -390,7 +390,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "8486a1e1-48ff-4792-96e2-c0fbd3c1a879",
+          "id": "50333810-3a71-4d42-ad02-50c2e839c301",
           "title": "Coffee",
           "notes": "",
           "date": "2026-09-30",
@@ -424,7 +424,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "9b298d30-ee37-473e-8144-d29c52a547c8",
+          "id": "164bb0e8-69a2-422b-b585-d8275681fa7d",
           "title": "公交费用",
           "notes": "",
           "date": "2026-09-29",
@@ -458,7 +458,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "fdc2f804-7066-4460-ac78-7254e8d8db5b",
+          "id": "1e8adeb9-8f43-45ef-a8dc-7e35bb441807",
           "title": "Salary",
           "notes": "",
           "date": "2026-09-30",
@@ -492,7 +492,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "0404ca90-9d18-4a23-8038-b2cb88e8c2c9",
+          "id": "9dc867b9-f902-451a-96f6-006ce46eeee8",
           "title": "奖学金",
           "notes": "",
           "date": "2026-09-30",
@@ -526,7 +526,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "0d83f012-bdd8-418a-8c6e-3239b50b0eb5",
+          "id": "141ec168-426f-488c-b3b0-c135ddf98d4a",
           "title": "Lunch",
           "notes": "",
           "date": "2026-09-30",
@@ -560,7 +560,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "ad5ff674-0b35-4264-98c2-72801097cf64",
+          "id": "9b7de206-cc62-49e9-8a80-9e69870311ce",
           "title": "买咖啡",
           "notes": "用现金支付",
           "date": "2026-09-30",
@@ -594,7 +594,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "5857fcc7-7c86-4e15-8de6-784b97b2d005",
+          "id": "8464a533-76bc-4d74-930a-2913a72c1b47",
           "title": "Shopping",
           "notes": "",
           "date": null,
@@ -628,7 +628,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "6fdca970-e3fb-4bbc-a7ef-41078ae7ccdd",
+          "id": "9e5bb133-7761-49d7-84db-7579b58ef5e7",
           "title": "咖啡",
           "notes": "",
           "date": "2026-09-30",
@@ -662,7 +662,7 @@
         "module": "finance",
         "draft": null,
         "fields": {
-          "id": "94b2e381-05f1-4370-b8c0-c08ccc30ceb5",
+          "id": "81be25ad-0582-406e-b584-063e8f50db1b",
           "title": "Coffee",
           "notes": "",
           "date": "2026-09-29",
@@ -696,7 +696,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "907746cc-53b7-4f6a-a0e3-d1e7b1e710c0",
+          "id": "29389192-1fea-4b56-841d-0b67fd8fcce9",
           "title": "会议",
           "notes": "",
           "date": "2026-10-01",
@@ -727,7 +727,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "b78949a9-8212-4c5a-a630-e7e0f5f98879",
+          "id": "a271a3f5-808a-4366-89f0-ce728a81a48b",
           "title": "Team meeting",
           "notes": "",
           "date": "2026-10-01",
@@ -758,7 +758,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "9a5a922f-c4ed-4169-9673-eb813e0047a4",
+          "id": "9f864e33-2e4f-42cf-8e73-418634eb8766",
           "title": "会议",
           "notes": "",
           "date": "2026-09-30",
@@ -789,7 +789,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "eb7fea1f-0de7-4bdd-956e-bcd7c2f7fd8d",
+          "id": "1dc8368d-38c6-408c-ac2f-8ceb8bd13c28",
           "title": "Dentist Appointment",
           "notes": "",
           "date": "2026-10-01",
@@ -820,7 +820,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "f5c3fb66-ee54-4e3a-b99e-c5bb598427c8",
+          "id": "444a5b14-8291-4928-abf7-9b91d6de4a2c",
           "title": "会议",
           "notes": "",
           "date": "2026-10-09",
@@ -851,7 +851,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "4474eb10-c383-490b-af26-8be23be7711c",
+          "id": "d0a37cc1-f344-49e9-ab07-16d68bd1dbe4",
           "title": "Meeting",
           "notes": "",
           "date": "2026-10-09",
@@ -882,7 +882,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "528beffa-a9dd-479d-bab6-f2bd71ec6028",
+          "id": "0bd706fd-c4fe-4dfd-aa74-c9ce4ef8449a",
           "title": "组会",
           "notes": "",
           "date": "2026-10-01",
@@ -913,7 +913,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "dca6ae83-0ca8-444e-8774-cf8895927da4",
+          "id": "cbabccfe-530b-4ef6-b573-3c43e16bf6f0",
           "title": "Team Meeting",
           "notes": "",
           "date": null,
@@ -944,7 +944,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "d5e8c2b3-34ce-412a-800e-3fb2bc94f638",
+          "id": "af581f46-ed9a-4b04-9eaf-2accb910bdb2",
           "title": "会议",
           "notes": "",
           "date": "2026-10-01",
@@ -975,7 +975,7 @@
         "module": "schedule",
         "draft": null,
         "fields": {
-          "id": "03a8a3be-8c85-4547-8fd1-e5c406c69f57",
+          "id": "97d48080-24a0-4068-baab-2eb4822ed481",
           "title": "Meeting",
           "notes": "",
           "date": "2026-10-01",
@@ -1006,8 +1006,8 @@
         "module": "health",
         "draft": null,
         "fields": {
-          "id": "4fff57f6-ae16-44ea-96da-0784fd288bc7",
-          "title": "查看手机使用时长",
+          "id": "4d76b178-a77a-4e9d-b871-e91ad75bfa2d",
+          "title": "查看手机使用情况",
           "notes": "",
           "date": "2026-09-30",
           "time": null,
@@ -1037,8 +1037,8 @@
         "module": "health",
         "draft": null,
         "fields": {
-          "id": "af5b9fc4-8a18-402c-badc-d6103f2485b3",
-          "title": "查看手机使用时长",
+          "id": "6c29a4d1-b5f4-4d55-a247-06bdcaea4cc4",
+          "title": "View phone usage",
           "notes": "",
           "date": "2026-09-30",
           "time": null,
@@ -1068,8 +1068,8 @@
         "module": "health",
         "draft": null,
         "fields": {
-          "id": "c333d016-cfc3-4bb1-af1e-92311fd64a78",
-          "title": "查看手机使用时长",
+          "id": "20b3952b-08c5-4a15-aaf2-3a2505af4365",
+          "title": "查看手机使用情况",
           "notes": "",
           "date": null,
           "time": null,
@@ -1099,8 +1099,8 @@
         "module": "health",
         "draft": null,
         "fields": {
-          "id": "6db3c713-a188-4d65-a85b-6fde32fe4f11",
-          "title": "查看app使用",
+          "id": "5c6a320f-7349-4c58-902a-7ca343aa1f42",
+          "title": "View phone usage",
           "notes": "",
           "date": null,
           "time": null,
@@ -1130,7 +1130,7 @@
         "module": "health",
         "draft": null,
         "fields": {
-          "id": "18d77c0c-8de3-4462-8ee0-cb76d9cc81a8",
+          "id": "65f26cbd-66bd-44da-bee6-3cb6f6b4baa5",
           "title": "查看手机使用情况",
           "notes": "",
           "date": "2026-09-30",
@@ -1161,8 +1161,8 @@
         "module": "health",
         "draft": null,
         "fields": {
-          "id": "47f91eda-683a-4bc1-abe5-3c84e7cd030f",
-          "title": "查看手机使用时长",
+          "id": "720f4b6e-1053-4fc4-ba12-e53f4d96e7a4",
+          "title": "View phone usage",
           "notes": "",
           "date": null,
           "time": null,

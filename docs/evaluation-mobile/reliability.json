@@ -1,7 +1,7 @@
 {
   "python": {
-    "passed": 70,
-    "total": 70,
+    "passed": 83,
+    "total": 83,
     "command": "python -m unittest discover -s backend -p test_*.py"
   },
   "androidUnit": {
@@ -10,11 +10,11 @@
     "command": "gradlew :app:testDebugUnitTest"
   },
   "androidReliability": {
-    "passed": 19,
-    "total": 19,
+    "passed": 20,
+    "total": 20,
     "environment": "Android 14 / API 34 x86_64 isolated emulator",
     "classes": {
-      "MobileAdapterTest": 2,
+      "MobileAdapterTest": 3,
       "AccountAndWaitingTest": 7,
       "IdempotentRecordsTest": 3,
       "RepeatedReviewTest": 2,
@@ -22,15 +22,10 @@
       "DatabaseRegressionTest": 4
     }
   },
-  "packagedAdapterRecheck": {
-    "passed": 2,
-    "total": 2,
-    "note": "Subset of the 19 checks, rerun after final rule packaging; not counted twice"
-  },
   "apk": {
     "filename": "Lifehub-Plus-1.1.0.apk",
-    "bytes": 32800969,
-    "sha256": "174fce13e60c2e91acc7ea9500bf5d4edf2fab41f942cbecb24c446dcfb75b52",
+    "bytes": 32804417,
+    "sha256": "4e7d46695a161c815d39e6820df276817158f2f5a9ce33af9e316decb5faa0e4",
     "package": "com.lifeHub",
     "version": "1.1.0",
     "abi": "arm64-v8a",

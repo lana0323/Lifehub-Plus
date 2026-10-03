@@ -7,7 +7,9 @@ DATE_PATTERN = (r"\b(?:this|next)\s+(?:monday|tuesday|wednesday|thursday|friday|
                 r"|\bin \d{1,3} days?\b|\d{1,3}天后|\d{4}年\d{1,2}月\d{1,2}日?"
                 r"|\b\d{4}-\d{2}-\d{2}\b|\btoday\b|\btomorrow\b|\byesterday\b|后天|今天|今日|明天|昨天")
 UNCERTAIN = r"\b(?:maybe|perhaps|possibly|not|or|undecided|tentative|tbd)\b|可能|也许|或许|或者|待定|不确定|不是|不在|别在|暂定"
-USAGE = (r"\b(?:screen[ -]?time|(?:phone|app|device|foreground) usage|digital wellbeing)\b"
+USAGE = (r"\b(?:screen[ -]?time|(?:phone|app|device|foreground) usage|(?:phone|app|device) use|digital wellbeing|usage page)\b"
+         r"|\b(?:how much time|total duration)\b.*\b(?:phone|apps?|device)\b"
+         r"|\busage time\b.*\b(?:phone|apps?|device)\b"
          r"|\b(?:how long|time spent)\b.*\b(?:phone|apps?|device)\b"
          r"|屏幕使用|(?:手机|应用|设备|apps?).*(?:时长|时间|使用|多久)|使用时长")
 
@@ -19,7 +21,7 @@ def search(pattern, text):
 def multiple_actions(text):
     # A conjunction alone is not enough: "buy tea and coffee" is one action.
     # Require a new command and evidence for two workflows, or two explicit commands.
-    commands = r"(?:record|log|add|schedule|show|check|open|tell me|remind|create|记录|记一笔|记账|添加|安排|查看|查询|打开|提醒)"
+    commands = r"(?:record|log|add|schedule|show|check|open|tell me|remind|create|记录|记一笔|记账|添加|创建|新增|生成|安排|查看|查询|打开|提醒)"
     parts = re.split(r"(?:\band\b|\bthen\b|[;；]|(?:，|,)?\s*(?:再|然后|并且))\s*(?=" + commands + r")", text, flags=re.IGNORECASE)
     if len(parts) < 2:
         return False
@@ -58,7 +60,7 @@ def date_evidence(text, extracted, today):
 
 
 CATEGORY_WORDS = {
-    "Food & Drinks": r"\b(?:breakfast|lunch|dinner|meal|coffee|tea|juice|snack|groceries|restaurant|pizza|sandwich)\b|早餐|午餐|晚餐|吃饭|餐费|咖啡|奶茶|果汁|点心|零食|买菜",
+    "Food & Drinks": r"\b(?:breakfast|lunch|dinner|meal|coffee|tea|juice|snack|groceries|restaurant|pizza|sandwich|bakery|bread|cake|milk|yogurt|noodles?|salad|sushi)\b|早餐|午餐|晚餐|吃饭|餐费|咖啡|奶茶|茶叶|红茶|绿茶|买茶(?!几)|杯茶|果汁|点心|零食|买菜|面包|蛋糕|牛奶|酸奶|面条|餐厅|饮料|寿司",
     "Transport": r"\b(?:taxi|bus|train|subway|metro|fare|parking|petrol|gasoline)\b|打车|公交|地铁|车票|停车|汽油",
     "Shopping": r"\b(?:jacket|coat|shirt|shoes|clothes|notebook|pencil|stationery|headphones|book)\b|外套|衣服|鞋|笔记本|铅笔|文具|耳机|买书",
     "Entertainment": r"\b(?:cinema|movie|concert|game|theatre)\b|电影|演唱会|游戏|剧院",

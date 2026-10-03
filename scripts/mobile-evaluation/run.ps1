@@ -6,6 +6,8 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+$previousPythonPath = $env:PYTHONPATH
+$previousTzPath = $env:PYTHONTZPATH
 Push-Location $root
 try {
     if (-not $JavaHome) { throw 'Set JAVA_HOME to JDK 21.' }
@@ -13,6 +15,11 @@ try {
     $model = (Resolve-Path -LiteralPath $ModelPath).Path
     $output = [IO.Path]::GetFullPath((Join-Path $root $OutputDirectory))
     New-Item -ItemType Directory -Force $output | Out-Null
+    $pythonLibraries = Join-Path $output 'python'
+    & $Python -m pip install --disable-pip-version-check --no-deps --target $pythonLibraries tzdata==2026.2
+    if ($LASTEXITCODE -ne 0) { throw 'Pinned timezone data installation failed' }
+    $env:PYTHONPATH = $pythonLibraries
+    $env:PYTHONTZPATH = Join-Path $pythonLibraries 'tzdata/zoneinfo'
     $libs = Join-Path $output 'libs'
     New-Item -ItemType Directory -Force $libs | Out-Null
     $jars = @(
@@ -41,4 +48,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Validation failed' }
     & $Python scripts/summarize-mobile-evaluation.py --cases backend/evaluation/holdout_v2.json --results $validated --output (Join-Path $output 'results.json')
     if ($LASTEXITCODE -ne 0) { throw 'Scoring failed' }
-} finally { Pop-Location }
+} finally {
+    $env:PYTHONPATH = $previousPythonPath
+    $env:PYTHONTZPATH = $previousTzPath
+    Pop-Location
+}
