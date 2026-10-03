@@ -1,0 +1,80 @@
+{
+  "frozenAtUtc": "2026-10-03T07:12:33.451147+00:00",
+  "productionCommit": "eb798d5",
+  "dataset": "backend/evaluation/mobile_holdout_v3.json",
+  "datasetSha256": "c27f592df878752295f9a60dd671088d1a72d1850e3ce4678752d1444e8583e3",
+  "datasetRole": "New internally authored holdout; no production changes, expectation edits or tuning after freeze.",
+  "provenance": "Authored by the development assistant before inference, not collected from users or independently reviewed by an external evaluator. Chinese/English scenario families overlap, so the 240 inputs are not 240 statistically independent scenarios.",
+  "cases": 240,
+  "languages": {
+    "zh": 120,
+    "en": 120
+  },
+  "perWorkflowPerLanguage": 30,
+  "expectedOutcomes": {
+    "draft": 180,
+    "clarification": 60
+  },
+  "shuffleSeed": 20261003,
+  "novelty": {
+    "normalizedExactOverlap": 0,
+    "nearDuplicateThreshold": 0.78,
+    "nearDuplicateCandidates": 0,
+    "method": "SequenceMatcher on lowercased alphanumeric-only text against six previous input files; lexical screening does not establish semantic independence."
+  },
+  "runtime": "Windows JVM LiteRT-LM 0.10.2, CPU, JDK 21.0.7, Python 3.11.7, tzdata 2026.2",
+  "machine": {
+    "cpu": {
+      "Name": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "NumberOfCores": 6,
+      "NumberOfLogicalProcessors": 12
+    },
+    "ramBytes": 34129334272,
+    "os": {
+      "Caption": "Microsoft Windows 11 专业版",
+      "Version": "10.0.26200",
+      "BuildNumber": "26200"
+    },
+    "gpu": {
+      "Name": "NVIDIA GeForce RTX 3060 Ti",
+      "DriverVersion": "32.0.16.1692"
+    }
+  },
+  "model": "litert-community/Qwen2.5-1.5B-Instruct int8 ekv4096",
+  "modelRevision": "19edb84c69a0212f29a6ef17ba0d6f278b6a1614",
+  "modelSha256": "faa60663b333290c1496c499828b21d3e3254a788cacd8cce917ce0f761a2dc9",
+  "sampling": {
+    "topK": 1,
+    "topP": 1.0,
+    "temperature": 0.0,
+    "seed": 42,
+    "contextTokens": 4096
+  },
+  "runsPerCase": 1,
+  "retries": 0,
+  "concurrency": 1,
+  "execution": "Existing app preflight, then one native model call where needed, then exact frozen mobile validation. Host reuses one engine with a fresh conversation per input. No second generation or refinement replay.",
+  "scoring": {
+    "routing": "Exact final response status and module; errors count as incorrect.",
+    "requiredFields": "Micro average of annotated title/date fields plus finance amount/kind/category/account; null is correct only when annotated in advance. Optional memo deadline/priority and schedule time contribute to all-fields, not required-fields.",
+    "allSpecifiedFields": "All annotated checks for one input must pass, including status/module. Titles use predeclared keyword alternatives, not full semantic equivalence.",
+    "supportedDraft": "All checks pass on the 180 inputs expected to yield reviewable drafts. This does not measure UI entry or database writes.",
+    "rawModelRouting": "Map raw single_task plus module to a draft, unclear/multiple_tasks to clarification, without production corrections. Denominator is only model-invoked cases, including failures; preflight-only outcomes are excluded.",
+    "limits": "Money must use positive digit notation with at most two decimal places. Commas, written-number words, zero, negative and overprecision amounts stay unset for review. Memo past dates stay unset; calendar past dates remain. Missing/ambiguous fields stay unset. Quoted words are not temporal instructions. Unsupported mutations, queries, external actions and Health logging/control must clarify."
+  },
+  "reporting": "No latency statistics. Preserve first-pass failures and raw responses. Existing Android reliability checks are separate prior evidence and are not rerun/added to these scores.",
+  "sourceSha256": {
+    "backend/action_service.py": "e99edc705110cc78c33c6ba01ba6717ab01c87f5416b63334243d039da2f1a2c",
+    "backend/action_rules.py": "5c94fde2f56ad923720b9e9de9b4ffaa4d3bb5b1cdc883a4ca1625240582f36b",
+    "backend/task_service.py": "2b600df2409090c436ce74a898a1c6609556c22dbc6fe003382eb0feccc8de6c",
+    "backend/evaluate_actions.py": "7995c702c311165f06e4e01ea50b6f8964fb47a027829b73cdb347fc1b4015b5",
+    "backend/evaluate_holdout.py": "897247ec22c8ce0523a36a2a9f47357e7f288832ae3ad4812c1ac7c0ece0d59e",
+    "app/src/main/python/mobile_bridge.py": "99657bc4a2042a137bc478f64981d70b1201e01c7e2ee8c5a4327b37b2894e45",
+    "app/src/main/python/mobile_rules.py": "fe559e49d0df4ee6bafd289d2d1f97525ad1b92e8ad2801506ce9e85e83482c1",
+    "app/src/main/java/com/lifeHub/ai/data/MobileAiApi.kt": "f55f4ccdca324a850364e6b17fd63066cf7824b0405e4dc1043eab75561d1f1f",
+    "app/src/main/java/com/lifeHub/ai/data/MobileModelStore.kt": "780d6d7a071d506e28d897f62b19eedb3e471609201f638ef0a5dda0cd1466f4",
+    "scripts/mobile-evaluation/NativeRunner.java": "e65b824d436c108d59766d0439bece3c3f3c80788c114afd11635dc310f57772",
+    "scripts/mobile-evaluation/prepare_and_validate.py": "46f2bdd33b4cdfe0c2856a7606878767dfd0fa6d643cba98b5c865635025e0d9",
+    "scripts/mobile-evaluation/score_holdout.py": "00ee1c8315abbd447a8a1c99b342071557420a844de8a59754106a363c01a50f"
+  }
+}

@@ -1,6 +1,7 @@
 # Frozen evaluation hashes describe Windows working-tree bytes.
 # Keep checkout line endings stable so the audit also works on Linux/macOS.
 backend/evaluation/*.json text eol=crlf
+backend/evaluation/mobile_holdout_v3.json text eol=lf
 backend/action_service.py text eol=crlf
 backend/action_rules.py text eol=lf
 backend/task_service.py text eol=crlf
@@ -10,7 +11,10 @@ backend/evaluate_holdout.py text eol=crlf
 backend/evaluate_actions.py text eol=crlf
 app/src/androidTest/java/com/lifeHub/ai/HoldoutWorkflowTest.kt text eol=crlf
 app/src/main/python/*.py text eol=lf
+app/src/main/java/com/lifeHub/ai/data/MobileAiApi.kt text eol=lf
+app/src/main/java/com/lifeHub/ai/data/MobileModelStore.kt text eol=lf
 scripts/mobile-evaluation/*.py text eol=lf
 scripts/mobile-evaluation/*.java text eol=lf
 scripts/summarize-mobile-evaluation.py text eol=lf
 docs/evaluation-mobile/*.json text eol=lf
+docs/evaluation-mobile-holdout/*.json text eol=lf
