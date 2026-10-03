@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("org.jetbrains.kotlin.kapt")
     alias(libs.plugins.navigation.safe.args)
+    id("com.chaquo.python")
 }
 
 android {
@@ -20,14 +21,31 @@ android {
         applicationId = if (isolatedTests) "com.lifeHub.qa" else "com.lifeHub"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1.0"
+        ndk { abiFilters += if (providers.gradleProperty("mobileArmOnly").orNull == "true") listOf("arm64-v8a") else listOf("arm64-v8a", "x86_64") }
+        javaCompileOptions {
+            annotationProcessorOptions { arguments["room.schemaLocation"] = "$projectDir/schemas" }
+        }
 
         testInstrumentationRunner = "com.lifeHub.LifeHubTestRunner"
     }
 
+    signingConfigs {
+        val store = providers.environmentVariable("LIFEHUB_KEYSTORE").orNull
+        if (store != null) {
+            create("distribution") {
+                storeFile = file(store)
+                storePassword = providers.environmentVariable("LIFEHUB_STORE_PASSWORD").get()
+                keyAlias = providers.environmentVariable("LIFEHUB_KEY_ALIAS").get()
+                keyPassword = providers.environmentVariable("LIFEHUB_KEY_PASSWORD").get()
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.findByName("distribution")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -49,6 +67,11 @@ android {
         viewBinding = true
     }
 }
+// Compress and extract native libraries to keep APK downloads smaller.
+// Use the dynamic DSL across the Android/embedded-Python plugin API boundary.
+extensions.getByName("android").withGroovyBuilder {
+    "packagingOptions" { "jniLibs" { setProperty("useLegacyPackaging", true) } }
+}
 
 configurations.all {
     resolutionStrategy {
@@ -57,6 +80,7 @@ configurations.all {
 }
 
 dependencies {
+    implementation("com.google.ai.edge.litertlm:litertlm-android:0.10.2")
 
     implementation(libs.appcompat)
     implementation(libs.lifecycle.runtime.ktx)
@@ -81,15 +105,15 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
+    implementation("androidx.room:room-runtime:2.7.2")
+    implementation("androidx.room:room-ktx:2.7.2")
 
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("com.google.android.material:material:1.12.0")
 
 
-    kapt("androidx.room:room-compiler:2.6.1")
+    kapt("androidx.room:room-compiler:2.7.2")
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
@@ -99,8 +123,20 @@ dependencies {
 
 }
 
-kapt {
-    arguments {
-        arg("room.schemaLocation", "$projectDir/schemas")
+// Share the existing deterministic validation rules with the offline Android client.
+// Only these three modules are bundled, never the HTTP server or evaluation datasets.
+val syncOfflineRules by tasks.registering(Copy::class) {
+    from(rootProject.file("backend")) { include("action_service.py", "action_rules.py", "task_service.py") }
+    into(layout.buildDirectory.dir("generated/offlinePython"))
+}
+chaquopy {
+    defaultConfig {
+        version = "3.11"
+        providers.environmentVariable("LIFEHUB_BUILD_PYTHON").orNull?.let { buildPython(it) }
+        pip { install("tzdata==2026.2") }
     }
+    sourceSets.getByName("main") { srcDir(layout.buildDirectory.dir("generated/offlinePython")) }
+}
+tasks.configureEach {
+    if (name.contains("Python") && name != "syncOfflineRules") dependsOn(syncOfflineRules)
 }

@@ -1,0 +1,11 @@
+<resources>
+    <string name="mobile_device_unsupported">此模拟器无法运行离线推理库，请使用兼容的 64 位安卓手机。你仍可手动填写。</string>
+    <string name="mobile_model_missing">首次设置离线 AI 后，即可在本机生成草稿。你也可以随时手动填写。</string>
+    <string name="mobile_model_download">下载离线模型</string>
+    <string name="mobile_model_import">导入已下载的模型</string>
+    <string name="mobile_model_details">将从 Hugging Face 下载 Qwen2.5 1.5B（1.6 GB）。建议使用 Wi-Fi，并保留至少 2 GB 存储空间；推荐近期的 64 位手机和 8–12 GB 运行内存。完成后无需联网，无 API 调用费用。可以取消，重试会重新下载。</string>
+    <string name="mobile_model_progress">正在准备离线 AI · %1$d%%</string>
+    <string name="mobile_model_ready">本机 AI · Qwen2.5 1.5B · 可离线使用</string>
+    <string name="mobile_model_install_error">模型设置未完成。请检查网络、剩余空间和模型文件后重试，也可以先手动填写。</string>
+    <string name="mobile_inference_error">离线 AI 未能生成有效草稿。请缩短描述、关闭其他应用后重试，或手动填写。</string>
+</resources>

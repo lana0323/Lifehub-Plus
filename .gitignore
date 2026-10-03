@@ -24,6 +24,8 @@ __pycache__/
 *.aab
 *.jks
 *.keystore
+*.litertlm
+*.gguf
 .env.*
 !.env.example
 *.log

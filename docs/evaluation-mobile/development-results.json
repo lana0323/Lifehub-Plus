@@ -1,0 +1,1258 @@
+{
+  "model": "Qwen2.5-1.5B-Instruct q8 ekv4096",
+  "runtime": "Windows host JVM LiteRT-LM 0.10.2 CPU",
+  "datasetSha256": "a8e6ccfe5044a0d72db903bad267679f08ddbdfde0fc0249724746d36c0ef218",
+  "complete": true,
+  "summary": {
+    "cases": 40,
+    "routingOverall": {
+      "passed": 40,
+      "total": 40,
+      "rate": 1.0
+    },
+    "routingSupported": {
+      "passed": 36,
+      "total": 36,
+      "rate": 1.0
+    },
+    "clarificationOutcome": {
+      "passed": 4,
+      "total": 4,
+      "rate": 1.0
+    },
+    "requiredFieldMicro": {
+      "passed": 0,
+      "total": 0,
+      "rate": null
+    },
+    "allSpecifiedFields": {
+      "passed": 39,
+      "total": 40,
+      "rate": 0.975
+    },
+    "supportedDraftContract": {
+      "passed": 35,
+      "total": 36,
+      "rate": 0.9722222222222222
+    },
+    "requiredFieldsOnCompleteInputs": {
+      "passed": 0,
+      "total": 0,
+      "rate": null
+    },
+    "errors": 0
+  },
+  "results": [
+    {
+      "id": "memo-01",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"memo\",\"title\":\"完成机器学习作业\",\"notes\":\"\",\"date_text\":\"明天\",\"priority\":\"important\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "ebe475c8-d67d-4f95-be5e-3f67771c3fc2",
+          "title": "完成机器学习作业",
+          "notes": "",
+          "dueDate": "2026-10-01",
+          "timezone": "Asia/Shanghai",
+          "priority": "important",
+          "dateText": "明天",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-02",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"memo\",\"title\":\"Finish homework\",\"notes\":\"\",\"date_text\":\"tomorrow\",\"priority\":\"important\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "c026cf4c-4654-46ef-87b8-61b2b90240c5",
+          "title": "Finish homework",
+          "notes": "",
+          "dueDate": "2026-10-01",
+          "timezone": "Asia/Shanghai",
+          "priority": "important",
+          "dateText": "tomorrow",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-03",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"memo\",\"title\":\"复习笔记\",\"notes\":\"\",\"date_text\":\"今天\",\"priority\":\"null\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "c7e045df-e28d-4484-87cc-9c90579ff79a",
+          "title": "复习笔记",
+          "notes": "",
+          "dueDate": "2026-09-30",
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "今天",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-04",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"memo\",\"title\":\"Review notes\",\"notes\":\"today\",\"date_text\":\"today\",\"priority\":\"normal\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "2159a260-b21d-4946-9acd-7902d1fdc0f5",
+          "title": "Review notes",
+          "notes": "today",
+          "dueDate": "2026-09-30",
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "today",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-05",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"完成报告\",\"notes\":\"下周五\",\"date_text\":\"下周五\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "301e8313-ce97-4498-8617-beff35908ec8",
+          "title": "完成报告",
+          "notes": "下周五",
+          "dueDate": "2026-10-09",
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "下周五",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-06",
+      "raw": "{\n  \"intent\": \"single_task\",\n  \"module\": \"schedule\",\n  \"title\": \"Finish the report\",\n  \"notes\": \"\",\n  \"date_text\": \"next Friday\",\n  \"priority\": \"urgent\"\n}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "83f3e5a2-63d6-4b2c-b18b-e6b7d78b527d",
+          "title": "Finish the report",
+          "notes": "",
+          "dueDate": "2026-10-09",
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "next Friday",
+          "warnings": [
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-07",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"整理书架\",\"notes\":\"\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "f6ed8678-00f0-4a3c-9bb4-704b68a708eb",
+          "title": "整理书架",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": null,
+          "warnings": [
+            "date_missing",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-08",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"Organize bookshelf\",\"notes\":\"\",\"date_text\":\"sometime\",\"time_text\":\"\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "5ae33688-9dfa-4945-9ef1-31309faffa12",
+          "title": "Organize bookshelf",
+          "notes": "",
+          "dueDate": null,
+          "timezone": "Asia/Shanghai",
+          "priority": null,
+          "dateText": "sometime",
+          "warnings": [
+            "date_needs_review",
+            "priority_missing"
+          ]
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-09",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"交作业\",\"notes\":\"非常紧急\",\"date_text\":\"明天\",\"time_text\":\"null\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "b676e3c8-5698-45dc-8dd9-82067aaf72f9",
+          "title": "交作业",
+          "notes": "非常紧急",
+          "dueDate": "2026-10-01",
+          "timezone": "Asia/Shanghai",
+          "priority": "urgent",
+          "dateText": "明天",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "memo-10",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"Read chapter 2\",\"notes\":\"\",\"date_text\":\"tomorrow\",\"time_text\":\"normal\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "draft": {
+          "id": "c76648b0-f9eb-4ebc-b0d8-351a87d060fd",
+          "title": "Read chapter 2",
+          "notes": "",
+          "dueDate": "2026-10-01",
+          "timezone": "Asia/Shanghai",
+          "priority": "normal",
+          "dateText": "tomorrow",
+          "warnings": []
+        },
+        "module": "memo",
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "priority": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-01",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"午餐\",\"notes\":\"\",\"date_text\":\"今天\",\"amount\":\"28\",\"kind\":\"expense\",\"category\":\"Food & Drinks\",\"account\":\"Alipay\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "d12b862e-b36c-49c4-b896-7eef38ae067f",
+          "title": "午餐",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": "28",
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": "Alipay",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-02",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"Coffee\",\"notes\":\"\",\"date_text\":\"today\",\"amount\":\"12.50\",\"kind\":\"expense\",\"category\":\"Shopping\",\"account\":\"Cash\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "8486a1e1-48ff-4792-96e2-c0fbd3c1a879",
+          "title": "Coffee",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": "12.50",
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": "Cash",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-03",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"公交费用\",\"notes\":\"\",\"date_text\":\"昨天\",\"amount\":\"2\",\"kind\":\"expense\",\"category\":\"Transport\",\"account\":\"WeChat\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "9b298d30-ee37-473e-8144-d29c52a547c8",
+          "title": "公交费用",
+          "notes": "",
+          "date": "2026-09-29",
+          "time": null,
+          "amount": "2",
+          "kind": "expense",
+          "category": "Transport",
+          "account": "WeChat",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-04",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"Salary\",\"notes\":\"\",\"date_text\":\"today\",\"amount\":\"5000\",\"kind\":\"income\",\"category\":\"Salary\",\"account\":\"Bank Card\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "fdc2f804-7066-4460-ac78-7254e8d8db5b",
+          "title": "Salary",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": "5000",
+          "kind": "income",
+          "category": "Salary",
+          "account": "Bank Card",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-05",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"奖学金\",\"notes\":\"\",\"date_text\":\"今天\",\"amount\":\"1000\",\"kind\":\"income\",\"category\":\"Scholarship\",\"account\":\"Cash\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "0404ca90-9d18-4a23-8038-b2cb88e8c2c9",
+          "title": "奖学金",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": "1000",
+          "kind": "income",
+          "category": "Scholarship",
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-06",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"Lunch\",\"notes\":\"\",\"date_text\":\"today\",\"amount\":\"20\",\"kind\":\"expense\",\"category\":\"Food & Drinks\",\"account\":\"Cash\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "0d83f012-bdd8-418a-8c6e-3239b50b0eb5",
+          "title": "Lunch",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": "20",
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-07",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"买咖啡\",\"notes\":\"用现金支付\",\"date_text\":\"今天\",\"amount\":\"null\",\"kind\":\"expense\",\"category\":\"Food & Drinks\",\"account\":\"Cash\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "ad5ff674-0b35-4264-98c2-72801097cf64",
+          "title": "买咖啡",
+          "notes": "用现金支付",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": "Cash",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-08",
+      "raw": "{\n  \"intent\": \"single_task\",\n  \"module\": \"finance\",\n  \"title\": \"Shopping\",\n  \"notes\": \"\",\n  \"date_text\": \"today\",\n  \"amount\": \"80\",\n  \"kind\": \"expense\",\n  \"category\": \"Shopping\",\n  \"account\": \"Credit Card\"\n}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "5857fcc7-7c86-4e15-8de6-784b97b2d005",
+          "title": "Shopping",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": "80",
+          "kind": "expense",
+          "category": "Shopping",
+          "account": "Credit Card",
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-09",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"咖啡\",\"notes\":\"\",\"date_text\":\"今天\",\"amount\":\"12.345\",\"kind\":\"expense\",\"category\":\"Food & Drinks\",\"account\":\"Cash\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "6fdca970-e3fb-4bbc-a7ef-41078ae7ccdd",
+          "title": "咖啡",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "finance-10",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"Coffee\",\"notes\":\"\",\"date_text\":\"today\",\"amount\":\"10\",\"kind\":\"expense\",\"category\":\"Shopping\",\"account\":\"Cash\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "94b2e381-05f1-4370-b8c0-c08ccc30ceb5",
+          "title": "Coffee",
+          "notes": "",
+          "date": "2026-09-29",
+          "time": null,
+          "amount": "10",
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": null,
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "amount": true,
+        "kind": true,
+        "category": true,
+        "account": true,
+        "date": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-01",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"会议\",\"notes\":\"\",\"date_text\":\"明天\",\"time_text\":\"下午3点\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "907746cc-53b7-4f6a-a0e3-d1e7b1e710c0",
+          "title": "会议",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": "15:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": false,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": false
+    },
+    {
+      "id": "schedule-02",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"Team meeting\",\"notes\":\"\",\"date_text\":\"tomorrow\",\"time_text\":\"15:00\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "b78949a9-8212-4c5a-a630-e7e0f5f98879",
+          "title": "Team meeting",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": "15:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-03",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"会议\",\"notes\":\"\",\"date_text\":\"今天\",\"time_text\":\"上午9点\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "9a5a922f-c4ed-4169-9673-eb813e0047a4",
+          "title": "会议",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": "09:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-04",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"Dentist Appointment\",\"notes\":\"\",\"date_text\":\"tomorrow\",\"time_text\":\"9am\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "eb7fea1f-0de7-4bdd-956e-bcd7c2f7fd8d",
+          "title": "Dentist Appointment",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": "09:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-05",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"会议\",\"notes\":\"\",\"date_text\":\"下周五\",\"time_text\":\"下午2点\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "f5c3fb66-ee54-4e3a-b99e-c5bb598427c8",
+          "title": "会议",
+          "notes": "",
+          "date": "2026-10-09",
+          "time": "14:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-06",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"Meeting\",\"notes\":\"\",\"date_text\":\"next Friday\",\"time_text\":\"2pm\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "4474eb10-c383-490b-af26-8be23be7711c",
+          "title": "Meeting",
+          "notes": "",
+          "date": "2026-10-09",
+          "time": "14:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-07",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"组会\",\"notes\":\"\",\"date_text\":\"明天\",\"time_text\":\"组会时间\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "528beffa-a9dd-479d-bab6-f2bd71ec6028",
+          "title": "组会",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-08",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"Team Meeting\",\"notes\":\"\",\"date_text\":\"absent\",\"time_text\":\"absent\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "dca6ae83-0ca8-444e-8774-cf8895927da4",
+          "title": "Team Meeting",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-09",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"会议\",\"notes\":\"\",\"date_text\":\"明天\",\"time_text\":\"下午3点半\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "d5e8c2b3-34ce-412a-800e-3fb2bc94f638",
+          "title": "会议",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": "15:30",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "schedule-10",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"schedule\",\"title\":\"Meeting\",\"notes\":\"\",\"date_text\":\"tomorrow\",\"time_text\":\"12:30\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "03a8a3be-8c85-4547-8fd1-e5c406c69f57",
+          "title": "Meeting",
+          "notes": "",
+          "date": "2026-10-01",
+          "time": "00:30",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "title": true,
+        "date": true,
+        "time": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-01",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"health\",\"title\":\"查看手机使用时长\",\"notes\":\"\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "4fff57f6-ae16-44ea-96da-0784fd288bc7",
+          "title": "查看手机使用时长",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "amount": true,
+        "time": true,
+        "account": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-02",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"health\",\"title\":\"查看手机使用时长\",\"notes\":\"\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "af5b9fc4-8a18-402c-badc-d6103f2485b3",
+          "title": "查看手机使用时长",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "amount": true,
+        "time": true,
+        "account": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-03",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"health\",\"title\":\"查看手机使用时长\",\"notes\":\"\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "c333d016-cfc3-4bb1-af1e-92311fd64a78",
+          "title": "查看手机使用时长",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "amount": true,
+        "time": true,
+        "account": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-04",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"health\",\"title\":\"查看app使用\",\"notes\":\"\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "6db3c713-a188-4d65-a85b-6fde32fe4f11",
+          "title": "查看app使用",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "amount": true,
+        "time": true,
+        "account": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-05",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"health\",\"title\":\"查看手机使用情况\",\"notes\":\"\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "18d77c0c-8de3-4462-8ee0-cb76d9cc81a8",
+          "title": "查看手机使用情况",
+          "notes": "",
+          "date": "2026-09-30",
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "amount": true,
+        "time": true,
+        "account": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "health-06",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"health\",\"title\":\"查看手机使用时长\",\"notes\":\"\"}",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "health",
+        "draft": null,
+        "fields": {
+          "id": "47f91eda-683a-4bc1-abe5-3c84e7cd030f",
+          "title": "查看手机使用时长",
+          "notes": "",
+          "date": null,
+          "time": null,
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "amount": true,
+        "time": true,
+        "account": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "clarify-01",
+      "actual": {
+        "status": "clarification",
+        "reason": "unclear",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "reason": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "clarify-02",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"finance\",\"title\":\"Coffee\",\"notes\":\"\",\"date_text\":\"today\",\"amount\":\"12\",\"kind\":\"expense\",\"category\":\"Shopping\",\"account\":\"Cash\"}",
+      "actual": {
+        "status": "clarification",
+        "reason": "unsupported_currency",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "reason": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "clarify-03",
+      "raw": "{\"intent\":\"single_task\",\"module\":\"health\",\"title\":\"查看昨天的屏幕时间\",\"notes\":\"\"}",
+      "actual": {
+        "status": "clarification",
+        "reason": "health_today_only",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "reason": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    },
+    {
+      "id": "clarify-04",
+      "actual": {
+        "status": "clarification",
+        "reason": "multiple_tasks",
+        "module": null,
+        "draft": null,
+        "fields": null
+      },
+      "checks": {
+        "status": true,
+        "module": true,
+        "reason": true
+      },
+      "routeCorrect": true,
+      "allChecksCorrect": true
+    }
+  ],
+  "scope": "Draft contract regression; database persistence and device performance require separate checks."
+}

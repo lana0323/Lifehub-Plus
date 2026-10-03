@@ -5,7 +5,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Android-Java%20%2B%20Kotlin-19675D?style=flat-square" alt="Android Java and Kotlin" />
   <img src="https://img.shields.io/badge/Storage-Room%20%2F%20SQLite-19675D?style=flat-square" alt="Room and SQLite" />
-  <img src="https://img.shields.io/badge/Local%20AI-Ollama%20%2B%20Qwen3-19675D?style=flat-square" alt="Ollama and Qwen3" />
+  <img src="https://img.shields.io/badge/Offline%20AI-Qwen2.5%20%2B%20LiteRT--LM-19675D?style=flat-square" alt="On-device Qwen2.5 and LiteRT-LM" />
   <img src="https://img.shields.io/badge/Language-English%20%2F%20Chinese-19675D?style=flat-square" alt="English and Simplified Chinese" />
 </p>
 
@@ -18,7 +18,7 @@
 
 My contributions to the original project included product planning, application structure, login, UI and module integration. In this iteration, I focused on making AI-generated actions reviewable, saved records verifiable and failures recoverable. The comparison below distinguishes the original foundation from the improvements introduced in Plus.
 
-> This project demonstrates **Android engineering and AI application integration**. It uses an existing Qwen3 model for local inference; it does not involve training or fine-tuning a model and does not require a paid cloud model service.
+> This project demonstrates **Android engineering and AI application integration**. It uses Qwen2.5-1.5B-Instruct for on-device inference with no model API fees. It does not involve training or fine-tuning a model.
 
 ## App Preview
 
@@ -86,7 +86,7 @@ A connected workspace for notes, money, plans and digital wellbeing — with AI 
 |---|---|
 | Android | Java / Kotlin, XML / Material Components, Navigation, ViewModel, coroutines and StateFlow |
 | Persistence | Room for Memo / Finance, SQLite for Schedule, and account-specific preferences |
-| Local AI | Python HTTP backend, structured parsing and validation, Ollama and Qwen3 4B |
+| Offline AI | Qwen2.5 1.5B int8, LiteRT-LM CPU inference, embedded Python validation via Chaquopy; the desktop Ollama backend is retained for development |
 | Verification | Python unittest, JUnit, Android instrumentation, Espresso and fixed field evaluations |
 
 **Reliable storage.** Finance stores amounts as integer minor units using `long amountMinor`. Migrations retain original values for comparison and verify record counts, amounts and primary keys; failures roll back. Memo, Finance and Schedule use transactions and unique draft IDs to handle repeated submissions.
@@ -97,30 +97,19 @@ A connected workspace for notes, money, plans and digital wellbeing — with AI 
 
 ## Run Locally
 
-You will need Android Studio, Android SDK 34, JDK 21, Python 3.11+ and Ollama. Model weights are not included in the repository and must be downloaded before first use.
+**Android users:** install the signed ARM64 APK, create a local account and use Memo, Finance, Schedule and Health. Android Studio and a computer are not required to use the installed application.
 
-**1. Start local Ollama.** Exit any existing Ollama background instance, then run the following in PowerShell from the project root:
+**Offline AI:** open AI and download the 1.6 GB model once, or import the pinned model file. The application verifies its SHA-256. Subsequent inference and draft validation run locally, without an API key, paid service or desktop server. Manual entry remains available before model setup. A recent ARM64 phone with 8–12 GB RAM is the target configuration.
 
-```powershell
-$env:OLLAMA_NO_CLOUD = '1'
-$env:OLLAMA_HOST = '127.0.0.1:11434'
-$env:OLLAMA_MODELS = "$PWD\.local\models"
-ollama serve
-```
+See [Android installation and model setup](docs/ANDROID_INSTALL.md) for the exact model, storage requirements and signing instructions.
 
-**2. Open another terminal, download the model and start the backend.**
+**Developers:** use JDK 21, Android SDK 34 and Python 3.11 to build from source. Android Studio is convenient but optional. Build tools download dependencies on the first run; model weights are downloaded separately inside the app.
 
 ```powershell
-ollama pull qwen3:4b
-python -m pip install -r backend/requirements.txt
-.\scripts\start-local.ps1
+.\gradlew.bat :app:assembleDebug
 ```
 
-**3. Open the project in Android Studio and run the debug build.** The emulator connects to `http://10.0.2.2:8080/` by default. Register a local account, open AI, describe one action, review the draft and confirm the save.
-
-Manual module features remain available when the backend or model is offline. The four-module endpoint uses local Ollama and does not automatically fall back to a paid cloud service. Downloading and running the model still requires disk space, memory, electricity and network bandwidth.
-
-USB device setup, environment variables and additional instructions are available in the [Development Guide](docs/DEVELOPMENT_GUIDE.md) (Chinese).
+The [Development Guide](docs/DEVELOPMENT_GUIDE.md) also documents the historical desktop Ollama backend. The mobile AI screen uses on-device inference by default.
 
 ## Project Structure
 
@@ -137,7 +126,8 @@ app/src/main/java/com/lifeHub/
 app/src/main/res/     Layouts, icons and bilingual resources
 app/schemas/          Database version definitions
 backend/              Local Python AI service
-scripts/              Startup tools
+app/src/main/python/  Offline adapter sharing deterministic backend validation
+scripts/              APK build and evaluation tools
 docs/                 Development guides and engineering notes
 ```
 
@@ -146,7 +136,9 @@ The project includes the Android client, backend service and local persistence l
 <details>
 <summary><b>Developer Documentation and Quality Assurance</b></summary>
 
-The [240-input bilingual evaluation](docs/evaluation-v2/REPORT.md) reports 120 Chinese and 120 English inputs separately, covering routing, required fields, Android workflow entry, clarification and latency. Download the [Chinese results](docs/evaluation-v2/chinese-120.csv) or [English results](docs/evaluation-v2/english-120.csv).
+The [mobile-model evaluation](docs/evaluation-mobile/REPORT.md) reports Chinese and English accuracy separately for Qwen2.5 1.5B, with case-level outputs and reliability checks. Its execution environment is recorded in the report.
+
+The [earlier 240-input evaluation](docs/evaluation-v2/REPORT.md) belongs to the desktop Qwen3 4B configuration. It is historical evidence, not the score of the mobile model.
 
 The original [120-case frozen evaluation report](docs/evaluation/REPORT.md) and its [case-level results](docs/evaluation/app-evaluation.csv) remain available. The original 40-case set remains a development/regression set.
 

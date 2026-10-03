@@ -32,7 +32,7 @@
   <string name="usage_permission_help">尚未允许查看使用情况。点击更新可打开权限设置。</string>
   <string name="profile_save_failed">无法保存本地账号，请重试。</string>
   <string name="ai_task_heading">AI 助手</string>
-  <string name="ai_task_intro">描述一件要做的事，检查并修改草稿后再创建。只向 AI 服务发送本次输入和时区。</string>
+  <string name="ai_task_intro">描述一件要做的事，检查并修改草稿后再创建。完成模型设置后，AI 在本机处理输入。</string>
   <string name="ai_task_example">记下读书灵感；午餐花了28元；明天下午开会；查看今天手机使用时长。</string>
   <string name="ai_generate">生成</string>
   <string name="ai_generating">正在整理任务草稿…</string>

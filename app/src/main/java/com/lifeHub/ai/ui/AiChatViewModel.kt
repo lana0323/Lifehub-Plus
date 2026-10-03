@@ -29,7 +29,7 @@ data class DraftScreen(
     val pendingAction: ActionResponse? = null, val reviewModule: String? = null
 )
 
-class AiChatViewModel @JvmOverloads constructor(application: Application, private val api: AiApi = AiNetworkModule.provideAiApi()) : AndroidViewModel(application) {
+class AiChatViewModel @JvmOverloads constructor(application: Application, private val api: AiApi = MobileAiApi(application)) : AndroidViewModel(application) {
     private val prefs = AccountScope.preferences(application, "ai_task_draft")
     private val gson = Gson()
     private val session = AccountScope.session(application)
@@ -152,6 +152,9 @@ class AiChatViewModel @JvmOverloads constructor(application: Application, privat
                 if (requestId != generationId || !active()) return@launch
                 if (com.lifeHub.BuildConfig.DEBUG) android.util.Log.w("AiDraft", "Draft request failed: ${error.javaClass.simpleName}, HTTP ${(error as? HttpException)?.code()}", error)
                 val resource = when {
+                    error is MobileModelMissing -> R.string.mobile_model_missing
+                    error is MobileDeviceUnsupported -> R.string.mobile_device_unsupported
+                    error is MobileInferenceFailure -> R.string.mobile_inference_error
                     error is HttpException && error.code() == 503 -> R.string.ai_unavailable
                     error is HttpException && error.code() == 429 -> R.string.ai_service_busy
                     error is java.net.SocketTimeoutException -> R.string.ai_timeout

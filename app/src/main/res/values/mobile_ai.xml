@@ -1,0 +1,11 @@
+<resources>
+    <string name="mobile_device_unsupported">This emulator cannot run the offline inference library. Use a supported 64-bit Android phone. Manual entry remains available.</string>
+    <string name="mobile_model_missing">Set up offline AI once to generate drafts on this device. Manual entry is always available.</string>
+    <string name="mobile_model_download">Download offline model</string>
+    <string name="mobile_model_import">Import downloaded model</string>
+    <string name="mobile_model_details">Download Qwen2.5 1.5B (1.6 GB) from Hugging Face. Use Wi-Fi and keep at least 2 GB of storage free. A recent 64-bit phone with 8–12 GB RAM is recommended. After setup, AI works offline with no API fees. You can cancel setup; retrying starts a new download.</string>
+    <string name="mobile_model_progress">Preparing offline AI · %1$d%%</string>
+    <string name="mobile_model_ready">On-device AI · Qwen2.5 1.5B · Works offline</string>
+    <string name="mobile_model_install_error">Model setup did not finish. Check your connection, free space and model file, then retry. Manual entry is available.</string>
+    <string name="mobile_inference_error">Offline AI could not produce a valid draft. Try a shorter request, retry after closing other apps, or fill in the form manually.</string>
+</resources>

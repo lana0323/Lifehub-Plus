@@ -32,7 +32,7 @@
   <string name="usage_permission_help">Usage access is not enabled. Tap Update to open permission settings.</string>
   <string name="profile_save_failed">Could not save profile. Please retry.</string>
   <string name="ai_task_heading">AI assistant</string>
-  <string name="ai_task_intro">Describe one task. Review and edit its draft before creating it. Only your input and timezone are sent to the AI service.</string>
+  <string name="ai_task_intro">Describe one task. Review and edit its draft before creating it. AI processing stays on this device after model setup.</string>
   <string name="ai_task_example">Save an idea; log lunch spending; plan a meeting; check screen time.</string>
   <string name="ai_generate">Generate</string>
   <string name="ai_generating">Preparing your draft…</string>

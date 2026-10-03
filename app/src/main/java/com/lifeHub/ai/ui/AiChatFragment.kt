@@ -22,6 +22,9 @@ import com.lifeHub.finance.ui.AddExpenseActivity
 import com.lifeHub.schedule.ui.AddEventActivity
 
 class AiChatFragment : Fragment() {
+    private val importModel = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri != null) com.lifeHub.ai.data.MobileModelStore.install(requireContext(), uri)
+    }
     private var binding: FragmentAiChatBinding? = null
     private val model: AiChatViewModel by viewModels({ requireActivity() })
     private val review = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -49,6 +52,34 @@ class AiChatFragment : Fragment() {
         b.etMessage.addTextChangedListener {
             val s = model.state.value
             model.edit(it.toString(), s.title, s.notes, s.date, s.priority)
+        }
+        val store = com.lifeHub.ai.data.MobileModelStore
+        store.refresh(requireContext())
+        b.btnModelDownload.setOnClickListener {
+            if (store.state.value.busy) store.cancel()
+            else com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.mobile_model_download)
+                .setMessage(R.string.mobile_model_details)
+                .setPositiveButton(R.string.mobile_model_download) { _, _ -> store.install(requireContext()) }
+                .setNegativeButton(R.string.cancel, null).show()
+        }
+        b.btnModelImport.setOnClickListener { importModel.launch(arrayOf("*/*")) }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                store.state.collect { installed ->
+                    val compatible = com.lifeHub.ai.data.MobileAiApi.deviceSupported()
+                    b.modelStatus.text = when {
+                        !compatible -> getString(R.string.mobile_device_unsupported)
+                        installed.busy -> getString(R.string.mobile_model_progress, installed.percent)
+                        installed.ready -> getString(R.string.mobile_model_ready)
+                        installed.error -> getString(R.string.mobile_model_install_error)
+                        else -> getString(R.string.mobile_model_missing)
+                    }
+                    b.btnModelDownload.visibility = if (!compatible || installed.ready) View.GONE else View.VISIBLE
+                    b.btnModelDownload.setText(if (installed.busy) R.string.cancel else R.string.mobile_model_download)
+                    b.btnModelImport.visibility = if (!compatible || installed.ready || installed.busy) View.GONE else View.VISIBLE
+                }
+            }
         }
         b.btnGenerate.setOnClickListener { model.generate(listOf("auto","memo","finance","schedule","health")[b.moduleChoice.selectedItemPosition]) }
         b.btnCancelGeneration.setOnClickListener { model.cancelGeneration() }
