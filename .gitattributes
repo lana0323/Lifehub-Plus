@@ -21,3 +21,4 @@ scripts/summarize-mobile-evaluation.py text eol=lf
 docs/evaluation-mobile/*.json text eol=lf
 docs/evaluation-mobile-holdout/*.json text eol=crlf
 docs/evaluation-mobile-regression/*.json text eol=crlf
+docs/evaluation-mobile-holdout-v4/*.json text eol=crlf
