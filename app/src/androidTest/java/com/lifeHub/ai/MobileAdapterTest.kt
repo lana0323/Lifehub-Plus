@@ -14,6 +14,20 @@ import java.io.File
 
 class MobileAdapterTest {
     private val app = ApplicationProvider.getApplicationContext<Context>()
+    @Test fun packagedTitleRecoveryPreservesTheActionSubject() {
+        if (!Python.isStarted()) Python.start(AndroidPlatform(app))
+        val bridge = Python.getInstance().getModule("mobile_bridge")
+        val request = """{"text":"选中日程模块后，填明天上午11点的修鞋取件。","timezone":"UTC","module":"schedule"}"""
+        val raw = """{"intent":"single_task","module":"schedule","title":"取件","date_text":"明天","time_text":"上午11点"}"""
+        val event = JsonParser.parseString(bridge.callAttr("validate", request, raw, "2026-10-03T12:00:00+00:00").toString()).asJsonObject
+        assertEquals("修鞋取件", event.getAsJsonObject("fields")["title"].asString)
+        assertEquals("2026-10-04", event.getAsJsonObject("fields")["date"].asString)
+        val purchase = """{"text":"I bought a sandwich today with cash but lost the receipt and cannot remember the price.","timezone":"UTC","module":"auto"}"""
+        val receipt = """{"intent":"single_task","module":"finance","title":"Lost Receipt","amount":null,"date_text":"today"}"""
+        val entry = JsonParser.parseString(bridge.callAttr("validate", purchase, receipt, "2026-10-03T12:00:00+00:00").toString()).asJsonObject
+        assertTrue(entry.getAsJsonObject("fields")["title"].asString.contains("sandwich"))
+        assertTrue(entry.getAsJsonObject("fields")["amount"].isJsonNull)
+    }
     @Test fun packagedBoundaryRulesKeepClearFieldsAndRejectMutations() {
         if (!Python.isStarted()) Python.start(AndroidPlatform(app))
         val bridge = Python.getInstance().getModule("mobile_bridge")

@@ -6,6 +6,7 @@ records or use evaluation IDs/expected answers.
 import re
 from action_rules import search, USAGE, HEALTH_PAGE, CATEGORY_WORDS, UNCERTAIN, finance_evidence, positive_request, explicit_draft, ACCOUNT_WORDS
 from task_service import priority_is_grounded, priority_needs_review
+from mobile_titles import recover_title
 
 TASK = r"\b(?:task|reminder|finish|complete|submit|review|revise|organize|read|write|buy|remind|todo|to-do|wash|clean|sort|archive|upload)\b|\b(?:remember to|I should|I need to)\b|任务|完成|复习|整理|交作业|提交|读书|写报告|提醒|备忘|待办|别忘|擦窗|洗衣|打扫|寄出"
 EVENT = r"\b(?:class|meeting|appointment|lecture|conference|interview|calendar|event|tutorial|lesson|seminar|workshop)\b|开会|会议|组会|评审会|交流会|体验课|培训|上课|课程|讲座|面试|预约|日程|日历|辅导|研讨会"
@@ -123,4 +124,6 @@ def ground_fields(text, raw, hint):
         # This workflow opens a fixed system-usage screen; its label should not
         # inherit a translated or invented model description.
         result["title"] = "查看手机使用情况" if re.search(r"[\u4e00-\u9fff]", text) else "View phone usage"
+    result["title"] = recover_title(text, result.get("title"), result["module"],
+                                    result.get("date_text"), result.get("time_text"))
     return result
