@@ -7,6 +7,10 @@ import com.google.ai.edge.litertlm.*
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
@@ -52,9 +56,17 @@ class MobileAiApi(context: Context) : AiApi {
                             automaticToolCalling = false
                         )).use { conversation ->
                             try {
-                                conversation.sendMessageAsync(prepared["text"].asString).collect { message ->
+                                callbackFlow<String> {
+                                    UnicodeSafeMessages.sendAsync(conversation, prepared["text"].asString,
+                                        object : UnicodeSafeMessages.Callback {
+                                            override fun onText(text: String) { trySend(text).getOrThrow() }
+                                            override fun onDone() { close() }
+                                            override fun onError(error: Throwable) { close(error) }
+                                        })
+                                    awaitClose { if (conversation.isAlive) conversation.cancelProcess() }
+                                }.buffer(Channel.UNLIMITED).collect { message ->
                                     ensureActive()
-                                    output.append(message.toString())
+                                    output.append(message)
                                     check(output.length <= 16000)
                                 }
                             } finally { conversation.cancelProcess() }

@@ -1,4 +1,5 @@
 import com.google.ai.edge.litertlm.*;
+import com.lifeHub.ai.data.UnicodeSafeMessages;
 import com.google.gson.*;
 import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
@@ -44,7 +45,21 @@ public class NativeRunner {
                             ScheduledExecutorService timer = Executors.newSingleThreadScheduledExecutor();
                             try {
                                 timer.schedule(() -> { expired.set(true); conversation.cancelProcess(); }, 180, TimeUnit.SECONDS);
-                                String raw = conversation.sendMessage(prepared.get("text").getAsString(), Collections.emptyMap()).toString();
+                                CompletableFuture<String> completion = new CompletableFuture<>();
+                                StringBuffer chunks = new StringBuffer();
+                                UnicodeSafeMessages.sendAsync(conversation, prepared.get("text").getAsString(),
+                                    new UnicodeSafeMessages.Callback() {
+                                        public void onText(String text) {
+                                            chunks.append(text);
+                                            if (chunks.length() > 16000) {
+                                                completion.completeExceptionally(new IllegalStateException("Model output exceeds application limit"));
+                                                conversation.cancelProcess();
+                                            }
+                                        }
+                                        public void onDone() { completion.complete(chunks.toString()); }
+                                        public void onError(Throwable error) { completion.completeExceptionally(error); }
+                                    });
+                                String raw = completion.get(180, TimeUnit.SECONDS);
                                 if (expired.get()) throw new TimeoutException("Inference exceeded the application timeout");
                                 if (raw.length() > 16000) throw new IllegalStateException("Model output exceeds application limit");
                                 row.addProperty("raw", raw);

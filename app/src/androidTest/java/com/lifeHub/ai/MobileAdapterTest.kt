@@ -14,6 +14,33 @@ import java.io.File
 
 class MobileAdapterTest {
     private val app = ApplicationProvider.getApplicationContext<Context>()
+    @Test fun packagedBoundaryRulesKeepClearFieldsAndRejectMutations() {
+        if (!Python.isStarted()) Python.start(AndroidPlatform(app))
+        val bridge = Python.getInstance().getModule("mobile_bridge")
+        val unsupported = """{"text":"Delete every completed task","timezone":"UTC","module":"auto"}"""
+        val prepared = JsonParser.parseString(bridge.callAttr("prepare", unsupported).toString()).asJsonObject
+        assertEquals("unsupported_action", prepared.getAsJsonObject("response")["reason"].asString)
+        val request = """{"text":"Coffee today cost either 21 or 23 yuan, paid with cash. I need to check the amount","timezone":"UTC","module":"auto"}"""
+        val raw = """{"intent":"single_task","module":"finance","title":"Coffee","amount":"21","account":"Cash","category":"Shopping"}"""
+        val result = JsonParser.parseString(bridge.callAttr("validate", request, raw, "2026-10-03T12:00:00+00:00").toString()).asJsonObject
+        assertEquals("finance", result["module"].asString)
+        val fields = result.getAsJsonObject("fields")
+        assertTrue(fields["amount"].isJsonNull)
+        assertEquals("Cash", fields["account"].asString)
+        assertEquals("Food & Drinks", fields["category"].asString)
+        assertEquals("2026-10-03", fields["date"].asString)
+    }
+    @Test fun packagedHealthAndUnicodeTransportPreserveInput() {
+        if (!Python.isStarted()) Python.start(AndroidPlatform(app))
+        val bridge = Python.getInstance().getModule("mobile_bridge")
+        val input = "📱看使用统计，不是让你提醒我，备注𠮷"
+        val transport = JsonParser.parseString(UnicodeSafeMessages.messageJson(input)).asJsonObject
+        assertEquals(input, transport.getAsJsonArray("content")[0].asJsonObject["text"].asString)
+        val request = com.google.gson.Gson().toJson(ActionRequest(input, "UTC", "auto"))
+        val raw = """{"intent":"single_task","module":"health","title":"Usage"}"""
+        val result = JsonParser.parseString(bridge.callAttr("validate", request, raw).toString()).asJsonObject
+        assertEquals("health", result["module"].asString)
+    }
     @Test fun packagedRefinementsKeepHealthAndCalendarSeparate() {
         if (!Python.isStarted()) Python.start(AndroidPlatform(app))
         val bridge = Python.getInstance().getModule("mobile_bridge")

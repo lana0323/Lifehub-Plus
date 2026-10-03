@@ -79,8 +79,8 @@ def resolve_date(expression, today):
     s = expression.strip().lower()
     s = re.sub(r"^(by|before|on)\s+", "", s)
     s = re.sub(r"(之前|以前|前|截止)$", "", s).strip()
-    relative = {"今天": 0, "今日": 0, "today": 0, "明天": 1, "tomorrow": 1,
-                "后天": 2, "the day after tomorrow": 2, "昨天": -1, "yesterday": -1}
+    relative = {"今天": 0, "今日": 0, "today": 0, "this morning": 0, "this afternoon": 0, "this evening": 0, "明天": 1, "tomorrow": 1,
+                "后天": 2, "the day after tomorrow": 2, "昨天": -1, "昨日": -1, "yesterday": -1}
     if s in relative:
         return today + timedelta(days=relative[s])
     match = re.fullmatch(r"(?:in (\d{1,3}) days?|([0-9]{1,3})天后)", s)
@@ -113,6 +113,9 @@ def is_smalltalk(text):
 
 
 def priority_needs_review(text):
+    if re.search(r"(?:cannot decide|undecided|unsure|between).*(?:priority|urgent|important)|(?:优先级|重要|紧急).*(?:不确定|待定)|(?:高|重要).*(?:还是|或).*(?:低|普通)", text, re.IGNORECASE):
+        return True
+    text = re.sub(r"(?<=\w)[-–](?=priority\b)", " ", text, flags=re.IGNORECASE)
     negation = r"不着急|不紧急|不用着急|不急|\bnot urgent\b|\bno rush\b|\bnot high priority\b"
     if not re.search(negation, text, re.IGNORECASE):
         return False
@@ -122,6 +125,7 @@ def priority_needs_review(text):
 
 
 def priority_is_grounded(text, priority):
+    text = re.sub(r"(?<=\w)[-–](?=priority\b)", " ", text, flags=re.IGNORECASE)
     # Conservative supported vocabulary: unknown expressions require a user choice.
     patterns = {
         "normal": r"(?:普通|低)(?:优先级)?|优先级\s*[:：为]?\s*低|\b(?:low|normal) priority\b|\bpriority\s*[:=]\s*(?:low|normal)\b",

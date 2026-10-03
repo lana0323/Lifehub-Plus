@@ -4,7 +4,7 @@ import uuid
 from decimal import Decimal
 from task_service import (SCHEMA, SYSTEM, ServiceError, request_context, resolve_date,
                           validate_extraction, call_local_model, is_smalltalk)
-from action_rules import multiple_actions, date_evidence, finance_evidence, search, USAGE
+from action_rules import multiple_actions, date_evidence, finance_evidence, search, USAGE, HEALTH_PAGE, unsupported_operation
 
 CATEGORIES = ["Food & Drinks", "Transport", "Shopping", "Entertainment", "Bills", "Salary", "Scholarship", "Part-time Job", "Gift", "Others"]
 ACCOUNTS = ["Cash", "Bank Card", "Credit Card", "Alipay", "WeChat", "Others"]
@@ -59,6 +59,7 @@ def create_action(body, provider=None, now=None):
     unclear = {"status":"clarification","reason":"unclear","module":None,"draft":None,"fields":None}
     if is_smalltalk(text): return unclear
     if multiple_actions(text): return dict(unclear, reason="multiple_tasks")
+    if unsupported_operation(text): return dict(unclear, reason="unsupported_action")
     raw, _ = (provider(text) if provider else call_local_model(
         text, ACTION_SCHEMA, ACTION_SYSTEM + "\nRequested module hint: " + hint))
     if not isinstance(raw,dict) or set(raw) != set(PROPERTIES): raise ServiceError("invalid_model_output",502)
@@ -79,7 +80,7 @@ def create_action(body, provider=None, now=None):
         return dict(unclear, reason="unsupported_currency")
     if module == "health" and not search(USAGE, text):
         # Opening Health is allowed; health logging/advice is not implemented.
-        if not re.fullmatch(r"(?:open|show)(?: the)? health(?: page| module)?[.!]?|打开(?:健康|Health)(?:页面|模块)?[。！]?", text, re.IGNORECASE):
+        if not search(HEALTH_PAGE, text):
             return dict(unclear, reason="health_unsupported")
     if module == "health" and re.search(r"昨天|前天|上周|上个月|昨日|yesterday|last week|last month", text, re.IGNORECASE):
         return dict(unclear, reason="health_today_only")

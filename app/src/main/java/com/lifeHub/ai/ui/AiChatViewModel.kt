@@ -123,6 +123,7 @@ class AiChatViewModel @JvmOverloads constructor(application: Application, privat
                         "unsupported_currency" -> R.string.ai_currency_unsupported
                         "health_today_only" -> R.string.ai_health_today_only
                         "health_unsupported" -> R.string.ai_health_unsupported
+                        "unsupported_action" -> R.string.ai_action_unsupported
                         else -> R.string.ai_clarify
                     })))
                     return@launch

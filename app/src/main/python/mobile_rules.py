@@ -4,15 +4,15 @@ These rules repair representation and clear unsupported values. They do not writ
 records or use evaluation IDs/expected answers.
 """
 import re
-from action_rules import search, USAGE, CATEGORY_WORDS, UNCERTAIN, finance_evidence
+from action_rules import search, USAGE, HEALTH_PAGE, CATEGORY_WORDS, UNCERTAIN, finance_evidence, positive_request, explicit_draft, ACCOUNT_WORDS
 from task_service import priority_is_grounded, priority_needs_review
 
-TASK = r"\b(?:task|reminder|finish|complete|submit|review|revise|organize|read|write|buy|remind|todo|to-do)\b|\bremember to\b|任务|完成|复习|整理|交作业|提交|读书|写报告|提醒|备忘|待办"
-EVENT = r"\b(?:class|meeting|appointment|lecture|conference|interview|calendar|event|tutorial|lesson|seminar|workshop)\b|开会|会议|组会|评审会|上课|课程|讲座|面试|预约|日程|日历|辅导|研讨会"
+TASK = r"\b(?:task|reminder|finish|complete|submit|review|revise|organize|read|write|buy|remind|todo|to-do|wash|clean|sort|archive|upload)\b|\b(?:remember to|I should|I need to)\b|任务|完成|复习|整理|交作业|提交|读书|写报告|提醒|备忘|待办|别忘|擦窗|洗衣|打扫|寄出"
+EVENT = r"\b(?:class|meeting|appointment|lecture|conference|interview|calendar|event|tutorial|lesson|seminar|workshop)\b|开会|会议|组会|评审会|交流会|体验课|培训|上课|课程|讲座|面试|预约|日程|日历|辅导|研讨会"
 FINANCE = r"\b(?:spent|paid|cost|received|earned)\b|\b(?:record|log|add)\b.*\b(?:expense|income|transaction|purchase)\b|花了|花费|支出|收入|收到|记账|记一笔"
 FUTURE = r"\b(?:will|plan to|going to|remind|budget|need to)\b|计划|打算|准备|提醒|预算"
 UNCERTAIN_MONEY = r"\b(?:not|maybe|perhaps)\b|不是|不确定|可能|没花|没付|未支付"
-TIME = r"(?<!\d)\d{1,2}:\d{2}(?:\s*[ap]m\b)?(?!\d)|(?<!\d)\d{1,2}\s*[ap]m\b|(?:上午|下午|晚上|早上)?\d{1,2}点(?:半|\d{1,2}分?)?"
+TIME = r"(?<!\d)\d{1,2}:\d{2}(?:\s*[ap]m(?![a-z]))?(?!\d)|(?<!\d)\d{1,2}\s*[ap]m(?![a-z])|(?:上午|下午|晚上|早上)?\d{1,2}点(?:半|\d{1,2}分?)?"
 
 
 def ground_fields(text, raw, hint):
@@ -28,20 +28,20 @@ def ground_fields(text, raw, hint):
     if hint in ("memo", "finance", "schedule"):
         result["module"] = hint
     elif hint == "auto":
-        routing_text = re.sub(r"\b(?:without|not)\s+(?:creating|adding|create|add)\s+(?:(?:an?|any)\s+)?(?:task|reminder|memo)\b|不(?:创建|添加|生成)(?:待办|任务|备忘录)", "", text, flags=re.IGNORECASE)
+        routing_text = positive_request(text)
         task = bool(search(TASK, routing_text))
-        explicit_task = search(r"\b(?:task|reminder|todo|to-do|remind)\b|\bremember to\b|任务|提醒|备忘|待办", routing_text)
+        explicit_task = explicit_draft(routing_text) or search(r"\b(?:task|memo|reminder|todo|to-do|remind)\b|\bremember to\b|任务|提醒|备忘|待办|别忘", routing_text)
         if explicit_task:
             result["module"] = "memo"
-        elif search(USAGE, text):
+        elif search(USAGE, routing_text) or search(HEALTH_PAGE, routing_text):
             result["module"] = "health"
-        elif search(EVENT, text) and (raw["module"] == "schedule" or search(r"\b(?:calendar|schedule|event)\b|日历|日程|安排", text)):
+        elif search(EVENT, routing_text) and (raw["module"] == "schedule" or search(r"\b(?:calendar|schedule|event)\b|日历|日程|安排", routing_text)):
             result["module"] = "schedule"
-        elif search(FINANCE, text) and not search(FUTURE, text) and not task:
+        elif search(FINANCE, routing_text):
             result["module"] = "finance"
-        elif task and not search(r"\b(?:schedule|calendar)\b|安排.*(?:会议|上课|日程)", text):
+        elif task and not search(r"\b(?:schedule|calendar)\b|安排.*(?:会议|上课|日程)", routing_text):
             result["module"] = "memo"
-        elif search(EVENT, text):
+        elif search(EVENT, routing_text):
             result["module"] = "schedule"
 
     # A copied phrase may differ in case; unrelated dates/times become unset.
@@ -63,44 +63,62 @@ def ground_fields(text, raw, hint):
         result["priority"] = None
 
     if result["module"] == "finance":
-        result = finance_evidence(text, result)
-        categories = [name for name, pattern in CATEGORY_WORDS.items() if search(pattern, text)]
-        category_context = " ".join(clause for clause in re.split(r"[,，;；。]", text)
-                                    if any(search(pattern, clause) for pattern in CATEGORY_WORDS.values()))
-        if len(categories) == 1 and not search(UNCERTAIN, category_context):
+        finance_text = positive_request(text)
+        result = finance_evidence(finance_text, result)
+        categories = [name for name, pattern in CATEGORY_WORDS.items() if search(pattern, finance_text)]
+        uncertain_category = any(search(r"(?:not|maybe|perhaps|不是|可能)\s*$", finance_text[max(0,m.start()-16):m.start()])
+                                 for p in CATEGORY_WORDS.values() for m in re.finditer(p,finance_text,re.IGNORECASE))
+        if len(categories) == 1 and not uncertain_category:
             result["category"] = categories[0]
         if result.get("category") not in (*CATEGORY_WORDS, "Others", None):
             result["category"] = None
-        direction_text = re.sub(r"(?:account|payment method)\s+(?:is\s+)?not (?:recorded|specified|provided)|(?:I\s+)?(?:did\s+)?not\s+(?:specify|record|provide)\s+(?:an?\s+)?(?:account|payment method)|(?:未|没|没有)(?:记录|提供|指定)(?:付款|支付)?(?:账户|方式)", "", text, flags=re.IGNORECASE)
+        direction_text = re.sub(r"(?:account|payment method)\s+(?:is\s+)?not (?:recorded|specified|provided)|(?:I\s+)?(?:did\s+)?not\s+(?:specify|record|provide)\s+(?:an?\s+)?(?:account|payment method)|(?:未|没|没有)(?:记录|提供|指定)(?:付款|支付)?(?:账户|方式)", "", finance_text, flags=re.IGNORECASE)
+        # Remove qualifiers about amount/account, retaining the transaction verb.
+        direction_text = re.sub(r"(?:maybe|perhaps|possibly|可能|也可能|也许)\s*(?:是)?(?=" + "|".join(ACCOUNT_WORDS.values()) + ")", "", direction_text, flags=re.IGNORECASE)
+        direction_text = re.sub(r"\d+(?:\.\d+)?(?:元)?\s*(?:or|还是|或者)\s*\d+(?:\.\d+)?(?:元)?(?:不确定)?", "", direction_text, flags=re.IGNORECASE)
         if not search(UNCERTAIN_MONEY, direction_text):
-            income = search(r"\b(?:received|earned|income|salary|wages|paycheck)\b|收入|收到|工资|薪水|奖学金", text)
-            expense_text = re.sub(r"\bpaid\s+(?:into|to me)\b", "", text, flags=re.IGNORECASE)
-            expense = search(r"\b(?:spent|paid|cost|expense|bought|purchase|ticket|bill|fare|fee)\b|花了|花费|支出|支付|付款|付的|买了|购买|消费|门票|车票|车费", expense_text)
+            income = search(r"\b(?:received|earned|income|salary|wages|paycheck)\b|收入|收到|工资|薪水|奖学金", direction_text)
+            expense_text = re.sub(r"\bpaid\s+(?:into|to me)\b", "", direction_text, flags=re.IGNORECASE)
+            expense = search(r"\b(?:spent|paid|cost|expense|bought|purchase|ticket|bill|fare|fee)\b|花了|花费|支出|支付|付款|付的|付了|交了|买了|买|购买|消费|门票|车票|车费", expense_text)
             result["kind"] = "income" if income and not expense else "expense" if expense and not income else None
         else:
             result["kind"] = None
         if isinstance(result.get("amount"), (int, float)) and not isinstance(result["amount"], bool):
             result["amount"] = str(result["amount"])
+        # Recover a missing amount only from one complete explicit currency
+        # phrase. Alternatives, signs, grouping and overprecision stay unset.
+        money = list(re.finditer(r"(?<![\d.,+\-−])\d{1,9}(?:\.\d{1,2})?\s*(?:元|yuan\b|rmb\b)", finance_text, re.IGNORECASE))
+        if search(r"\d+(?:\.\d+)?(?:元)?\s*(?:or|还是|或者)\s*\d", finance_text):
+            result["amount"] = None
+        if result.get("amount") is None and len(money) == 1 and not search(r"\d\s*(?:or|还是|或者)", finance_text):
+            result["amount"] = re.match(r"\d+(?:\.\d+)?", money[0].group()).group()
         result["time_text"] = None
         # A generic transaction verb loses the purchase description. Preserve
         # source wording so the user can still review what the record means.
-        if isinstance(result.get("title"), str) and re.fullmatch(r"消费|支出|收入|购买|付款|expense|income|purchase|payment|transaction", result["title"], re.IGNORECASE):
+        if isinstance(result.get("title"), str) and re.fullmatch(r"消费|支出|收入|购买|购物|付款|expense|income|purchase|payment|transaction", result["title"], re.IGNORECASE):
             result["title"] = re.sub(r"^(?:记录|记一笔|记账|record|log|add)\s*", "", text, flags=re.IGNORECASE)[:100]
     else:
         for key in ("amount", "kind", "category", "account"):
             result[key] = None
     if result["module"] in ("memo", "health"):
         result["time_text"] = None
-    if result["module"] == "memo" and isinstance(result.get("title"), str) and search(r"备忘录$|待办$|任务$|\b(?:memo|reminder|task)$", result["title"]):
+    if result["module"] == "memo" and raw["module"] != "memo":
+        source = re.sub(r"^(?:memo|note|task)\s*:\s*|^(?:待办|备忘|任务)[：:]\s*", "", positive_request(text), flags=re.IGNORECASE)
+        source = re.split(r"[;；。]|(?<!\w)\.\s|\.\s+(?=[A-Z])", source, maxsplit=1)[0].strip()
+        if 0 < len(source) <= 100:
+            result["title"] = source
+    if result["module"] == "memo" and isinstance(result.get("title"), str) and search(r"备忘(?:录)?$|待办$|任务$|\b(?:memo|reminder|task)$", result["title"]):
         # Replace a generic module label with an exact action clause from the
         # input. Specific generated titles remain untouched.
         notes = result.get("notes")
-        if isinstance(notes, str) and 0 < len(notes) <= 100 and notes in text:
+        if isinstance(notes, str) and 0 < len(notes) <= 100 and notes in text and not search(r"^(?:普通|重要|紧急)?(?:备忘录?|待办|任务)$", notes):
             result["title"] = notes
         else:
             parts = re.split(r"[,，]", text, maxsplit=1)
             if len(parts) == 2 and search(r"(?:创建|新增|添加).*?(?:备忘录|待办|任务)", parts[0]) and 0 < len(parts[1].strip()) <= 100:
                 result["title"] = parts[1].strip(" 。.")
+            elif 0 < len(parts[0].strip()) <= 100:
+                result["title"] = parts[0].strip(" 。.")
     if result["module"] == "health":
         # This workflow opens a fixed system-usage screen; its label should not
         # inherit a translated or invented model description.

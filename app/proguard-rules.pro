@@ -19,3 +19,5 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# LiteRT-LM 0.10.2 Unicode transport shim reads this pinned private handle.
+-keepclassmembers class com.google.ai.edge.litertlm.Conversation { long handle; }

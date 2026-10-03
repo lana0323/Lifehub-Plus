@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+  <string name="ai_action_unsupported">AI can create a memo, transaction or event draft, or open this device’s usage page. It cannot edit existing records, query balances, control apps or send messages. Your input has been kept so you can revise it.</string>
   <string name="ai_health_unsupported">Health supports phone and app usage only. For exercise, water or sleep, you can create a memo instead. Your input has been kept.</string>
   <string name="ai_currency_unsupported">Finance currently records amounts in CNY. Foreign currency is not supported.</string>
   <string name="ai_health_today_only">Health currently shows today’s phone usage. Ask about today or open Health.</string>

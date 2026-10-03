@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+  <string name="ai_action_unsupported">AI 可以生成备忘、账目或日程草稿，也可以打开本机使用情况。目前不支持修改已有记录、查询余额、控制应用或发送消息。原文已保留，你可以修改后重试。</string>
   <string name="ai_health_unsupported">Health 目前只支持手机和应用使用情况。运动、饮水或睡眠内容可以改为创建备忘录，原文已保留。</string>
   <string name="ai_currency_unsupported">当前账单以人民币记录，暂不支持外币账单。</string>
   <string name="ai_health_today_only">Health 当前展示今天的手机使用情况，请查询今天或直接打开 Health。</string>

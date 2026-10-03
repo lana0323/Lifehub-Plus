@@ -4,7 +4,7 @@ import re
 from datetime import datetime
 from action_service import PROPERTIES, create_action
 from task_service import request_context, is_smalltalk
-from action_rules import multiple_actions, search, USAGE
+from action_rules import multiple_actions, search, USAGE, unsupported_operation, explicit_draft, positive_request
 from mobile_rules import ground_fields
 
 
@@ -45,10 +45,13 @@ def early_response(request):
     text, _, _ = request_context({k: request[k] for k in ("text", "timezone")})
     if is_smalltalk(text) or multiple_actions(text):
         return {"status": "clarification", "reason": "multiple_tasks" if multiple_actions(text) else "unclear", "module": None, "draft": None, "fields": None}
-    explicit_note = search(r"\b(?:task|reminder|memo|note|notes|remind)\b|任务|备忘|提醒", text)
-    unsupported = search(r"\b(?:swim|swimming|run|running|exercise|workout|weight|sleep|water|calories|steps|blood pressure)\b|游泳|跑步|运动|锻炼|体重|睡眠|喝水|热量|步数|血压", text)
+    if unsupported_operation(text):
+        return {"status":"clarification", "reason":"unsupported_action", "module":None, "draft":None, "fields":None}
+    text = positive_request(text)
+    explicit_note = explicit_draft(text) or search(r"\b(?:task|reminder|memo|note|notes|remind)\b|任务|备忘|提醒", text)
+    unsupported = search(r"\b(?:swim|swimming|run|running|cycling|exercise|workout|weight|sleep|water|calories|steps|blood pressure)\b|游泳|跑步|骑车|运动|锻炼|体重|睡眠|喝水|热量|步数|血压", text)
     calendar_context = search(r"\b(?:calendar|event|meeting|class|lecture|appointment|schedule|workshop)\b|日历|日程|讲座|会议|上课|课程|安排", text)
-    if request["module"] in ("auto", "health") and not explicit_note and not calendar_context and not search(USAGE, text) and unsupported and (request["module"] == "health" or search(r"\b(?:record|log)\b|记录", text)):
+    if request["module"] in ("auto", "health") and not explicit_note and not calendar_context and not search(USAGE, text) and unsupported and (request["module"] == "health" or search(r"\b(?:record|log|store|measurement|advice|medication|diagnosis)\b|记录|用药|建议|诊断", text)):
         return {"status":"clarification", "reason":"health_unsupported", "module":None, "draft":None, "fields":None}
     return None
 
@@ -74,13 +77,18 @@ def validate(request_json, output, evaluation_time=None):
         value = value[7:-3].strip()
     elif value.startswith("```") and value.endswith("```"):
         value = value[3:-3].strip()
-    raw = json.loads(value)
+    # Accept one JSON object with an accidental extra closing brace, but never
+    # merge two actions, strip prose or repair missing values/quotes.
+    raw, end = json.JSONDecoder().raw_decode(value)
+    if value[end:].strip() not in ("", "}"):
+        raise ValueError("Expected exactly one action object")
     if isinstance(raw, dict) and raw.get("module") == "schedule" and raw.get("event_type") in ("event", "appointment", "meeting", "class"):
         # Known redundant metadata is not an action. All other unknown keys
         # continue to be rejected by the shared schema validator.
         raw.pop("event_type", None)
-    if isinstance(raw, dict) and raw.get("module") == "schedule":
-        for key in ("to", "with", "location"):
+    if isinstance(raw, dict):
+        keys = ("remark", "file") + (("to", "with", "location") if raw.get("module") == "schedule" else ())
+        for key in keys:
             detail = raw.get(key)
             if isinstance(detail, str) and 0 < len(detail) <= 100 and detail in json.loads(request_json)["text"] and isinstance(raw.get("notes", ""), str):
                 raw.pop(key)

@@ -36,7 +36,7 @@ try {
         $target = Join-Path $libs (Split-Path $jar[1] -Leaf)
         if (-not (Test-Path -LiteralPath $target)) { Invoke-WebRequest -Uri ($jar[0]+'/'+$jar[1]) -OutFile $target }
     }
-    & (Join-Path $JavaHome 'bin/javac.exe') -cp "$libs/*" -d $output scripts/mobile-evaluation/NativeRunner.java
+    & (Join-Path $JavaHome 'bin/javac.exe') -cp "$libs/*" -d $output scripts/mobile-evaluation/NativeRunner.java app/src/main/java/com/lifeHub/ai/data/UnicodeSafeMessages.java
     if ($LASTEXITCODE -ne 0) { throw 'Runner compilation failed' }
     $prepared = Join-Path $output 'prepared.json'
     $raw = Join-Path $output 'raw.json'
