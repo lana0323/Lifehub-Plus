@@ -129,41 +129,57 @@ The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. For a s
 
 ## Model Evaluation
 
-**Latest evaluation: [120-case unseen holdout](docs/evaluation-unseen-v5/REPORT.md).** The earlier [240-case report](docs/evaluation-mobile-v4-regression/REPORT.md) is a separate seen-set regression.
+### Unseen Holdout Results
 
-The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. Version 1.1.3 is evaluated on two separate bilingual datasets:
+**Lifehub Plus 1.1.3 completed and published a separate 120-case bilingual unseen holdout evaluation on October 4, 2026 (UTC).** Its first-pass application-pipeline results are **86.67% routing accuracy (104/120)**, **91.20% required-field accuracy (197/216)** and **70.83% all-annotated-check accuracy (85/120)**. These results are separate from the earlier 240-case development regression suite.
 
-- **240-case regression suite:** 120 Chinese and 120 English inputs used during development, retained for repeatable regression checks.
-- **120-case unseen holdout:** 60 Chinese and 60 English inputs, 15 per workflow per language. Inputs, expected answers, scoring code and source hashes were frozen before a single first-pass run. No prompt or rule changes were made from its results.
+**[Read the unseen evaluation report](docs/evaluation-unseen-v5/REPORT.md)** · [Recorded outputs and scores (JSON)](docs/evaluation-unseen-v5/results.json) · [Dataset and frozen protocol](docs/evaluation-unseen-v5/README.md)
 
-| Metric | Regression (240 cases) | Unseen first pass (120 cases) |
+The evaluated model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. The holdout contains **60 Chinese and 60 English inputs**, with 15 inputs per workflow per language across Memo, Finance, Schedule and Health. Inputs, expected answers, scoring code, model configuration and source hashes were frozen before the single first-pass run. The holdout was not used for application tuning before that run, and no prompt or rule changes were made from its results.
+
+| Unseen first-pass metric | Passed / Total | Accuracy |
 |---|---:|---:|
-| Routing after validation | 240/240 (100.00%) | 104/120 (86.67%) |
-| Required fields | 432/432 (100.00%) | 197/216 (91.20%) |
-| All annotated checks | 238/240 (99.17%) | 85/120 (70.83%) |
-| Clarification handling | 60/60 (100.00%) | 13/24 (54.17%) |
-| Raw model routing, invoked subset | 161/192 (83.85%) | 89/111 (80.18%) |
+| Routing after validation | 104/120 | 86.67% |
+| Required fields | 197/216 | 91.20% |
+| All annotated checks per input | 85/120 | 70.83% |
+| Supported draft checks | 72/96 | 75.00% |
+| Clarification handling | 13/24 | 54.17% |
+| Date fields, including annotated blanks | 63/72 | 87.50% |
+| Raw model routing, invoked subset | 89/111 | 80.18% |
 
-### Unseen holdout results
+**Results by language**
 
 | Language | Routing | Required fields | All annotated checks |
 |---|---|---|---|
 | Chinese | 50/60 (83.33%) | 98/108 (90.74%) | 40/60 (66.67%) |
 | English | 54/60 (90.00%) | 99/108 (91.67%) | 45/60 (75.00%) |
 
-The first pass made **111 model calls** and received **9 preflight responses**. All 120 cases remain in the denominator, including **2 processing errors** and **10 expected-clarification requests returned as drafts**. Supported draft checks passed **72/96 (75.00%)**. No failed output or expected answer was repaired after the run.
+The first pass made **111 model calls** and received **9 preflight responses**. All 120 cases remain in the denominator, including **2 processing errors** and **10 expected-clarification requests returned as drafts**. No failed output or expected answer was repaired after the run.
 
 The gap from the regression scores identifies remaining work: unsupported queries or edits can become new drafts, dates without a year can be missed, titles can lose the activity, and negation can affect priority or payment accounts. The [failure analysis](docs/evaluation-unseen-v5/FINDINGS.md) includes concrete examples. The app cannot execute transfers. Saving a new record requires user confirmation.
 
-**[Unseen dataset and protocol](docs/evaluation-unseen-v5/README.md)** · [Full first-pass report](docs/evaluation-unseen-v5/REPORT.md) · [Chinese 60](docs/evaluation-unseen-v5/chinese-60.csv) · [English 60](docs/evaluation-unseen-v5/english-60.csv) · [All 35 failed cases](docs/evaluation-unseen-v5/failures.csv)
+**[All 120 results](docs/evaluation-unseen-v5/results.csv)** · [Chinese 60](docs/evaluation-unseen-v5/chinese-60.csv) · [English 60](docs/evaluation-unseen-v5/english-60.csv) · [All 35 failed cases](docs/evaluation-unseen-v5/failures.csv)
 
-### Scope and regression evidence
+### Evaluation Scope
 
 These are application-pipeline scores, including deterministic validation; raw model routing is shown separately. Required-field checks include predeclared blanks, and titles use keyword alternatives. Inference ran on Windows CPU with the same model file, prompt, text transport and validation as the mobile implementation. The scores do not measure Android execution, database-write success or actual device-usage statistics.
 
 Both datasets were internally authored, not independently collected benchmarks. The holdout was screened against 916 historical inputs and was not used for application tuning before its first pass. Related product capabilities and boundary families still overlap. If it informs future fixes, later runs on it will be labelled regression.
 
-The **240-case regression remains unchanged** and was not rerun or combined with the holdout. Its two remaining failures concern the frozen interpretation of "not urgent / 不急": the application leaves priority unset rather than assuming normal priority.
+### Separate 240-Case Regression Results
+
+The **240-case regression suite** contains 120 Chinese and 120 English inputs used during development. These seen-set scores remain unchanged; the suite was not rerun or combined with the unseen holdout.
+
+| Seen-set regression metric | Passed / Total | Accuracy |
+|---|---:|---:|
+| Routing after validation | 240/240 | 100.00% |
+| Required fields | 432/432 | 100.00% |
+| All annotated checks per input | 238/240 | 99.17% |
+| Supported draft checks | 178/180 | 98.89% |
+| Clarification handling | 60/60 | 100.00% |
+| Raw model routing, invoked subset | 161/192 | 83.85% |
+
+The two remaining regression failures concern the frozen interpretation of "not urgent / 不急": the application leaves priority unset rather than assuming normal priority.
 
 **[Full regression report](docs/evaluation-mobile-v4-regression/REPORT.md)** · [Excel results](docs/evaluation-mobile-v4-regression/Lifehub-Plus-V4-Regression.xlsx) · [Chinese 120](docs/evaluation-mobile-v4-regression/chinese-120.csv) · [English 120](docs/evaluation-mobile-v4-regression/english-120.csv)
 
