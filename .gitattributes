@@ -29,3 +29,7 @@ docs/evaluation-unseen-v5/*.json -text whitespace=cr-at-eol
 docs/evaluation-unseen-v5/*.sha256 -text whitespace=cr-at-eol
 docs/evaluation-unseen-v5/*.csv -text -whitespace
 docs/evaluation-unseen-v5/frozen-snapshot.zip -text
+
+# Historical report snapshot is retained byte-for-byte.
+docs/evaluation-unseen-v5/provenance/v4-report-at-freeze.md -text whitespace=cr-at-eol
+docs/evaluation-mobile-v4-regression/REPORT.md text eol=crlf

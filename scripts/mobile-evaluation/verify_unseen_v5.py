@@ -39,9 +39,17 @@ def main():
             mapped = publication['pathMapping'].get(name, name)
             require(sha((ROOT / mapped).read_bytes()) == digest, 'Changed source: ' + mapped)
 
+    documentation_updates = publication.get('documentationUpdates', {})
+    require(set(documentation_updates) <= {'docs/evaluation-mobile-v4-regression/REPORT.md'}, 'Unexpected documentation override')
     for name, digest in protocol['preservedRegressionSha256'].items():
         if name == 'README.md':
             continue  # The current README adds this publication; it is not an inference/scoring input.
+        if name in documentation_updates:
+            update = documentation_updates[name]
+            require(update['originalSha256'] == digest, 'Original documentation hash mismatch')
+            require(sha((ROOT / update['originalArchive']).read_bytes()) == digest, 'Changed archived regression report')
+            require(sha((ROOT / name).read_bytes()) == update['updatedSha256'], 'Changed report navigation')
+            continue  # Only the report's navigation wording changed; its original bytes remain available.
         require(sha((ROOT / name).read_bytes()) == digest, 'Changed regression evidence: ' + name)
 
     dataset = ROOT / publication['pathMapping'][protocol['dataset']]

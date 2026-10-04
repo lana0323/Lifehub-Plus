@@ -1,6 +1,8 @@
-# Lifehub Plus 1.1.3 evaluation
+# Lifehub Plus 1.1.3 regression evaluation
 
-This report shows the latest **fresh model run on a seen regression set**. These inputs informed development, so the scores are regression evidence rather than unseen-model accuracy. The recorded outputs, expected answers and field-scoring rules have not changed.
+> **A separate unseen holdout is now published:** [120-case first-pass report](../evaluation-unseen-v5/REPORT.md) · [Frozen dataset and protocol](../evaluation-unseen-v5/README.md). This page covers only the older **240-case seen regression suite**. Its scores must not be presented as unseen accuracy.
+
+This report records a **fresh model run on the 240-case seen regression set**. These inputs informed development, so the scores are regression evidence rather than unseen-model accuracy. The recorded outputs, expected answers and field-scoring rules have not changed.
 
 ## Method
 
@@ -56,7 +58,7 @@ This report shows the latest **fresh model run on a seen regression set**. These
 
 The frozen set interprets "not urgent / 不急" as normal priority. Production conservatively leaves priority unset because a non-urgent task can still be important. These disagreements are retained as failures; the expected answers were not changed.
 
-This set informed development. A future untouched holdout is needed to assess generalization. The review screen remains the final place to correct fields before confirmation.
+This set informed development. A separate [120-case unseen holdout](../evaluation-unseen-v5/REPORT.md) has since been completed and published, with frozen inputs and a single first-pass run. The 240-case scores above remain regression evidence. The review screen remains the final place to correct fields before confirmation.
 
 ## Files and reproduction
 
@@ -67,3 +69,5 @@ This set informed development. A future untouched holdout is needed to assess ge
 ```
 
 Use a fresh directory. The script checks source/data/model hashes and preserves failures without retrying. The recorded protocol and raw results remain byte-for-byte unchanged. Report formatting was simplified after the run; [reproduction.json](reproduction.json) pins those reporting-only changes separately. Historical paths in the recorded protocol are provenance, not dependencies of this runner.
+
+**Documentation update:** only the title, scope wording and links were corrected after the holdout was published. All tables, recorded results, inputs and scoring rules remain unchanged. The [report as recorded at the holdout freeze](../evaluation-unseen-v5/provenance/v4-report-at-freeze.md) retains the original bytes; [publication metadata](../evaluation-unseen-v5/publication.json) records both hashes.

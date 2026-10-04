@@ -36,5 +36,13 @@
     "Spreadsheet previews and inspection logs",
     "Model and runtime binaries",
     "Private raw captures with timing fields"
-  ]
+  ],
+  "documentationUpdates": {
+    "docs/evaluation-mobile-v4-regression/REPORT.md": {
+      "originalSha256": "f6f1cdc089381445c7839beaf5f88a4bf91497dfd973a0d237fc5c3f9008260d",
+      "originalArchive": "docs/evaluation-unseen-v5/provenance/v4-report-at-freeze.md",
+      "updatedSha256": "a495e008916318545b1fef620f908a6d83ff36430ef9db28fdf85d9216d128ec",
+      "reason": "Clarify that the separate 120-case unseen holdout is already published; preserve all 240-case tables and recorded evidence."
+    }
+  }
 }

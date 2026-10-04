@@ -129,6 +129,8 @@ The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. For a s
 
 ## Model Evaluation
 
+**Latest evaluation: [120-case unseen holdout](docs/evaluation-unseen-v5/REPORT.md).** The earlier [240-case report](docs/evaluation-mobile-v4-regression/REPORT.md) is a separate seen-set regression.
+
 The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. Version 1.1.3 is evaluated on two separate bilingual datasets:
 
 - **240-case regression suite:** 120 Chinese and 120 English inputs used during development, retained for repeatable regression checks.
