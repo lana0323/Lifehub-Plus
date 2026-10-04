@@ -1,0 +1,40 @@
+{
+  "preparedAtUtc": "2026-10-04T05:54:16.714287+00:00",
+  "purpose": "Publish the recorded unseen first pass with English documentation; no new inference or application changes.",
+  "recordedCommit": "da16918ba42fbe225f823a186b955d7e4932d2ab",
+  "pathMapping": {
+    "outputs/lifehub-unseen-holdout-v5/cases.json": "backend/evaluation/mobile_unseen_v5.json",
+    "outputs/lifehub-unseen-holdout-v5/results.json": "docs/evaluation-unseen-v5/results.json",
+    "outputs/lifehub-unseen-holdout-v5/results.csv": "docs/evaluation-unseen-v5/results.csv",
+    "outputs/lifehub-unseen-holdout-v5/chinese-60.csv": "docs/evaluation-unseen-v5/chinese-60.csv",
+    "outputs/lifehub-unseen-holdout-v5/english-60.csv": "docs/evaluation-unseen-v5/english-60.csv",
+    "outputs/lifehub-unseen-holdout-v5/failures.csv": "docs/evaluation-unseen-v5/failures.csv",
+    "outputs/lifehub-unseen-holdout-v5/protocol.json": "docs/evaluation-unseen-v5/protocol.json",
+    "outputs/lifehub-unseen-holdout-v5/protocol.sha256": "docs/evaluation-unseen-v5/protocol.sha256",
+    "outputs/lifehub-unseen-holdout-v5/input-audit.json": "docs/evaluation-unseen-v5/input-audit.json",
+    "outputs/lifehub-unseen-holdout-v5/frozen-snapshot.zip": "docs/evaluation-unseen-v5/frozen-snapshot.zip",
+    "outputs/lifehub-unseen-holdout-v5/frozen-snapshot.sha256": "docs/evaluation-unseen-v5/frozen-snapshot.sha256",
+    "outputs/lifehub-unseen-holdout-v5/integrity.json": "docs/evaluation-unseen-v5/run-integrity.json"
+  },
+  "artifactSha256": {
+    "backend/evaluation/mobile_unseen_v5.json": "43c847794aefc27e72249a832b109507ae42a649ca62157ff275a992d28b3eda",
+    "docs/evaluation-unseen-v5/results.json": "e476568fd43189a14f6c977643357016afd51df6cde08eb54cf10caa92f7bc6c",
+    "docs/evaluation-unseen-v5/results.csv": "c443f53b59d2cc7078fa5b11b529d7be100d65ececc896007d611ccee65a371b",
+    "docs/evaluation-unseen-v5/chinese-60.csv": "c15bd691eb898aab73ab64e96b9a9c301b77e85d90bb075189e7b849217f33d0",
+    "docs/evaluation-unseen-v5/english-60.csv": "89422bedd23ebc0c4879d663668abfab0b3a09e1b748a565df5ae0f9b92a374a",
+    "docs/evaluation-unseen-v5/failures.csv": "2d7af2b5fb3c04cb610fc28c8408e180e4a1ef7ea5853995564231e5dbadee20",
+    "docs/evaluation-unseen-v5/protocol.json": "4f85648d81040fe8fb851c03fdc574cf29ab4f7eaf59de562a30d83a8e59863e",
+    "docs/evaluation-unseen-v5/protocol.sha256": "b8927f70f34305e54d7b2c2acddc6ba27dfd272d7712a1bf3da1cc4539a0ce1e",
+    "docs/evaluation-unseen-v5/input-audit.json": "ca3db399866404c5f0f4a495dce8cf6edf42b4dd2fb362871b9c1b1cd65103d7",
+    "docs/evaluation-unseen-v5/frozen-snapshot.zip": "2848f2b559ac357924ee5d227798007273dc6b5819f58bf70d751ec1d6c3d344",
+    "docs/evaluation-unseen-v5/frozen-snapshot.sha256": "77bc94dd93fb522b8cdbad87d412f01ed47e698f11341166ca2e5b2d63e17e4f",
+    "docs/evaluation-unseen-v5/run-integrity.json": "8c3063879145d7ede824587ce7605e10acb490a51cb4fec3ed8f27677ec0ef65"
+  },
+  "documentationPolicy": "README, report navigation and findings publication wording were updated after the run. Frozen protocol, cases, outputs, checks, source archive and pre-publication integrity evidence retain exact bytes. The original local-only status is historical.",
+  "excludedLocalArtifacts": [
+    "Excel workbook with Chinese presentation labels",
+    "Spreadsheet previews and inspection logs",
+    "Model and runtime binaries",
+    "Private raw captures with timing fields"
+  ]
+}

@@ -22,3 +22,10 @@ scripts/summarize-mobile-evaluation.py text eol=lf
 # Preserve captured model whitespace and embedded newlines in CSV cells.
 docs/evaluation-mobile-v4-regression/*.json text eol=crlf
 docs/evaluation-mobile-v4-regression/*.csv -text -whitespace
+
+# Preserve exact unseen first-pass evidence bytes.
+backend/evaluation/mobile_unseen_v5.json -text whitespace=cr-at-eol
+docs/evaluation-unseen-v5/*.json -text whitespace=cr-at-eol
+docs/evaluation-unseen-v5/*.sha256 -text whitespace=cr-at-eol
+docs/evaluation-unseen-v5/*.csv -text -whitespace
+docs/evaluation-unseen-v5/frozen-snapshot.zip -text

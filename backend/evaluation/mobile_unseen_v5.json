@@ -1,0 +1,2931 @@
+[
+  {
+    "id": "U5-ZH-HEALTH-10",
+    "group": "health",
+    "language": "zh",
+    "text": "看看这台手机的应用使用排行榜就行，不用记录支出。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "negated_finance"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-09",
+    "group": "schedule",
+    "language": "zh",
+    "text": "明天下午二点四十五分去牙科复查，新增日程。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "牙科"
+        ]
+      },
+      "date": "2026-11-19",
+      "time": "14:45"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "written_clock"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-13",
+    "group": "finance",
+    "language": "en",
+    "text": "Correct my last grocery transaction from 48 yuan to 43 yuan.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_mutation"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-08",
+    "group": "schedule",
+    "language": "zh",
+    "text": "把“Friday 摄影展”加入明天上午十点的日程。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "摄影展"
+        ]
+      },
+      "date": "2026-11-19",
+      "time": "10:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "quoted_date"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-09",
+    "group": "schedule",
+    "language": "en",
+    "text": "A calender entry for tomorrow at 4 pm: apartment key handover.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "key",
+          "handover"
+        ]
+      },
+      "date": "2026-11-19",
+      "time": "16:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "typo"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-14",
+    "group": "schedule",
+    "language": "zh",
+    "text": "日程加两个：明天八点游泳，后天六点瑜伽。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "multiple_records"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-04",
+    "group": "finance",
+    "language": "en",
+    "text": "Bought a thermos today for 87.90 yuan with a credit card. Log it under Shopping.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "thermos"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "87.90",
+      "kind": "expense",
+      "category": "Shopping",
+      "account": "Credit Card"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "ordinary_complete"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-09",
+    "group": "memo",
+    "language": "zh",
+    "text": "往备忘录放一条，核队一下志愿者名单，重要。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "名单"
+        ]
+      },
+      "date": null,
+      "priority": "important"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "typo"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-08",
+    "group": "finance",
+    "language": "en",
+    "text": "Today I paid minus 8 yuan cash for a notebook. Enter a Shopping expense.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "notebook"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": null,
+      "kind": "expense",
+      "category": "Shopping",
+      "account": "Cash"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "invalid_negative_amount"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-12",
+    "group": "health",
+    "language": "zh",
+    "text": "现在打开数字健康，我需要查看今天每个软件的使用时间。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "navigation"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-12",
+    "group": "memo",
+    "language": "zh",
+    "text": "备忘标题用“收拾针线盒”，周末或者下周再弄，时间还没定。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "针线盒"
+        ]
+      },
+      "date": null,
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "ambiguous_date"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-04",
+    "group": "health",
+    "language": "zh",
+    "text": "进 Health，我想查一下手机使用的周统计。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "mixed_language"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-14",
+    "group": "health",
+    "language": "en",
+    "text": "Block short-video apps automatically after thirty minutes each day.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_device_control"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-08",
+    "group": "health",
+    "language": "zh",
+    "text": "用机时间是不是太长了？先打开使用时长统计给我看。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "colloquial"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-02",
+    "group": "health",
+    "language": "en",
+    "text": "Which apps have taken up the largest share of my screen time today on this device?",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "daily_ranking"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-05",
+    "group": "health",
+    "language": "en",
+    "text": "How long have I spent using apps on this handset today?",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "daily_total"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-11",
+    "group": "memo",
+    "language": "zh",
+    "text": "新建备忘：明天整理摄影比赛报名材料。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-12-31T16:30:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "摄影"
+        ]
+      },
+      "date": "2027-01-02",
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "timezone_year_boundary"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-05",
+    "group": "memo",
+    "language": "zh",
+    "text": "买一盒彩色回形针，最近有空再办，优先级低，存成备忘。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "回形针"
+        ]
+      },
+      "date": null,
+      "priority": "normal"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "vague_date"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-06",
+    "group": "memo",
+    "language": "zh",
+    "text": "不是让你现在发邮件，是把“给导师发送修改后的摘要”记到待办。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "摘要"
+        ]
+      },
+      "date": null,
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "negated_execution"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-01",
+    "group": "memo",
+    "language": "zh",
+    "text": "备忘录加一项：今天把打印机墨盒换掉，普通优先级。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "墨盒"
+        ]
+      },
+      "date": "2026-11-18",
+      "priority": "normal"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "ordinary_complete"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-03",
+    "group": "memo",
+    "language": "en",
+    "text": "Put renewing the bicycle locker permit on my task list for next Monday. High priority.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "locker",
+          "permit"
+        ]
+      },
+      "date": "2026-11-23",
+      "priority": "important"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "next_weekday"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-14",
+    "group": "finance",
+    "language": "en",
+    "text": "Add a bus fare of 5 yuan and separately a bakery purchase of 21 yuan, both today in cash.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "multiple_records"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-15",
+    "group": "memo",
+    "language": "zh",
+    "text": "把我最紧急的三条待办找出来给我看。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_query"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-15",
+    "group": "schedule",
+    "language": "en",
+    "text": "Reschedule the event named \"Lab tour\" from Thursday to Friday.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_mutation"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-02",
+    "group": "health",
+    "language": "zh",
+    "text": "想知道这周哪些应用占了我最多的手机时间。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "weekly_ranking"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-01",
+    "group": "schedule",
+    "language": "en",
+    "text": "Calendar entry: orchestra rehearsal on November 27 at 6:20 pm.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "orchestra",
+          "rehearsal"
+        ]
+      },
+      "date": "2026-11-27",
+      "time": "18:20"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "ordinary_complete"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-14",
+    "group": "finance",
+    "language": "zh",
+    "text": "今天午饭现金18元，晚饭微信32元，分别记两笔。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "multiple_records"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-13",
+    "group": "schedule",
+    "language": "zh",
+    "text": "把日历里周六的体检取消掉。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_mutation"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-12",
+    "group": "health",
+    "language": "en",
+    "text": "Can you navigate to the screen that lists how long I use each app on this phone?",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "navigation"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-06",
+    "group": "schedule",
+    "language": "zh",
+    "text": "周日中午十二点与表姐吃饭，加进日程。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "表姐"
+        ]
+      },
+      "date": "2026-11-22",
+      "time": "12:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "noon"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-12",
+    "group": "schedule",
+    "language": "en",
+    "text": "Create a calendar draft for a cello lesson at 5 pm, either Friday or Saturday, not decided yet.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "cello"
+        ]
+      },
+      "date": null,
+      "time": "17:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "ambiguous_date"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-09",
+    "group": "health",
+    "language": "en",
+    "text": "Where can I check my screeen time for today? Open that page.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "typo"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-05",
+    "group": "schedule",
+    "language": "en",
+    "text": "Create a calendar draft for the alumni picnic at 11:30 am; the date is still undecided.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "alumni",
+          "picnic"
+        ]
+      },
+      "date": null,
+      "time": "11:30"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "missing_date"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-13",
+    "group": "schedule",
+    "language": "en",
+    "text": "Show all the appointments I booked for next weekend.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_query"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-11",
+    "group": "finance",
+    "language": "zh",
+    "text": "这笔到账要归奖学金：学校的竞赛奖励已打进银行卡，金额1500元，入账日期就是今天。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "竞赛",
+          "奖学金",
+          "奖励"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "1500",
+      "kind": "income",
+      "category": "Scholarship",
+      "account": "Bank Card"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "scholarship"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-14",
+    "group": "schedule",
+    "language": "en",
+    "text": "Two separate calendar items, please: a ferry departure tomorrow at 8 am, then a parent-teacher conference the day after tomorrow at 3 pm.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "multiple_records"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-13",
+    "group": "health",
+    "language": "zh",
+    "text": "健康里记一下：今天血压120/80。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_health_logging"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-13",
+    "group": "health",
+    "language": "en",
+    "text": "Add 7 hours of sleep to my health log for last night.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_health_logging"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-01",
+    "group": "finance",
+    "language": "zh",
+    "text": "今天早餐豆浆和烧饼一共花了14.50元，支付宝付的，记一笔餐饮支出。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "豆浆",
+          "烧饼",
+          "早餐"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "14.50",
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": "Alipay"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "ordinary_complete"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-03",
+    "group": "schedule",
+    "language": "zh",
+    "text": "本周二下午三点有消防演练，把它补到日程里。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "消防"
+        ]
+      },
+      "date": "2026-11-17",
+      "time": "15:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "this_week_past"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-11",
+    "group": "memo",
+    "language": "en",
+    "text": "Task for tomorrow: pack the pottery pieces for storage.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T06:30:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "pottery"
+        ]
+      },
+      "date": "2026-11-18",
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "timezone_date_boundary"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-07",
+    "group": "finance",
+    "language": "zh",
+    "text": "录一笔现金收入300元，是叔叔给的生日礼金，日期先不填。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "礼金",
+          "生日"
+        ]
+      },
+      "date": null,
+      "amount": "300",
+      "kind": "income",
+      "category": "Gift",
+      "account": "Cash"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "missing_date"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-07",
+    "group": "memo",
+    "language": "en",
+    "text": "Put cleaning the aquarium filter on my list in 3 days; urgent.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "aquarium",
+          "filter"
+        ]
+      },
+      "date": "2026-11-21",
+      "priority": "urgent"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "numeric_relative"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-04",
+    "group": "schedule",
+    "language": "en",
+    "text": "Schedule a ceramics studio induction next Tuesday at 2 pm.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "ceramics",
+          "induction"
+        ]
+      },
+      "date": "2026-11-24",
+      "time": "14:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "next_weekday"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-03",
+    "group": "health",
+    "language": "zh",
+    "text": "帮我看看本机今天的屏幕使用时长，不要给我安排运动。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "negated_other_action"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-06",
+    "group": "health",
+    "language": "en",
+    "text": "Let me compare the daily screen-time totals across this week.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "weekly_daily_bars"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-05",
+    "group": "health",
+    "language": "zh",
+    "text": "今天一整天花了多少时间在这部手机的应用上？",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "daily_total"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-06",
+    "group": "memo",
+    "language": "en",
+    "text": "Don’t delete any files. Add a task called delete duplicate microscope images.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "microscope",
+          "duplicate"
+        ]
+      },
+      "date": null,
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "negated_execution"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-12",
+    "group": "finance",
+    "language": "en",
+    "text": "Please record a 61-yuan cash expense for a haircut today, category Others.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "haircut"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "61",
+      "kind": "expense",
+      "category": "Others",
+      "account": "Cash"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "explicit_other_category"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-04",
+    "group": "schedule",
+    "language": "zh",
+    "text": "下周四上午九点半，实验楼安全培训，加入日历。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "安全培训"
+        ]
+      },
+      "date": "2026-11-26",
+      "time": "09:30"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "next_weekday"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-02",
+    "group": "schedule",
+    "language": "zh",
+    "text": "给我安排一个明天的活动：去展览馆听讲座，时间待定。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "讲座",
+          "展览馆"
+        ]
+      },
+      "date": "2026-11-19",
+      "time": null
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "missing_time"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-10",
+    "group": "finance",
+    "language": "zh",
+    "text": "今天午饭总共花了28元，不是收入，是用现金付的餐饮支出。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "午饭"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "28",
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": "Cash"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "negated_kind"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-04",
+    "group": "memo",
+    "language": "zh",
+    "text": "在 memo 记一下：11月30日之前退还实验室门禁卡。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "门禁卡"
+        ]
+      },
+      "date": "2026-11-30",
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "mixed_language"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-14",
+    "group": "memo",
+    "language": "zh",
+    "text": "新建两个待办：擦自行车链条，另外预约眼镜维修。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "multiple_records"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-02",
+    "group": "memo",
+    "language": "zh",
+    "text": "想起来一件待办，给旧电脑里的毕业照片做备份。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "照片"
+        ]
+      },
+      "date": null,
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "missing_optional"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-15",
+    "group": "finance",
+    "language": "en",
+    "text": "I never bought the 260-yuan desk lamp; the payment was rejected. Record a purchase anyway.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "denied_transaction"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-06",
+    "group": "schedule",
+    "language": "en",
+    "text": "Book a calendar event for the astronomy livestream at midnight on November 22.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "astronomy"
+        ]
+      },
+      "date": "2026-11-22",
+      "time": "00:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "midnight"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-07",
+    "group": "finance",
+    "language": "en",
+    "text": "Record a birthday gift of 220 yuan received in cash; I do not know the transaction date.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "birthday",
+          "gift"
+        ]
+      },
+      "date": null,
+      "amount": "220",
+      "kind": "income",
+      "category": "Gift",
+      "account": "Cash"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "missing_date"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-12",
+    "group": "schedule",
+    "language": "zh",
+    "text": "明天或后天，下午四点去排练合唱，日期还在商量，先做日程草稿。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "合唱"
+        ]
+      },
+      "date": null,
+      "time": "16:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "ambiguous_date"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-05",
+    "group": "schedule",
+    "language": "zh",
+    "text": "日程里记一个羽毛球友谊赛，哪天还没有确定。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "羽毛球"
+        ]
+      },
+      "date": null,
+      "time": null
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "missing_date"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-03",
+    "group": "schedule",
+    "language": "en",
+    "text": "Add the tenant meeting that was this Monday at 10 am to my calendar.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "tenant"
+        ]
+      },
+      "date": "2026-11-16",
+      "time": "10:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "this_week_past"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-15",
+    "group": "finance",
+    "language": "zh",
+    "text": "支付宝给物业转600元，现在就转过去。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_execution"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-04",
+    "group": "health",
+    "language": "en",
+    "text": "Open the app-usage breakdown for this week, please.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "weekly_breakdown"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-10",
+    "group": "schedule",
+    "language": "zh",
+    "text": "安排明天的读书会，时间写25:10，稍后我再核对。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "读书会"
+        ]
+      },
+      "date": "2026-11-19",
+      "time": null
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "invalid_clock"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-01",
+    "group": "finance",
+    "language": "en",
+    "text": "Log today’s 52-yuan museum admission as entertainment, paid in cash.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "museum",
+          "admission"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "52",
+      "kind": "expense",
+      "category": "Entertainment",
+      "account": "Cash"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "ordinary_complete"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-11",
+    "group": "schedule",
+    "language": "zh",
+    "text": "新建日程：三天后上午八点参观水处理厂。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "水处理厂"
+        ]
+      },
+      "date": "2026-11-21",
+      "time": "08:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "written_relative"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-11",
+    "group": "health",
+    "language": "zh",
+    "text": "能展示这周的屏幕时间吗，我想自己检查一下用机习惯。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "weekly_usage"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-01",
+    "group": "memo",
+    "language": "en",
+    "text": "Add a normal-priority to-do to label the freezer containers today.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "freezer",
+          "containers"
+        ]
+      },
+      "date": "2026-11-18",
+      "priority": "normal"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "ordinary_complete"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-11",
+    "group": "finance",
+    "language": "en",
+    "text": "Log 180 yuan spent on a replacement keyboard today. Category Shopping. I used a bank card, not cash.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "keyboard"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "180",
+      "kind": "expense",
+      "category": "Shopping",
+      "account": "Bank Card"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "negated_account"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-08",
+    "group": "finance",
+    "language": "zh",
+    "text": "今天给公交卡充值1,200元，银行卡付款，记交通支出。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "公交",
+          "充值"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": null,
+      "kind": "expense",
+      "category": "Transport",
+      "account": "Bank Card"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "invalid_amount_separator"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-03",
+    "group": "health",
+    "language": "en",
+    "text": "I only want this phone’s usage report, not a reminder to exercise.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "negated_other_action"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-09",
+    "group": "memo",
+    "language": "en",
+    "text": "Remeber to re-order hearing aid batteries; add that to my to-do list.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "batteries",
+          "hearing aid"
+        ]
+      },
+      "date": null,
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "typo"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-13",
+    "group": "finance",
+    "language": "zh",
+    "text": "查一下我银行卡现在还剩多少钱。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_balance"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-15",
+    "group": "schedule",
+    "language": "zh",
+    "text": "看看明天下午有没有空档可以放个会议。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_query"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-03",
+    "group": "memo",
+    "language": "zh",
+    "text": "周五之前交停车证申请，这个很重要，放入待办。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "停车证"
+        ]
+      },
+      "date": "2026-11-20",
+      "priority": "important"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "bare_weekday"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-12",
+    "group": "finance",
+    "language": "zh",
+    "text": "今天花了19元买记事本，使用 WeChat 支付，记一笔 shopping 支出。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "记事本"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "19",
+      "kind": "expense",
+      "category": "Shopping",
+      "account": "WeChat"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "mixed_language"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-14",
+    "group": "health",
+    "language": "zh",
+    "text": "我弟手机今天玩游戏多久，直接帮我查一下他的。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "other_person_device"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-07",
+    "group": "schedule",
+    "language": "en",
+    "text": "Add \"Tomorrow Festival\" to the calendar on December 5 at 19:00.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "Festival"
+        ]
+      },
+      "date": "2026-12-05",
+      "time": "19:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "quoted_date"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-03",
+    "group": "finance",
+    "language": "zh",
+    "text": "记账：2026年11月16日，工资到账8600元，银行卡收入。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "工资"
+        ]
+      },
+      "date": "2026-11-16",
+      "amount": "8600",
+      "kind": "income",
+      "category": "Salary",
+      "account": "Bank Card"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "ordinary_income"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-10",
+    "group": "schedule",
+    "language": "en",
+    "text": "Schedule the volunteer orientation for tomorrow at 18:75. I need to check that time.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "orientation"
+        ]
+      },
+      "date": "2026-11-19",
+      "time": null
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "invalid_clock"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-05",
+    "group": "finance",
+    "language": "en",
+    "text": "Record today’s internet bill as an expense from my bank card. Leave the amount blank for now.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "internet"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": null,
+      "kind": "expense",
+      "category": "Bills",
+      "account": "Bank Card"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "missing_amount"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-10",
+    "group": "health",
+    "language": "en",
+    "text": "Show my on-device app usage, and do not create a finance entry.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "negated_finance"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-15",
+    "group": "memo",
+    "language": "en",
+    "text": "How many of my tasks are still unfinished?",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_query"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-08",
+    "group": "memo",
+    "language": "zh",
+    "text": "帮我存个待办：续借图书馆那本《Tomorrow》，没有截止时间。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "续借"
+        ]
+      },
+      "date": null,
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "quoted_date"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-03",
+    "group": "finance",
+    "language": "en",
+    "text": "Income entry for 2026-11-12: 720 yuan from my part-time tutoring job, received through WeChat.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "tutoring",
+          "part-time"
+        ]
+      },
+      "date": "2026-11-12",
+      "amount": "720",
+      "kind": "income",
+      "category": "Part-time Job",
+      "account": "WeChat"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "ordinary_income"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-14",
+    "group": "memo",
+    "language": "en",
+    "text": "Make a memo to collect the dry cleaning, and also record 46 yuan spent on dinner.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "cross_module"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-10",
+    "group": "finance",
+    "language": "en",
+    "text": "Not an expense: a 95-yuan cash gift came in today. Please record the income.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "gift"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "95",
+      "kind": "income",
+      "category": "Gift",
+      "account": "Cash"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "negated_kind"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-09",
+    "group": "finance",
+    "language": "en",
+    "text": "Add today’s coffee purchase for twenty-six yuan via Alipay, category Food & Drinks.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "coffee"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": null,
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": "Alipay"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "written_amount"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-07",
+    "group": "health",
+    "language": "en",
+    "text": "Go to Health and show the time spent in each application.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "app_breakdown"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-10",
+    "group": "memo",
+    "language": "zh",
+    "text": "建一个任务，明天把阳台的花盆搬进屋；不要设成高优先级，普通就行。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "花盆"
+        ]
+      },
+      "date": "2026-11-19",
+      "priority": "normal"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "negated_priority"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-09",
+    "group": "health",
+    "language": "zh",
+    "text": "今天屏幕使甪时间在哪里看，帮我进入那个页面。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "typo"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-08",
+    "group": "schedule",
+    "language": "en",
+    "text": "Calendar: costume fitting today at 09:15.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T06:30:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "costume"
+        ]
+      },
+      "date": "2026-11-17",
+      "time": "09:15"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "timezone_date_boundary"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-05",
+    "group": "memo",
+    "language": "en",
+    "text": "To-do: mend the sleeve on my blue cardigan sometime soon. Low priority.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "cardigan",
+          "sleeve"
+        ]
+      },
+      "date": null,
+      "priority": "normal"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "vague_date"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-08",
+    "group": "health",
+    "language": "en",
+    "text": "I lost track while scrolling. Can I see today’s phone-usage stats?",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "colloquial"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-04",
+    "group": "finance",
+    "language": "zh",
+    "text": "今天网上买了卷尺，微信支付23元，分类购物，帮我记一下。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "卷尺"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "23",
+      "kind": "expense",
+      "category": "Shopping",
+      "account": "WeChat"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "ordinary_complete"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-15",
+    "group": "health",
+    "language": "zh",
+    "text": "打开用机统计，再帮我新建一个明天跑步的备忘。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "cross_module"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-05",
+    "group": "finance",
+    "language": "zh",
+    "text": "记今天的电费支出，银行卡扣款，金额等账单来了再填。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "电费"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": null,
+      "kind": "expense",
+      "category": "Bills",
+      "account": "Bank Card"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "missing_amount"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-15",
+    "group": "health",
+    "language": "en",
+    "text": "Check my screen time today and schedule a dentist visit for Friday.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "cross_module"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-02",
+    "group": "finance",
+    "language": "zh",
+    "text": "昨天坐轮渡花了6元现金，记到交通费。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "轮渡"
+        ]
+      },
+      "date": "2026-11-17",
+      "amount": "6",
+      "kind": "expense",
+      "category": "Transport",
+      "account": "Cash"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "relative_past"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-13",
+    "group": "memo",
+    "language": "zh",
+    "text": "把我之前那个“寄还钥匙”的待办直接标成完成。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_mutation"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-13",
+    "group": "memo",
+    "language": "en",
+    "text": "Move the due date of my existing passport task to the 28th.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "clarification",
+      "module": null
+    },
+    "requiredFields": [],
+    "tags": [
+      "unsupported_mutation"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-12",
+    "group": "memo",
+    "language": "en",
+    "text": "A task: return the borrowed projector on Saturday or Sunday; I have not chosen a day.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "projector"
+        ]
+      },
+      "date": null,
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "ambiguous_date"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-02",
+    "group": "finance",
+    "language": "en",
+    "text": "Record yesterday’s tram fare: CNY 4, paid with my bank card, transport expense.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "tram"
+        ]
+      },
+      "date": "2026-11-17",
+      "amount": "4",
+      "kind": "expense",
+      "category": "Transport",
+      "account": "Bank Card"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "relative_past"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-02",
+    "group": "schedule",
+    "language": "en",
+    "text": "Put a botanical garden visit on my calendar for tomorrow. The start time is undecided.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "botanical"
+        ]
+      },
+      "date": "2026-11-19",
+      "time": null
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "missing_time"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-11",
+    "group": "health",
+    "language": "en",
+    "text": "Bring up the current week’s phone-use statistics in the health section.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "weekly_usage"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-04",
+    "group": "memo",
+    "language": "en",
+    "text": "Memo please: check the tent poles before November 24.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "tent",
+          "poles"
+        ]
+      },
+      "date": "2026-11-24",
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "explicit_month_day"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-01",
+    "group": "schedule",
+    "language": "zh",
+    "text": "日历新建：11月21日14:30参加陶艺体验课。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "陶艺"
+        ]
+      },
+      "date": "2026-11-21",
+      "time": "14:30"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "ordinary_complete"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-02",
+    "group": "memo",
+    "language": "en",
+    "text": "A note to myself: digitize Grandma’s handwritten recipe cards.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "recipe",
+          "Grandma"
+        ]
+      },
+      "date": null,
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "missing_optional"
+    ]
+  },
+  {
+    "id": "U5-EN-SCHEDULE-11",
+    "group": "schedule",
+    "language": "en",
+    "text": "Add a birdwatching walk in 4 days, starting at 7 am.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "birdwatching"
+        ]
+      },
+      "date": "2026-11-22",
+      "time": "07:00"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "numeric_relative"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-01",
+    "group": "health",
+    "language": "zh",
+    "text": "我又刷手机刷过头了，打开健康页面，看看今天用了多久。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "ordinary_usage"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-06",
+    "group": "health",
+    "language": "zh",
+    "text": "我想对比本周每天的用机时长，带我去对应页面。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "weekly_daily_bars"
+    ]
+  },
+  {
+    "id": "U5-EN-HEALTH-01",
+    "group": "health",
+    "language": "en",
+    "text": "Take me to Health so I can inspect my phone use over the current week.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "ordinary_usage"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-10",
+    "group": "memo",
+    "language": "en",
+    "text": "Create a memo: check the wheelchair tyre pressure tomorrow, normal rather than high priority.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "wheelchair",
+          "tyre",
+          "tire"
+        ]
+      },
+      "date": "2026-11-19",
+      "priority": "normal"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "negated_priority"
+    ]
+  },
+  {
+    "id": "U5-ZH-SCHEDULE-07",
+    "group": "schedule",
+    "language": "zh",
+    "text": "新建活动：12月31日23:15在广场看跨年灯光秀。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "schedule",
+      "title": {
+        "containsAny": [
+          "灯光秀"
+        ]
+      },
+      "date": "2026-12-31",
+      "time": "23:15"
+    },
+    "requiredFields": [
+      "title",
+      "date"
+    ],
+    "tags": [
+      "explicit_month_day"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-06",
+    "group": "finance",
+    "language": "zh",
+    "text": "今天买了电影票，支出39元，具体用哪个账户付的记不清了。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "电影"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "39",
+      "kind": "expense",
+      "category": "Entertainment",
+      "account": null
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "missing_account"
+    ]
+  },
+  {
+    "id": "U5-EN-FINANCE-06",
+    "group": "finance",
+    "language": "en",
+    "text": "A finance entry: I spent 33 yuan on soup today, but I cannot recall the payment account.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "soup"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": "33",
+      "kind": "expense",
+      "category": "Food & Drinks",
+      "account": null
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "missing_account"
+    ]
+  },
+  {
+    "id": "U5-ZH-FINANCE-09",
+    "group": "finance",
+    "language": "zh",
+    "text": "记录一下：今天买橡皮花了2.345元现金，购物支出。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "finance",
+      "title": {
+        "containsAny": [
+          "橡皮"
+        ]
+      },
+      "date": "2026-11-18",
+      "amount": null,
+      "kind": "expense",
+      "category": "Shopping",
+      "account": "Cash"
+    },
+    "requiredFields": [
+      "title",
+      "amount",
+      "kind",
+      "category",
+      "account",
+      "date"
+    ],
+    "tags": [
+      "invalid_amount_precision"
+    ]
+  },
+  {
+    "id": "U5-ZH-HEALTH-07",
+    "group": "health",
+    "language": "zh",
+    "text": "切到健康模块，显示各个 app 在本机的使用情况。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "health"
+    },
+    "requiredFields": [],
+    "tags": [
+      "app_breakdown"
+    ]
+  },
+  {
+    "id": "U5-ZH-MEMO-07",
+    "group": "memo",
+    "language": "zh",
+    "text": "备忘：两天后清洗空气净化器滤网，紧急。",
+    "timezone": "Asia/Shanghai",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "滤网"
+        ]
+      },
+      "date": "2026-11-20",
+      "priority": "urgent"
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "written_relative"
+    ]
+  },
+  {
+    "id": "U5-EN-MEMO-08",
+    "group": "memo",
+    "language": "en",
+    "text": "Save a memo to read the novel named \"Friday\". No deadline for this.",
+    "timezone": "America/Los_Angeles",
+    "now": "2026-11-18T12:00:00+00:00",
+    "module": "auto",
+    "expected": {
+      "status": "draft",
+      "module": "memo",
+      "title": {
+        "containsAny": [
+          "novel",
+          "Friday"
+        ]
+      },
+      "date": null,
+      "priority": null
+    },
+    "requiredFields": [
+      "title"
+    ],
+    "tags": [
+      "quoted_date"
+    ]
+  }
+]

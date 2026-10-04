@@ -1,0 +1,130 @@
+{
+  "frozenAtUtc": "2026-10-04T05:15:52.730258+00:00",
+  "appVersion": "1.1.3",
+  "publishedCommit": "da16918ba42fbe225f823a186b955d7e4932d2ab",
+  "dataset": "outputs/lifehub-unseen-holdout-v5/cases.json",
+  "datasetSha256": "43c847794aefc27e72249a832b109507ae42a649ca62157ff275a992d28b3eda",
+  "datasetRole": "New internally authored holdout, first pass; not used to tune application code, prompt or rules before this run.",
+  "provenance": "Development assistant authored and reviewed annotations before any application output. Not an external independent assessor. Chinese and English use different concrete activities but share product capabilities and boundary families. Lexical screening is not proof of semantic independence or absence from pretraining.",
+  "cases": 120,
+  "languages": {
+    "zh": 60,
+    "en": 60
+  },
+  "perWorkflowPerLanguage": 15,
+  "expectedOutcomes": {
+    "draft": 96,
+    "clarification": 24
+  },
+  "shuffleSeed": 20261004,
+  "runtime": "Windows JVM LiteRT-LM 0.10.2, CPU, JDK 21.0.7, Python 3.11.7, tzdata 2026.2",
+  "machine": {
+    "cpu": {
+      "Name": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "NumberOfCores": 6,
+      "NumberOfLogicalProcessors": 12
+    },
+    "ramBytes": 34129334272,
+    "os": {
+      "Caption": "Microsoft Windows 11 专业版",
+      "Version": "10.0.26200",
+      "BuildNumber": "26200"
+    },
+    "gpu": {
+      "Name": "NVIDIA GeForce RTX 3060 Ti",
+      "DriverVersion": "32.0.16.1692"
+    }
+  },
+  "machineProvenance": "Same host as the preserved regression protocol.",
+  "model": "litert-community/Qwen2.5-1.5B-Instruct int8 ekv4096",
+  "modelRevision": "19edb84c69a0212f29a6ef17ba0d6f278b6a1614",
+  "modelSha256": "faa60663b333290c1496c499828b21d3e3254a788cacd8cce917ce0f761a2dc9",
+  "modelBytes": 1597931520,
+  "sampling": {
+    "topK": 1,
+    "topP": 1.0,
+    "temperature": 0.0,
+    "seed": 42,
+    "contextTokens": 4096
+  },
+  "runsPerCase": 1,
+  "retries": 0,
+  "concurrency": 1,
+  "timeoutSecondsPerCase": 180,
+  "maxOutputCharacters": 16000,
+  "execution": "Fresh model generation for every non-preflight request with frozen production rules. Same mobile prompt, Python adapter and asynchronous Unicode-safe transport on Windows JVM CPU. Fresh conversation per input. No retry, manual repair or edits after inference begins.",
+  "scoring": {
+    "routing": "Exact final response status and module; errors count as incorrect.",
+    "requiredFields": "Micro average of annotated title/date fields plus finance amount/kind/category/account; null is correct only when annotated in advance. Optional memo deadline/priority and schedule time contribute to all-fields, not required-fields.",
+    "allSpecifiedFields": "All annotated checks for one input must pass, including status/module. Titles use predeclared keyword alternatives, not full semantic equivalence.",
+    "supportedDraft": "All annotated checks pass on the 96 expected-draft inputs. Includes correctly incomplete drafts that require user edits. Does not measure Android UI completion or database writes.",
+    "rawModelRouting": "Map raw single_task plus module to a draft, unclear/multiple_tasks to clarification, without production corrections. Denominator is only model-invoked cases, including failures; preflight-only outcomes are excluded.",
+    "limits": "Money must use positive digit notation with at most two decimal places. Commas, written-number words, zero, negative and overprecision amounts stay unset for review. Memo past dates stay unset; calendar past dates remain. Missing/ambiguous fields stay unset. Quoted words are not temporal instructions. Unsupported mutations, queries, external actions and Health logging/control must clarify. Bare weekdays refer to the next occurrence (including today); this/next weekdays retain calendar-week semantics. Not-urgent alone leaves priority unset."
+  },
+  "primaryMetrics": [
+    "routing",
+    "requiredFields",
+    "allSpecifiedFields"
+  ],
+  "secondaryMetrics": [
+    "supportedDraft",
+    "clarification",
+    "dates",
+    "rawModelRouting"
+  ],
+  "reporting": "No latency figures. Every input, native failure and validation error retained. Raw model and final pipeline metrics separate. All results remain local; no GitHub changes.",
+  "stopRule": "Run all 120 once. Do not stop for poor results. Native crash: preserve failing input and continue without retry. Unattributable infrastructure failure: stop and report incomplete.",
+  "postRunPolicy": "Do not change answers or scoring rules based on outputs. Any suspected annotation issue is a separate note; original first-pass counts stay intact. Future tuning using this set changes its role to regression.",
+  "inputAuditSha256": "ca3db399866404c5f0f4a495dce8cf6edf42b4dd2fb362871b9c1b1cd65103d7",
+  "sourceSha256": {
+    ".local/unseen-holdout-v5/author_cases.py": "0c17504050e35ab18223beaa8ae27bc65bdd79c36a9acbb00145260bd48903fc",
+    ".local/unseen-holdout-v5/check_inputs.py": "d6c217dcfd209e33b754b6cb4147eaa00de008437cd6b9701617331feb834b0c",
+    ".local/unseen-holdout-v5/freeze.py": "e718a5dcf89f23038067f80cb2b09c80cf612425ecdb93d8f45510c67a36825b",
+    ".local/unseen-holdout-v5/run.ps1": "fcf03644c47866ea7d94de431ebe229bd8666ccd591dff2216f4b2210f5f5244",
+    ".local/unseen-holdout-v5/score.py": "79323e9cc06b92b353285fe2d23db7d3806f54ef22722874ecc35f0fe8d105cb",
+    "app/build.gradle.kts": "d05ad76081273677b8b931edee76371c6d8cec5a0094550ae865e367759c8a17",
+    "app/src/main/java/com/lifeHub/ai/data/MobileAiApi.kt": "21e0841f147f793da423d2ddccb875f8da48d8175d7c327a19d886fde36aa5ad",
+    "app/src/main/java/com/lifeHub/ai/data/MobileModelStore.kt": "780d6d7a071d506e28d897f62b19eedb3e471609201f638ef0a5dda0cd1466f4",
+    "app/src/main/java/com/lifeHub/ai/data/UnicodeSafeMessages.java": "c9db85e36c9d2423bf26b1a9f2c735b79ef0b02c24d7ba1782c530e252a32e76",
+    "app/src/main/python/mobile_bridge.py": "ddbfd5f37290fd998cea5c0129e58d1a6b6c33d1e4f7306f2828c186eee4bc3a",
+    "app/src/main/python/mobile_rules.py": "3091a88789cb0046cfdde979f6a0d8852795ea6d31902a5694f38c1db6447682",
+    "app/src/main/python/mobile_titles.py": "ddca3180f9146ac0dc1d3158a25049eea2d34fa2f0b90a75d1759fbfb6455bbb",
+    "backend/action_rules.py": "240789b22aaf8a02b461c549309d66642346656c39f42da38e37656af6507724",
+    "backend/action_service.py": "eb7d05b73584f18f3fcf2c5bda47695fe5fa0f654baa683bd80b890420860d25",
+    "backend/evaluate_actions.py": "7995c702c311165f06e4e01ea50b6f8964fb47a027829b73cdb347fc1b4015b5",
+    "backend/evaluate_holdout.py": "897247ec22c8ce0523a36a2a9f47357e7f288832ae3ad4812c1ac7c0ece0d59e",
+    "backend/task_service.py": "421bd964e1db1b9335142237863e9c6c08bde8a2418f22d34a9d6f33d080ecc8",
+    "backend/text_evidence.py": "930580dd24b470901dc28ec38f626d5029dc288015319c1f70ebb7a627b2382d",
+    "outputs/lifehub-unseen-holdout-v5/input-audit.json": "ca3db399866404c5f0f4a495dce8cf6edf42b4dd2fb362871b9c1b1cd65103d7",
+    "scripts/mobile-evaluation/NativeRunner.java": "db75b8a40e865cdbf64a5595d05f2e1367dffff4722f26fafb3b311d18fb2a73",
+    "scripts/mobile-evaluation/prepare_and_validate.py": "46f2bdd33b4cdfe0c2856a7606878767dfd0fa6d643cba98b5c865635025e0d9",
+    "scripts/mobile-evaluation/run_v4_regression.ps1": "d0936a2fe2fb8cdbefc0273d4ca9b37300302450a700ec61d039394324caaab3",
+    "scripts/mobile-evaluation/score_holdout.py": "c7c18f4a718507260a3d52d6ae67fd7b2f528f3455721a5ab345399375dcb9ae",
+    "scripts/mobile-evaluation/score_v4_regression.py": "8377063f43d40b7480030d21aa7b8520f4b4c022b8f6b0d55330864209efe67f",
+    "scripts/mobile-evaluation/supervise_native.py": "ae7dadff49ad038b738f01848d79397d9a4e9d9517ad084ba4222f9b345980f5",
+    "scripts/mobile-evaluation/verify_sources.py": "32b81621512e214c7bd52e70e91c80054646dd0e1814865c59f1c24be02a4a22"
+  },
+  "runtimeSha256": {
+    ".local/ondevice-research/jvm-libs/annotations-23.0.0-javadoc.jar": "631038d3c232e65f0f427885c397a9ea13a368b2e67a2748d6f874781cb884a2",
+    ".local/ondevice-research/jvm-libs/gson-2.13.2.jar": "dd0ce1b55a3ed2080cb70f9c655850cda86c206862310009dcb5e5c95265a5e0",
+    ".local/ondevice-research/jvm-libs/kotlin-reflect-2.2.21.jar": "44380abf37d245ce5c0f294f43512d1c39a59642bfa463922c74e96877cf49f8",
+    ".local/ondevice-research/jvm-libs/kotlin-stdlib-2.2.21.jar": "6558a3d233da56a20934b32159f9db5f86ed5816ef098f78a2c223dc6abb79dd",
+    ".local/ondevice-research/jvm-libs/kotlinx-coroutines-core-jvm-1.9.0-sources.jar": "01e0f26a274d8f2f2ae702b161bc0980cea817bfcaf66ca4944434ea7b601771",
+    ".local/ondevice-research/jvm-libs/litertlm-jvm-0.10.2.jar": "0ac616fec7e8d4404b40c97235e9876031d6b853f783bb1923a8b70e3d790813"
+  },
+  "preservedRegressionSha256": {
+    "docs/evaluation-mobile-v4-regression/chinese-120.csv": "48863f9e009bd690e6a4ef691d402a735accaec2c22b7ba2e29cf2426aa656dd",
+    "docs/evaluation-mobile-v4-regression/english-120.csv": "362b8ae446ea5776b816559b31881ecd6fb0c03243ab041721f774a0410e0428",
+    "docs/evaluation-mobile-v4-regression/failures.csv": "9154a4d6b58379677549582c75ce8681356263608a052565ba7331339b3ddf3c",
+    "docs/evaluation-mobile-v4-regression/Lifehub-Plus-V4-Regression.xlsx": "78ce2dfef8ed9fceb8bf19489dcc008be20161577c7f192610b162153b0f741d",
+    "docs/evaluation-mobile-v4-regression/protocol.json": "638a3a1dae9f5fa2f2430b9515d3b0f7b1f2ba552e60f0acf1f675779d868364",
+    "docs/evaluation-mobile-v4-regression/reliability.json": "7776b10e764ed5c06c56be462caddb4653bf1135d539720ca2802572dcb93448",
+    "docs/evaluation-mobile-v4-regression/REPORT.md": "f6f1cdc089381445c7839beaf5f88a4bf91497dfd973a0d237fc5c3f9008260d",
+    "docs/evaluation-mobile-v4-regression/reproduction.json": "2fba91871c5873e742fd6a838e886b9b98ac0c4e80facc23288ba01ef3faef57",
+    "docs/evaluation-mobile-v4-regression/results.csv": "7a7aac74522fd96d864d1d1282d89e7d6963fe52ab6a3b27d82483903c628da1",
+    "docs/evaluation-mobile-v4-regression/results.json": "758f0b807da9db0464edd0d090cf161d47eb28e3f4cbb2714171020cd23ee434",
+    "docs/evaluation-mobile-v4-regression/run.json": "691a4a7af55e581486ceb5046bce047a3caffe96f38c68769b68dd141f68d29a",
+    "backend/evaluation/mobile_holdout_v4.json": "e11a2fccc1ab2edc40ef7a2d1694c905ecdb1c76492350d712c8fab8ae0d3c3f",
+    "README.md": "89e50b1b29bcab4d4477d2902842986fff25ee8c423723da29d18a385b59a4c7"
+  }
+}

@@ -129,35 +129,43 @@ The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. For a s
 
 ## Model Evaluation
 
-The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. Version 1.1.3 improves negation, multiple-action detection, Health routing, mixed-language fields, title recovery and date/time parsing.
+The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. Version 1.1.3 is evaluated on two separate bilingual datasets:
 
-### Latest post-fix regression
+- **240-case regression suite:** 120 Chinese and 120 English inputs used during development, retained for repeatable regression checks.
+- **120-case unseen holdout:** 60 Chinese and 60 English inputs, 15 per workflow per language. Inputs, expected answers, scoring code and source hashes were frozen before a single first-pass run. No prompt or rule changes were made from its results.
 
-The same **120 Chinese and 120 English inputs** were run again with fresh generation after the fixes. These inputs informed development, so the results are **seen-set regression evidence**, not a new holdout or unseen-model accuracy. The recorded outputs and expected answers remain unchanged.
+| Metric | Regression (240 cases) | Unseen first pass (120 cases) |
+|---|---:|---:|
+| Routing after validation | 240/240 (100.00%) | 104/120 (86.67%) |
+| Required fields | 432/432 (100.00%) | 197/216 (91.20%) |
+| All annotated checks | 238/240 (99.17%) | 85/120 (70.83%) |
+| Clarification handling | 60/60 (100.00%) | 13/24 (54.17%) |
+| Raw model routing, invoked subset | 161/192 (83.85%) | 89/111 (80.18%) |
 
-| Metric | Version 1.1.3 regression |
-|---|---|
-| Routing after validation | 240/240 (100.00%) |
-| Required fields | 432/432 (100.00%) |
-| All specified fields | 238/240 (99.17%) |
-| Clarification handling | 60/60 (100.00%) |
+### Unseen holdout results
 
-| Language | Routing | Required fields | All specified fields |
+| Language | Routing | Required fields | All annotated checks |
 |---|---|---|---|
-| Chinese | 120/120 (100.00%) | 216/216 (100.00%) | 119/120 (99.17%) |
-| English | 120/120 (100.00%) | 216/216 (100.00%) | 119/120 (99.17%) |
+| Chinese | 50/60 (83.33%) | 98/108 (90.74%) | 40/60 (66.67%) |
+| English | 54/60 (90.00%) | 99/108 (91.67%) | 45/60 (75.00%) |
 
-The run made **192 model calls**, with **48 preflight responses**, **0 processing errors** and **0 expected-clarification inputs returned as drafts**. Raw model routing on the invoked subset was **161/192 (83.85%)**. All failures remain in the denominator.
+The first pass made **111 model calls** and received **9 preflight responses**. All 120 cases remain in the denominator, including **2 processing errors** and **10 expected-clarification requests returned as drafts**. Supported draft checks passed **72/96 (75.00%)**. No failed output or expected answer was repaired after the run.
 
-These are application-pipeline scores, including deterministic rules. Inference ran on Windows CPU with the same model file, prompt, text transport and validation as the mobile implementation. They do not measure Android inference or database-write success. Chinese/English scenario families overlap; this internally authored set is not an independent benchmark. A future untouched holdout is needed to assess generalization.
+The gap from the regression scores identifies remaining work: unsupported queries or edits can become new drafts, dates without a year can be missed, titles can lose the activity, and negation can affect priority or payment accounts. The [failure analysis](docs/evaluation-unseen-v5/FINDINGS.md) includes concrete examples. The app cannot execute transfers. Saving a new record requires user confirmation.
 
-The frozen expectations interpret "not urgent / 不急" as normal priority. Production leaves priority unset because the task may still be important; these disagreements remain counted as failures. Users can select the priority in the review screen.
+**[Unseen dataset and protocol](docs/evaluation-unseen-v5/README.md)** · [Full first-pass report](docs/evaluation-unseen-v5/REPORT.md) · [Chinese 60](docs/evaluation-unseen-v5/chinese-60.csv) · [English 60](docs/evaluation-unseen-v5/english-60.csv) · [All 35 failed cases](docs/evaluation-unseen-v5/failures.csv)
 
-**[Full regression report](docs/evaluation-mobile-v4-regression/REPORT.md)** · [Excel results](docs/evaluation-mobile-v4-regression/Lifehub-Plus-V4-Regression.xlsx) · [Chinese 120](docs/evaluation-mobile-v4-regression/chinese-120.csv) · [English 120](docs/evaluation-mobile-v4-regression/english-120.csv) · [Failures](docs/evaluation-mobile-v4-regression/failures.csv)
+### Scope and regression evidence
 
-Application checks passed separately: **125/125 Python**, **20/20 Android/JVM unit** and **25/25 Android integration tests**. The latter cover packaged language rules, confirmation, duplicate prevention, cancellation, account isolation and persistence. See [evidence and commands](docs/evaluation-mobile-v4-regression/reliability.json).
+These are application-pipeline scores, including deterministic validation; raw model routing is shown separately. Required-field checks include predeclared blanks, and titles use keyword alternatives. Inference ran on Windows CPU with the same model file, prompt, text transport and validation as the mobile implementation. The scores do not measure Android execution, database-write success or actual device-usage statistics.
 
+Both datasets were internally authored, not independently collected benchmarks. The holdout was screened against 916 historical inputs and was not used for application tuning before its first pass. Related product capabilities and boundary families still overlap. If it informs future fixes, later runs on it will be labelled regression.
 
+The **240-case regression remains unchanged** and was not rerun or combined with the holdout. Its two remaining failures concern the frozen interpretation of "not urgent / 不急": the application leaves priority unset rather than assuming normal priority.
+
+**[Full regression report](docs/evaluation-mobile-v4-regression/REPORT.md)** · [Excel results](docs/evaluation-mobile-v4-regression/Lifehub-Plus-V4-Regression.xlsx) · [Chinese 120](docs/evaluation-mobile-v4-regression/chinese-120.csv) · [English 120](docs/evaluation-mobile-v4-regression/english-120.csv)
+
+Previously recorded application checks passed separately: **125/125 Python**, **20/20 Android/JVM unit** and **25/25 Android integration tests**. These were not rerun as part of the holdout. See [evidence and commands](docs/evaluation-mobile-v4-regression/reliability.json).
 
 ## Project Structure
 
@@ -184,9 +192,9 @@ The project includes the Android client, backend service and local persistence l
 <details>
 <summary><b>Developer Documentation and Quality Assurance</b></summary>
 
-The [current evaluation report](docs/evaluation-mobile-v4-regression/REPORT.md) includes the fixed inputs, raw outputs, failed cases and separate reliability evidence.
+The [unseen holdout guide](docs/evaluation-unseen-v5/README.md) includes frozen inputs, raw outputs, failed cases and score-verification commands. The [regression report](docs/evaluation-mobile-v4-regression/REPORT.md) retains the separate 240-case results and reliability evidence.
 
-The [40-case development set](backend/eval_actions_fields.json) stays separate from the 240-input evaluation. The current score is a seen-set regression result; future untouched inputs are needed to assess generalization.
+The [40-case development set](backend/eval_actions_fields.json), 240-case regression suite and 120-case unseen holdout have distinct roles. Their scores are not combined.
 
 Automated checks cover database migrations, account isolation, repeated submissions and screen restoration. Commands, recorded results and model evaluation scope are documented in [Quality Assurance](docs/QUALITY.md), the [Development Guide](docs/DEVELOPMENT_GUIDE.md) and the [Engineering Review](docs/ENGINEERING_REVIEW.md). Additional engineering notes include Chinese-language development records.
 
@@ -197,7 +205,7 @@ Automated checks cover database migrations, account isolation, repeated submissi
 - Account isolation applies to local data. There is no server-side authentication, cloud synchronization, cross-device session management or password recovery. Local databases are not encrypted.
 - Health statistics describe the entire device. Local accounts see the same device statistics, subject to Android permissions and event retention.
 - Financial amounts currently use CNY, and each AI request produces at most one action draft.
-- Next priorities are the intent and field failures listed in the v4 first-pass report, followed by reducing main-thread work in schedule persistence. Further changes informed by v4 will be evaluated as regression, with a future untouched set needed for generalization.
+- Next priorities are the unsupported-intent, date, title and negation failures in the [unseen holdout](docs/evaluation-unseen-v5/FINDINGS.md), followed by reducing main-thread work in schedule persistence. Changes informed by this set will be evaluated as regression; a later generalization claim requires another untouched set.
 
 ## Acknowledgements and Provenance
 

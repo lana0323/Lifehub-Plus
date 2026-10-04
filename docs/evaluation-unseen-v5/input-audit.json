@@ -1,0 +1,1127 @@
+{
+  "method": "NFKC, casefold and punctuation removal; exact match and character SequenceMatcher against available historical JSON inputs and literal text dictionaries in backend Python tests. No application outputs used.",
+  "limitations": "This is lexical screening, not proof of semantic independence or absence from model pretraining. Product capabilities and boundary families necessarily overlap with regression. Not every historical chat/private input is covered.",
+  "priorUniqueInputs": 916,
+  "exactDuplicates": 0,
+  "reviewThreshold": 0.78,
+  "aboveThreshold": [],
+  "languages": {
+    "zh": 60,
+    "en": 60
+  },
+  "outcomes": {
+    "draft": 96,
+    "clarification": 24
+  },
+  "tags": {
+    "negated_finance": 2,
+    "written_clock": 1,
+    "unsupported_mutation": 5,
+    "quoted_date": 4,
+    "typo": 5,
+    "multiple_records": 5,
+    "ordinary_complete": 8,
+    "invalid_negative_amount": 1,
+    "navigation": 2,
+    "ambiguous_date": 4,
+    "mixed_language": 3,
+    "unsupported_device_control": 1,
+    "colloquial": 2,
+    "daily_ranking": 1,
+    "daily_total": 2,
+    "timezone_year_boundary": 1,
+    "vague_date": 2,
+    "negated_execution": 2,
+    "next_weekday": 3,
+    "unsupported_query": 4,
+    "weekly_ranking": 1,
+    "noon": 1,
+    "missing_date": 4,
+    "scholarship": 1,
+    "unsupported_health_logging": 2,
+    "this_week_past": 2,
+    "timezone_date_boundary": 2,
+    "numeric_relative": 2,
+    "negated_other_action": 2,
+    "weekly_daily_bars": 2,
+    "explicit_other_category": 1,
+    "missing_time": 2,
+    "negated_kind": 2,
+    "missing_optional": 2,
+    "denied_transaction": 1,
+    "midnight": 1,
+    "unsupported_execution": 1,
+    "weekly_breakdown": 1,
+    "invalid_clock": 2,
+    "written_relative": 2,
+    "weekly_usage": 2,
+    "negated_account": 1,
+    "invalid_amount_separator": 1,
+    "unsupported_balance": 1,
+    "bare_weekday": 1,
+    "other_person_device": 1,
+    "ordinary_income": 2,
+    "missing_amount": 2,
+    "cross_module": 3,
+    "written_amount": 1,
+    "app_breakdown": 2,
+    "negated_priority": 2,
+    "relative_past": 2,
+    "explicit_month_day": 2,
+    "ordinary_usage": 2,
+    "missing_account": 2,
+    "invalid_amount_precision": 1
+  },
+  "sources": [
+    {
+      "path": "app/src/androidTest/assets/holdout-replay.json",
+      "sha256": "cdeac6d728afaa7b2cedbd8b98d43625c2337514d4ffd72fca0a74ca46408890"
+    },
+    {
+      "path": "backend/eval_actions.json",
+      "sha256": "ebe107c4508dde624f887e00eafc87b019b1643f766f79e7bf0123f34e8996ee"
+    },
+    {
+      "path": "backend/eval_actions_fields.json",
+      "sha256": "a8e6ccfe5044a0d72db903bad267679f08ddbdfde0fc0249724746d36c0ef218"
+    },
+    {
+      "path": "backend/eval_cases.json",
+      "sha256": "d116d1a3278fdd4568bc961c7539ec3a405cc1a9aac812ef632d42f61f011532"
+    },
+    {
+      "path": "backend/eval_holdout.json",
+      "sha256": "d0b96f6ffdbd2afdef2617e2430842731ea511119fc8e090ee4b55466c2b015e"
+    },
+    {
+      "path": "backend/evaluation/holdout_v1.json",
+      "sha256": "4d5e2524e0e7bff5def68965549765a5f1322908937a4d97583f314f38fdedea"
+    },
+    {
+      "path": "backend/evaluation/holdout_v1.lock.json",
+      "sha256": "b7c52b1cd94da8404224afc37e30e6a7d3ce6367491fb5737ec7bfe3d3e64c3b"
+    },
+    {
+      "path": "backend/evaluation/holdout_v2.json",
+      "sha256": "c152175c5faa9304bbfa5da7dd343215c8ee5dcfe264350731fae465b952abd4"
+    },
+    {
+      "path": "backend/evaluation/holdout_v2.lock.json",
+      "sha256": "0ffb62e6672fa8c6a56094b8ed8c2e5fa4ac7e2636540ec7db5fe48f4b48bd8e"
+    },
+    {
+      "path": "backend/evaluation/mobile_holdout_v3.json",
+      "sha256": "c27f592df878752295f9a60dd671088d1a72d1850e3ce4678752d1444e8583e3"
+    },
+    {
+      "path": "backend/evaluation/mobile_holdout_v4.json",
+      "sha256": "e11a2fccc1ab2edc40ef7a2d1694c905ecdb1c76492350d712c8fab8ae0d3c3f"
+    },
+    {
+      "path": "backend/test_action_recovery.py",
+      "sha256": "2db7dd5b762fda031c2001a228ff853855db864d0f1be1e019a84e08de20fa1f"
+    },
+    {
+      "path": "backend/test_action_service.py",
+      "sha256": "86270195beccac97a0a069d57888dc40598db020db18bb8aa3ab5f30d3e42649"
+    },
+    {
+      "path": "backend/test_evaluate_actions.py",
+      "sha256": "5c9c00df28a0416cfadba7db886a3ace63efb346997f658a1e6ed93e417e5b36"
+    },
+    {
+      "path": "backend/test_evaluate_holdout.py",
+      "sha256": "531d5bbea14d5d62ac8aa9a8daf07572f36af144e80c3888bdf22acdd853147c"
+    },
+    {
+      "path": "backend/test_mobile_boundaries.py",
+      "sha256": "fa3abe3aab4cf36783f4bec52c5561ac9693c1893e16cb3edb8e445407229c98"
+    },
+    {
+      "path": "backend/test_mobile_bridge.py",
+      "sha256": "ddfa37d497033c6c025e53822be1d2934663f8759ea0e6da38262081400eafd1"
+    },
+    {
+      "path": "backend/test_mobile_language.py",
+      "sha256": "ab569bb8bf0fc87b8e77e7f816690435912070a0ab3e954029be6250f997f82e"
+    },
+    {
+      "path": "backend/test_mobile_refinements.py",
+      "sha256": "d03978dddf7b067fd9f8551cac903e2988ba3e83d1653ad88888e25536fbde0b"
+    },
+    {
+      "path": "backend/test_mobile_titles.py",
+      "sha256": "8eb47baa7f4db9858437de7d54c5a2c9ef9ccc1f4c570ccf91ef9c3c0f402710"
+    },
+    {
+      "path": "backend/test_server.py",
+      "sha256": "16722d595a77fbc9da51a78f2ca30b4a06d40cfb64fe19b40d40a89b233fdd36"
+    },
+    {
+      "path": "backend/test_task_service.py",
+      "sha256": "7b380af7f23dba0543527dc973710370b07070b76ce41a98a538fa128ac393e6"
+    }
+  ],
+  "nearestMatches": [
+    {
+      "id": "U5-EN-HEALTH-02",
+      "similarity": 0.6833,
+      "input": "Which apps have taken up the largest share of my screen time today on this device?",
+      "nearestId": "mh4-health-en-14",
+      "nearestInput": "Which apps have taken up my time today? Display this device's usage.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-05",
+      "similarity": 0.675,
+      "input": "How long have I spent using apps on this handset today?",
+      "nearestId": "mh3-health-en-01",
+      "nearestInput": "How long have I spent on my phone so far today?",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-MEMO-01",
+      "similarity": 0.6731,
+      "input": "Add a normal-priority to-do to label the freezer containers today.",
+      "nearestId": "v2-memo-en-02",
+      "nearestInput": "Add a normal priority task to archive the debate notes today.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-12",
+      "similarity": 0.6596,
+      "input": "Please record a 61-yuan cash expense for a haircut today, category Others.",
+      "nearestId": "mh3-finance-en-15",
+      "nearestInput": "Record a 0 yuan cash expense for tea today.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-04",
+      "similarity": 0.6512,
+      "input": "Schedule a ceramics studio induction next Tuesday at 2 pm.",
+      "nearestId": "schedule-en-10",
+      "nearestInput": "Schedule a team lunch next Thursday at 12:30 pm.",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-09",
+      "similarity": 0.6452,
+      "input": "Where can I check my screeen time for today? Open that page.",
+      "nearestId": "v2-health-en-06",
+      "nearestInput": "Which apps occupied my screen today? Open the usage page.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-MEMO-07",
+      "similarity": 0.6422,
+      "input": "Put cleaning the aquarium filter on my list in 3 days; urgent.",
+      "nearestId": "mh3-memo-en-01",
+      "nearestInput": "Put replacing the smoke alarm battery on my list for today; this is urgent.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-04",
+      "similarity": 0.6316,
+      "input": "进 Health，我想查一下手机使用的周统计。",
+      "nearestId": "v2-health-zh-04",
+      "nearestInput": "带我进入Health查看屏幕使用统计。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-09",
+      "similarity": 0.6316,
+      "input": "记录一下：今天买橡皮花了2.345元现金，购物支出。",
+      "nearestId": "finance-zh-13",
+      "nearestInput": "记录今天买铅笔花了-12元，现金支付。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-03",
+      "similarity": 0.6306,
+      "input": "Add the tenant meeting that was this Monday at 10 am to my calendar.",
+      "nearestId": "mh3-schedule-en-04",
+      "nearestInput": "Add the safety briefing I attended this Monday at 08:50 to my calendar.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-10",
+      "similarity": 0.6222,
+      "input": "Show my on-device app usage, and do not create a finance entry.",
+      "nearestId": "v2-health-en-18",
+      "nearestInput": "I need the app usage dashboard, not a finance entry.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-01",
+      "similarity": 0.62,
+      "input": "Calendar entry: orchestra rehearsal on November 27 at 6:20 pm.",
+      "nearestId": "v2-schedule-en-06",
+      "nearestInput": "Create a calendar event for a choir rehearsal in 2 days at 7pm.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-04",
+      "similarity": 0.6076,
+      "input": "Open the app-usage breakdown for this week, please.",
+      "nearestId": "mh3-health-en-12",
+      "nearestInput": "Open the breakdown of app usage on this device.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-02",
+      "similarity": 0.5862,
+      "input": "Record yesterday’s tram fare: CNY 4, paid with my bank card, transport expense.",
+      "nearestId": "v2-finance-en-10",
+      "nearestInput": "Record yesterday's taxi expense of 47 yuan, charged to my bank card.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-12",
+      "similarity": 0.5857,
+      "input": "Create a calendar draft for a cello lesson at 5 pm, either Friday or Saturday, not decided yet.",
+      "nearestId": "mh3-schedule-en-10",
+      "nearestInput": "Create a calendar draft for a boiler inspection. We have not agreed a day or time.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-03",
+      "similarity": 0.58,
+      "input": "I only want this phone’s usage report, not a reminder to exercise.",
+      "nearestId": "mh3-health-en-13",
+      "nearestInput": "Show my phone usage, without making a reminder to reduce it.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-15",
+      "similarity": 0.5739,
+      "input": "Check my screen time today and schedule a dentist visit for Friday.",
+      "nearestId": "mh4-memo-en-28",
+      "nearestInput": "Add checking the tent as a to-do and schedule a camping briefing on Friday.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-MEMO-03",
+      "similarity": 0.5692,
+      "input": "Put renewing the bicycle locker permit on my task list for next Monday. High priority.",
+      "nearestId": "mh3-memo-en-01",
+      "nearestInput": "Put replacing the smoke alarm battery on my list for today; this is urgent.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-12",
+      "similarity": 0.5686,
+      "input": "Can you navigate to the screen that lists how long I use each app on this phone?",
+      "nearestId": "mh3-health-en-11",
+      "nearestInput": "Can I see how long I used each application today?",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-MEMO-09",
+      "similarity": 0.5684,
+      "input": "Remeber to re-order hearing aid batteries; add that to my to-do list.",
+      "nearestId": "mh3-memo-en-10",
+      "nearestInput": "Remember to return the camping stove to my sister.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-07",
+      "similarity": 0.5636,
+      "input": "Record a birthday gift of 220 yuan received in cash; I do not know the transaction date.",
+      "nearestId": "v2-finance-en-06",
+      "nearestInput": "Record a gift of 88 yuan received today in WeChat.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-08",
+      "similarity": 0.5588,
+      "input": "Calendar: costume fitting today at 09:15.",
+      "nearestId": "v2-schedule-en-24",
+      "nearestInput": "Add a calendar event: meet the mentor today.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-07",
+      "similarity": 0.5581,
+      "input": "Go to Health and show the time spent in each application.",
+      "nearestId": "mh3-health-en-02",
+      "nearestInput": "Take me to the list of time spent in each app today.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-06",
+      "similarity": 0.5581,
+      "input": "今天买了电影票，支出39元，具体用哪个账户付的记不清了。",
+      "nearestId": "mh4-finance-zh-12",
+      "nearestInput": "今天午饭付了32元，哪个账户付的不记得。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-13",
+      "similarity": 0.5567,
+      "input": "Show all the appointments I booked for next weekend.",
+      "nearestId": "mh4-schedule-en-27",
+      "nearestInput": "List all the appointments currently on my calendar for tomorrow.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-09",
+      "similarity": 0.5556,
+      "input": "明天下午二点四十五分去牙科复查，新增日程。",
+      "nearestId": "mh3-schedule-zh-02",
+      "nearestInput": "明天上午9点半去牙科复诊，帮我加日程。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-08",
+      "similarity": 0.5545,
+      "input": "Today I paid minus 8 yuan cash for a notebook. Enter a Shopping expense.",
+      "nearestId": "mh3-finance-en-18",
+      "nearestInput": "Today I paid 2,450 yuan rent by bank card; add an expense.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-MEMO-11",
+      "similarity": 0.5526,
+      "input": "Task for tomorrow: pack the pottery pieces for storage.",
+      "nearestId": "v2-memo-en-27",
+      "nearestInput": "Add a task to pack the telescope today.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-06",
+      "similarity": 0.5517,
+      "input": "Book a calendar event for the astronomy livestream at midnight on November 22.",
+      "nearestId": "mh3-schedule-en-03",
+      "nearestInput": "Book a calendar entry for the archive tour next Tuesday at 2pm.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-08",
+      "similarity": 0.551,
+      "input": "I lost track while scrolling. Can I see today’s phone-usage stats?",
+      "nearestId": "v2-schedule-en-29",
+      "nearestInput": "Add a pottery lesson next Monday and show my phone usage.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-01",
+      "similarity": 0.551,
+      "input": "Take me to Health so I can inspect my phone use over the current week.",
+      "nearestId": "v2-health-en-04",
+      "nearestInput": "Take me to Health to inspect screen-time statistics.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-10",
+      "similarity": 0.55,
+      "input": "今天午饭总共花了28元，不是收入，是用现金付的餐饮支出。",
+      "nearestId": "",
+      "nearestInput": "今天午餐花了28元，用支付宝支付",
+      "source": "backend/eval_actions.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-05",
+      "similarity": 0.5469,
+      "input": "Create a calendar draft for the alumni picnic at 11:30 am; the date is still undecided.",
+      "nearestId": "mh4-schedule-en-10",
+      "nearestInput": "The rehearsal will be Wednesday or Thursday at 1pm; the day is undecided.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-15",
+      "similarity": 0.5455,
+      "input": "Reschedule the event named \"Lab tour\" from Thursday to Friday.",
+      "nearestId": "schedule-en-05",
+      "nearestInput": "Schedule a lab tour today at 18:00.",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-06",
+      "similarity": 0.5393,
+      "input": "Let me compare the daily screen-time totals across this week.",
+      "nearestId": "mh4-health-en-03",
+      "nearestInput": "Open the screen-time dashboard for this device.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-14",
+      "similarity": 0.5391,
+      "input": "Add a bus fare of 5 yuan and separately a bakery purchase of 21 yuan, both today in cash.",
+      "nearestId": "finance-en-13",
+      "nearestInput": "Log a notebook purchase for -19 yuan today paid with cash.",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-03",
+      "similarity": 0.5333,
+      "input": "记账：2026年11月16日，工资到账8600元，银行卡收入。",
+      "nearestId": "mh4-finance-zh-05",
+      "nearestInput": "这个月工资到账4800元，今天入银行卡。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-11",
+      "similarity": 0.5299,
+      "input": "Log 180 yuan spent on a replacement keyboard today. Category Shopping. I used a bank card, not cash.",
+      "nearestId": "v2-finance-en-21",
+      "nearestInput": "Log 19.90 yuan spent at the bakery today in cash.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-03",
+      "similarity": 0.5299,
+      "input": "Income entry for 2026-11-12: 720 yuan from my part-time tutoring job, received through WeChat.",
+      "nearestId": "mh3-finance-en-24",
+      "nearestInput": "Record 11 yuan spent on bread today through WeChat.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-MEMO-12",
+      "similarity": 0.5294,
+      "input": "A task: return the borrowed projector on Saturday or Sunday; I have not chosen a day.",
+      "nearestId": "mh4-memo-en-14",
+      "nearestInput": "Make a task to polish the boots; perhaps Wednesday, perhaps Friday, I have not decided.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-07",
+      "similarity": 0.5294,
+      "input": "切到健康模块，显示各个 app 在本机的使用情况。",
+      "nearestId": "health-05",
+      "nearestInput": "查询今天各个app使用情况",
+      "source": "backend/eval_actions_fields.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-10",
+      "similarity": 0.5283,
+      "input": "Schedule the volunteer orientation for tomorrow at 18:75. I need to check that time.",
+      "nearestId": "v2-schedule-en-20",
+      "nearestInput": "Schedule lunch with my tutor tomorrow at 12pm.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-12",
+      "similarity": 0.5263,
+      "input": "现在打开数字健康，我需要查看今天每个软件的使用时间。",
+      "nearestId": "v2-health-zh-17",
+      "nearestInput": "查询今天每个app的使用时间。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-12",
+      "similarity": 0.5238,
+      "input": "明天或后天，下午四点去排练合唱，日期还在商量，先做日程草稿。",
+      "nearestId": "schedule-zh-11",
+      "nearestInput": "可能明天下午5点排练，添加日程草稿。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-05",
+      "similarity": 0.5231,
+      "input": "Record today’s internet bill as an expense from my bank card. Leave the amount blank for now.",
+      "nearestId": "v2-finance-en-12",
+      "nearestInput": "Record today's pizza expense, paid with WeChat; the amount is missing.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-MEMO-13",
+      "similarity": 0.5227,
+      "input": "Move the due date of my existing passport task to the 28th.",
+      "nearestId": "mh4-memo-en-25",
+      "nearestInput": "Rename my existing \"vacuum\" task to \"mop the hallway\".",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-MEMO-10",
+      "similarity": 0.5225,
+      "input": "Create a memo: check the wheelchair tyre pressure tomorrow, normal rather than high priority.",
+      "nearestId": "memo-10",
+      "nearestInput": "Read chapter 2 tomorrow, normal priority",
+      "source": "backend/eval_actions_fields.json"
+    },
+    {
+      "id": "U5-EN-MEMO-08",
+      "similarity": 0.5225,
+      "input": "Save a memo to read the novel named \"Friday\". No deadline for this.",
+      "nearestId": "mh4-memo-en-16",
+      "nearestInput": "Write a memo about the film named \"Tomorrow\". That is its name, not a deadline.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-MEMO-05",
+      "similarity": 0.5192,
+      "input": "To-do: mend the sleeve on my blue cardigan sometime soon. Low priority.",
+      "nearestId": "memo-en-02",
+      "nearestInput": "Make a to-do to renew my library card today, normal priority.",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-10",
+      "similarity": 0.5179,
+      "input": "Not an expense: a 95-yuan cash gift came in today. Please record the income.",
+      "nearestId": "mh4-finance-en-08",
+      "nearestInput": "A birthday gift of 120 yuan came in cash today. Record gift income.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-06",
+      "similarity": 0.5116,
+      "input": "A finance entry: I spent 33 yuan on soup today, but I cannot recall the payment account.",
+      "nearestId": "mh3-finance-en-09",
+      "nearestInput": "Log 21 yuan spent on noodles today; I have no payment account information.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-MEMO-14",
+      "similarity": 0.5079,
+      "input": "Make a memo to collect the dry cleaning, and also record 46 yuan spent on dinner.",
+      "nearestId": "mh3-memo-en-21",
+      "nearestInput": "Collect the invoice for my dental visit as a task; do not record any spending.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-01",
+      "similarity": 0.5049,
+      "input": "Log today’s 52-yuan museum admission as entertainment, paid in cash.",
+      "nearestId": "v2-finance-en-11",
+      "nearestInput": "Log 28 yuan spent on stationery on 2026-09-24, paid with cash.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-02",
+      "similarity": 0.5036,
+      "input": "Put a botanical garden visit on my calendar for tomorrow. The start time is undecided.",
+      "nearestId": "mh3-schedule-en-16",
+      "nearestInput": "Put a nutrition lecture in my calendar tomorrow at 13:45; I do not want dietary advice.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-04",
+      "similarity": 0.5,
+      "input": "Bought a thermos today for 87.90 yuan with a credit card. Log it under Shopping.",
+      "nearestId": "finance-en-04",
+      "nearestInput": "I bought a jacket for 219 yuan today using a credit card. Record the expense.",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-04",
+      "similarity": 0.5,
+      "input": "下周四上午九点半，实验楼安全培训，加入日历。",
+      "nearestId": "mh4-schedule-zh-03",
+      "nearestInput": "下周一上午9点半有入职培训，请建日程。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-09",
+      "similarity": 0.5,
+      "input": "今天屏幕使甪时间在哪里看，帮我进入那个页面。",
+      "nearestId": "mh3-health-zh-08",
+      "nearestInput": "📱 今天的屏幕使用报告在哪里？",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-07",
+      "similarity": 0.4956,
+      "input": "Add \"Tomorrow Festival\" to the calendar on December 5 at 19:00.",
+      "nearestId": "v2-schedule-en-14",
+      "nearestInput": "Perhaps tomorrow at 6pm we will hold the poetry reading; make a calendar draft.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-13",
+      "similarity": 0.4944,
+      "input": "Add 7 hours of sleep to my health log for last night.",
+      "nearestId": "mh3-health-en-20",
+      "nearestInput": "Save last night's seven hours of sleep in my health journal.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-09",
+      "similarity": 0.4889,
+      "input": "A calender entry for tomorrow at 4 pm: apartment key handover.",
+      "nearestId": "v2-schedule-en-23",
+      "nearestInput": "Add a music practice event for tomorrow at 3:30 pm.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-03",
+      "similarity": 0.4865,
+      "input": "帮我看看本机今天的屏幕使用时长，不要给我安排运动。",
+      "nearestId": "v2-health-zh-14",
+      "nearestInput": "请打开今天的屏幕使用时长汇总。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-13",
+      "similarity": 0.4854,
+      "input": "Correct my last grocery transaction from 48 yuan to 43 yuan.",
+      "nearestId": "v2-finance-en-10",
+      "nearestInput": "Record yesterday's taxi expense of 47 yuan, charged to my bank card.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-13",
+      "similarity": 0.4828,
+      "input": "健康里记一下：今天血压120/80。",
+      "nearestId": "v2-health-zh-25",
+      "nearestInput": "在健康模块记录血压118/76。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-13",
+      "similarity": 0.48,
+      "input": "查一下我银行卡现在还剩多少钱。",
+      "nearestId": "mh4-finance-zh-26",
+      "nearestInput": "找出我银行卡现在的余额。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-MEMO-04",
+      "similarity": 0.48,
+      "input": "Memo please: check the tent poles before November 24.",
+      "nearestId": "mh4-memo-en-09",
+      "nearestInput": "Memo please: send the lab report 今天, 高优先级.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-MEMO-06",
+      "similarity": 0.4793,
+      "input": "Don’t delete any files. Add a task called delete duplicate microscope images.",
+      "nearestId": "memo-en-04",
+      "nearestInput": "Create a task to label the microscope images this Friday, low priority.",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-EN-MEMO-02",
+      "similarity": 0.4773,
+      "input": "A note to myself: digitize Grandma’s handwritten recipe cards.",
+      "nearestId": "v2-health-en-05",
+      "nearestInput": "I want to see my digital wellbeing dashboard.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-02",
+      "similarity": 0.4762,
+      "input": "想知道这周哪些应用占了我最多的手机时间。",
+      "nearestId": "v2-health-zh-06",
+      "nearestInput": "今天哪些应用占用了我的屏幕时间？打开使用情况页面。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-08",
+      "similarity": 0.4762,
+      "input": "今天给公交卡充值1,200元，银行卡付款，记交通支出。",
+      "nearestId": "mh3-finance-zh-25",
+      "nearestInput": "昨日付了房租2200元，银行卡转账，记支出。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-05",
+      "similarity": 0.4737,
+      "input": "记今天的电费支出，银行卡扣款，金额等账单来了再填。",
+      "nearestId": "finance-zh-08",
+      "nearestInput": "记今天的晚餐支出，微信支付，金额忘了。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-11",
+      "similarity": 0.4731,
+      "input": "Bring up the current week’s phone-use statistics in the health section.",
+      "nearestId": "health-en-04",
+      "nearestInput": "Take me to the phone usage statistics page.",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-12",
+      "similarity": 0.4727,
+      "input": "今天花了19元买记事本，使用 WeChat 支付，记一笔 shopping 支出。",
+      "nearestId": "finance-zh-04",
+      "nearestInput": "今天买外套花了268元，信用卡支付，记一笔支出。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-09",
+      "similarity": 0.4724,
+      "input": "Add today’s coffee purchase for twenty-six yuan via Alipay, category Food & Drinks.",
+      "nearestId": "mh4-finance-en-15",
+      "nearestInput": "A bread purchase today cost -12 yuan via Alipay. Put that expense in the form.",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-01",
+      "similarity": 0.4706,
+      "input": "今天早餐豆浆和烧饼一共花了14.50元，支付宝付的，记一笔餐饮支出。",
+      "nearestId": "finance-zh-04",
+      "nearestInput": "今天买外套花了268元，信用卡支付，记一笔支出。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-15",
+      "similarity": 0.4706,
+      "input": "支付宝给物业转600元，现在就转过去。",
+      "nearestId": "mh4-finance-zh-30",
+      "nearestInput": "现在直接从支付宝给房东转2000元。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-EN-FINANCE-15",
+      "similarity": 0.4662,
+      "input": "I never bought the 260-yuan desk lamp; the payment was rejected. Record a purchase anyway.",
+      "nearestId": "finance-en-04",
+      "nearestInput": "I bought a jacket for 219 yuan today using a credit card. Record the expense.",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-10",
+      "similarity": 0.4571,
+      "input": "看看这台手机的应用使用排行榜就行，不用记录支出。",
+      "nearestId": "mh3-health-zh-25",
+      "nearestInput": "清空手机所有应用的使用记录。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-MEMO-15",
+      "similarity": 0.44,
+      "input": "How many of my tasks are still unfinished?",
+      "nearestId": "",
+      "nearestInput": "Show my screen time",
+      "source": "backend/eval_actions.json"
+    },
+    {
+      "id": "U5-EN-HEALTH-14",
+      "similarity": 0.4396,
+      "input": "Block short-video apps automatically after thirty minutes each day.",
+      "nearestId": "v2-health-en-21",
+      "nearestInput": "Show the app usage totals from last month.",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-04",
+      "similarity": 0.439,
+      "input": "今天网上买了卷尺，微信支付23元，分类购物，帮我记一下。",
+      "nearestId": "mh4-finance-zh-02",
+      "nearestInput": "今天微信付了7元的公交车费，帮我记账。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-01",
+      "similarity": 0.439,
+      "input": "日历新建：11月21日14:30参加陶艺体验课。",
+      "nearestId": "mh3-schedule-zh-06",
+      "nearestInput": "2026年11月18日10:40有验光预约。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-08",
+      "similarity": 0.4375,
+      "input": "用机时间是不是太长了？先打开使用时长统计给我看。",
+      "nearestId": "health-zh-02",
+      "nearestInput": "打开屏幕使用时长看板。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-11",
+      "similarity": 0.4375,
+      "input": "新建日程：三天后上午八点参观水处理厂。",
+      "nearestId": "v2-schedule-zh-06",
+      "nearestInput": "创建日程，2天后晚上7点合唱排练。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-08",
+      "similarity": 0.4324,
+      "input": "把“Friday 摄影展”加入明天上午十点的日程。",
+      "nearestId": "v2-schedule-zh-23",
+      "nearestInput": "添加明天下午3点半的音乐练习日程。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-14",
+      "similarity": 0.4286,
+      "input": "今天午饭现金18元，晚饭微信32元，分别记两笔。",
+      "nearestId": "mh4-finance-zh-28",
+      "nearestInput": "先记今天9元早餐，再记18元晚饭，两笔都用微信。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-02",
+      "similarity": 0.4242,
+      "input": "昨天坐轮渡花了6元现金，记到交通费。",
+      "nearestId": "mh3-finance-zh-27",
+      "nearestInput": "今天花了12欧元买咖啡，现金，帮我记账。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-13",
+      "similarity": 0.4242,
+      "input": "把我之前那个“寄还钥匙”的待办直接标成完成。",
+      "nearestId": "mh3-memo-zh-28",
+      "nearestInput": "把“换床单”这项任务直接标成完成。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-01",
+      "similarity": 0.4242,
+      "input": "我又刷手机刷过头了，打开健康页面，看看今天用了多久。",
+      "nearestId": "health-zh-01",
+      "nearestInput": "查看今天手机用了多久。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-10",
+      "similarity": 0.4211,
+      "input": "安排明天的读书会，时间写25:10，稍后我再核对。",
+      "nearestId": "v2-schedule-zh-28",
+      "nearestInput": "安排明天读书会，再记录38元食品支出。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-14",
+      "similarity": 0.4162,
+      "input": "Two separate calendar items, please: a ferry departure tomorrow at 8 am, then a parent-teacher conference the day after tomorrow at 3 pm.",
+      "nearestId": "mh3-memo-en-17",
+      "nearestInput": "Add returning the parcel to my list, maybe tomorrow or the day after tomorrow.",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-EN-SCHEDULE-11",
+      "similarity": 0.4156,
+      "input": "Add a birdwatching walk in 4 days, starting at 7 am.",
+      "nearestId": "schedule-en-03",
+      "nearestInput": "Add a dentist appointment next Monday at 9am.",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-14",
+      "similarity": 0.4138,
+      "input": "我弟手机今天玩游戏多久，直接帮我查一下他的。",
+      "nearestId": "mh3-health-zh-10",
+      "nearestInput": "手机今天亮屏多久了？",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-01",
+      "similarity": 0.4,
+      "input": "备忘录加一项：今天把打印机墨盒换掉，普通优先级。",
+      "nearestId": "memo-zh-02",
+      "nearestInput": "把整理实验柜加入待办，今天完成，普通优先级。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-07",
+      "similarity": 0.4,
+      "input": "录一笔现金收入300元，是叔叔给的生日礼金，日期先不填。",
+      "nearestId": "v2-finance-zh-04",
+      "nearestInput": "记一笔今天奖学金收入3600元，转入银行卡。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-06",
+      "similarity": 0.3889,
+      "input": "我想对比本周每天的用机时长，带我去对应页面。",
+      "nearestId": "mh3-health-zh-03",
+      "nearestInput": "今天刷手机花了多久，带我去统计页面。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-15",
+      "similarity": 0.3871,
+      "input": "把我最紧急的三条待办找出来给我看。",
+      "nearestId": "mh4-finance-zh-27",
+      "nearestInput": "把今天所有娱乐支出加起来给我看。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-15",
+      "similarity": 0.3846,
+      "input": "看看明天下午有没有空档可以放个会议。",
+      "nearestId": "schedule-09",
+      "nearestInput": "明天下午3点半开会",
+      "source": "backend/eval_actions_fields.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-05",
+      "similarity": 0.381,
+      "input": "今天一整天花了多少时间在这部手机的应用上？",
+      "nearestId": "mh4-health-zh-14",
+      "nearestInput": "今天都把时间花在哪些应用上了？查看本机使用情况。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-08",
+      "similarity": 0.381,
+      "input": "帮我存个待办：续借图书馆那本《Tomorrow》，没有截止时间。",
+      "nearestId": "",
+      "nearestInput": "Buy milk tomorrow",
+      "source": "backend/eval_cases.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-03",
+      "similarity": 0.375,
+      "input": "本周二下午三点有消防演练，把它补到日程里。",
+      "nearestId": "schedule-zh-06",
+      "nearestInput": "这周三有篮球课，帮我加到日程。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-15",
+      "similarity": 0.3721,
+      "input": "打开用机统计，再帮我新建一个明天跑步的备忘。",
+      "nearestId": "mh4-health-zh-27",
+      "nearestInput": "先打开健康使用统计，然后记我今天的早餐支出12元。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-HEALTH-11",
+      "similarity": 0.3636,
+      "input": "能展示这周的屏幕时间吗，我想自己检查一下用机习惯。",
+      "nearestId": "health-zh-12",
+      "nearestInput": "查上周的屏幕使用时间。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-10",
+      "similarity": 0.3636,
+      "input": "建一个任务，明天把阳台的花盆搬进屋；不要设成高优先级，普通就行。",
+      "nearestId": "v2-memo-zh-26",
+      "nearestInput": "添加任务明天拍摄雕塑，不指定优先级。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-14",
+      "similarity": 0.359,
+      "input": "日程加两个：明天八点游泳，后天六点瑜伽。",
+      "nearestId": "mh3-schedule-zh-25",
+      "nearestInput": "添加明天9点的咨询会，然后安排后天10点的复诊。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-02",
+      "similarity": 0.359,
+      "input": "想起来一件待办，给旧电脑里的毕业照片做备份。",
+      "nearestId": "mh3-memo-zh-02",
+      "nearestInput": "把旧手机里的照片备份到硬盘，明天完成，重要。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-06",
+      "similarity": 0.3529,
+      "input": "周日中午十二点与表姐吃饭，加进日程。",
+      "nearestId": "mh3-schedule-zh-03",
+      "nearestInput": "把下周一下午4点的摄影棚预约放进日程。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-13",
+      "similarity": 0.3478,
+      "input": "把日历里周六的体检取消掉。",
+      "nearestId": "v2-schedule-zh-25",
+      "nearestInput": "日历添加这周二的木工课。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-02",
+      "similarity": 0.3429,
+      "input": "给我安排一个明天的活动：去展览馆听讲座，时间待定。",
+      "nearestId": "v2-schedule-zh-11",
+      "nearestInput": "安排摄影聚会，日期和时间待定。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-FINANCE-11",
+      "similarity": 0.3265,
+      "input": "这笔到账要归奖学金：学校的竞赛奖励已打进银行卡，金额1500元，入账日期就是今天。",
+      "nearestId": "finance-05",
+      "nearestInput": "今天收到奖学金1000元",
+      "source": "backend/eval_actions_fields.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-05",
+      "similarity": 0.303,
+      "input": "日程里记一个羽毛球友谊赛，哪天还没有确定。",
+      "nearestId": "mh4-schedule-zh-09",
+      "nearestInput": "先占个位，搬家交接，哪天有空再定。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-04",
+      "similarity": 0.3,
+      "input": "在 memo 记一下：11月30日之前退还实验室门禁卡。",
+      "nearestId": "schedule-zh-05",
+      "nearestInput": "添加今天18:30参观实验室的日程。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-11",
+      "similarity": 0.2941,
+      "input": "新建备忘：明天整理摄影比赛报名材料。",
+      "nearestId": "v2-memo-zh-29",
+      "nearestInput": "创建温室相关备忘录，并且安排明天的排练。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-12",
+      "similarity": 0.2927,
+      "input": "备忘标题用“收拾针线盒”，周末或者下周再弄，时间还没定。",
+      "nearestId": "schedule-zh-12",
+      "nearestInput": "添加课程日程，本周五或者下周一，尚未确定。",
+      "source": "backend/evaluation/holdout_v1.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-03",
+      "similarity": 0.2857,
+      "input": "周五之前交停车证申请，这个很重要，放入待办。",
+      "nearestId": "mh4-memo-zh-11",
+      "nearestInput": "本周五前完成邮箱归档，列到待办里面。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-SCHEDULE-07",
+      "similarity": 0.2791,
+      "input": "新建活动：12月31日23:15在广场看跨年灯光秀。",
+      "nearestId": "mh3-schedule-zh-06",
+      "nearestInput": "2026年11月18日10:40有验光预约。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-09",
+      "similarity": 0.2703,
+      "input": "往备忘录放一条，核队一下志愿者名单，重要。",
+      "nearestId": "mh3-memo-zh-09",
+      "nearestInput": "请记在备忘录：报销单需附车票，不要记成支出。",
+      "source": "backend/evaluation/mobile_holdout_v3.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-14",
+      "similarity": 0.2667,
+      "input": "新建两个待办：擦自行车链条，另外预约眼镜维修。",
+      "nearestId": "v2-memo-zh-04",
+      "nearestInput": "记个待办，清洁相机镜头。",
+      "source": "backend/evaluation/holdout_v2.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-07",
+      "similarity": 0.2667,
+      "input": "备忘：两天后清洗空气净化器滤网，紧急。",
+      "nearestId": "mh4-memo-zh-10",
+      "nearestInput": "帮我记个任务：两天后把门垫洗了。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-05",
+      "similarity": 0.25,
+      "input": "买一盒彩色回形针，最近有空再办，优先级低，存成备忘。",
+      "nearestId": "",
+      "nearestInput": "明天买牛奶，普通优先级",
+      "source": "backend/eval_cases.json"
+    },
+    {
+      "id": "U5-ZH-MEMO-06",
+      "similarity": 0.25,
+      "input": "不是让你现在发邮件，是把“给导师发送修改后的摘要”记到待办。",
+      "nearestId": "mh4-memo-zh-01",
+      "nearestInput": "这事不能拖：今天得把毕业照发给班长，记个紧急待办。",
+      "source": "app/src/androidTest/assets/holdout-replay.json"
+    }
+  ]
+}
