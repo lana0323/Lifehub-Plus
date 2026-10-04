@@ -1,0 +1,15 @@
+{
+  "kind": "reporting_only",
+  "recordedRunCommit": "efbbc0e80468728ec2e6355e32e5903bd0226bc4",
+  "reason": "Post-run presentation maintenance: latest-only report formatting and CLI routing. Shared scoring helper function ASTs, inference, inputs and recorded results remain unchanged. No new model run.",
+  "recordedProtocolSha256": "638a3a1dae9f5fa2f2430b9515d3b0f7b1f2ba552e60f0acf1f675779d868364",
+  "resultsSha256": "758f0b807da9db0464edd0d090cf161d47eb28e3f4cbb2714171020cd23ee434",
+  "reportingSourceSha256": {
+    "scripts/mobile-evaluation/score_v4_regression.py": "8377063f43d40b7480030d21aa7b8520f4b4c022b8f6b0d55330864209efe67f",
+    "scripts/mobile-evaluation/run_v4_regression.ps1": "d0936a2fe2fb8cdbefc0273d4ca9b37300302450a700ec61d039394324caaab3",
+    "scripts/mobile-evaluation/score_holdout.py": "c7c18f4a718507260a3d52d6ae67fd7b2f528f3455721a5ab345399375dcb9ae"
+  },
+  "additionalSourceSha256": {
+    "scripts/mobile-evaluation/verify_sources.py": "32b81621512e214c7bd52e70e91c80054646dd0e1814865c59f1c24be02a4a22"
+  }
+}

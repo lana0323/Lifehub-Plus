@@ -133,14 +133,14 @@ The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**.
 
 ### Latest post-fix regression
 
-The same **120 Chinese and 120 English inputs** were run again with fresh generation after the fixes. These inputs informed development, so the results are **seen-set regression evidence**, not a new holdout or unseen-model accuracy. Original first-pass results and expected answers remain unchanged.
+The same **120 Chinese and 120 English inputs** were run again with fresh generation after the fixes. These inputs informed development, so the results are **seen-set regression evidence**, not a new holdout or unseen-model accuracy. The recorded outputs and expected answers remain unchanged.
 
-| Metric | Frozen v4 first pass | Version 1.1.3 regression |
-|---|---|---|
-| Routing after validation | 188/240 (78.33%) | 240/240 (100.00%) |
-| Required fields | 398/432 (92.13%) | 432/432 (100.00%) |
-| All specified fields | 153/240 (63.75%) | 238/240 (99.17%) |
-| Clarification handling | 30/60 (50.00%) | 60/60 (100.00%) |
+| Metric | Version 1.1.3 regression |
+|---|---|
+| Routing after validation | 240/240 (100.00%) |
+| Required fields | 432/432 (100.00%) |
+| All specified fields | 238/240 (99.17%) |
+| Clarification handling | 60/60 (100.00%) |
 
 | Language | Routing | Required fields | All specified fields |
 |---|---|---|---|
@@ -157,20 +157,7 @@ The frozen expectations interpret "not urgent / 不急" as normal priority. Prod
 
 Application checks passed separately: **125/125 Python**, **20/20 Android/JVM unit** and **25/25 Android integration tests**. The latter cover packaged language rules, confirmation, duplicate prevention, cancellation, account isolation and persistence. See [evidence and commands](docs/evaluation-mobile-v4-regression/reliability.json).
 
-<details>
-<summary><b>Preserved earlier evaluations</b></summary>
 
-| Evaluation | All specified fields | Role |
-|---|---|---|
-| [v4 original first pass](docs/evaluation-mobile-holdout-v4/REPORT.md) | 153/240 (63.75%) | Frozen before this language-boundary improvement |
-| [v3 original first pass](docs/evaluation-mobile-holdout/REPORT.md) | 162/240 (67.50%) | Frozen before the boundary and Unicode fixes |
-| [v3 fresh post-fix run](docs/evaluation-mobile-regression/REPORT.md) | 238/240 (99.17%) | Seen-set regression with fresh generation |
-| [v3 title-repair replay](docs/evaluation-mobile-holdout-v4/title-replay.json) | 240/240 (100.00%) | Saved-output validation only; no new inference |
-| [v3 current-rule replay](docs/evaluation-mobile-v4-regression/v3-validation-replay.json) | 240/240 (100.00%) | Checks for regressions in earlier cases; no new inference |
-
-The [earlier mobile regression](docs/evaluation-mobile/REPORT.md) and 40-case development set remain separate. Scores from different sets are not a direct before/after comparison. All original results and frozen answers are retained.
-
-</details>
 
 ## Project Structure
 
@@ -197,9 +184,9 @@ The project includes the Android client, backend service and local persistence l
 <details>
 <summary><b>Developer Documentation and Quality Assurance</b></summary>
 
-The [current v4 first-pass report](docs/evaluation-mobile-holdout-v4/REPORT.md) includes frozen answers, raw outputs, failed cases and separate reliability evidence. Earlier first-pass and regression reports remain unchanged.
+The [current evaluation report](docs/evaluation-mobile-v4-regression/REPORT.md) includes the fixed inputs, raw outputs, failed cases and separate reliability evidence.
 
-The 40-case set remains a separate [development set](docs/evaluation-mobile/development-results.json). The earlier mobile regression retains its first-pass outputs and subsequent validation replay; the original holdout first pass remains unchanged, with subsequent fixes assessed separately as regression.
+The [40-case development set](backend/eval_actions_fields.json) stays separate from the 240-input evaluation. The current score is a seen-set regression result; future untouched inputs are needed to assess generalization.
 
 Automated checks cover database migrations, account isolation, repeated submissions and screen restoration. Commands, recorded results and model evaluation scope are documented in [Quality Assurance](docs/QUALITY.md), the [Development Guide](docs/DEVELOPMENT_GUIDE.md) and the [Engineering Review](docs/ENGINEERING_REVIEW.md). Additional engineering notes include Chinese-language development records.
 

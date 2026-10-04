@@ -1,47 +1,30 @@
-# Earlier verification results
+# Current verification results
 
-For version 1.1.3, see the [current model regression](evaluation-mobile-v4-regression/REPORT.md) and [application verification counts and commands](evaluation-mobile-v4-regression/reliability.json). The dated results below are preserved as earlier evidence.
-
-Recorded on October 2, 2026. The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**.
+Version **1.1.3**. Current model: **Qwen2.5-1.5B-Instruct int8**, **LiteRT-LM 0.10.2**.
 
 | Check | Command / procedure | Recorded result |
 |---|---|---|
-| Python validation | `python -m unittest discover -s backend -p 'test_*.py'` | 83/83 |
-| Android/JVM tests | `./gradlew :app:testDebugUnitTest` | 17/17 |
-| Android reliability | Build isolated QA APKs, then run the six classes below | 20/20 |
-| Signed APK | `apksigner verify --verbose --print-certs`, install the ARM64 APK and launch it | Verified signature; login screen opened |
-| Bilingual model regression | `./scripts/mobile-evaluation/run.ps1 -ModelPath 'C:/models/mobile-qwen2.5.litertlm'` | 240 inputs; [full results](evaluation-mobile/REPORT.md) |
+| Python validation | `python -m unittest discover -s backend -p 'test_*.py'` | 125/125 |
+| Android/JVM unit tests | `gradlew --no-daemon -PisolatedTests=true testDebugUnitTest assembleDebug assembleDebugAndroidTest` | 20/20 |
+| Android integration | Isolated API 34 emulator; classes and command below | 25/25 |
+| Signed APK | Verify signature, install the ARM64 update and launch | Signature verified; login screen opened |
+| Model regression | `scripts/mobile-evaluation/run_v4_regression.ps1` with the pinned model | 240 inputs; 238/240 all specified fields |
 
-The recorded model generation ran on Windows CPU. Final validation scores replay the same captured outputs through improved deterministic rules. They do not represent another model-generation pass, a fresh holdout or Android inference measurements.
+Model inference ran on Windows CPU. The 240 inputs informed development; these are regression results, not unseen-model accuracy. No new inference was performed during the subsequent report cleanup. Raw outputs, expectations and metrics are unchanged.
 
-## Android reliability
+## Android integration
 
 | Class | Passed | Coverage |
 |---|---|---|
-| MobileAdapterTest | 3 | Packaged Python adapter, clarification and grounded fields |
+| MobileAdapterTest | 8 | Packaged language rules, model setup failures and Unicode transport |
 | AccountAndWaitingTest | 7 | Cancellation, stale responses, recreation and account boundaries |
-| IdempotentRecordsTest | 3 | Repeated saves, transaction behavior and read-back |
+| IdempotentRecordsTest | 3 | Repeated saves, transactions and read-back |
 | RepeatedReviewTest | 2 | Repeated confirmation through the review flow |
 | TaskConfirmationTest | 1 | Editing, confirmation and persisted fields |
-| DatabaseRegressionTest | 4 | Migration, account storage and password upgrade |
+| DatabaseRegressionTest | 4 | Migrations, account storage and password upgrade |
 
-Run against a separate test device or emulator:
+The complete instrumentation command, environment and APK checksum are in [reliability.json](evaluation-mobile-v4-regression/reliability.json).
 
-```powershell
-.\gradlew.bat :app:assembleDebug :app:assembleDebugAndroidTest '-PisolatedTests=true'
-adb install -r app/build/outputs/apk/debug/app-debug.apk
-adb install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
-adb shell am instrument -w -r -e class 'com.lifeHub.ai.MobileAdapterTest,com.lifeHub.ai.AccountAndWaitingTest,com.lifeHub.ai.IdempotentRecordsTest,com.lifeHub.ai.RepeatedReviewTest,com.lifeHub.ai.TaskConfirmationTest,com.lifeHub.ai.DatabaseRegressionTest' com.lifeHub.qa.test/com.lifeHub.LifeHubTestRunner
-```
+## Results
 
-The recorded run used an API 34 x86_64 emulator for these application checks. The ARM64 release installation was checked separately using its ARM compatibility layer. Neither check is included in the model's accuracy denominator.
-
-## Data files
-
-- [Excel workbook](evaluation-mobile/Lifehub-Plus-Mobile-Evaluation.xlsx)
-- [Chinese 120-case CSV](evaluation-mobile/chinese-120.csv) and [English 120-case CSV](evaluation-mobile/english-120.csv)
-- [Model outputs and checks](evaluation-mobile/results.json)
-- [First-pass outputs](evaluation-mobile/first-pass-results.json) and [refinement provenance](evaluation-mobile/refinement.json)
-- [Reliability and APK evidence](evaluation-mobile/reliability.json)
-
-No user edits are counted toward model-field accuracy. Correct draft generation is not a claim that all 240 inputs were written to the database. Saving remains conditional on explicit user confirmation.
+[Report](evaluation-mobile-v4-regression/REPORT.md) · [Excel](evaluation-mobile-v4-regression/Lifehub-Plus-V4-Regression.xlsx) · [Chinese 120](evaluation-mobile-v4-regression/chinese-120.csv) · [English 120](evaluation-mobile-v4-regression/english-120.csv) · [Raw outputs and checks](evaluation-mobile-v4-regression/results.json)

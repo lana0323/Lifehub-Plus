@@ -2,9 +2,9 @@
 import hashlib,json
 from pathlib import Path
 root=Path(__file__).resolve().parent.parent
-case_path=root/'backend/evaluation/holdout_v2.json'
+case_path=root/'backend/evaluation/mobile_holdout_v4.json'
 cases=json.loads(case_path.read_text(encoding='utf-8'))
-report=json.loads((root/'docs/evaluation-mobile/results.json').read_text(encoding='utf-8'))
+report=json.loads((root/'docs/evaluation-mobile-v4-regression/results.json').read_text(encoding='utf-8'))
 assert report['complete'] and len(report['results'])==len(cases)==240
 assert hashlib.sha256(case_path.read_bytes()).hexdigest()==report['datasetSha256']
 lookup={c['id']:c for c in cases}

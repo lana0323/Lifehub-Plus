@@ -49,4 +49,4 @@
 - AI 模块确认不再提前消费 pendingAction，确认窗口、结果和已选模块支持重建恢复。
 - Finance v5 整数分存储，统一小数位/上限校验；旧值与 ID 保留，迁移内核对笔数及总额，超限旧值回滚。
 
-当前模型的中英文各 120 条回归数据、计分口径和剩余问题统一见 [手机端模型评测](evaluation-mobile/REPORT.md)。
+当前模型的中英文各 120 条回归数据、计分口径和剩余问题统一见 [手机端模型评测](evaluation-mobile-v4-regression/REPORT.md)。

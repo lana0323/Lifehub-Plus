@@ -57,8 +57,8 @@ The repository retains the Python HTTP adapter and Ollama integration for develo
 - Repeated confirmation of the same draft returns its existing record. Independently generated drafts are not deduplicated by content.
 - Cancellation preserves input. Process restoration does not silently replay a request. Schedule still has some main-thread SQLite work worth moving behind a repository.
 
-## Preserved first-pass evidence
+## Current evaluation provenance
 
-The [v4 first-pass protocol](evaluation-mobile-holdout-v4/protocol.json) freezes 120 Chinese and 120 English inputs, source hashes and expectations. Use `run_frozen.ps1` on its historical freeze revision. Version 1.1.3 was developed using those failures and saved-output replay; its fresh model run is reported separately as regression evidence. A future untouched set is needed to assess generalization.
+The [recorded protocol](evaluation-mobile-v4-regression/protocol.json) pins the model, 240 inputs, original source hashes and scoring contract. Version 1.1.3 used these inputs during development, so its reported results are regression evidence. A future untouched set is needed to assess generalization.
 
-The [original v3 first pass](evaluation-mobile-holdout/REPORT.md) and [v3 post-fix regression](evaluation-mobile-regression/REPORT.md) remain unchanged. Their reproduction scripts intentionally reject the current title-modified sources: check out the historical revision named in each report before using `run_holdout.ps1` or `run_regression.ps1`. Every frozen runner verifies source/data hashes and retains interrupted native calls as failures.
+Only the latest evaluation is distributed. Raw results and the recorded protocol retain their original bytes. The [reproduction manifest](evaluation-mobile-v4-regression/reproduction.json) separately pins post-run formatting changes that remove historical comparisons. The runner verifies all original inference and field-scoring sources and requires the approved hashes for the reporting scripts.

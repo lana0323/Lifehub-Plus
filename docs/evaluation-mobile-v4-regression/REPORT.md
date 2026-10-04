@@ -1,6 +1,6 @@
-# Mobile AI v4 post-fix regression
+# Lifehub Plus 1.1.3 evaluation
 
-This is a **fresh model run on a seen regression set**, after development against v4 failures. It is not a new holdout or unseen-model accuracy. The [original first-pass results](../evaluation-mobile-holdout-v4/REPORT.md), inputs, expected answers and scoring functions remain unchanged.
+This report shows the latest **fresh model run on a seen regression set**. These inputs informed development, so the scores are regression evidence rather than unseen-model accuracy. The recorded outputs, expected answers and field-scoring rules have not changed.
 
 ## Method
 
@@ -10,16 +10,16 @@ This is a **fresh model run on a seen regression set**, after development agains
 - These metrics evaluate reviewable drafts, not Android inference, UI completion or database writes. Titles are checked against predeclared keyword alternatives. Internally authored Chinese/English scenario families overlap; this is not an independent benchmark.
 - No latency statistics are reported. See [protocol.json](protocol.json) and [separate application checks](reliability.json).
 
-## Before and after
+## Results
 
-| Metric | Frozen first pass | Post-fix regression |
-|---|---|---|
-| Routing after validation | 188/240 (78.33%) | 240/240 (100.00%) |
-| Required fields | 398/432 (92.13%) | 432/432 (100.00%) |
-| All specified fields | 153/240 (63.75%) | 238/240 (99.17%) |
-| Supported draft checks | 123/180 (68.33%) | 178/180 (98.89%) |
-| Clarification handling | 30/60 (50.00%) | 60/60 (100.00%) |
-| Dates, including expected blanks | 128/144 (88.89%) | 144/144 (100.00%) |
+| Metric | Version 1.1.3 |
+|---|---|
+| Routing after validation | 240/240 (100.00%) |
+| Required fields | 432/432 (100.00%) |
+| All specified fields | 238/240 (99.17%) |
+| Supported draft checks | 178/180 (98.89%) |
+| Clarification handling | 60/60 (100.00%) |
+| Dates, including expected blanks | 144/144 (100.00%) |
 
 | Language | Routing | Required fields | All specified fields |
 |---|---|---|---|
@@ -37,7 +37,7 @@ This is a **fresh model run on a seen regression set**, after development agains
 
 - 192 model calls and 48 preflight responses; 0 pipeline errors. All inputs remain in the denominator.
 - 0 expected-clarification inputs returned as drafts; drafts still require user confirmation.
-- Raw model routing on the invoked subset: **161/192 (83.85%)**. Its denominator differs from the first pass because preflight now handles more inputs. Final pipeline accuracy includes deterministic application rules.
+- Raw model routing on the invoked subset: **161/192 (83.85%)**. Final pipeline accuracy includes deterministic application rules; preflight-only responses are outside the raw-model denominator.
 
 ## Implementation changes
 
@@ -60,10 +60,10 @@ This set informed development. A future untouched holdout is needed to assess ge
 
 ## Files and reproduction
 
-[All results](results.csv) · [Chinese 120](chinese-120.csv) · [English 120](english-120.csv) · [Failures](failures.csv) · [Raw responses and checks](results.json) · [Frozen protocol](protocol.json)
+[Excel results](Lifehub-Plus-V4-Regression.xlsx) · [All results](results.csv) · [Chinese 120](chinese-120.csv) · [English 120](english-120.csv) · [Failures](failures.csv) · [Raw responses and checks](results.json) · [Recorded protocol](protocol.json)
 
 ```powershell
 .\scripts\mobile-evaluation\run_v4_regression.ps1 -ModelPath C:/models/mobile-qwen2.5.litertlm -Python python -JavaHome $env:JAVA_HOME -OutputDirectory .local/reproduced-v4-regression
 ```
 
-Use a fresh directory. The script checks source/data/model hashes and preserves failures without retrying. Historical reports require their historical source revision.
+Use a fresh directory. The script checks source/data/model hashes and preserves failures without retrying. The recorded protocol and raw results remain byte-for-byte unchanged. Report formatting was simplified after the run; [reproduction.json](reproduction.json) pins those reporting-only changes separately. Historical paths in the recorded protocol are provenance, not dependencies of this runner.

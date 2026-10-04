@@ -3,7 +3,7 @@ param(
     [string]$Python = 'python',
     [string]$JavaHome = $env:JAVA_HOME,
     [string]$OutputDirectory = '.local/mobile-reproduction',
-    [string]$Cases = 'backend/evaluation/holdout_v2.json',
+    [string]$Cases = 'backend/evaluation/mobile_holdout_v4.json',
     [switch]$RecordNativeCrashes
 )
 $ErrorActionPreference = 'Stop'

@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 from score_holdout import ROOT, frozen_score, raw_route, summarize, write_csv
+from verify_sources import verify
 
 
 def fraction(value):
@@ -16,19 +17,18 @@ def fraction(value):
 
 
 def write_report(output, report, cases, protocol):
-    baseline = json.loads((ROOT / protocol['baselineResults']).read_text(encoding='utf-8'))
     summary = report['summary']
-    lines = ['# Mobile AI v4 post-fix regression', '',
-        'This is a **fresh model run on a seen regression set**, after development against v4 failures. It is not a new holdout or unseen-model accuracy. The [original first-pass results](../evaluation-mobile-holdout-v4/REPORT.md), inputs, expected answers and scoring functions remain unchanged.', '',
+    lines = ['# Lifehub Plus 1.1.3 evaluation', '',
+        'This report shows the latest **fresh model run on a seen regression set**. These inputs informed development, so the scores are regression evidence rather than unseen-model accuracy. The recorded outputs, expected answers and field-scoring rules have not changed.', '',
         '## Method', '',
         '- 120 Chinese and 120 English inputs, 30 per workflow per language; 180 draft requests and 60 clarification requests.',
         '- Qwen2.5-1.5B-Instruct int8 ekv4096, LiteRT-LM 0.10.2, Windows CPU. Same model, prompt, asynchronous Unicode-safe transport and Python validation as the mobile implementation.',
         '- One attempt per input, fresh conversation, no retry or manual answer repair. Preflight responses and raw model routing are counted separately. The source hashes and configuration were frozen before inference.',
         '- These metrics evaluate reviewable drafts, not Android inference, UI completion or database writes. Titles are checked against predeclared keyword alternatives. Internally authored Chinese/English scenario families overlap; this is not an independent benchmark.',
         '- No latency statistics are reported. See [protocol.json](protocol.json) and [separate application checks](reliability.json).', '',
-        '## Before and after', '', '| Metric | Frozen first pass | Post-fix regression |', '|---|---|---|']
+        '## Results', '', '| Metric | Version 1.1.3 |', '|---|---|']
     for key, label in [('routing','Routing after validation'),('requiredFields','Required fields'),('allSpecifiedFields','All specified fields'),('supportedDraft','Supported draft checks'),('clarification','Clarification handling'),('dates','Dates, including expected blanks')]:
-        lines.append(f"| {label} | {fraction(baseline['summary'][key])} | {fraction(summary[key])} |")
+        lines.append(f"| {label} | {fraction(summary[key])} |")
     lines += ['', '| Language | Routing | Required fields | All specified fields |', '|---|---|---|---|']
     for lang, name in [('zh','Chinese'),('en','English')]:
         row=report['byLanguage'][lang]
@@ -39,7 +39,7 @@ def write_report(output, report, cases, protocol):
     lines += ['', '## Run integrity', '',
         f"- {summary['modelCalls']} model calls and {summary['preflight']} preflight responses; {summary['errors']} pipeline errors. All inputs remain in the denominator.",
         f"- {summary['unsafeDrafts']} expected-clarification inputs returned as drafts; drafts still require user confirmation.",
-        f"- Raw model routing on the invoked subset: **{fraction(summary['rawModelRouting'])}**. Its denominator differs from the first pass because preflight now handles more inputs. Final pipeline accuracy includes deterministic application rules.", '',
+        f"- Raw model routing on the invoked subset: **{fraction(summary['rawModelRouting'])}**. Final pipeline accuracy includes deterministic application rules; preflight-only responses are outside the raw-model denominator.", '',
         '## Implementation changes', '',
         '- Scope negated destinations to their own clause. Recognize mixed Chinese/English word boundaries, Health navigation and usage paraphrases.',
         '- Detect separate actions, including repeated events and separately priced purchases; keep a purchase followed by a request to record it as one action. Tasks about sending/deleting remain supported, while direct execution requests require clarification.',
@@ -54,9 +54,9 @@ def write_report(output, report, cases, protocol):
     lines += ['', 'The frozen set interprets "not urgent / 不急" as normal priority. Production conservatively leaves priority unset because a non-urgent task can still be important. These disagreements are retained as failures; the expected answers were not changed.', '',
         'This set informed development. A future untouched holdout is needed to assess generalization. The review screen remains the final place to correct fields before confirmation.', '',
         '## Files and reproduction', '',
-        '[All results](results.csv) · [Chinese 120](chinese-120.csv) · [English 120](english-120.csv) · [Failures](failures.csv) · [Raw responses and checks](results.json) · [Frozen protocol](protocol.json)', '',
+        '[Excel results](Lifehub-Plus-V4-Regression.xlsx) · [All results](results.csv) · [Chinese 120](chinese-120.csv) · [English 120](english-120.csv) · [Failures](failures.csv) · [Raw responses and checks](results.json) · [Recorded protocol](protocol.json)', '',
         '```powershell', '.\\scripts\\mobile-evaluation\\run_v4_regression.ps1 -ModelPath C:/models/mobile-qwen2.5.litertlm -Python python -JavaHome $env:JAVA_HOME -OutputDirectory .local/reproduced-v4-regression', '```', '',
-        'Use a fresh directory. The script checks source/data/model hashes and preserves failures without retrying. Historical reports require their historical source revision.', '']
+        'Use a fresh directory. The script checks source/data/model hashes and preserves failures without retrying. The recorded protocol and raw results remain byte-for-byte unchanged. Report formatting was simplified after the run; [reproduction.json](reproduction.json) pins those reporting-only changes separately. Historical paths in the recorded protocol are provenance, not dependencies of this runner.', '']
     (output/'REPORT.md').write_text('\n'.join(lines), encoding='utf-8')
 
 
@@ -67,9 +67,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args=parser.parse_args()
     if args.output.exists(): raise ValueError('Recorded runs are immutable; choose a new output')
-    protocol=json.loads(args.protocol.read_text(encoding='utf-8'))
-    for name,digest in protocol['sourceSha256'].items():
-        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest, 'Changed source: '+name
+    protocol=verify(args.protocol)
     dataset=ROOT/protocol['dataset']
     assert hashlib.sha256(dataset.read_bytes()).hexdigest()==protocol['datasetSha256']
     cases=json.loads(dataset.read_text(encoding='utf-8'))

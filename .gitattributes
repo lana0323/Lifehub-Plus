@@ -19,11 +19,6 @@ scripts/mobile-evaluation/*.py text eol=lf
 scripts/mobile-evaluation/*.java text eol=lf
 scripts/mobile-evaluation/*.ps1 text eol=lf
 scripts/summarize-mobile-evaluation.py text eol=lf
-docs/evaluation-mobile/*.json text eol=lf
-docs/evaluation-mobile-holdout/*.json text eol=crlf
-docs/evaluation-mobile-regression/*.json text eol=crlf
-docs/evaluation-mobile-holdout-v4/*.json text eol=crlf
 # Preserve captured model whitespace and embedded newlines in CSV cells.
-docs/evaluation-mobile-holdout-v4/*.csv -text -whitespace
 docs/evaluation-mobile-v4-regression/*.json text eol=crlf
 docs/evaluation-mobile-v4-regression/*.csv -text -whitespace
