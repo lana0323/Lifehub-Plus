@@ -129,23 +129,39 @@ The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. For a s
 
 ## Model Evaluation
 
-### Unseen Holdout Results
+**Completed evaluations:** [120-case unseen first pass](#unseen-generalization) and [240-case regression](#regression-stability).
 
 **Model:** Qwen2.5-1.5B-Instruct int8 · **Runtime:** LiteRT-LM 0.10.2 · **App:** 1.1.3
 
-**Datasets:** 120-case frozen unseen holdout (60 Chinese + 60 English), first pass; separate 240-case seen regression suite (120 Chinese + 120 English).
-
-| Metric | Unseen holdout (120 cases) | Seen regression (240 cases) |
-|---|---:|---:|
-| Routing after validation | 104/120 (86.67%) | 240/240 (100.00%) |
-| Required fields | 197/216 (91.20%) | 432/432 (100.00%) |
-| All annotated checks per input | 85/120 (70.83%) | 238/240 (99.17%) |
-| Supported draft checks | 72/96 (75.00%) | 178/180 (98.89%) |
-| Clarification handling | 13/24 (54.17%) | 60/60 (100.00%) |
-
 Application-pipeline scores (model + validation), measured on Windows CPU using internally authored datasets; not Android execution or database-write success.
 
-[Full unseen report](docs/evaluation-unseen-v5/REPORT.md) · [Full regression report](docs/evaluation-mobile-v4-regression/REPORT.md)
+### Unseen Generalization
+
+**Completed first pass:** 120 frozen holdout inputs (60 Chinese + 60 English), not used for application tuning before this run.
+
+| Metric | Passed / Total | Accuracy |
+|---|---:|---:|
+| Routing after validation | 104/120 | 86.67% |
+| Required fields | 197/216 | 91.20% |
+| All annotated checks per input | 85/120 | 70.83% |
+| Supported draft checks | 72/96 | 75.00% |
+| Clarification handling | 13/24 | 54.17% |
+
+[Full unseen report](docs/evaluation-unseen-v5/REPORT.md)
+
+### Regression Stability
+
+**Seen-set regression:** 240 inputs (120 Chinese + 120 English) used during development; separate from the unseen holdout.
+
+| Metric | Passed / Total | Accuracy |
+|---|---:|---:|
+| Routing after validation | 240/240 | 100.00% |
+| Required fields | 432/432 | 100.00% |
+| All annotated checks per input | 238/240 | 99.17% |
+| Supported draft checks | 178/180 | 98.89% |
+| Clarification handling | 60/60 | 100.00% |
+
+[Full regression report](docs/evaluation-mobile-v4-regression/REPORT.md)
 
 ## Project Structure
 
@@ -185,7 +201,7 @@ Automated checks cover database migrations, account isolation, repeated submissi
 - Account isolation applies to local data. There is no server-side authentication, cloud synchronization, cross-device session management or password recovery. Local databases are not encrypted.
 - Health statistics describe the entire device. Local accounts see the same device statistics, subject to Android permissions and event retention.
 - Financial amounts currently use CNY, and each AI request produces at most one action draft.
-- Next priorities are the unsupported-intent, date, title and negation failures in the [unseen holdout](docs/evaluation-unseen-v5/FINDINGS.md), followed by reducing main-thread work in schedule persistence. Changes informed by this set will be evaluated as regression; a later generalization claim requires another untouched set.
+- Next priorities are the unsupported-intent, date, title and negation failures in the [unseen holdout](docs/evaluation-unseen-v5/FINDINGS.md), followed by reducing main-thread work in schedule persistence. The unseen first pass is complete. Reruns after tuning on these cases will be labelled regression; the published first-pass results remain unchanged.
 
 ## Acknowledgements and Provenance
 
