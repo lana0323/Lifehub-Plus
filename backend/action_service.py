@@ -5,6 +5,7 @@ from decimal import Decimal
 from task_service import (SCHEMA, SYSTEM, ServiceError, request_context, resolve_date,
                           validate_extraction, call_local_model, is_smalltalk)
 from action_rules import multiple_actions, date_evidence, finance_evidence, search, USAGE, HEALTH_PAGE, unsupported_operation
+from text_evidence import clock_value
 
 CATEGORIES = ["Food & Drinks", "Transport", "Shopping", "Entertainment", "Bills", "Salary", "Scholarship", "Part-time Job", "Gift", "Others"]
 ACCOUNTS = ["Cash", "Bank Card", "Credit Card", "Alipay", "WeChat", "Others"]
@@ -33,21 +34,7 @@ accounts, dates or clock times. Health title should describe viewing phone usage
 
 
 def clock_time(value):
-    if value is None: return None
-    s = value.strip().lower()
-    m = re.fullmatch(r"(\d{1,2}):(\d{2})(?:\s*(am|pm))?", s)
-    if m:
-        hour, minute, ap = int(m[1]), int(m[2]), m[3]
-        if minute > 59 or (ap and not 1 <= hour <= 12) or (not ap and hour > 23): return None
-        if ap: hour = hour % 12 + (12 if ap == "pm" else 0)
-        return f"{hour:02}:{minute:02}"
-    m = re.fullmatch(r"(上午|下午|晚上|早上)?(\d{1,2})点(?:(半)|(\d{1,2})分?)?", s)
-    if m:
-        hour = int(m[2]); minute = 30 if m[3] else int(m[4] or 0)
-        if m[1] in ("下午", "晚上") and hour < 12: hour += 12
-        if hour < 24 and minute < 60: return f"{hour:02}:{minute:02}"
-    m = re.fullmatch(r"(\d{1,2})\s*(am|pm)", s)
-    return clock_time(f"{m[1]}:00 {m[2]}") if m else None
+    return clock_value(value)
 
 
 def create_action(body, provider=None, now=None):

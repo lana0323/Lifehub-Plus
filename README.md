@@ -77,7 +77,7 @@ A connected workspace for notes, money, plans and digital wellbeing — with AI 
 - **Editable fields stay visible.** Required fields must be completed before saving. Validation recognizes many missing and ambiguous values; the evaluation documents remaining date and multi-action interpretation errors.
 - **Repeated confirmation does not create duplicates.** A draft ID identifies a single saved record within its account. Newly generated drafts and manual entries are not deduplicated by content.
 - **Failures are recoverable.** Input is preserved, with cancellation, retry and manual-entry options. Cancelling stops the client from waiting; inference already running in the local model may continue.
-- **Weekdays use calendar weeks.** `this Tuesday` means Tuesday of the current Monday-based week; `next Tuesday` means Tuesday of the following week, using your timezone. Schedule drafts keep explicit past dates for review instead of silently moving them forward.
+- **Dates follow explicit rules.** `this Tuesday` means Tuesday of the current Monday-based week; `next Tuesday` means Tuesday of the following week. A bare `Tuesday` means the next occurrence, including today, in your timezone. Chinese clock expressions, noon and midnight are supported. Conflicting dates stay unset; Schedule keeps explicit past dates for review.
 - **Execution is limited to supported workflows.** AI cannot edit or delete existing records, query balances, control apps or send messages. Some phrasings still produce a draft instead of the intended clarification; the first-pass report includes those failures.
 - **Health is a query.** The application displays system usage statistics rather than generating fictional usage figures or inserting health records.
 
@@ -98,7 +98,7 @@ A connected workspace for notes, money, plans and digital wellbeing — with AI 
 
 ## Install
 
-**[Download Lifehub Plus 1.1.2 for Android](https://github.com/lana0323/Lifehub-Plus/raw/refs/heads/main/downloads/Lifehub-Plus-1.1.2.apk)** · Signed APK, approximately 33 MB · [SHA-256 checksum](downloads/SHA256SUMS.txt)
+**[Download Lifehub Plus 1.1.3 for Android](https://github.com/lana0323/Lifehub-Plus/raw/refs/heads/main/downloads/Lifehub-Plus-1.1.3.apk)** · Signed APK, approximately 33 MB · [SHA-256 checksum](downloads/SHA256SUMS.txt)
 
 | Requirement | Details |
 |---|---|
@@ -129,34 +129,44 @@ The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. For a s
 
 ## Model Evaluation
 
-The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. Version 1.1.2 improves title recovery, preserving the event subject and the main transaction when a secondary explanation distracts the model.
+The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. Version 1.1.3 improves negation, multiple-action detection, Health routing, mixed-language fields, title recovery and date/time parsing.
 
-### New frozen first pass
+### Latest post-fix regression
 
-A new v4 set contains **120 Chinese and 120 English inputs**, with 30 per workflow in each language. Inputs, expected answers, code and scoring were frozen before inference. No tuning, retries or manual answer repair took place during the run. This internally authored set includes colloquial wording, corrected typos, negation and mixed-language requests.
+The same **120 Chinese and 120 English inputs** were run again with fresh generation after the fixes. These inputs informed development, so the results are **seen-set regression evidence**, not a new holdout or unseen-model accuracy. Original first-pass results and expected answers remain unchanged.
 
-| First-pass metric | Chinese | English | Combined |
+| Metric | Frozen v4 first pass | Version 1.1.3 regression |
+|---|---|---|
+| Routing after validation | 188/240 (78.33%) | 240/240 (100.00%) |
+| Required fields | 398/432 (92.13%) | 432/432 (100.00%) |
+| All specified fields | 153/240 (63.75%) | 238/240 (99.17%) |
+| Clarification handling | 30/60 (50.00%) | 60/60 (100.00%) |
+
+| Language | Routing | Required fields | All specified fields |
 |---|---|---|---|
-| Routing after validation | 89/120 (74.17%) | 99/120 (82.50%) | 188/240 (78.33%) |
-| Required fields | 200/216 (92.59%) | 198/216 (91.67%) | 398/432 (92.13%) |
-| All specified fields | 69/120 (57.50%) | 84/120 (70.00%) | 153/240 (63.75%) |
+| Chinese | 120/120 (100.00%) | 216/216 (100.00%) | 119/120 (99.17%) |
+| English | 120/120 (100.00%) | 216/216 (100.00%) | 119/120 (99.17%) |
 
-The run recorded **7 processing errors** and **23 expected-clarification inputs returned as drafts**. Drafts require user confirmation. All failures remain in the denominator.
+The run made **192 model calls**, with **48 preflight responses**, **0 processing errors** and **0 expected-clarification inputs returned as drafts**. Raw model routing on the invoked subset was **161/192 (83.85%)**. All failures remain in the denominator.
 
-These are application-pipeline scores, including deterministic validation. Raw model routing is reported separately. Inference ran on Windows CPU with the same model file, prompt, text transport and validation as the mobile implementation. The results do not measure Android inference or database-write success. Chinese/English scenario families overlap; this is not an independent third-party benchmark.
+These are application-pipeline scores, including deterministic rules. Inference ran on Windows CPU with the same model file, prompt, text transport and validation as the mobile implementation. They do not measure Android inference or database-write success. Chinese/English scenario families overlap; this internally authored set is not an independent benchmark. A future untouched holdout is needed to assess generalization.
 
-**[First-pass report](docs/evaluation-mobile-holdout-v4/REPORT.md)** · [Excel results](docs/evaluation-mobile-holdout-v4/Lifehub-Plus-Holdout-v4.xlsx) · [Chinese 120](docs/evaluation-mobile-holdout-v4/chinese-120.csv) · [English 120](docs/evaluation-mobile-holdout-v4/english-120.csv) · [Failures](docs/evaluation-mobile-holdout-v4/failures.csv)
+The frozen expectations interpret "not urgent / 不急" as normal priority. Production leaves priority unset because the task may still be important; these disagreements remain counted as failures. Users can select the priority in the review screen.
 
-Application checks passed separately: **107/107 Python**, **20/20 Android/JVM unit** and **23/23 Android integration tests**. The latter cover packaged title repair, confirmation, duplicate prevention, cancellation, account isolation and persistence. See [evidence and commands](docs/evaluation-mobile-holdout-v4/reliability.json).
+**[Full regression report](docs/evaluation-mobile-v4-regression/REPORT.md)** · [Excel results](docs/evaluation-mobile-v4-regression/Lifehub-Plus-V4-Regression.xlsx) · [Chinese 120](docs/evaluation-mobile-v4-regression/chinese-120.csv) · [English 120](docs/evaluation-mobile-v4-regression/english-120.csv) · [Failures](docs/evaluation-mobile-v4-regression/failures.csv)
+
+Application checks passed separately: **125/125 Python**, **20/20 Android/JVM unit** and **25/25 Android integration tests**. The latter cover packaged language rules, confirmation, duplicate prevention, cancellation, account isolation and persistence. See [evidence and commands](docs/evaluation-mobile-v4-regression/reliability.json).
 
 <details>
 <summary><b>Preserved earlier evaluations</b></summary>
 
 | Evaluation | All specified fields | Role |
 |---|---|---|
-| [v3 original first pass](docs/evaluation-mobile-holdout/REPORT.md) | 162/240 (67.5%) | Frozen before the boundary and Unicode fixes |
-| [v3 fresh post-fix run](docs/evaluation-mobile-regression/REPORT.md) | 238/240 (99.2%) | Seen-set regression with fresh generation |
-| [v3 title-repair replay](docs/evaluation-mobile-holdout-v4/title-replay.json) | 240/240 (100.0%) | Validation of saved outputs only; no new inference |
+| [v4 original first pass](docs/evaluation-mobile-holdout-v4/REPORT.md) | 153/240 (63.75%) | Frozen before this language-boundary improvement |
+| [v3 original first pass](docs/evaluation-mobile-holdout/REPORT.md) | 162/240 (67.50%) | Frozen before the boundary and Unicode fixes |
+| [v3 fresh post-fix run](docs/evaluation-mobile-regression/REPORT.md) | 238/240 (99.17%) | Seen-set regression with fresh generation |
+| [v3 title-repair replay](docs/evaluation-mobile-holdout-v4/title-replay.json) | 240/240 (100.00%) | Saved-output validation only; no new inference |
+| [v3 current-rule replay](docs/evaluation-mobile-v4-regression/v3-validation-replay.json) | 240/240 (100.00%) | Checks for regressions in earlier cases; no new inference |
 
 The [earlier mobile regression](docs/evaluation-mobile/REPORT.md) and 40-case development set remain separate. Scores from different sets are not a direct before/after comparison. All original results and frozen answers are retained.
 

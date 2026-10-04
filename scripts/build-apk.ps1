@@ -9,8 +9,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Android release build failed.' }
     $output = Join-Path $projectRoot '.local/distribution'
     New-Item -ItemType Directory -Force $output | Out-Null
-    $apk = Join-Path $output 'Lifehub-Plus-1.1.2.apk'
+    $apk = Join-Path $output 'Lifehub-Plus-1.1.3.apk'
     Copy-Item -LiteralPath 'app/build/outputs/apk/release/app-release.apk' -Destination $apk
-    (Get-FileHash -LiteralPath $apk -Algorithm SHA256).Hash.ToLowerInvariant() + '  Lifehub-Plus-1.1.2.apk' | Set-Content -Encoding ascii (Join-Path $output 'SHA256SUMS.txt')
+    (Get-FileHash -LiteralPath $apk -Algorithm SHA256).Hash.ToLowerInvariant() + '  Lifehub-Plus-1.1.3.apk' | Set-Content -Encoding ascii (Join-Path $output 'SHA256SUMS.txt')
     Write-Host "Signed APK: $apk"
 } finally { Pop-Location }

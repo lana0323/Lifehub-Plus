@@ -4,6 +4,7 @@ backend/evaluation/*.json text eol=crlf
 backend/evaluation/mobile_holdout_v3.json text eol=crlf
 backend/action_service.py text eol=crlf
 backend/action_rules.py text eol=lf
+backend/text_evidence.py text eol=lf
 backend/task_service.py text eol=crlf
 app/src/main/java/com/lifeHub/ai/ui/AiChatViewModel.kt text eol=crlf
 app/src/main/java/com/lifeHub/ai/ui/AiChatFragment.kt text eol=crlf
@@ -24,3 +25,5 @@ docs/evaluation-mobile-regression/*.json text eol=crlf
 docs/evaluation-mobile-holdout-v4/*.json text eol=crlf
 # Preserve captured model whitespace and embedded newlines in CSV cells.
 docs/evaluation-mobile-holdout-v4/*.csv -text -whitespace
+docs/evaluation-mobile-v4-regression/*.json text eol=crlf
+docs/evaluation-mobile-v4-regression/*.csv -text -whitespace

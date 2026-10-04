@@ -25,12 +25,12 @@ class DateTests(unittest.TestCase):
     def test_relative_calendar_dates(self):
         for phrase, expected in [("下周五", "2026-10-09"), ("next Friday", "2026-10-09"),
                                  ("本周五前", "2026-10-02"), ("明天", "2026-09-30"),
-                                 ("in 3 days", "2026-10-02"), ("2026年10月2日", "2026-10-02")]:
+                                 ("in 3 days", "2026-10-02"), ("Friday", "2026-10-02"), ("2026年10月2日", "2026-10-02")]:
             with self.subTest(phrase=phrase):
                 self.assertEqual(resolve_date(phrase, TODAY).isoformat(), expected)
 
     def test_ambiguous_invalid_and_time_remain_missing(self):
-        for phrase in [None, "最近", "soon", "明天或后天", "明天晚上8点", "2026-02-30", "Friday"]:
+        for phrase in [None, "最近", "soon", "明天或后天", "明天晚上8点", "2026-02-30"]:
             with self.subTest(phrase=phrase):
                 self.assertIsNone(resolve_date(phrase, TODAY))
 

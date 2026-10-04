@@ -1,4 +1,6 @@
-# Current verification results
+# Earlier verification results
+
+For version 1.1.3, see the [current model regression](evaluation-mobile-v4-regression/REPORT.md) and [application verification counts and commands](evaluation-mobile-v4-regression/reliability.json). The dated results below are preserved as earlier evidence.
 
 Recorded on October 2, 2026. The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**.
 

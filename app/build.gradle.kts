@@ -21,8 +21,8 @@ android {
         applicationId = if (isolatedTests) "com.lifeHub.qa" else "com.lifeHub"
         minSdk = 24
         targetSdk = 34
-        versionCode = 4
-        versionName = "1.1.2"
+        versionCode = 5
+        versionName = "1.1.3"
         ndk { abiFilters += if (providers.gradleProperty("mobileArmOnly").orNull == "true") listOf("arm64-v8a") else listOf("arm64-v8a", "x86_64") }
         javaCompileOptions {
             annotationProcessorOptions { arguments["room.schemaLocation"] = "$projectDir/schemas" }
@@ -124,9 +124,9 @@ dependencies {
 }
 
 // Share the existing deterministic validation rules with the offline Android client.
-// Only these three modules are bundled, never the HTTP server or evaluation datasets.
+// Bundle validation modules only, never the HTTP server or evaluation datasets.
 val syncOfflineRules by tasks.registering(Copy::class) {
-    from(rootProject.file("backend")) { include("action_service.py", "action_rules.py", "task_service.py") }
+    from(rootProject.file("backend")) { include("action_service.py", "action_rules.py", "task_service.py", "text_evidence.py") }
     into(layout.buildDirectory.dir("generated/offlinePython"))
 }
 chaquopy {

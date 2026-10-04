@@ -6,11 +6,11 @@ Lifehub Plus is a native Android application with Memo, Finance, Schedule and He
 
 1. `AiChatViewModel` keeps input, cancellation and draft state consistent across navigation and recreation.
 2. `MobileAiApi` runs a fresh local model conversation and sends the result to the packaged Python adapter.
-3. `mobile_bridge.py` and `mobile_rules.py` validate and ground the fields using shared code from `backend/`. `mobile_titles.py` preserves a specific event subject or primary transaction when a generic model title loses it.
+3. `mobile_bridge.py` and `mobile_rules.py` validate and ground the fields using shared code from `backend/`. `action_rules.py` scopes negation and multi-action detection; `text_evidence.py` provides shared clock and number grammars. `mobile_titles.py` preserves an event subject or primary transaction when a generic model title loses it.
 4. The user reviews the destination module and editable draft before saving.
 5. Memo, Finance and Schedule save in account-specific databases with draft IDs, transactions and read-back checks. Health opens Android usage statistics.
 
-The model cannot write to the databases. The contract allows one reviewable action per request, with missing fields completed by the user. Compound requests should clarify; current gaps in clarification and ambiguity handling are documented in the first-pass report. Finance currently uses CNY. Relative dates use the user's timezone and Monday-based calendar weeks.
+The model cannot write to the databases. The contract allows one reviewable action per request, with missing fields completed by the user. Independent actions should clarify, while a purchase followed by a request to record it is one action. Finance currently uses CNY. Relative dates use the user's timezone. `this/next` weekdays use Monday-based calendar weeks; bare weekdays use the next occurrence, including today. A non-urgent task can still be important, so "not urgent" alone leaves priority unset.
 
 ## Build
 
@@ -35,10 +35,10 @@ Version 1.1.1 uses `UnicodeSafeMessages` to escape serialized JNI JSON to ASCII.
 ```powershell
 python -m unittest discover -s backend -p 'test_*.py'
 .\gradlew.bat :app:testDebugUnitTest :app:assembleDebug :app:assembleDebugAndroidTest
-.\scripts\mobile-evaluation\run_frozen.ps1 -ModelPath 'C:/models/mobile-qwen2.5.litertlm'
+.\scripts\mobile-evaluation\run_v4_regression.ps1 -ModelPath 'C:/models/mobile-qwen2.5.litertlm'
 ```
 
-The mobile runner uses the same pinned model, prompt, asynchronous text transport, fixed sampling, and packaged validation logic. It writes into `.local/mobile-holdout-v4-reproduction`. The host runner reuses one engine with a fresh conversation per input; Android initializes an engine per request. The [v4 first-pass report](evaluation-mobile-holdout-v4/REPORT.md) includes the execution environment, metric definitions, raw outputs and failures. Its 240 inputs were frozen after the title repair and before inference. Keep the separate 40-case development set out of its denominator.
+The mobile runner uses the same pinned model, prompt, asynchronous text transport, fixed sampling, and packaged validation logic. It writes into `.local/mobile-v4-regression-reproduction`. The host runner reuses one engine with a fresh conversation per input; Android initializes an engine per request. The [current v4 regression](evaluation-mobile-v4-regression/REPORT.md) includes the execution environment, metric definitions, raw outputs and failures. Its 240 inputs informed these fixes, so this is seen-set evidence. Keep the separate 40-case development set out of its denominator.
 
 Application checks are recorded in [Quality checks](QUALITY.md) and [Current verification results](TEST_REPORT.md). CI runs offline checks and builds without downloading models. Device tests use `com.lifeHub.qa`, keeping ordinary app data separate.
 
@@ -57,8 +57,8 @@ The repository retains the Python HTTP adapter and Ollama integration for develo
 - Repeated confirmation of the same draft returns its existing record. Independently generated drafts are not deduplicated by content.
 - Cancellation preserves input. Process restoration does not silently replay a request. Schedule still has some main-thread SQLite work worth moving behind a repository.
 
-## New frozen holdout
+## Preserved first-pass evidence
 
-The [v4 protocol](evaluation-mobile-holdout-v4/protocol.json) freezes 120 Chinese and 120 English inputs, source hashes and expectations. Use `run_frozen.ps1` on its freeze revision. Future changes informed by these failures turn later v4 runs into regression evidence.
+The [v4 first-pass protocol](evaluation-mobile-holdout-v4/protocol.json) freezes 120 Chinese and 120 English inputs, source hashes and expectations. Use `run_frozen.ps1` on its historical freeze revision. Version 1.1.3 was developed using those failures and saved-output replay; its fresh model run is reported separately as regression evidence. A future untouched set is needed to assess generalization.
 
 The [original v3 first pass](evaluation-mobile-holdout/REPORT.md) and [v3 post-fix regression](evaluation-mobile-regression/REPORT.md) remain unchanged. Their reproduction scripts intentionally reject the current title-modified sources: check out the historical revision named in each report before using `run_holdout.ps1` or `run_regression.ps1`. Every frozen runner verifies source/data hashes and retains interrupted native calls as failures.

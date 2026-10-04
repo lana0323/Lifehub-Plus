@@ -1,5 +1,6 @@
 """Recover a lost action subject from source text, without changing other fields."""
 import re
+from action_rules import positive_request
 
 
 def recover_title(text, title, module, date_text=None, time_text=None):
@@ -9,7 +10,22 @@ def recover_title(text, title, module, date_text=None, time_text=None):
     if re.search(r'\b(?:title|titled|named|called)\s*[:：]?\s*["“]|(?:标题|名称|名字)(?:为|是|叫)?\s*[:：]?\s*["“]', text, re.I):
         return title
 
+    positive = positive_request(text).strip(" ,，;；.。")
+    if module == "memo":
+        meta = r"(?:加到|放进|加入|放到).*(?:待办|清单|任务)|\b(?:note for|add to (?:my|the) list|create a task)\b"
+        if re.search(meta, title, re.I) or (title in text and title not in positive):
+            parts = re.split(r"[,，;；。:：]|\.\s+", positive)
+            candidates = [p.strip() for p in parts if p.strip() and not re.search(meta, p, re.I)]
+            if candidates:
+                return bounded_source(candidates[0].strip(" :：."))
+
+    if module == "schedule" and re.fullmatch(r"class|lesson|meeting|appointment|event|collection", title, re.I):
+        # Preserve source wording when the model drops the event's subject.
+        return bounded_source(positive)
+
     if module == "finance":
+        if re.fullmatch(r"shopping|购物", title, re.I):
+            return bounded_source(positive)
         # A secondary explanation (lost receipt, forgotten price, etc.) must
         # not replace what was bought/received. Retain a concise grounded title
         # if it already refers to the main transaction clause.

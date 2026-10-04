@@ -49,7 +49,7 @@ def early_response(request):
         return {"status":"clarification", "reason":"unsupported_action", "module":None, "draft":None, "fields":None}
     text = positive_request(text)
     explicit_note = explicit_draft(text) or search(r"\b(?:task|reminder|memo|note|notes|remind)\b|任务|备忘|提醒", text)
-    unsupported = search(r"\b(?:swim|swimming|run|running|cycling|exercise|workout|weight|sleep|water|calories|steps|blood pressure)\b|游泳|跑步|骑车|运动|锻炼|体重|睡眠|喝水|热量|步数|血压", text)
+    unsupported = search(r"\b(?:swim|swimming|run|running|cycling|exercise|workout|weight|sleep|water|calories|steps|blood pressure|temperature|headache)\b|游泳|跑步|骑车|运动|锻炼|体重|体温|睡眠|喝水|热量|步数|血压|头疼", text)
     calendar_context = search(r"\b(?:calendar|event|meeting|class|lecture|appointment|schedule|workshop)\b|日历|日程|讲座|会议|上课|课程|安排", text)
     if request["module"] in ("auto", "health") and not explicit_note and not calendar_context and not search(USAGE, text) and unsupported and (request["module"] == "health" or search(r"\b(?:record|log|store|measurement|advice|medication|diagnosis)\b|记录|用药|建议|诊断", text)):
         return {"status":"clarification", "reason":"health_unsupported", "module":None, "draft":None, "fields":None}
@@ -80,7 +80,17 @@ def validate(request_json, output, evaluation_time=None):
     # Accept one JSON object with an accidental extra closing brace, but never
     # merge two actions, strip prose or repair missing values/quotes.
     raw, end = json.JSONDecoder().raw_decode(value)
-    if value[end:].strip() not in ("", "}"):
+    remainder = value[end:].strip()
+    if remainder not in ("", "}"):
+        # Several complete objects cannot become several writes. Ask the user
+        # to split the request, without guessing which result to keep.
+        extra = []
+        while remainder:
+            item, consumed = json.JSONDecoder().raw_decode(remainder)
+            extra.append(item)
+            remainder = remainder[consumed:].strip()
+        if isinstance(raw, dict) and extra and all(isinstance(item, dict) for item in extra):
+            return json.dumps({"status":"clarification", "reason":"multiple_tasks", "module":None, "draft":None, "fields":None})
         raise ValueError("Expected exactly one action object")
     if isinstance(raw, dict) and raw.get("module") == "schedule" and raw.get("event_type") in ("event", "appointment", "meeting", "class"):
         # Known redundant metadata is not an action. All other unknown keys

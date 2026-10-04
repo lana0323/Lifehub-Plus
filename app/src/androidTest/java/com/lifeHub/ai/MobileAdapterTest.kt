@@ -14,6 +14,34 @@ import java.io.File
 
 class MobileAdapterTest {
     private val app = ApplicationProvider.getApplicationContext<Context>()
+    @Test fun packagedLanguageRulesResolveNegationChineseClocksAndMixedTokens() {
+        if (!Python.isStarted()) Python.start(AndroidPlatform(app))
+        val bridge = Python.getInstance().getModule("mobile_bridge")
+        val request = """{"text":"不是待办，请安排周四下午三点半的烹饪课","timezone":"UTC","module":"auto"}"""
+        val raw = """{"intent":"single_task","module":"memo","title":"烹饪课"}"""
+        val event = JsonParser.parseString(bridge.callAttr("validate", request, raw, "2026-10-06T12:00:00+00:00").toString()).asJsonObject
+        assertEquals("schedule", event["module"].asString)
+        assertEquals("2026-10-08", event.getAsJsonObject("fields")["date"].asString)
+        assertEquals("15:30", event.getAsJsonObject("fields")["time"].asString)
+        val purchase = """{"text":"今天cash支付22元买tea。","timezone":"UTC","module":"auto"}"""
+        val output = """{"intent":"single_task","module":"finance","title":"tea","category":"Shopping"}"""
+        val fields = JsonParser.parseString(bridge.callAttr("validate", purchase, output, "2026-10-06T12:00:00+00:00").toString()).asJsonObject.getAsJsonObject("fields")
+        assertEquals("Cash", fields["account"].asString)
+        assertEquals("Food & Drinks", fields["category"].asString)
+        assertEquals("expense", fields["kind"].asString)
+        assertEquals("22", fields["amount"].asString)
+    }
+    @Test fun packagedMultipleActionsClarifyWithoutBlockingARestatement() {
+        if (!Python.isStarted()) Python.start(AndroidPlatform(app))
+        val bridge = Python.getInstance().getModule("mobile_bridge")
+        val many = """{"text":"Log lunch at 23 yuan and dinner at 41 yuan","timezone":"UTC","module":"auto"}"""
+        val prepared = JsonParser.parseString(bridge.callAttr("prepare", many).toString()).asJsonObject
+        assertEquals("multiple_tasks", prepared.getAsJsonObject("response")["reason"].asString)
+        val one = """{"text":"I paid 47 yuan for lunch today; add this as an expense.","timezone":"UTC","module":"auto"}"""
+        val single = JsonParser.parseString(bridge.callAttr("prepare", one).toString()).asJsonObject
+        assertTrue(single.has("system"))
+        assertFalse(single.has("response"))
+    }
     @Test fun packagedTitleRecoveryPreservesTheActionSubject() {
         if (!Python.isStarted()) Python.start(AndroidPlatform(app))
         val bridge = Python.getInstance().getModule("mobile_bridge")

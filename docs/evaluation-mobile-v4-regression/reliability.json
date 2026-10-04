@@ -1,0 +1,40 @@
+{
+  "python": {
+    "passed": 125,
+    "total": 125,
+    "command": "python -m unittest discover -s backend -p 'test_*.py'"
+  },
+  "androidUnit": {
+    "passed": 20,
+    "total": 20,
+    "command": "gradlew --no-daemon -PisolatedTests=true testDebugUnitTest assembleDebug assembleDebugAndroidTest"
+  },
+  "androidReliability": {
+    "passed": 25,
+    "total": 25,
+    "environment": "Android 14 / API 34 isolated x86_64 emulator",
+    "classes": {
+      "MobileAdapterTest": 8,
+      "AccountAndWaitingTest": 7,
+      "IdempotentRecordsTest": 3,
+      "RepeatedReviewTest": 2,
+      "TaskConfirmationTest": 1,
+      "DatabaseRegressionTest": 4
+    },
+    "command": "adb -s emulator-5560 shell am instrument -w -e class com.lifeHub.ai.MobileAdapterTest,com.lifeHub.ai.AccountAndWaitingTest,com.lifeHub.ai.IdempotentRecordsTest,com.lifeHub.ai.RepeatedReviewTest,com.lifeHub.ai.TaskConfirmationTest,com.lifeHub.ai.DatabaseRegressionTest com.lifeHub.qa.test/com.lifeHub.LifeHubTestRunner"
+  },
+  "apk": {
+    "filename": "Lifehub-Plus-1.1.3.apk",
+    "bytes": 32819513,
+    "sha256": "b0afec3c2787441d967c67507db493abe11088a2aefcb3aacba8ff9b72114a1e",
+    "package": "com.lifeHub",
+    "version": "1.1.3",
+    "versionCode": 5,
+    "abi": "arm64-v8a",
+    "certificateSha256": "838afe5f747b443576535c36c35260fbc650c7a23d5318d7459b97cf9a40288f",
+    "installation": "Signed upgrade installed and reached LoginActivity in an isolated API 34 emulator using its ARM compatibility layer; no crash-buffer entries.",
+    "inferenceScope": "Native model evaluation uses Windows JVM CPU. APK startup and integration checks are separate from model accuracy.",
+    "evaluationAssetsIncluded": false,
+    "packagedLanguageModules": true
+  }
+}

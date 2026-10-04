@@ -1,0 +1,16 @@
+{
+  "frozenAtUtc": "2026-10-04T02:04:49.485400+00:00",
+  "completedAtUtc": "2026-10-04T02:39:51.459889+00:00",
+  "expectedInputs": 240,
+  "completedInputs": 240,
+  "nativeModelCalls": 192,
+  "preflightResponses": 48,
+  "processingErrors": 0,
+  "nativeInterruptions": [],
+  "retries": 0,
+  "sourceHashesVerified": true,
+  "protocolSha256": "638a3a1dae9f5fa2f2430b9515d3b0f7b1f2ba552e60f0acf1f675779d868364",
+  "datasetSha256": "e11a2fccc1ab2edc40ef7a2d1694c905ecdb1c76492350d712c8fab8ae0d3c3f",
+  "modelSha256": "faa60663b333290c1496c499828b21d3e3254a788cacd8cce917ce0f761a2dc9",
+  "resultsSha256": "758f0b807da9db0464edd0d090cf161d47eb28e3f4cbb2714171020cd23ee434"
+}

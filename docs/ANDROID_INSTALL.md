@@ -2,7 +2,7 @@
 
 Lifehub Plus is a native Android application. Android Studio and an emulator are development tools, not requirements for using an APK on a phone.
 
-**[Download the signed Lifehub Plus 1.1.2 APK](https://github.com/lana0323/Lifehub-Plus/raw/refs/heads/main/downloads/Lifehub-Plus-1.1.2.apk)** (approximately 33 MB). The package supports Android 7.0+ on ARM64 phones. [Verify its SHA-256](../downloads/SHA256SUMS.txt) if needed.
+**[Download the signed Lifehub Plus 1.1.3 APK](https://github.com/lana0323/Lifehub-Plus/raw/refs/heads/main/downloads/Lifehub-Plus-1.1.3.apk)** (approximately 33 MB). The package supports Android 7.0+ on ARM64 phones. [Verify its SHA-256](../downloads/SHA256SUMS.txt) if needed.
 
 Install the APK, register a local account and open any of the four modules. Health requests Android Usage Access to read system statistics. The AI model is a separate, optional installation described below.
 
@@ -16,7 +16,7 @@ The mobile implementation uses **Qwen2.5-1.5B-Instruct, int8, 4096-token context
 4. Alternatively, transfer the exact model file to the phone and choose **Import downloaded model**. Reserve at least 4 GB if keeping both the downloaded file and the app's imported copy. Both paths verify the size and SHA-256 before installation.
 5. After setup, disconnect from the internet and generate a draft. Review, edit and confirm before saving. Without a model, all four modules remain available for manual use.
 
-Downloads can be cancelled. Switching screens does not start another download. Interrupted downloads must be retried from the beginning. Model files are kept out of Android backups. A recent 64-bit Android phone with 8–12 GB RAM is the target configuration. Evaluation results identify their actual execution environment in the [model report](evaluation-mobile/REPORT.md).
+Downloads can be cancelled. Switching screens does not start another download. Interrupted downloads must be retried from the beginning. Model files are kept out of Android backups. A recent 64-bit Android phone with 8–12 GB RAM is the target configuration. Evaluation results identify their actual execution environment in the [current regression report](evaluation-mobile-v4-regression/REPORT.md).
 
 ### Model provenance
 
@@ -49,6 +49,6 @@ $env:LIFEHUB_KEY_ALIAS = 'lifehub'
 .\scripts\build-apk.ps1
 ```
 
-The output is `.local/distribution/Lifehub-Plus-1.1.2.apk` with `SHA256SUMS.txt`. Keep the keystore and passwords backed up privately: future updates must use the same signing identity. A release signed with a new key cannot update an existing debug-signed installation; preserve existing data before changing installation identity.
+The output is `.local/distribution/Lifehub-Plus-1.1.3.apk` with `SHA256SUMS.txt`. Keep the keystore and passwords backed up privately: future updates must use the same signing identity. A release signed with a new key cannot update an existing debug-signed installation; preserve existing data before changing installation identity.
 
-The current model's [new holdout report](evaluation-mobile-holdout/REPORT.md) records the model, runtime, dataset, execution environment and separate APK checks.
+The [v4 first-pass report](evaluation-mobile-holdout-v4/REPORT.md) remains unchanged. The [post-fix regression](evaluation-mobile-v4-regression/REPORT.md) records the latest implementation, model configuration, full results and separate APK checks.

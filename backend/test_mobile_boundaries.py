@@ -102,7 +102,8 @@ class MobileBoundaryTests(unittest.TestCase):
         request = self.request("Task: wash dishes")
         raw = '{"intent":"single_task","module":"memo","title":"Wash dishes"}'
         self.assertEqual(json.loads(mobile_bridge.validate(request, raw + "}"))["status"], "draft")
-        for output in [raw + raw, raw[:-1], 'Here is the answer: ' + raw]:
+        self.assertEqual(json.loads(mobile_bridge.validate(request, raw + raw))["reason"], "multiple_tasks")
+        for output in [raw[:-1], 'Here is the answer: ' + raw]:
             with self.assertRaises(Exception): mobile_bridge.validate(request, output)
 
     def test_quoted_commands_are_not_split_into_actions(self):

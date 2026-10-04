@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 from urllib.request import build_opener, ProxyHandler, HTTPRedirectHandler
 from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+from text_evidence import NUMBER, WEEKDAY, number_value
 
 
 class ServiceError(Exception):
@@ -79,13 +80,14 @@ def resolve_date(expression, today):
     s = expression.strip().lower()
     s = re.sub(r"^(by|before|on)\s+", "", s)
     s = re.sub(r"(之前|以前|前|截止)$", "", s).strip()
-    relative = {"今天": 0, "今日": 0, "today": 0, "this morning": 0, "this afternoon": 0, "this evening": 0, "明天": 1, "tomorrow": 1,
-                "后天": 2, "the day after tomorrow": 2, "昨天": -1, "昨日": -1, "yesterday": -1}
+    relative = {"今天": 0, "今日": 0, "今晚": 0, "今早": 0, "tonight": 0, "today": 0, "this morning": 0, "this afternoon": 0, "this evening": 0, "明天": 1, "tomorrow": 1,
+                "后天": 2, "the day after tomorrow": 2, "前天": -2, "the day before yesterday": -2, "the day before": -2, "昨天": -1, "昨日": -1, "yesterday": -1}
     if s in relative:
         return today + timedelta(days=relative[s])
-    match = re.fullmatch(r"(?:in (\d{1,3}) days?|([0-9]{1,3})天后)", s)
+    match = re.fullmatch(r"(?:in (\d{1,3}) days?|(" + NUMBER + r")天后)", s)
     if match:
-        return today + timedelta(days=int(match[1] or match[2]))
+        days = number_value(match[1] or match[2])
+        return today + timedelta(days=days) if days is not None else None
     match = re.fullmatch(r"(本|这|下)(?:周|星期)([一二三四五六日天])", s)
     if match:
         weekday = "一二三四五六日".index(match[2].replace("天", "日"))
@@ -94,6 +96,12 @@ def resolve_date(expression, today):
     if match:
         weekday = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].index(match[2])
         return today + timedelta(days=weekday - today.weekday() + (7 if match[1] == "next" else 0))
+    # A bare weekday means the next occurrence, including today. Explicit
+    # this/next weekdays retain their Monday-based calendar-week semantics.
+    match = re.fullmatch(r"(?:周|星期)([一二三四五六日天])|(" + WEEKDAY + r")", s)
+    if match:
+        weekday = "一二三四五六日".index(match[1].replace("天", "日")) if match[1] else WEEKDAY.split("|").index(match[2])
+        return today + timedelta(days=(weekday - today.weekday()) % 7)
     match = re.fullmatch(r"(\d{4})年(\d{1,2})月(\d{1,2})日?", s)
     try:
         if match:
@@ -113,7 +121,7 @@ def is_smalltalk(text):
 
 
 def priority_needs_review(text):
-    if re.search(r"(?:cannot decide|undecided|unsure|between).*(?:priority|urgent|important)|(?:优先级|重要|紧急).*(?:不确定|待定)|(?:高|重要).*(?:还是|或).*(?:低|普通)", text, re.IGNORECASE):
+    if re.search(r"(?:cannot decide|undecided|unsure|between).*(?:priority|urgent|important)|(?:优先级|优先度|重要|紧急).*(?:不确定|待定|没定|未定)|(?:高|重要).*(?:还是|或).*(?:低|普通)", text, re.IGNORECASE):
         return True
     text = re.sub(r"(?<=\w)[-–](?=priority\b)", " ", text, flags=re.IGNORECASE)
     negation = r"不着急|不紧急|不用着急|不急|\bnot urgent\b|\bno rush\b|\bnot high priority\b"
@@ -125,6 +133,7 @@ def priority_needs_review(text):
 
 
 def priority_is_grounded(text, priority):
+    text = text.replace("优先度", "优先级")
     text = re.sub(r"(?<=\w)[-–](?=priority\b)", " ", text, flags=re.IGNORECASE)
     # Conservative supported vocabulary: unknown expressions require a user choice.
     patterns = {
