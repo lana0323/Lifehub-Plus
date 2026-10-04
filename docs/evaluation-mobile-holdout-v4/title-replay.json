@@ -1,0 +1,144 @@
+{
+  "method": "Validation-only replay of v3 regression raw captures with the title fix; no new model generation.",
+  "summary": {
+    "cases": 240,
+    "routing": {
+      "passed": 240,
+      "total": 240,
+      "rate": 1.0
+    },
+    "requiredFields": {
+      "passed": 456,
+      "total": 456,
+      "rate": 1.0
+    },
+    "allSpecifiedFields": {
+      "passed": 240,
+      "total": 240,
+      "rate": 1.0
+    },
+    "supportedDraft": {
+      "passed": 180,
+      "total": 180,
+      "rate": 1.0
+    },
+    "clarification": {
+      "passed": 60,
+      "total": 60,
+      "rate": 1.0
+    },
+    "dates": {
+      "passed": 148,
+      "total": 148,
+      "rate": 1.0
+    },
+    "rawModelRouting": {
+      "passed": 152,
+      "total": 194,
+      "rate": 0.7835051546391752
+    },
+    "modelCalls": 194,
+    "preflight": 46,
+    "errors": 0,
+    "unsafeDrafts": 0,
+    "fields": {
+      "account": {
+        "passed": 52,
+        "total": 52,
+        "rate": 1.0
+      },
+      "amount": {
+        "passed": 52,
+        "total": 52,
+        "rate": 1.0
+      },
+      "category": {
+        "passed": 52,
+        "total": 52,
+        "rate": 1.0
+      },
+      "date": {
+        "passed": 148,
+        "total": 148,
+        "rate": 1.0
+      },
+      "kind": {
+        "passed": 52,
+        "total": 52,
+        "rate": 1.0
+      },
+      "module": {
+        "passed": 240,
+        "total": 240,
+        "rate": 1.0
+      },
+      "priority": {
+        "passed": 48,
+        "total": 48,
+        "rate": 1.0
+      },
+      "status": {
+        "passed": 240,
+        "total": 240,
+        "rate": 1.0
+      },
+      "time": {
+        "passed": 48,
+        "total": 48,
+        "rate": 1.0
+      },
+      "title": {
+        "passed": 148,
+        "total": 148,
+        "rate": 1.0
+      }
+    }
+  },
+  "failures": [],
+  "examples": [
+    {
+      "id": "mh3-schedule-zh-22",
+      "input": "选中日程模块后，填明天上午11点的修鞋取件。",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "schedule",
+        "draft": null,
+        "fields": {
+          "id": "e1466951-0d0b-4b1a-8a4d-0b8407cefd62",
+          "title": "修鞋取件",
+          "notes": "",
+          "date": "2026-10-04",
+          "time": "11:00",
+          "amount": null,
+          "kind": null,
+          "category": null,
+          "account": null,
+          "timezone": "Asia/Shanghai"
+        }
+      }
+    },
+    {
+      "id": "mh3-finance-en-10",
+      "input": "I bought a sandwich today with cash but lost the receipt and cannot remember the price.",
+      "actual": {
+        "status": "draft",
+        "reason": null,
+        "module": "finance",
+        "draft": null,
+        "fields": {
+          "id": "d18b3218-561d-4085-bacc-3170287098ee",
+          "title": "I bought a sandwich today with cash",
+          "notes": "",
+          "date": "2026-10-03",
+          "time": null,
+          "amount": null,
+          "kind": "expense",
+          "category": "Food & Drinks",
+          "account": "Cash",
+          "timezone": "America/Los_Angeles"
+        }
+      }
+    }
+  ]
+}

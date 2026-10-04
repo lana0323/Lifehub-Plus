@@ -21,7 +21,7 @@ __pycache__/
 /.idea/
 **/build/
 *.apk
-!/downloads/Lifehub-Plus-1.1.1.apk
+!/downloads/Lifehub-Plus-1.1.2.apk
 *.aab
 *.jks
 *.keystore

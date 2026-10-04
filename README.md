@@ -74,11 +74,11 @@ A connected workspace for notes, money, plans and digital wellbeing — with AI 
 3. **Confirm** to save the record, or open Health to view device usage. Saved records are read back to verify the result.
 
 - **The model cannot write directly to the database.** Records require user confirmation. An incorrectly detected module can be changed manually.
-- **Missing information stays visible.** Ambiguous dates remain unset, required fields must be completed, and requests containing multiple actions are prompted to be split.
+- **Editable fields stay visible.** Required fields must be completed before saving. Validation recognizes many missing and ambiguous values; the evaluation documents remaining date and multi-action interpretation errors.
 - **Repeated confirmation does not create duplicates.** A draft ID identifies a single saved record within its account. Newly generated drafts and manual entries are not deduplicated by content.
 - **Failures are recoverable.** Input is preserved, with cancellation, retry and manual-entry options. Cancelling stops the client from waiting; inference already running in the local model may continue.
 - **Weekdays use calendar weeks.** `this Tuesday` means Tuesday of the current Monday-based week; `next Tuesday` means Tuesday of the following week, using your timezone. Schedule drafts keep explicit past dates for review instead of silently moving them forward.
-- **Unsupported operations receive clarification.** AI does not edit or delete existing records, query balances, control apps or send messages. Explicit tasks about those actions can still be reviewed as drafts.
+- **Execution is limited to supported workflows.** AI cannot edit or delete existing records, query balances, control apps or send messages. Some phrasings still produce a draft instead of the intended clarification; the first-pass report includes those failures.
 - **Health is a query.** The application displays system usage statistics rather than generating fictional usage figures or inserting health records.
 
 ## Engineering
@@ -98,7 +98,7 @@ A connected workspace for notes, money, plans and digital wellbeing — with AI 
 
 ## Install
 
-**[Download Lifehub Plus 1.1.1 for Android](https://github.com/lana0323/Lifehub-Plus/raw/refs/heads/main/downloads/Lifehub-Plus-1.1.1.apk)** · Signed APK, approximately 33 MB · [SHA-256 checksum](downloads/SHA256SUMS.txt)
+**[Download Lifehub Plus 1.1.2 for Android](https://github.com/lana0323/Lifehub-Plus/raw/refs/heads/main/downloads/Lifehub-Plus-1.1.2.apk)** · Signed APK, approximately 33 MB · [SHA-256 checksum](downloads/SHA256SUMS.txt)
 
 | Requirement | Details |
 |---|---|
@@ -129,40 +129,38 @@ The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. For a s
 
 ## Model Evaluation
 
-The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. The 240-input bilingual set contains 120 Chinese and 120 English requests, with 30 per workflow in each language. Expected answers and the original first-pass results are preserved.
+The current model is **Qwen2.5-1.5B-Instruct int8**, using **LiteRT-LM 0.10.2**. Version 1.1.2 improves title recovery, preserving the event subject and the main transaction when a secondary explanation distracts the model.
 
-### Latest post-fix regression
+### New frozen first pass
 
-After analyzing the first-pass failures, version 1.1.1 improves Unicode transport, operation boundaries, routing and field validation. **Every input was run again, with fresh model generation where needed and no retries.** This dataset is now a **seen regression set**; the figures below are application-pipeline regression results, not unseen model accuracy.
-
-| Post-fix metric | Chinese | English | Combined |
-|---|---|---|---|
-| Routing after validation | 120/120 (100.0%) | 120/120 (100.0%) | 240/240 (100.0%) |
-| Required fields | 227/228 (99.6%) | 227/228 (99.6%) | 454/456 (99.6%) |
-| All specified fields | 119/120 (99.2%) | 119/120 (99.2%) | 238/240 (99.2%) |
-
-The run completed with **0 pipeline errors** and **0 unsupported inputs turned into drafts**. Model inference ran on Windows CPU with the same model file, prompt, asynchronous text transport and validation as the mobile implementation. Raw model routing and remaining failures are reported separately. These are not Android inference measurements or database-write success rates.
-
-**[Post-fix report](docs/evaluation-mobile-regression/REPORT.md)** · [Excel results](docs/evaluation-mobile-regression/Lifehub-Plus-Regression.xlsx) · [Chinese 120](docs/evaluation-mobile-regression/chinese-120.csv) · [English 120](docs/evaluation-mobile-regression/english-120.csv) · [Remaining failures](docs/evaluation-mobile-regression/failures.csv)
-
-Application checks were also rerun: **99/99 Python**, **20/20 Android/JVM unit** and **22/22 Android integration tests**. Confirmation, duplicate prevention, cancellation and account isolation are measured separately from model accuracy. See [check evidence](docs/evaluation-mobile-regression/reliability.json).
-
-<details>
-<summary><b>Original frozen first pass</b></summary>
-
-The original internally authored holdout was frozen before any of these fixes. There was no tuning or retry during that first pass. Four native crashes were counted as failures.
+A new v4 set contains **120 Chinese and 120 English inputs**, with 30 per workflow in each language. Inputs, expected answers, code and scoring were frozen before inference. No tuning, retries or manual answer repair took place during the run. This internally authored set includes colloquial wording, corrected typos, negation and mixed-language requests.
 
 | First-pass metric | Chinese | English | Combined |
 |---|---|---|---|
-| Routing after validation | 92/120 (76.7%) | 93/120 (77.5%) | 185/240 (77.1%) |
-| Required fields | 202/228 (88.6%) | 210/228 (92.1%) | 412/456 (90.4%) |
-| All specified fields | 80/120 (66.7%) | 82/120 (68.3%) | 162/240 (67.5%) |
+| Routing after validation | 89/120 (74.17%) | 99/120 (82.50%) | 188/240 (78.33%) |
+| Required fields | 200/216 (92.59%) | 198/216 (91.67%) | 398/432 (92.13%) |
+| All specified fields | 69/120 (57.50%) | 84/120 (70.00%) | 153/240 (63.75%) |
 
-[Original report](docs/evaluation-mobile-holdout/REPORT.md) · [Original workbook](docs/evaluation-mobile-holdout/Lifehub-Plus-New-Holdout.xlsx) · [Original failures](docs/evaluation-mobile-holdout/failures.csv)
+The run recorded **7 processing errors** and **23 expected-clarification inputs returned as drafts**. Drafts require user confirmation. All failures remain in the denominator.
+
+These are application-pipeline scores, including deterministic validation. Raw model routing is reported separately. Inference ran on Windows CPU with the same model file, prompt, text transport and validation as the mobile implementation. The results do not measure Android inference or database-write success. Chinese/English scenario families overlap; this is not an independent third-party benchmark.
+
+**[First-pass report](docs/evaluation-mobile-holdout-v4/REPORT.md)** · [Excel results](docs/evaluation-mobile-holdout-v4/Lifehub-Plus-Holdout-v4.xlsx) · [Chinese 120](docs/evaluation-mobile-holdout-v4/chinese-120.csv) · [English 120](docs/evaluation-mobile-holdout-v4/english-120.csv) · [Failures](docs/evaluation-mobile-holdout-v4/failures.csv)
+
+Application checks passed separately: **107/107 Python**, **20/20 Android/JVM unit** and **23/23 Android integration tests**. The latter cover packaged title repair, confirmation, duplicate prevention, cancellation, account isolation and persistence. See [evidence and commands](docs/evaluation-mobile-holdout-v4/reliability.json).
+
+<details>
+<summary><b>Preserved earlier evaluations</b></summary>
+
+| Evaluation | All specified fields | Role |
+|---|---|---|
+| [v3 original first pass](docs/evaluation-mobile-holdout/REPORT.md) | 162/240 (67.5%) | Frozen before the boundary and Unicode fixes |
+| [v3 fresh post-fix run](docs/evaluation-mobile-regression/REPORT.md) | 238/240 (99.2%) | Seen-set regression with fresh generation |
+| [v3 title-repair replay](docs/evaluation-mobile-holdout-v4/title-replay.json) | 240/240 (100.0%) | Validation of saved outputs only; no new inference |
+
+The [earlier mobile regression](docs/evaluation-mobile/REPORT.md) and 40-case development set remain separate. Scores from different sets are not a direct before/after comparison. All original results and frozen answers are retained.
 
 </details>
-
-The [earlier mobile regression](docs/evaluation-mobile/REPORT.md) remains separate. A future untouched holdout is needed to assess how these fixes generalize. This internally authored dataset is not a third-party benchmark.
 
 ## Project Structure
 
@@ -189,7 +187,7 @@ The project includes the Android client, backend service and local persistence l
 <details>
 <summary><b>Developer Documentation and Quality Assurance</b></summary>
 
-The [current regression report](docs/evaluation-mobile-regression/REPORT.md) compares fresh post-fix outputs with the preserved first pass. The [original holdout](docs/evaluation-mobile-holdout/REPORT.md) retains its frozen answers, raw outputs and native-runtime interruptions.
+The [current v4 first-pass report](docs/evaluation-mobile-holdout-v4/REPORT.md) includes frozen answers, raw outputs, failed cases and separate reliability evidence. Earlier first-pass and regression reports remain unchanged.
 
 The 40-case set remains a separate [development set](docs/evaluation-mobile/development-results.json). The earlier mobile regression retains its first-pass outputs and subsequent validation replay; the original holdout first pass remains unchanged, with subsequent fixes assessed separately as regression.
 
@@ -202,7 +200,7 @@ Automated checks cover database migrations, account isolation, repeated submissi
 - Account isolation applies to local data. There is no server-side authentication, cloud synchronization, cross-device session management or password recovery. Local databases are not encrypted.
 - Health statistics describe the entire device. Local accounts see the same device statistics, subject to Android permissions and event retention.
 - Financial amounts currently use CNY, and each AI request produces at most one action draft.
-- Next priorities are the remaining title-extraction errors, evaluation on a future untouched holdout, and reducing main-thread work in schedule persistence.
+- Next priorities are the intent and field failures listed in the v4 first-pass report, followed by reducing main-thread work in schedule persistence. Further changes informed by v4 will be evaluated as regression, with a future untouched set needed for generalization.
 
 ## Acknowledgements and Provenance
 

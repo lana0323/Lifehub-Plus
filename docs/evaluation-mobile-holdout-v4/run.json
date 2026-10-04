@@ -1,0 +1,17 @@
+{
+  "completedAtUtc": "2026-10-04T00:41:00.391297+00:00",
+  "freezeCommit": "f6778cc05714257dee2a885484dd5c852afff7cc",
+  "productionCommit": "dad48d7082110cd55df4b9a591b68793c53822b6",
+  "cases": 240,
+  "modelCalls": 224,
+  "preflight": 16,
+  "nativeSegments": 1,
+  "interruptions": [],
+  "attemptsPerInput": 1,
+  "retries": 0,
+  "scope": "Fresh first pass on frozen v4 inputs. Windows JVM CPU inference with the mobile model, prompt, text transport and validation. No tuning during the run.",
+  "preparedSha256": "dad0bc7de656b13091984447721de51adaed7d991aaa8baa6fe9cb15c4840c8b",
+  "rawSha256": "e3e4dbab9b855c252cbe62662b84d551794bf25249551cee133eaea6ecacbb90",
+  "validatedSha256": "46e0c6784ddac5d91d3b79b4f5d9282c80c4e526d474654b7e4fd80284678bab",
+  "reportSha256": "8466679d7050b1e046030cb06318c49252845f4082f0031099ac8f43c7e614e6"
+}
